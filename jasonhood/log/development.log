@@ -1,0 +1,4 @@
+  [1m[35m (2286.0ms)[0m  [1m[35mCREATE DATABASE "jasonhood_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (1016.1ms)[0m  [1m[35mCREATE DATABASE "jasonhood_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
