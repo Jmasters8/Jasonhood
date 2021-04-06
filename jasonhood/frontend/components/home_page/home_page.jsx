@@ -1,16 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class HomePage extends React.Component {
-  
+  constructor(props) {
+    super(props);
+
+
+  }
+  // console.log(this.props.currentUser)
 
   render() {
+    
     return (
+      
       <div className="home">
         <header>
           <div className="nav-header">
             <nav className="nav">
               <div className="main-nav">
-                <img src="https://camo.githubusercontent.com/6c0c0f49f30696ca993b4f2058779841cc005f01fbefb71f8e3e8fc5d9c362a3/68747470733a2f2f692e696d6775722e636f6d2f634d796e45377a2e6a7067" alt=""/>
+                <div className="nav-img">
+                  <img src="https://i.imgur.com/dFBjF3N.jpg"/>
+                </div>
+
+                <div className="nav-links">
+                  <Link to="/login" className="log-in-link">Log in</Link>
+                  &nbsp;
+                  <Link to="/signup" className="sign-up-link">Sign up</Link>
+                </div>
+
               </div>
             </nav>
           </div>

@@ -1,0 +1,57 @@
+.signup-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signup-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 49vw;
+  height: 99vh;
+  border: 1px solid green;
+}
+
+.signup-left-textbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  border: 1px solid black;
+}
+
+.signup-left-textbox-1 {
+  font-size: 14px;
+  height: 35px;
+}
+
+.signup-left-textbox-2 {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: .1px;
+  line-height: 20px;
+}
+
+
+
+
+
+.signup-left-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.signup-left-login-button {
+  text-decoration: none;
+  color: green;
+}
+
+.signup-errors {
+  display: flex;
+  flex-direction: column;
+  color: orange;
+}

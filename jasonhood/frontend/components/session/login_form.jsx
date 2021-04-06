@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleInput(type) {
@@ -20,7 +22,12 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state)
-    this.props.login(user)
+    this.props.login(user).then(() => this.props.history.push('//'))
+  }
+
+  handleDemo(e) {
+    const demoUser = { email: 'demo@demo.net', password: '12345678910'};
+    this.props.login(demoUser).then(() => this.props.history.push('//'))
   }
 
   renderErrors() {
@@ -39,6 +46,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login-form">
         <form onSubmit={this.handleSubmit} className="login-form-box">
+        
           <header className="login-header">
             <span className="login-header-text">Welcome to Robinhood</span>
           </header>
@@ -51,9 +59,18 @@ class LoginForm extends React.Component {
 
           <div className="login-password">
             <label className="input-labels">Password
-              <input type="text" value={this.state.email} onChange={this.handleInput('password')} placeholder="Password"/>
+              <input type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password"/>
             </label>
           </div>
+          
+          {this.renderErrors()}
+          <input type="submit" value="Sign in"/>
+
+          <button onClick={this.handleDemo}>
+            Demo
+          </button>
+
+          <p>Don't have an account yet? <Link to="/signup">Sign up</Link></p>
 
         </form>
       </div>
