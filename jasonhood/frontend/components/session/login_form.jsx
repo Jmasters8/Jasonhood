@@ -22,12 +22,13 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state)
-    this.props.login(user).then(() => this.props.history.push('//'))
+    this.props.login(user).then(() => this.props.history.push('/'))
   }
 
   handleDemo(e) {
+    e.preventDefault();
     const demoUser = { email: 'demo@demo.net', password: '12345678910'};
-    this.props.login(demoUser).then(() => this.props.history.push('//'))
+    this.props.login(demoUser).then(() => this.props.history.push('/'))
   }
 
   renderErrors() {
@@ -62,7 +63,7 @@ class LoginForm extends React.Component {
               <input type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password"/>
             </label>
           </div>
-          
+
           {this.renderErrors()}
           <input type="submit" value="Sign in"/>
 
