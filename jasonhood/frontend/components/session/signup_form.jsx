@@ -9,9 +9,8 @@ class SignupForm extends React.Component {
       email: "",
       first_name: "",
       last_name: "",
-      password: ""
+      password: "",
     };
-    console.log('signup errors = ', this.props.errors)
    
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,10 +26,26 @@ class SignupForm extends React.Component {
     this.props.signup(user).then(() => this.props.history.push('/'))
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+  // renderErrors() {
+  //   return (
+  //     <ul>
+  //       {this.props.signupErrors.map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
+
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error, i) => (
+        {this.props.signupErrors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
           </li>
