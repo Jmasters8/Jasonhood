@@ -5,13 +5,11 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props)
-
     this.state = {
       email: "",
       password: ""
     };
-
+    console.log('login errors = ', this.props.errors)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
   }
@@ -29,8 +27,15 @@ class LoginForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    const demoUser = { email: 'demo@demo.net', password: '12345678910'};
+    const demoUser = { email: 'MaidMarian4evr@gmail.com', password: 'stonks12345'};
     this.props.login(demoUser).then(() => this.props.history.push('/'))
+  }
+
+  clearErrors() {
+    
+  }
+  componentWillUnmount() {
+    this.clearErrors()
   }
 
   renderErrors() {
