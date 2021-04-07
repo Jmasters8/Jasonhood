@@ -4,7 +4,7 @@ import HomePage from './home_page';
 import { logout } from '../../actions/session';
 
 const mapStateToProps = state => ({
-  currentUser: state.entities.session.id
+  currentUser: state.session.id
 });
 
 const mapDispatchToProps = dispatch => ({
