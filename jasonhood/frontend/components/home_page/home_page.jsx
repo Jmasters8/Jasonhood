@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -12,14 +13,6 @@ class HomePage extends React.Component {
     }
   }
   
-
-  componentDidMount() {
-  }
-
-  // handleLogout() {
-    
-  // }
-
   render() {
 
   const LoggedIn = () => {
@@ -34,6 +27,11 @@ class HomePage extends React.Component {
   const loggedOut = () => {
     return (
       <div className="home">
+        
+        <div className="home-header-1">
+
+        </div>
+
         <header>
           <div className="nav-header">
             <nav className="nav">
@@ -54,10 +52,11 @@ class HomePage extends React.Component {
           </div>
         </header>
 
+      <div className="test">
         <div className="home-section">
           <div className="home-section-1">
             <div className="home-section-1-2">
-              <div className="home-section1-3">
+              <div className="home-section-1-3">
                 <div className="home-section-1-4">
                   <div className="home-section-1-5">
 
@@ -83,11 +82,40 @@ class HomePage extends React.Component {
 
                   </div>
                 </div>
+                <div className="home-section-2">
+                  <div className="home-section-2-1">
+                    <div className="home-section-2-2">
+
+                      <img src="https://i.imgur.com/X3Q8wjC.png" alt=""/>
+
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
-        </div>
 
+        <section className="home-section-3">
+          <div className="home-section-3-1">
+            <div className="home-section-3-2">
+              <div className="home-section-3-3"></div>
+              <div className="home-section-3-4">
+                <div className="home-section-3-5">
+                  <p className="home-section-3-6">
+                    <span className="home-section-3-7">
+                      See our fee schedule to learn more about cost.
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="home-section-3-3"></div>
+            </div>
+          </div>
+        </section>
+
+        </div>
+        </div>
       </div>
     )
   }
@@ -99,3 +127,6 @@ class HomePage extends React.Component {
 
 
 export default HomePage;
+
+
+
