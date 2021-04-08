@@ -1,17 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import MainPageContainer from '../main_page/main_page_container'
 
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    
+    // console.log(this.props)
     this.user = null
 
     for (let key in this.props.user) {
       this.user = this.props.user[key].first_name + " " + this.props.user[key].last_name
     }
   }
+
+
   
   render() {
 
@@ -20,19 +23,45 @@ class HomePage extends React.Component {
       <div>
         <h1>hello look me stonks, my name {this.user}</h1>
         <button onClick={this.props.logout}>Log Out</button>
+        <MainPageContainer />
       </div>
     )
   }
     
   const loggedOut = () => {
+
+
     return (
       <div className="home">
         
         <div className="home-header-1">
+          <nav className="home-header-2">
+            <div className="home-header-3">
+              <a href="">
+                <img className="home-header-4" src="https://i.imgur.com/dFBjF3N.jpg" alt=""/>
+              </a>
 
+              <div className="home-header-5">
+                <ul className="home-header-6">
+                  <li className="home-header-7"><span>Products</span></li>
+                  <li className="home-header-7"><span>Learn</span></li>
+                  <li className="home-header-7"><span>Support</span></li>
+                  <li className="home-header-7"><span>Who we are</span></li>
+                </ul>
+              </div>
+              <div className="home-header-8"></div>
+              <div className="home-header-9">
+                <Link to="/login" className="log-in-link"><span>Log in</span></Link>
+              </div>
+              <div className="home-header-10">
+                <Link to="/signup" className="sign-up-link">Sign up</Link>
+              </div>
+
+            </div>
+          </nav>
         </div>
 
-        <header>
+        {/* <header>
           <div className="nav-header">
             <nav className="nav">
               <div className="main-nav">
@@ -50,7 +79,7 @@ class HomePage extends React.Component {
               </div>
             </nav>
           </div>
-        </header>
+        </header> */}
 
       <div className="test">
         <div className="home-section">
@@ -86,7 +115,12 @@ class HomePage extends React.Component {
                   <div className="home-section-2-1">
                     <div className="home-section-2-2">
 
-                      <img src="https://i.imgur.com/X3Q8wjC.png" alt=""/>
+                      <video height="563px" width="650px" className="video-1" autoPlay controlsList="nodownload nofullscreen noremoteplayback" loop muted playsInline="" preload="auto">
+                        <source className="img-1"src="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/3x__327bf4cc768a323497d5aaa7416319c2.mp4" type="video/mp4"/>
+                        <img draggable="false" role="presentation" src="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/1x__36a396f664677ed80a2459d1dca75f00.png"
+                          srcSet="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/1x__36a396f664677ed80a2459d1dca75f00.png, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/2x__c7dcadbbb72fc298e85e94844f68342c.png 2x, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/3x__7c5da6ba049983f3558423906f16f0af.png 3x"/>
+                      </video>
+                      <img className="video-img" src="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/2x__ff9c36e27d7018cf707b95d8675793a3.png" alt=""/>
 
                     </div>
                   </div>
@@ -114,6 +148,45 @@ class HomePage extends React.Component {
           </div>
         </section>
 
+        <section className="home-section-4">
+          <div className="home-section-4-1">
+
+          <video className="video-2" autoPlay controlsList="nodownload nofullscreen noremoteplayback" loop muted playsInline="" preload="auto">
+            <source src="https://cdn.robinhood.com/assets/superbowl/superbowl.mp4" type="video/mp4"/>
+            <img draggable="false" role="presentation" src="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us1x__2d77af53475dc4e405ba9b0a4c8820fc.jpg" srcset="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us1x__2d77af53475dc4e405ba9b0a4c8820fc.jpg, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us2x__c7695a4218c85aeb29e5c5d6203ac4d7.jpg 2x, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us3x__0daf4c1a879b02e4a61aa38be0fcebe4.jpg 3x"></img>
+          </video>
+
+          </div>
+
+          <div className="home-section-4-2">
+            <div className="home-section-4-3"> 
+              
+              <div className="home-section-4-filler-1"></div>
+              <div className="home-section-4-filler-2"></div>
+        
+              <div className="home-section-4-4">
+                <div className="home-section-4-5">
+                  <div className="home-section-4-6">
+                    <h1>We are all investors.</h1>
+                  </div>
+                  <div className="home-section-4-7">
+                    <div className="home-section-4-8"> 
+                      <span>See the campaign</span>
+                      <img className="arrow" src="https://image.flaticon.com/icons/png/512/25/25346.png" alt=""/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        <div className="home-section-5-1">
+
+        </div>
+
         </div>
         </div>
       </div>
@@ -130,3 +203,11 @@ export default HomePage;
 
 
 
+
+<div className="home-section-4-4">
+                <div className="home-section-4-5">
+                  <div className="home-section-4-6">
+                    <h1>We are all investors.</h1>
+                  </div>
+                </div>
+              </div>

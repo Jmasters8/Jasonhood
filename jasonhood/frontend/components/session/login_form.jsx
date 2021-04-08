@@ -63,7 +63,98 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-form">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <div className="login-form-1">
+          <div className="login-form-2">
+            <img className="login-form-img" src="https://cdn.robinhood.com/assets/generated_assets/1e23d6b90f0d905b425ea289de345ab1.jpg" alt=""/>
+
+            <div className="login-form-3">
+              <div className="login-form-4">
+                <div>
+                  <form onSubmit={this.handleSubmit}>
+                    <header className="login-header">
+                      <span className="login-header-text"> Welcome to Jasonhood</span>
+                    </header>
+
+                    <div className="login-form-5">
+                      <div className="login-form-6">
+
+                        <div className="login-form-7">
+                          <label className="login-form-8">
+                            <div className="login-form-9">
+                              <span>Email or username</span>
+                            </div>
+                            <div className="login-form-email-input">
+                              <input className="login-form-email-input-1"type="text" value={this.state.email} onChange={this.handleInput('email')}/>
+                            </div>
+                          </label> 
+                        </div>
+
+                        <div className="login-form-10">
+                          <label className="login-form-11">
+                            <div className="login-form-12">
+                              <span>Password</span>
+                            </div>
+
+                            <div className="login-form-password-input">
+                              <input className="login-form-password-input-1" type="password" value={this.state.password} onChange={this.handleInput('password')}/>
+                            </div>
+
+                          </label>
+                        </div>
+
+                      </div>
+
+                      <div className="login-errors">
+                        <div className="login-errors-1">
+                          <div className="login-errors-2">
+                            <div className="login-errors-3">
+                              <div className="login-errors-4">
+                                <h4 className="login-errors-5">
+                                  <div className="login-errors-img">
+                                    <img className="error-img-1" src="https://image.freepik.com/free-icon/exclamation-mark-circle_318-9808.jpg" alt=""/>
+                                  </div>
+
+                                  <div className="login-errors-text">
+                                    <span>
+                                      {this.renderErrors()}
+                                    </span>
+                                  </div>
+
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <footer className="login-submit">
+                      <div className="login-submit-button">
+                        <button className="login-submit-button-1" type="submit">
+                          <span className="login-submit-button-2"> Sign In</span>
+                        </button>
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+                        <button className="login-submit-button-1" onClick={this.handleDemo}>
+                          <span className="login-submit-button-2">Demo</span>
+                        </button>
+
+                      </div>
+                    </footer>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        {/* <img className="login-form-img" src="https://cdn.robinhood.com/assets/generated_assets/1e23d6b90f0d905b425ea289de345ab1.jpg" alt=""/> */}
+
+        {/* <form onSubmit={this.handleSubmit} className="login-form-box">
         
           <header className="login-header">
             <span className="login-header-text">Welcome to Robinhood</span>
@@ -90,7 +181,7 @@ class LoginForm extends React.Component {
 
           <p>Don't have an account yet? <Link to="/signup">Sign up</Link></p>
 
-        </form>
+        </form> */}
       </div>
     )
   }

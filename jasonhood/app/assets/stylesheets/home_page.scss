@@ -56,7 +56,92 @@ nav {
   justify-content: space-between;
 }
 
+.video-1 {
+  border: 1px solid transparent;
+}
 
+
+.home {
+  display: block;
+}
+
+
+.home-header-1 {
+  max-height: calc(100% - 0px - env(safe-area-inset-bottom));
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.home-header-2 {
+  background-color: rgb(255,255,255);
+  height: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.home-header-3 {
+  padding: 0 24px;
+  align-items: center;
+  // box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 20%);
+  display: flex;
+  height: 64px;
+
+  a {
+    display: flex;
+  }
+}
+
+.home-header-4 {
+  height: 55px;
+  width: 142px;
+  display: flex;
+}
+
+.home-header-5 {
+  display: block;
+  width: 540px;
+  height: 28px;
+}
+
+.home-header-6 {
+  display: flex;
+  flex-direction: row;
+  height: 28px;
+}
+
+.home-header-7 {
+  margin-left: 62px;
+  margin-top: 0;
+  display: inline-block;
+
+  span {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -.25px;
+  }
+
+  span:hover {
+    cursor: pointer;
+    color: rgb(0, 200, 5);
+  }
+}
+
+.home-header-8 {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  display: block;
+}
+
+.home-header-9 {
+  display: flex;
+}
 
 .log-in-link {
   color: black;
@@ -69,6 +154,10 @@ nav {
   letter-spacing: -0.25px;
   justify-content: center;
   margin-right: 25px;
+  text-decoration: none;
+}
+.log-in-link:hover {
+  color: rgb(0, 200, 5);
 }
 
 .sign-up-link {
@@ -90,18 +179,13 @@ nav {
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
+  text-decoration: none;
 }
 
-.home {
-  display: block;
+.sign-up-link:hover {
+  background-color: rgb(0, 180, 5);
 }
 
-.home-header-1 {
-  max-height: calc(100% - 0px - env(safe-area-inset-bottom));
-  position: fixed;
-  top: 0;
-  width: 100px;
-}
 
 .test {
   padding-bottom: 0;
@@ -127,6 +211,7 @@ nav {
   overflow: hidden;
   position: relative;
   box-shadow: inset 0px 1px 4px 0px #5e5e5e;
+  padding-bottom: 30px;
 }
 
 .home-section-1-2 {
@@ -244,33 +329,31 @@ nav {
 
 .home-section-2-2 {
   display: flex;
-  min-height: 603px;
+  min-height: 500px;
   min-width: 100%;
   align-items: center;
   justify-content: center;
   height: 100%;
   position: relative;
 
-  img {
-    width: 650px;
-    margin-bottom: 33px;
-    position: relative;
-  }
 }
 
-.idkvideo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border: 1px solid transparent;
-  box-sizing: border-box;
+.img-1 {
+  width: 650px;
+  margin-bottom: 33px;
+  // position: relative;
+  position: absolute;
 }
 
-.idkvideo {
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.video-img {
+  position: absolute;
+  width: 650px;
+  top: 26px;
+
+}
+
+.img-2 {
+
 }
 
 .home-section-3-2 {
@@ -281,14 +364,9 @@ nav {
   height: 100%;
 }
 
-.video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border: 1px solid transparent;
-  box-sizing: border-box;
-}
 
+
+//SEE OUR FEE SCHEDULE TO LEARN MORE ABOUT OUR COST.
 .home-section-3 {
   background-color: rgb(255, 255, 255);
   border-bottom-color: rgb(0, 0, 0);
@@ -347,4 +425,118 @@ nav {
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.25px;
+}
+
+
+//WE ARE ALL INVESTORS AND VIDEO
+.home-section-4 {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: rgb(255,255,255);
+  border-bottom-color: rgb(0,0,0);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  position: relative;
+  height: 452px;
+  width: 100%;
+}
+
+.home-section-4-1 {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  transform: translateY(-50%);
+  top: 50%;
+  display: flex;
+  overflow: hidden;
+}
+
+.video-2 {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+}
+
+.home-section-4-2 {
+  min-width: 1024px;
+  max-width: 100%;
+  height: 100%;
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.home-section-4-filler-1 {
+  margin-left: 9px;
+  margin-right: 9px;
+  width: calc(50.000% - 18px);
+  display: block;
+  visibility: visible;
+}
+
+.home-section-4-filler-2 {
+  margin-left: 9px;
+  margin-right: 9px;
+  width: calc(8.333% - 18px);
+  display: block;
+  visibility: visible;
+}
+
+.home-section-4-3 {
+  margin-left: -9px;
+  margin-right: -9px;
+  width: calc(100% + 18px);
+  flex-wrap: wrap;
+  flex-direction: row;
+  display: flex;
+  height: 100%;
+}
+
+.home-section-4-4 {
+  margin-left: 9px;
+  margin-right: 9px;
+  width: calc(41.667% - 18px);
+  display: block;
+}
+
+.home-section-4-5 {
+  padding: 172px 0;
+  height: 28%;
+}
+
+.home-section-4-6 {
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: -1.75px;
+  }
+}
+
+.home-section-4-7 {
+  display: inline-block;
+}
+
+.home-section-4-8 {
+  display: flex;
+
+  span {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.25px;
+    margin-left: 2px;
+  }
+}
+
+.arrow {
+  width: 25px;
+  margin-left: 10px;
+}
+
+//INTRODUCING FRACTIONAL SHARES
+.home-section-5-1 {
+
 }
