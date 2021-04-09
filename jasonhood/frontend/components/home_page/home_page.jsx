@@ -181,9 +181,107 @@ class HomePage extends React.Component {
 
         </section>
 
-        <div className="home-section-5-1">
 
+        <div className="home-section-5-fractional-shares">
+          <header className="home-section-5-1">
+            <div className="home-section-5-2"></div>
+            <div className="home-section-5-3">
+
+
+              <div className="home-section-5-4">  {/*same*/}
+                <div className="home-section-5-5">
+                  <div className="home-section-5-6">
+                    <h2 className="home-section-5-7">
+                      <span className="home-section-5-8">
+                        Introducing Fractional Shares
+                      </span>
+                    </h2>
+                    <div className="home-section-5-9">
+                      <span className="home-section-5-10">
+                        <span>
+                          Invest in thousands of stocks with as little as $1.
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="home-section-5-img">
+                  <img className="home-section-5-img-1" src="https://i.imgur.com/4xYbAtF.png" alt=""/>
+                </div>
+
+              </div>
+
+              <div className="home-section-5-11">
+
+                <div className="home-section-5-12">
+                  <div className="home-section-5-text-blocks">
+                    <div className="home-section-5-text-blocks-2">
+                      <span className="home-section-5-text-blocks-3">
+                        Invest Any Amount
+                      </span>
+                    </div>
+                    <span className="home-section-5-text-blocks-4">
+                      Choose how much you want to invest, and we’ll convert
+                      from dollars to parts of a whole share.
+                    </span>
+                  </div>
+                </div>
+
+                <div className="home-section-5-12">
+                  <div className="home-section-5-text-blocks">
+                    <div className="home-section-5-text-blocks-2">
+                      <span className="home-section-5-text-blocks-3">
+                        Build a Balanced Portfolio
+                      </span>
+                    </div>
+                    <span className="home-section-5-text-blocks-4">
+                      Customize your portfolio with pieces of different
+                      companies and funds to help reduce risk.
+                    </span>
+                  </div>
+                </div>
+
+                <div className="home-section-5-12">
+                  <div className="home-section-5-text-blocks">
+                    <div className="home-section-5-text-blocks-2">
+                      <span className="home-section-5-text-blocks-3">
+                        Trade in Real Time
+                      </span>
+                    </div>
+                    <span className="home-section-5-text-blocks-4">
+                      Trades placed during market hours are executed
+                      at that time, so you’ll always know the share price.
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="disclosure">
+                <div className="disclosure-1">
+                  <div className="disclosure-2">
+                    <button className="disclosure-3">
+                      <span className="disclosure-4">
+                        <span className="disclosure-img">
+                          <img className="disclosure-img-1" src="https://www.thesslstore.com/blog/wp-content/uploads/2017/05/circle-with-i-1.png" alt=""/>
+                        </span>
+                        <span className="disclosure-text">
+                          <span className="disclosure-text-1">
+                            Fractional Shares Disclosure
+                          </span>
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </header>
         </div>
+
 
         </div>
         </div>

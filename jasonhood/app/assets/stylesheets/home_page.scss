@@ -538,5 +538,179 @@ nav {
 
 //INTRODUCING FRACTIONAL SHARES
 .home-section-5-1 {
+  background-color: white;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 50px;
+  height: 507px;
+}
 
+.home-section-5-2 {
+  height: 50px;
+}
+
+.home-section-5-3 {
+  width: 100%;
+  padding: 0px 36px;
+  min-width: 1024px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+//same
+.home-section-5-4 {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0px -9px;
+  width: calc(100% + 18px);
+}
+
+.home-section-5-5 {
+  margin: 0px 9px;
+  width: calc(83.3333% - 18px);
+}
+
+.home-section-5-6 {
+  padding-bottom: 48px;
+}
+
+.home-section-5-7 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.32px;
+}
+
+.home-section-5-9 {
+  margin-top: 16px;
+}
+
+.home-section-5-10 {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.25px;
+  color: rgb(111,120,126);
+}
+
+.home-section-5-img {
+  margin: 0px 9px;
+  width: calc(16.6667% - 18px);
+}
+
+.home-section-5-img-1 {
+  width: 100%;
+  max-width: 457px;
+  flex: 1 1 0%;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  background-position: center center;
+}
+
+.home-section-5-11 {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0px -9px;
+  height: 216px;
+  width: 1053px;
+  // width: calc(100% + 18px);
+
+}
+
+.home-section-5-12 {
+  margin: 0px 9px;
+  width: calc(25% - 18px);
+  height: 216px;
+}
+
+.home-section-5-text-blocks {
+  padding-right: 32px;
+  margin-bottom: 40px;
+}
+
+// .home-section-5-text-blocks-1 {
+//   margin-bottom: 8px;
+// }
+
+.home-section-5-text-blocks-2 {
+  margin-bottom: 8px;
+  height: 28px;
+  width: 218px;
+}
+
+.home-section-5-text-blocks-3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.25px;
+}
+
+.home-section-5-text-blocks-4 {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.25px;
+}
+
+.disclosure {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0px -9px;
+  width: calc(100% - 18px);
+}
+
+.disclosure-1 {
+  margin: 0px 9px;
+  width: calc(83.3333% 0 18px);
+}
+
+.disclosure-2 {
+  max-width: 480px;
+  margin-bottom: 48px;
+  padding-top: 24px;
+}
+
+.disclosure-3 {
+  background: none;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  border: 0;
+  padding: 0;
+  text-align: unset;
+  color: unset;
+}
+
+.disclosure-3:hover {
+  color: green;
+}
+
+.disclosure-4 {
+  display: flex;
+  align-items: center;
+}
+
+.disclosure-img-1 {
+  height: 28px;
+  width: 28px;
+}
+
+.disclosure-img-1:hover {
+  color: green;
+}
+
+.disclosure-text {
+  padding-top: 2px;
+  cursor: pointer;
+}
+
+.disclosure-text-1 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.25px;
+  text-decoration: unset;
+  padding: 8px;
 }

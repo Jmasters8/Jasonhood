@@ -210,11 +210,38 @@ class SignupForm extends React.Component {
               </div>
 
               <div>
-                <span class="signup-right-text-p">
+                <span className="signup-right-text-p">
                   Break free from commission-fees and make unlimited
                   commission-free trades in stocks, funds, and options
                   with Robinhood Financial. Other fees may apply. View our
                   <a> fee schedule </a>to learn more.
+                </span>
+              </div>
+
+              <div className="signup-right-text-2">
+                <span className="signup-right-text-title">
+                  Account Protection
+                </span>
+              </div>
+
+              <div>
+                <span className="signup-right-text-p">
+                Robinhood Financial is a member of SIPC. Securities in your
+                account protected up to $500,000. For details, please see <a>www.sipc.org</a>
+                </span>
+              </div>
+
+              <div className="signup-right-text-2">
+                <span className="signup-right-text-title">
+                  Stay on top of your portfolio
+                </span>
+              </div>
+
+              <div>
+                <span className="signup-right-text-p">
+                  Set up customized news and notifications to stay
+                  on top of your assets as casually or as relentlessly as you 
+                  like. Controlling the flow of info is up to you.
                 </span>
               </div>
 
