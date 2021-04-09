@@ -8,6 +8,10 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     
+    <script type="text/javascript">
+      window.finnhubAPIKey = "<%= Rails.application.credentials.finnhub[:api_key] %>"
+    </script>
+
   </head>
 
   <body>

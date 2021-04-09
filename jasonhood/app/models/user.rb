@@ -8,6 +8,27 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :stock_assets,
+    foreign_key: :owner_id,
+    class_name: "StockAsset"
+  
+  has_many :crypto_assets,
+    foreign_key: :owner_id,
+    class_name: "CryptoAsset"
+
+
+  has_many :stocks,
+    through: :assets, #stock_assets
+    source: :stock
+
+  has_many :cryptocurrency,
+    through: :assets,
+    source: 
+
+  # has_many :cryptocurrency,
+  #   through: :assets,
+  #   source: "Cryptocurrency"
+
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64
     self.save
