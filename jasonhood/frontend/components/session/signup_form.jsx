@@ -157,23 +157,23 @@ class SignupForm extends React.Component {
                       devices or web. Keep in mind, other fees such as
                       trading (non-commission) fees, Gold subscription fees,
                       wire transfer fees, and paper statement fees may apply
-                      to your brokerage account. Please see Robinhood Financial’s
+                      to your brokerage account. Please see Jasonhood Financial’s
                       <a> fee schedule </a>to learn more.
                     </div>
                     <div className="signup-bottom-text-4">
-                      Securities trading offered through Robinhood Financial LLC.
-                      Brokerage clearing services offered through Robinhood
-                      Securities, LLC. Both are subsidiaries of Robinhood Markets, Inc.
+                      Securities trading offered through Jasonhood Financial LLC.
+                      Brokerage clearing services offered through Jasonhood
+                      Securities, LLC. Both are subsidiaries of Jasonhood Markets, Inc.
                     </div>
                     <div className="signup-bottom-text-4">
                       <a>
-                        Check the background of Robinhood Financial LLC and Robinhood
+                        Check the background of Jasonhood Financial LLC and Jasonhood
                         Securities, LLC on FINRA’s BrokerCheck.
                       </a>
                     </div>
                     <div className="signup-bottom-text-4">
                       <a>
-                        Robinhood Terms and Conditions
+                        Jasonhood Terms and Conditions
                       </a>
                       &nbsp;&nbsp;
                       <a>
@@ -190,7 +190,7 @@ class SignupForm extends React.Component {
                     </div>
 
                     <div className="signup-bottom-text-4">
-                      © 2020 Robinhood. All rights reserved.
+                      © 2020 Jasonhood. All rights reserved.
                     </div>
 
 
@@ -213,7 +213,7 @@ class SignupForm extends React.Component {
                 <span className="signup-right-text-p">
                   Break free from commission-fees and make unlimited
                   commission-free trades in stocks, funds, and options
-                  with Robinhood Financial. Other fees may apply. View our
+                  with Jasonhood Financial. Other fees may apply. View our
                   <a> fee schedule </a>to learn more.
                 </span>
               </div>
@@ -226,7 +226,7 @@ class SignupForm extends React.Component {
 
               <div>
                 <span className="signup-right-text-p">
-                Robinhood Financial is a member of SIPC. Securities in your
+                Jasonhood Financial is a member of SIPC. Securities in your
                 account protected up to $500,000. For details, please see <a>www.sipc.org</a>
                 </span>
               </div>

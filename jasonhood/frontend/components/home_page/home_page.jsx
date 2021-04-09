@@ -186,7 +186,7 @@ class HomePage extends React.Component {
           <header className="home-section-5-1">
             <div className="home-section-5-2"></div>
             <div className="home-section-5-3">
-
+            <img className="home-section-5-img-1" src="https://i.imgur.com/4xYbAtF.png" alt=""/>
 
               <div className="home-section-5-4">  {/*same*/}
                 <div className="home-section-5-5">
