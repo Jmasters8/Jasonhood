@@ -21,8 +21,6 @@ class HomePage extends React.Component {
   const LoggedIn = () => {
     return (
       <div>
-        <h1>hello look me stonks, my name {this.user}</h1>
-        <button onClick={this.props.logout}>Log Out</button>
         <MainPageContainer />
       </div>
     )
