@@ -151,7 +151,7 @@ class HomePage extends React.Component {
 
           <video className="video-2" autoPlay controlsList="nodownload nofullscreen noremoteplayback" loop muted playsInline="" preload="auto">
             <source src="https://cdn.robinhood.com/assets/superbowl/superbowl.mp4" type="video/mp4"/>
-            <img draggable="false" role="presentation" src="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us1x__2d77af53475dc4e405ba9b0a4c8820fc.jpg" srcset="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us1x__2d77af53475dc4e405ba9b0a4c8820fc.jpg, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us2x__c7695a4218c85aeb29e5c5d6203ac4d7.jpg 2x, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us3x__0daf4c1a879b02e4a61aa38be0fcebe4.jpg 3x"></img>
+            <img draggable="false" role="presentation" src="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us1x__2d77af53475dc4e405ba9b0a4c8820fc.jpg" srcSet="https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us1x__2d77af53475dc4e405ba9b0a4c8820fc.jpg, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us2x__c7695a4218c85aeb29e5c5d6203ac4d7.jpg 2x, https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/about-us3x__0daf4c1a879b02e4a61aa38be0fcebe4.jpg 3x"></img>
           </video>
 
           </div>
