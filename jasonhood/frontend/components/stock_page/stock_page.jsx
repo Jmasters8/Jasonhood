@@ -4,19 +4,28 @@ class Stock extends React.Component {
   constructor(props) {
     super(props);
 
-
   }
 
+
   componentDidMount() {
-    // this.fetchStock('NIO');
+    this.props.fetchStockInfo(this.props.match.params.symbol)
   }
 
   render() {
-    return (
-      <div>
-        I AM STOCK
-      </div>
-    )
+    
+    const showStock = () => {
+      return (
+        <div>
+          {this.props.stock.name}
+        </div>
+      )
+    }
+
+    const noShowStock = () => {
+      return null
+    }
+
+    return this.props.stock ? showStock() : noShowStock()
   }
 }
 

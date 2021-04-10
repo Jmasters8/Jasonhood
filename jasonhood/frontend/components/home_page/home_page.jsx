@@ -20,9 +20,7 @@ class HomePage extends React.Component {
 
   const LoggedIn = () => {
     return (
-      <div>
         <MainPageContainer />
-      </div>
     )
   }
     
