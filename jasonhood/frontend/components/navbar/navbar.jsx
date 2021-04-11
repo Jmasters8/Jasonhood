@@ -73,7 +73,7 @@ class Navbar extends React.Component {
               <div className="navbar-list-4">
                 <div>
                   <a className="nav-bar-account">
-                    <span className="navbar-list-word">Account</span>
+                    <span onClick={this.props.logout} className="navbar-list-word">Account</span>
                   </a>
                 </div>
               </div>

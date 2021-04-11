@@ -6,7 +6,8 @@
   letter-spacing: -0.1px;
   line-height: 20px;
   text-size-adjust: 100%;
-  width: 988px;
+  width: auto;
+  background-color: black;
 }
 
 .main-filler {
@@ -42,6 +43,7 @@
   min-height: 100vh;
   position: relative;
   box-sizing: border-box;
+  height: inherit;
 }
 
 .main-3 {
@@ -52,6 +54,7 @@
   margin-left: calc(100vw - 100%);
   margin-right: 0px;
   box-sizing: inherit;
+  height: 100%;
 }
 
 .main-4 {
@@ -62,4 +65,258 @@
   min-width: 1036px;
   padding-top: 64px;
   margin-bottom: 64px;
+  height: 100%;
+}
+
+.main-5 {
+  width: 100%;
+  box-sizing: inherit;
+  --rh-fixed-header-height: 64px;
+  height: 100%;
+}
+
+.main-6 {
+  padding-top: 36px;
+  // margin: 0 auto;
+  width: 1024px;
+  box-sizing: inherit;
+  height: 100%;
+  margin-left: 524px;
+  margin-right: 524px;
+}
+
+.main-category-list {
+  margin-top: 0;
+  margin-bottom: 8px;
+  box-sizing: inherit;
+  height: 44px;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -6px;
+  height: 100%;
+}
+
+.main-content-1 {
+  -webkit-box-flex: 0;
+  flex: 0 0 66.66667%;
+  padding-left: 6px;
+  padding-right: 6px;
+  height: 100%;
+}
+
+.main-content-header {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  height: 40px;
+  width: 678px;
+}
+
+.main-content-header-1 {
+  -webkit-box-alin: center;
+  align-items: center;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 570px;
+}
+
+.main-content-header-2 {
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  height: 40px;
+  letter-spacing: -0.33px;
+  line-height: 40px;
+  max-width: 497px;
+  width: auto;
+}
+
+.main-content-header-analysis {
+  display: flex;
+  height: 40px;
+  width: 109px;
+}
+
+.main-content-header-analysis-1 {
+  margin: 10px 0 0 9px;
+  height: 30px;
+  width: 100px;
+}
+
+.main-content-header-analysis-2 {
+  position: relative;
+  height: inherit;
+}
+
+.main-content-header-analysis-3 {
+  background-image: none;
+  text-align: unset;
+  color: unset;
+  border-radius: 40px;
+  height: 30px;
+  white-space: nowrap;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px 16px 0px 12px;
+  border: 0px;
+  width: 100%;
+  background-color: rgb(30, 33, 36);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main-content-header-analysis-3:hover {
+  background-color: rgba(80,88,92,1);
+}
+
+.main-content-header-analysis-3:hover + .analysis-hover {
+  display: block;
+
+}
+
+.main-content-header-analysis-4 {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 20px;
+  width: inherit;
+
+  img {
+    overflow: visible;
+    fill: none;
+    height: 16px;
+    height: 16px;
+  }
+
+}
+
+.main-content-header-analysis-5 {
+  margin: 0px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+  height: inherit;
+  width: 56px;
+}
+
+.main-content-header-analysis-6 {
+  padding-left: 4px;
+}
+
+.analysis-hover {
+  left: 1061.65px;
+  right: 724.359px;
+  top: 184px;
+  margin-top: 12px;
+  background: rgba(48, 54, 58, .9);
+  border-radius: 4px;
+  max-width: 173px;
+  padding: 9px 12px;
+  position: absolute;
+  text-align: center;
+  word-wrap: break-word;
+  width: 160px;
+  height: 40px;
+  display: none;
+
+}
+
+.analysis-hover-text {
+  margin: 0px;
+  color: white;
+  text-decoration: unset;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.graph {
+  width: 676px;
+  margin-bottom: 44px;
+  position: relative;
+  height: 373px;
+}
+
+.graph-header {
+  margin-bottom: 12px;
+  height: 95px;
+}
+
+.graph-header-1 {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  height: 40px;
+}
+
+.graph-header-title {
+  margin: 0px;
+  font-weight: 500;
+  letter-spacing: -.33px;
+  font-size: 32px;
+  line-height: 40px;
+  height: inherit;
+  width: 105px;
+}
+
+.graph-header-title-1 {
+  display: inline-block;
+  transition: color .3s;
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  font-style: normal;
+  height: 40px;
+  letter-spacing: -.33px;
+  line-height: 40px;
+  width: 21px;
+}
+
+.price-change {
+  padding-top: 2px;
+  width: inherit;
+  height: 20px;
+}
+
+.price-change-today {
+  color: white;
+  font-style: normal;
+  display: inline;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+}
+
+.price-change-today-span-2 {
+  padding-left: 3px;
+}
+
+.price-change-today-1 {
+  color: rgb(121, 133, 139);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+  display: inline;
+  padding-left: 2px;
+}
+
+.main-graph {
+  will-change: height;
+  width: 676px;
+  height: 266px;
 }
