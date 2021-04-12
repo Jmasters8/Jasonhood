@@ -81,8 +81,8 @@
   width: 1024px;
   box-sizing: inherit;
   height: 100%;
-  margin-left: 524px;
-  margin-right: 524px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-category-list {
@@ -313,10 +313,4 @@
   line-height: 20px;
   display: inline;
   padding-left: 2px;
-}
-
-.main-graph {
-  will-change: height;
-  width: 676px;
-  height: 266px;
 }

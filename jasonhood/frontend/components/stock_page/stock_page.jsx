@@ -80,11 +80,16 @@ class Stock extends React.Component {
                                 <span className="price-change-today-1">Today</span>
                               </div>
                               
-                              <div className="main-graph">
-                                <GraphContainer stock={this.props.stock} />
-                              </div>
-  
                             </header>
+
+                            <div className="main-graph">
+                              <div className="main-graph-1">
+                                <div className="main-graph-2">
+                                  <GraphContainer stock={this.props.stock} />
+                                </div>
+                              </div>
+                            </div>
+
                           </section>
   
                         </div>
@@ -94,7 +99,7 @@ class Stock extends React.Component {
                 </div>
               </div>
   
-  
+  {/* <GraphContainer stock={this.props.stock} /> */}
   
               <NavbarContainer />
   
