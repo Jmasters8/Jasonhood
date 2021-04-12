@@ -16,8 +16,8 @@ class Graph extends React.Component {
   }
 
   render() {
-    const stockInfoIntervals = this.props.stock['Time Series (5min)']
-    console.log(this.props.stock['Time Series (5min)'])
+    // const stockInfoIntervals = this.props.stock['Time Series (5min)']
+    // console.log(this.props.stock['Time Series (5min)'])
     // console.log(this.props.stock)
 
     const testData = (data) => {
@@ -31,7 +31,7 @@ class Graph extends React.Component {
       }
       return arr
     }
-    testData(stockInfoIntervals)
+
 
     // const createDates = () => {
     //   let dates = [];

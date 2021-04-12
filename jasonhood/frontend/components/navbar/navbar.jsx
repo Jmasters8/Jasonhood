@@ -9,6 +9,7 @@ class Navbar extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleInput(type) {
@@ -19,6 +20,11 @@ class Navbar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.fetchStock(this.state.stockSymbol.toUpperCase())
+  }
+
+  handleLogout(e) {
+    e.preventDefault() 
+    this.props.logout()
   }
 
   render() {
@@ -73,7 +79,7 @@ class Navbar extends React.Component {
               <div className="navbar-list-4">
                 <div>
                   <a className="nav-bar-account">
-                    <span onClick={this.props.logout} className="navbar-list-word">Account</span>
+                    <span onClick={this.handleLogout} className="navbar-list-word">Account</span>
                   </a>
                 </div>
               </div>

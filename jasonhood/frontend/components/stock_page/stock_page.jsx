@@ -93,13 +93,152 @@ class Stock extends React.Component {
                           </section>
   
                         </div>
+
+                      <div className="trade">
+                        <div className="trade-1">
+                          <div className="trade-2">
+                            <form>
+                              <div className="trade-stock-name">
+                                <div className="trade-stock-name-1">
+                                  <div className="trade-stock-name-2">
+                                    <span className="trade-stock-name-3">
+                                      Buy STOC
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="trade-stock-shares">
+                                <div className="trade-stock-shares-1">
+                                  <div className="trade-stock-shares-2">
+                                    <div className="trade-stock-shares-3">
+                                      <label className="trade-stock-shares-4">
+                                        Invest in
+                                      </label>
+                                      <div className="trade-stock-shares-5">
+                                        <div className="trade-stock-shares-6">
+                                          <div className="trade-stock-shares-7">
+                                            <div className="trade-stock-shares-8">
+                                              <button className="trade-stock-shares-9">
+                                                <div className="trade-stock-shares-10">
+                                                  <span className="trade-stock-shares-11">
+                                                    Shares
+                                                  </span>
+                                                </div>
+                                                <div className="trade-stock-shares-12">
+                                                  <span className="trade-stock-shares-13">
+                                                  △
+                                                  ▽
+                                                    {/* <img src="https://listimg.pinclipart.com/picdir/s/71-715206_upside-down-triangle-outline-clipart.png" alt=""/> */}
+                                                  </span>
+                                                </div>
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div className="shares-amount">
+                                      <label className="shares-amount-1">
+                                        Shares
+                                      </label>
+                                      <div className="shares-amount-2">
+                                        <div className="shares-amount-3">
+                                          <input className="shares-amount-input" type="text" placeholder="0"/>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div className="trade-market-price">
+                                      <div className="trade-market-price-1">
+                                        <a className="trade-market-price-2">
+                                          <span className="trade-market-price-3">
+                                            Market Price
+                                          </span>
+                                        </a>
+                                      </div>
+                                      <div className="trade-market-price-4">
+                                        <span className="trade-market-price-5">
+                                          $88.88
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div className="trade-estimated-cost">
+                                      <div className="trade-estimated-cost-1">
+                                        <div className="trade-estimated-cost-2">
+                                          <span className="trade-estimated-cost-3">
+                                            Estimated Cost
+                                          </span>
+                                        </div>
+                                        <div className="trade-estimated-cost-4">
+                                          <span className="trade-estimated-cost-5">
+                                            $12.00
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="review-order">
+                                <div className="review-order-1">
+                                  <div className="review-order-2">
+                                    <div className="review-order-3">
+                                      <div className="review-order-4">
+                                        <button className="review-order-5">
+                                          <div className="review-order-6">
+                                            <span className="review-order-7">
+                                              Complete Order
+                                            </span>
+                                          </div>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <footer className="money-available">
+                                <div className="money-available-1">
+                                  <span className="money-available-2">
+                                    <div className="money-available-3">
+                                      $17.82 Buying Power Available
+                                    </div>
+                                  </span>
+                                </div>
+                              </footer>
+
+                            </form>
+                          </div>
+
+                          <div className="add-list">
+                            <div className="add-list-1"></div>
+                            <div className="add-list-2">
+                              <button className="add-list-3">
+                                <div className="add-list-4">
+                                  <span className="add-list-5">
+                                    <span className="add-list-6">
+                                      <span className="add-list-7">
+                                      ✓ Add to Lists
+                                      </span>
+                                    </span>
+                                  </span>
+                                </div>
+                              </button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
                       </div>
                     </main>
                   </div>
                 </div>
               </div>
   
-  {/* <GraphContainer stock={this.props.stock} /> */}
   
               <NavbarContainer />
   
