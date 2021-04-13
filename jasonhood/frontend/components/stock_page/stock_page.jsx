@@ -6,18 +6,54 @@ class Stock extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { collapsed: true }
+    this.toggleDescription = this.toggleDescription.bind(this);
   }
 
 
   componentDidMount() {
-    this.props.fetchStockInfoTest(this.props.match.params.symbol)
+    this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol))
+    
+  }
+  toggleDescription() {
+    const currentState = this.state.collapsed;
+    this.setState({ collapsed: !currentState });
+    console.log(this.state)
   }
 
+  isCollapsed() {
+    if (this.state.collapsed) {
+      return (
+      <div>
+        <span className="about-info-2">
+          {this.props.stock.Description}
+        </span>
+        <button className="about-info-button" onClick={this.toggleDescription}>Read More</button>
+      </div>
+      )
+    } else {
+      return (
+        <div>
+          <span className="about-info-3">
+            {this.props.stock.Description}
+          </span> &nbsp;
+          <button className="about-info-button" onClick={this.toggleDescription}>Read Less</button>
+      </div>
+      )
+    }
+  }
 
   render() {
-    // console.log(this.props.stock)
+    if (this.props.stock === undefined) {
+      return null
+    }
+    console.log(this.props.data)
+    // console.log(this.props.data.Name)
     const showStock = () => {
+      
+      // console.log(this.props.data.data)
       return (
+        
         <div className="main">
           <div className="main-filler">
             <div className="main-filler-1">
@@ -30,14 +66,47 @@ class Stock extends React.Component {
                 <div className="main-4">
                   <div className="main-5">
                     <main className="main-6">
+
                       <div className="main-category-list">
-  
+                      <div className="related-lists-6">
+                              <div className="related-lists-7">
+                                <div className="related-lists-8">
+                                  <div className="related-lists-img">
+                                    <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt=""/>
+                                  </div>
+                                  <span className="related-lists-9">
+                                    &nbsp;Stock
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="related-lists-7-2">
+                                <div className="related-lists-8-2">
+                                  <div className="related-lists-img">
+                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/california/portrait_48/1x.png" alt=""/>
+                                  </div>
+                                  <span className="related-lists-10">
+                                    &nbsp;Maybe California
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="related-lists-7-3">
+                                <div className="related-lists-8-3">
+                                  <div className="related-lists-img">
+                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt=""/>
+                                  </div>
+                                  <span className="related-lists-11">
+                                    &nbsp;100,000 Most Popular
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
                       </div>
+
                       <div className="main-content">
                         <div className="main-content-1">
                           <header className="main-content-header">
                             <div className="main-content-header-1">
-                              <h1 className="main-content-header-2">STOCK</h1>
+                              <h1 className="main-content-header-2">{this.props.stock.Name}</h1>
                             </div>
                             <div className="main-content-header-analysis">
                               <div className="main-content-header-analysis-1">
@@ -63,7 +132,7 @@ class Stock extends React.Component {
                               <div className="graph-header-1">
                                 <h1 className="graph-header-title">
                                   <span className="graph-header-title-1">
-                                    $38.05
+                                    $15.00
                                   </span>
                                 </h1>
                               </div>
@@ -87,9 +156,198 @@ class Stock extends React.Component {
                                 <div className="main-graph-2">
                                   <GraphContainer stock={this.props.stock} />
                                 </div>
+                                <nav className="main-graph-days">
+
+                                </nav>
                               </div>
                             </div>
 
+                          </section>
+
+                          <section className="about">
+                            <header className="about-title">
+                              <div className="about-title-1">
+                                <div className="about-title-2">
+                                  <h2 className="about-title-3">
+                                    <span className="about-title-4">
+                                      About
+                                    </span>
+                                  </h2>
+                                </div>
+                              </div>
+                            </header>
+
+                            <div className="about-info">
+                              <h3 className="about-info-1">
+                                
+                                {/* <span className="about-info-2">
+                                  {this.props.stock.Description}
+                                </span> */}
+                                {this.isCollapsed()}
+                                {/* <button onClick={this.toggleDescription}>Read More</button> */}
+                                
+                                {/* <span className="about-info-3">
+                                  {this.props.stock.Description}
+                                </span> */}
+                              </h3>
+                            </div>
+
+                            <div className="about-info-4">
+
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    CEO
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  Joe
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    Employees
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  {this.props.stock.FullTimeEmployees}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    Headquarters
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  Joe
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    Founded
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  Joe
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    {'Market Cap'.toUpperCase()}
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  {parseInt(this.props.stock.MarketCapitalization).toLocaleString()}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    Price-Earnings Ratio
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  {this.props.stock.PERatio}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    Dividend Yield
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  {this.props.stock.DividendYield}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    Average Volume
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  Joe
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </section>
+
+                          <section className="related-lists">
+                            <header className="related-lists-1">
+                              <div className="related-lists-2">
+                                <div className="related-lists-3">
+                                  <h2 className="related-lists-4">
+                                    <span className="related-lists-5">
+                                      Related Lists
+                                    </span>
+                                  </h2>
+                                </div>
+                              </div>
+                            </header>
+
+                            <div className="related-lists-6">
+                              <div className="related-lists-7">
+                                <div className="related-lists-8">
+                                  <div className="related-lists-img">
+                                    <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt=""/>
+                                  </div>
+                                  <span className="related-lists-9">
+                                    &nbsp;Stock
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="related-lists-7-2">
+                                <div className="related-lists-8-2">
+                                  <div className="related-lists-img">
+                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/california/portrait_48/1x.png" alt=""/>
+                                  </div>
+                                  <span className="related-lists-10">
+                                    &nbsp;Maybe California
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="related-lists-7-3">
+                                <div className="related-lists-8-3">
+                                  <div className="related-lists-img">
+                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt=""/>
+                                  </div>
+                                  <span className="related-lists-11">
+                                    &nbsp;100,000 Most Popular
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
                           </section>
   
                         </div>

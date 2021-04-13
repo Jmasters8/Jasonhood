@@ -11,7 +11,7 @@ class SignupForm extends React.Component {
       last_name: "",
       password: "",
     };
-   
+    console.log(this.state)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 

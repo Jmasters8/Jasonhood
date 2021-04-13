@@ -6,10 +6,16 @@
 
 .main-graph-1 {
   display: flow-root;
-  height: 266px;
+  height: 196px;
+
 }
 
 .main-graph-2 {
   box-sizing: inherit;
+  height: 196px;
+}
+
+.chartjs-render-monitor {
+  width: 676px;
   height: 196px;
 }

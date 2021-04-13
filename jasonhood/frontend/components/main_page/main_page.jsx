@@ -40,13 +40,66 @@ class MainPage extends React.Component {
         <div className="main-1">
           <div className="main-2">
             <div className="main-3">
-              <div className="main-4">
-                <div className="main-5">
-                  <main className="main-6">
-                    <div className="main-category-list">
+              <div className="dashboard-4">
+                <main className="dashboard-5">
+                  <div className="dashboard-6">
+                    <div className="left-1">
+                      <section className="left-2">
+                        <header className="left-3">
+                          <div className="left-4">
+                            <h1 className="left-4-header">
+                              $500,000.88
+                            </h1>
+                          </div>
+                          <div className="left-5">
+                            <span className="left-6">
+                              +$1,000.88
+                            </span>&nbsp;
+                            <span className="left-6">
+                              (+2.23%)
+                            </span>&nbsp;
+                            <span className="left-7">
+                              Today
+                            </span>
+                          </div>
+                        </header>
+                        <div className="dashboard-graph">
 
+                        </div>
+                      </section>
+                      <div className="dashboard-buying-power">
+                        <div className="dashboard-buying-power-1">
+
+                        </div>
+                      </div>
                     </div>
-                    <div className="main-content">
+                    
+                  </div>
+                </main>
+              </div>
+            </div>
+
+
+
+            <NavbarContainer />
+
+
+
+
+          </div>
+        </div>
+        
+      </div>
+    )
+  }
+}
+
+export default MainPage;
+
+
+
+
+{/* <div className="main-content">
                       <div className="main-content-1">
                         <header className="main-content-header">
                           <div className="main-content-header-1">
@@ -101,29 +154,10 @@ class MainPage extends React.Component {
                         </section>
 
                       </div>
-                    </div>
-                  </main>
-                </div>
-              </div>
-            </div>
+                    </div> */}
 
-
-
-            <NavbarContainer />
-
-
-
-
-          </div>
-        </div>
-        <div className="analysis-hover">
-          <span className="analysis-hover-text">
-            61% of analysts rate stock as a buy
-          </span>
-        </div>
-      </div>
-    )
-  }
-}
-
-export default MainPage;
+        //             <div className="analysis-hover">
+        //   <span className="analysis-hover-text">
+        //     61% of analysts rate stock as a buy
+        //   </span>
+        // </div>

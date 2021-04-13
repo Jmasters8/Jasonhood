@@ -16,22 +16,33 @@ class Graph extends React.Component {
   }
 
   render() {
-    // const stockInfoIntervals = this.props.stock['Time Series (5min)']
+    
+    // console.log(this.props.data)
+
+    if (this.props.data === undefined) {
+      return null
+    }
+    
+    // console.log(this.props.data)
+
+    // console.log(this.props.data)
+    // const stockInfoIntervals = this.props.stock.data['Time Series (60min)']
     // console.log(this.props.stock['Time Series (5min)'])
     // console.log(this.props.stock)
 
-    const testData = (data) => {
-      let arr = [];
-      let time = '6:00'
+    // const testData = (data) => {
+    //   let arr = [];
+    //   let time = '6:00'
 
-      for (const item of Object.entries(data)) {
-        // arr.push(item[1]['1. open'])
-        arr.push({x: item[0], y: item[1]['1. open']})
-        // console.log(item[1]['1. open'])
-      }
-      return arr
-    }
+    //   for (const item of Object.entries(data)) {
+    //     // arr.push(item[1]['1. open'])
+    //     // arr.push({x: item[0], y: item[1]['1. open']})
+    //     // console.log(item[1]['1. open'])
+    //   }
+    //   return arr
+    // }
 
+    // testData(stockInfoIntervals)
 
     // const createDates = () => {
     //   let dates = [];
@@ -63,19 +74,17 @@ class Graph extends React.Component {
     //   y: 28
     // }]
 
-       const data = []
-
     const data2 = [
-      {x: 1,
+      {x: "May 12",
       y: 14
     }, {
-      x: 2,
+      x: "May 13",
       y: 15
     }, { 
-      x: 3,
+      x: "May 14",
     y: 18},
   {
-    x: 4,
+    x: "May 15",
     y: 20
   }]
 
@@ -94,10 +103,9 @@ class Graph extends React.Component {
       <div className="main-graph-1">
         <Line
         data={{
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          labels: ['6 AM', '9 AM', '12 PM', '3 PM'],
           datasets: [
             {
-              // type: 'line',
               // data: data2,
               label: 'Sales for 2020 (M)',
               data: data2,
@@ -124,10 +132,11 @@ class Graph extends React.Component {
               }
             }],
             xAxes: [{
-              type: 'linear'
-              // time: {
-                
-              // }
+              type: 'time',
+              time: {
+                unit: "day",
+                tooltipFormat: "HH "
+              }
             }]
           }
         }}

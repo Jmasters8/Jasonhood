@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -8,11 +9,17 @@ class Navbar extends React.Component {
       stockSymbol: ""
     }
 
+    // console.log(this.state)
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleInput = this.handleInput.bind(this)
   }
 
   handleInput(type) {
+    // console.log(this.state)
     return (e) =>
       this.setState({[type]: e.target.value})
   }
@@ -20,6 +27,22 @@ class Navbar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.fetchStock(this.state.stockSymbol.toUpperCase())
+  }
+
+  onKeyUp() {
+    return e => {
+      if (e.key === "Enter") {
+        this.props.history.push(`/stocks/${this.state.stockSymbol}`)
+        // <Link to={`/stocks/${this.state.stockSymbol}`}></Link>
+      }
+    }
+  }
+
+  handleKeyPress(event) {
+    if(event.key === 'Enter'){
+      console.log(this.state)
+      // <Link to={`/stocks/${this.state.stockSymbol}`}></Link>
+    }
   }
 
   handleLogout(e) {
@@ -49,7 +72,7 @@ class Navbar extends React.Component {
                           <img src="https://cdn3.iconfinder.com/data/icons/gray-toolbar/512/find-512.png" alt=""/>
                         </span>
                       </div>
-                      <input type="text" className="navbar-search-input" placeholder="Search"/>
+                      <input onKeyPress={this.handleKeyPress} type="text" className="navbar-search-input" placeholder="Search" value={this.state.stockSymbol} onChange={this.handleInput('stockSymbol')}/>
                     </div>
                   </div>
                 </div>

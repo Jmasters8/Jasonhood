@@ -3,8 +3,9 @@ import Graph from './graph'
 import { logout } from '../../actions/session';
 import { fetchStock, fetchStockInfo } from '../../actions/stocks';
 
-const mapStateToProps = (state) => ({
-  // stock: state.entities.stocks[ownProps.match.params.symbol]
+const mapStateToProps = (state, ownProps) => ({
+  stock: ownProps.stock,
+  // data: ownProps.stock.data
 });
 
 const mapDispatchToProps = (dispatch) => ({
