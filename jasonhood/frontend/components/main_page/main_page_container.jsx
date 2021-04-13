@@ -6,7 +6,7 @@ import { fetchStock } from '../../actions/stocks';
 
 
 const mapStateToProps = (state) => ({
-  user: state.entities.users
+  user: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = (dispatch) => ({

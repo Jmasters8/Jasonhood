@@ -92,6 +92,160 @@
   height: 73px;
 }
 
-// .dashboard-buying-power-1 {
+.dashboard-buying-power-1 {
+  box-sizing: border-box;
+  margin-left: -24px;
+  margin-right: -24px;
+  border-radius: 5px;
+  height: inherit;
+}
 
+.dashboard-buying-power-2 {
+  -webkit-appearance: button;
+  background-image: none;
+  text-align: unset;
+  color: unset;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 24px;
+  padding-right: 24px;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 5px;
+  height: inherit;
+  width: 728px;
+  outline: none;
+}
+
+.dashboard-buying-power-2:hover {
+  background-color: rgba(26,26,26,1)
+}
+
+.dashboard-buying-power-2:active {
+  background-color: rgba(51,51,51,1);
+}
+
+// .dashboard-buying-power-2:focus {
+//   background-color: pink;
 // }
+
+.dashboard-buying-power-3 {
+  border-bottom: 1px solid rgb(48, 54, 58);
+  border-top: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  height: 24px;
+}
+
+.dashboard-buying-power-4 {
+  height: inherit;
+}
+
+.dashboard-buying-power-5 {
+  margin: 0px;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dashboard-buying-power-6 {
+  float: right;
+  opacity: 1;
+  transition: opacity 400ms ease-in-out 0s;
+  color: white;
+}
+
+.dash-toggle {
+  will-change: height;
+  height: 274px;
+  width: inherit;
+}
+
+.dash-toggle-1 {
+  display: flow-root;
+  height: inherit;
+}
+
+.dash-toggle-2 {
+  padding: 24px;
+  height: 226px;
+}
+
+.dash-toggle-3 {
+  display: flex;
+  height: inherit;
+}
+
+.dash-toggle-4 {
+  // flex: 1 1 0%;
+  width: 322px;
+}
+
+.dash-toggle-5 {
+  margin-top: -18px;
+  height: 124px;
+}
+
+.dash-toggle-6 {
+  border-collapse: collapse;
+  width: 100%;
+  display: table;
+  height: inherit;
+  // border-color:rgb(128, 128, 128);
+}
+
+.dash-toggle-7 {
+  height: 61px;
+  width: 321px;
+  position: absolute;
+  border-color: rgb(128, 128, 128);
+  border-bottom: 1px solid rgb(48, 54, 58);
+
+}
+
+.dash-toggle-8 {
+  text-align: left;
+  border-bottom: 1px solid rgb(48, 54, 58);
+  box-sizing: content-box;
+  height: 59px;
+  width: 217px;
+  padding: 1px;
+  vertical-align: middle;
+}
+
+.dash-toggle-9 {
+  color: white;
+  margin: 0px;
+  text-decoration: unset;
+  font-weight: 400;
+  font-size: 15px;
+}
+.dash-toggle-7-1 {
+  height: 61px;
+  width: 321px;
+  // position: absolute;
+  // border-color: rgb(128, 128, 128);
+  // border-bottom: 1px solid rgb(48, 54, 58);
+}
+
+.dash-toggle-8-1 {
+  text-align: left;
+  box-sizing: content-box;
+  height: 59px;
+  width: 217px;
+  padding: 1px;
+  vertical-align: middle;
+}
+
+.dash-filler {
+  width: 2px;
+  height: 61px;
+}
+
+.dash-toggle-10 {
+  text-align: right;
+  height: 59px;
+  width: 96px;
+  vertical-align: middle;
+}

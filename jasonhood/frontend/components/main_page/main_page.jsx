@@ -30,6 +30,7 @@ class MainPage extends React.Component {
   }
 
   render() {
+    console.log(this.props.user.buying_power)
     return (
       <div className="main">
         <div className="main-filler">
@@ -69,7 +70,63 @@ class MainPage extends React.Component {
                       </section>
                       <div className="dashboard-buying-power">
                         <div className="dashboard-buying-power-1">
-
+                          <button className="dashboard-buying-power-2">
+                            <header className="dashboard-buying-power-3">
+                              <div className="dashboard-buying-power-4">
+                                <span className="dashboard-buying-power-5">
+                                  Buying Power
+                                </span>
+                                <span className="dashboard-buying-power-6">
+                                  <span className="dashboard-buying-power-5">
+                                  
+                                    ${this.props.user.buying_power}
+                                  </span>
+                                </span>
+                              </div>
+                            </header>
+                          </button>
+                          <div className="dash-toggle">
+                            <div className="dash-toggle-1">
+                              <div className="dash-toggle-2">
+                                <div className="dash-toggle-3">
+                                  <div className="dash-toggle-4">
+                                    <div className="dash-toggle-5">
+                                      <table className="dash-toggle-6">
+                                        <tbody>
+                                          <tr className="dash-toggle-7">
+                                            <td className="dash-toggle-8">
+                                              <span className="dash-toggle-9">
+                                                Brokerage Cash
+                                              </span>
+                                            </td>
+                                            <td className="dash-filler"></td>
+                                            <td className="dash-toggle-10">
+                                              <span className="dash-toggle-9">
+                                                A lot
+                                              </span>
+                                            </td>
+                                          </tr>
+                                          <tr className="dash-toggle-7-1">
+                                            <td className="dash-toggle-8-1">
+                                              <span className="dash-toggle-9">
+                                                Buying Power
+                                              </span>
+                                            </td>
+                                            <td className="dash-filler"></td>
+                                            <td className="dash-toggle-10">
+                                              <span className="dash-toggle-9">
+                                                ${this.props.user.buying_power}
+                                              </span>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
