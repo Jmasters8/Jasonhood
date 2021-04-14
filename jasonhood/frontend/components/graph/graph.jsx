@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { fetchStock } from '../../actions/stocks';
 import Moment from 'react-moment';
 
+import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
+
 class Graph extends React.Component {
   constructor(props) {
     super(props);

@@ -569,7 +569,7 @@
 
 .about {
   margin-bottom: 60px;
-  height: 319px;
+  // height: 319px;
 }
 
 .main-graph-days {
@@ -625,7 +625,7 @@
 
 .about-info {
   margin-bottom: 15px;
-  height: 96px;
+  // height: 96px;
 }
 
 .about-info-1 {
@@ -635,7 +635,8 @@
   font-weight: 700;
   letter-spacing: -.1px;
   line-height: 20px;
-  height: 96px;
+  // height: 96px;
+  display: block;
 }
 
 .about-info-2 {

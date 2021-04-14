@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Graph from './graph'
+import GraphTwo from './graph_2'
 import { logout } from '../../actions/session';
 import { fetchStock, fetchStockInfo } from '../../actions/stocks';
 
@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchStockInfo: symbol => dispatch(fetchStockInfo(symbol))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Graph);
+export default connect(mapStateToProps, mapDispatchToProps)(GraphTwo);

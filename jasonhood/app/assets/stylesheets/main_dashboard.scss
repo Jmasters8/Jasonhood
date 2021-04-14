@@ -249,3 +249,95 @@
   width: 96px;
   vertical-align: middle;
 }
+
+.dash-toggle-input {
+  margin-bottom: 8px;
+  margin-top: 18px;
+  text-align: center;
+  height: 28px;
+}
+
+.dash-toggle-input-1 {
+  margin-bottom: 8px;
+  margin-top: 18px;
+  text-align: center;
+  height: 48px;
+}
+
+.dash-toggle-input-2 {
+  width: 100%;
+  text-align: center;
+  height: inherit;
+}
+
+.dash-toggle-input-3 {
+  -webkit-appearance: button;
+  background: none currentcolor;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font: inherit;
+  text-align: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  white-space: nowrap;
+  height: inherit;
+  min-width: 120px;
+  max-width: 360px;
+  color: rgb(0, 200, 5);
+  width: 100%;
+  padding-left: 48px;
+  padding-right: 48px;
+  outline: none;
+}
+
+.dash-toggle-input-3:hover {
+  background-color: rgba(38,208,43,1);
+}
+
+.dash-toggle-input-0 {
+  background: rgb(30, 33, 36);
+  color: white;
+  border: 1px solid rgb(30, 33, 36);
+  border-radius: 4px;
+  height: 36px;
+  outline: none;
+  margin-left: 100px;
+}
+
+.dash-toggle-input-0:hover {
+  background-color: black;
+}
+
+.dash-toggle-input-0:focus {
+  border-color:rgb(0, 200, 5);
+  background-color: black;
+}
+
+.dash-toggle-input-0-0 {
+  color: white;
+}
+
+.dash-toggle-input-4 {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 99px;
+  height: 20px;
+}
+
+.dash-toggle-input-5 {
+  color: rgb(30, 33, 36);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: unset;
+}

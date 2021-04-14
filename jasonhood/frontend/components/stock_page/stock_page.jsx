@@ -1,42 +1,48 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
-import GraphContainer from '../graph/graph_container';
+import GraphTwoContainer from '../graph/graph_container_2';
 
 class Stock extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { collapsed: true }
+    this.state = { 
+      collapsed: true,
+      start: new Date().setHours(6, 0, 0, 0) / 1000,
+      now: Math.floor(Date.now() / 1000)
+     }
     this.toggleDescription = this.toggleDescription.bind(this);
   }
 
+ 
 
   componentDidMount() {
-    this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol))
+    this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+    // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
     
   }
   toggleDescription() {
     const currentState = this.state.collapsed;
     this.setState({ collapsed: !currentState });
-    console.log(this.state)
+    // console.log(this.state)
   }
 
   isCollapsed() {
     if (this.state.collapsed) {
       return (
       <div>
-        <span className="about-info-2">
+        <div className="about-info-2">
           {this.props.stock.Description}
-        </span>
+        </div>
         <button className="about-info-button" onClick={this.toggleDescription}>Read More</button>
       </div>
       )
     } else {
       return (
         <div>
-          <span className="about-info-3">
+          <div className="about-info-3">
             {this.props.stock.Description}
-          </span> &nbsp;
+          </div> &nbsp;
           <button className="about-info-button" onClick={this.toggleDescription}>Read Less</button>
       </div>
       )
@@ -44,14 +50,15 @@ class Stock extends React.Component {
   }
 
   render() {
-    if (this.props.stock === undefined) {
+    if (this.props.stock === undefined || this.props.data === undefined) {
       return null
     }
-    console.log(this.props.data)
+    // console.log(this.props.data['c'][this.props.data['c'].length - 1])
+    // console.log(this.props.stock.data)
     // console.log(this.props.data.Name)
     const showStock = () => {
       
-      // console.log(this.props.data.data)
+      // console.log(this.props.stock.data)
       return (
         
         <div className="main">
@@ -132,7 +139,7 @@ class Stock extends React.Component {
                               <div className="graph-header-1">
                                 <h1 className="graph-header-title">
                                   <span className="graph-header-title-1">
-                                    $15.00
+                                  ${this.props.data['c'][this.props.data['c'].length - 1]}
                                   </span>
                                 </h1>
                               </div>
@@ -154,7 +161,7 @@ class Stock extends React.Component {
                             <div className="main-graph">
                               <div className="main-graph-1">
                                 <div className="main-graph-2">
-                                  <GraphContainer stock={this.props.stock} />
+                                  <GraphTwoContainer stock={this.props.stock} />
                                 </div>
                                 <nav className="main-graph-days">
 
@@ -417,7 +424,7 @@ class Stock extends React.Component {
                                       </div>
                                       <div className="trade-market-price-4">
                                         <span className="trade-market-price-5">
-                                          $88.88
+                                        ${this.props.data['c'][this.props.data['c'].length - 1]}
                                         </span>
                                       </div>
                                     </div>

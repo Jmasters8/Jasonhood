@@ -7,14 +7,15 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.user = null
-    for (let key in this.props.user) {
-      this.user = this.props.user[key].first_name + " " + this.props.user[key].last_name
-    }
-
-    // this.state = {
-    //   stockSymbol: ""
+    // this.user = null
+    // for (let key in this.props.user) {
+    //   this.user = this.props.user[key].first_name + " " + this.props.user[key].last_name
     // }
+
+    this.state = {
+      stockSymbol: "",
+      buyingPower: this.props.user.buyingPower
+    }
 
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,7 +31,6 @@ class MainPage extends React.Component {
   }
 
   render() {
-    console.log(this.props.user.buying_power)
     return (
       <div className="main">
         <div className="main-filler">
@@ -121,6 +121,24 @@ class MainPage extends React.Component {
                                           </tr>
                                         </tbody>
                                       </table>
+                                    </div>
+                                    <div className="dash-toggle-input">
+                                      <label className="dash-toggle-input-0-0">
+                                        Amount
+
+                                        <input className="dash-toggle-input-0" value={this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
+                                      </label>
+                                    </div>
+                                    <div className="dash-toggle-input-1">
+                                      <div className="dash-toggle-input-2">
+                                        <button onClick={this.handleClick} className="dash-toggle-input-3">
+                                          <div className="dash-toggle-input-4">
+                                            <span className="dash-toggle-input-5">
+                                              Deposit Funds
+                                            </span>
+                                          </div>
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
