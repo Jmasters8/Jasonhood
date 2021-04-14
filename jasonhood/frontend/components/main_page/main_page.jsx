@@ -14,10 +14,16 @@ class MainPage extends React.Component {
 
     this.state = {
       stockSymbol: "",
-      buyingPower: this.props.user.buyingPower
+      buyingPower: 0
+      // buyingPower: this.props.user.buyingPower
     }
-
+    this.handleClick = this.handleClick.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.updateBuyingPower(this.state.buyingPower, this.props.user.id)
   }
 
   handleInput(type) {
@@ -122,6 +128,7 @@ class MainPage extends React.Component {
                                         </tbody>
                                       </table>
                                     </div>
+                                    
                                     <div className="dash-toggle-input">
                                       <label className="dash-toggle-input-0-0">
                                         Amount

@@ -37,10 +37,9 @@ export const fetchStockData = (symbol, start, end) => {
   })
 }
 
-export const updateUser = (buyingPower, id) => {
+export const fetchStockNews = (symbol, start, end) => {
   return $.ajax({
-    method: 'PATCH',
-    url: `/api/users/${id}`,
-    data: buyingPower
+    method: 'GET',
+    url: `https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=${start}&to=${end}&token=c1o93ii37fkqrr9scqp0`
   })
 }

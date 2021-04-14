@@ -26,7 +26,8 @@ class Navbar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.fetchStock(this.state.stockSymbol.toUpperCase())
+    // this.props.fetchStock(this.state.stockSymbol.toUpperCase())
+    
   }
 
   onKeyUp() {
@@ -47,7 +48,7 @@ class Navbar extends React.Component {
 
   handleLogout(e) {
     e.preventDefault() 
-    this.props.logout()
+    this.props.logout().then(() => this.props.history.push('/'))
   }
 
   render() {
@@ -60,7 +61,7 @@ class Navbar extends React.Component {
               <img src="https://i.imgur.com/iU9XhbV.png" alt=""/>  
             </div>
           </a>
-
+          <form onSubmit={this.handleSubmit}>
           <div className="navbar-search">
             <div className="navbar-search-2">
               <div className="navbar-search-3">
@@ -79,7 +80,7 @@ class Navbar extends React.Component {
               </div>
             </div>
           </div>
-
+          </form>
           <div className="navbar-list">
             <div className="navbar-list-1">
 

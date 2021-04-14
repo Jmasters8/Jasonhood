@@ -15,6 +15,18 @@ class Api::UsersController < ApplicationController
   #   @user = User.find(params[:id])
   # end
 
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.buying_power += params[:buyingPower].to_i
+
+    if @user.buying_power >= 0
+      @user.save!
+      render :show
+    else
+      render json: ['Unable to process request']
+    end
+  end
+
 
   private
 

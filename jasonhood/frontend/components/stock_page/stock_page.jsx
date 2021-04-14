@@ -9,7 +9,8 @@ class Stock extends React.Component {
     this.state = { 
       collapsed: true,
       start: new Date().setHours(6, 0, 0, 0) / 1000,
-      now: Math.floor(Date.now() / 1000)
+      now: Math.floor(Date.now() / 1000),
+      shares: ""
      }
     this.toggleDescription = this.toggleDescription.bind(this);
   }
@@ -17,7 +18,9 @@ class Stock extends React.Component {
  
 
   componentDidMount() {
-    this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+    this.props.fetchStockInfo(this.props.match.params.symbol)
+    .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+    .then(() => this.props.fetchStockNews(this.props.match.params.symbol), '2021-03-01', '2021-03-09')
     // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
     
   }
@@ -25,6 +28,15 @@ class Stock extends React.Component {
     const currentState = this.state.collapsed;
     this.setState({ collapsed: !currentState });
     // console.log(this.state)
+  }
+
+  handleInput(type) {
+    return (e) => 
+    this.setState({[type]: e.target.value})
+  }
+
+  handleSubmit(e) {
+    e.preventDefault
   }
 
   isCollapsed() {
@@ -49,16 +61,28 @@ class Stock extends React.Component {
     }
   }
 
+  isGood() {
+    if ((this.props.stock.data['c'][this.props.stock.data['c'].length - 1] - this.props.stock.data['o'][0]).toFixed(2) >= 0) {
+      return '+' + (this.props.stock.data['c'][this.props.stock.data['c'].length - 1] - this.props.stock.data['o'][0]).toFixed(2)
+    } else {
+      return (this.props.stock.data['c'][this.props.stock.data['c'].length - 1] - this.props.stock.data['o'][0]).toFixed(2)
+    }
+  }
+
   render() {
     if (this.props.stock === undefined || this.props.data === undefined) {
       return null
     }
+    let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
+    let openPrice = this.props.stock.data['o'][0]
+    
+
     // console.log(this.props.data['c'][this.props.data['c'].length - 1])
     // console.log(this.props.stock.data)
     // console.log(this.props.data.Name)
     const showStock = () => {
       
-      // console.log(this.props.stock.data)
+      // console.log(this.props)
       return (
         
         <div className="main">
@@ -147,10 +171,10 @@ class Stock extends React.Component {
                               <div className="price-change">
                                 <span className="price-change-today">
                                   <span>
-                                    -$0.58
+                                    {this.isGood()}
                                   </span>
                                   <span className="price-change-today-span-2">
-                                    (-$1.50%)
+                                    ({((currentPrice - openPrice) / openPrice * 100).toFixed(2)}%)
                                   </span>
                                 </span>
                                 <span className="price-change-today-1">Today</span>
@@ -367,7 +391,7 @@ class Stock extends React.Component {
                                 <div className="trade-stock-name-1">
                                   <div className="trade-stock-name-2">
                                     <span className="trade-stock-name-3">
-                                      Buy STOC
+                                      Buy {this.props.stock.Symbol}
                                     </span>
                                   </div>
                                 </div>
@@ -409,7 +433,9 @@ class Stock extends React.Component {
                                       </label>
                                       <div className="shares-amount-2">
                                         <div className="shares-amount-3">
-                                          <input className="shares-amount-input" type="text" placeholder="0"/>
+                                          
+                                          <input className="shares-amount-input" value={this.state.shares} onChange={this.handleInput('shares')} type="text" placeholder="0"/>
+                                          
                                         </div>
                                       </div>
                                     </div>
@@ -469,7 +495,7 @@ class Stock extends React.Component {
                                 <div className="money-available-1">
                                   <span className="money-available-2">
                                     <div className="money-available-3">
-                                      $17.82 Buying Power Available
+                                      ${this.props.currentUser.buying_power} Buying Power Available
                                     </div>
                                   </span>
                                 </div>
