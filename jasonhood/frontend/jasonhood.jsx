@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.getState = store.getState;
   // window.dispatch = store.dispatch;
   let store;
-  console.log(window.currentUser)
   if (window.currentUser) {
     const preloadedState = {
       session: { id: window.currentUser.users.id },

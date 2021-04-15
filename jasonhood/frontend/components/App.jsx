@@ -6,16 +6,17 @@ import NavbarContainer from './navbar/navbar_container'
 import StockContainer from './stock_page/stock_page_container'
 import GraphContainer from './graph/graph_container'
 import { Route } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 
 
 
 const App = () => (
   <div>
     <Route exact path="/" component={HomePageContainer}/>
-    <Route path="/login" component={LoginFormContainer}/>
-    <Route path="/signup" component={SignupFormContainer}/>
+    <AuthRoute path="/login" component={LoginFormContainer}/>
+    <AuthRoute path="/signup" component={SignupFormContainer}/>
     {/* <Route path="/stocks/:symbol" component={GraphContainer}/> */}
-    <Route path="/stocks/:symbol" component={StockContainer}/>
+    <ProtectedRoute path="/stocks/:symbol" component={StockContainer}/>
     
     
   </div>

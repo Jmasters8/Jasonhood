@@ -1,0 +1,109 @@
+.news {
+  margin-bottom: 60px;
+}
+
+.news-title {
+  margin-bottom: 0;
+  height: 49px;
+  border-bottom: 1px solid;
+  border-bottom-color: #30363a;
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-title-1 {
+  margin: 0px;
+  color: white;
+  text-decoration: unset;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.33px;
+}
+
+.news-articles {
+
+}
+
+.article-1 {
+  border-radius: 4px;
+  margin: 0 -30px;
+  padding: 30px;
+  position: relative;
+}
+
+.article-2 {
+  display: flex;
+  min-height: 134px;
+}
+
+.article-1:hover {
+  background-color: rgb(30,33,36);
+  border-radius: 6px;
+}
+
+.article-source {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.article-date {
+  color: rgb(121,133,139);
+  display: inline;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.article-title {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  position: absolute;
+  margin-top: 30px;
+  width: 50%;
+}
+
+.article-summary {
+  color: #79858b;
+  display: inline;
+  font-weight: 400;
+  font-size: 12px;
+  position: absolute;
+  margin-top: 75px;
+  width: 50%;
+}
+
+.article-image {
+  width: 220px;
+  height: 170px;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  position: absolute;
+}
+
+.article-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.news-button {
+  -webkit-appearance: button;
+  background: none;
+  border: 0px;
+  text-align: unset;
+  color: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.news-button-text {
+  color: rgb(255, 80, 0);
+  font-size: 15px;
+  font-weight: 700;
+}

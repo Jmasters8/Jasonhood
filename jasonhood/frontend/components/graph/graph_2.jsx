@@ -12,7 +12,6 @@ import { format, parseISO, subDays } from "date-fns";
 class GraphTwo extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
 
     this.state = {
       hoverTime: "",
@@ -50,7 +49,6 @@ class GraphTwo extends React.Component {
   render() {
 
     
-    console.log(this.state.currentPrice)
     // console.log(this.props)
      
     function getTime(unixTime) {

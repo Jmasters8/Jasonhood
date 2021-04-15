@@ -2,6 +2,7 @@ import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import GraphTwoContainer from '../graph/graph_container_2';
 import GraphTwo from '../graph/graph_2';
+import StockNewsContainer from '../stock_news/stock_news_container'
 
 import Odometer from 'react-odometerjs';
 import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
@@ -13,10 +14,11 @@ class Stock extends React.Component {
     this.state = { 
       collapsed: true,
       start: new Date().setHours(6, 0, 0, 0) / 1000,
-      // now: Math.floor(Date.now() / 1000),
       now: new Date().setHours(13, 0, 0, 0) / 1000,
-      shares: 0
+      shares: 0,
+      buyingPower: this.props.currentUser.buying_power
      }
+
     this.toggleDescription = this.toggleDescription.bind(this);
     this.handleClick = this.handleClick.bind(this)
   }
@@ -26,7 +28,7 @@ class Stock extends React.Component {
   componentDidMount() {
     this.props.fetchStockInfo(this.props.match.params.symbol)
     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-    .then(() => this.props.fetchStockNews(this.props.match.params.symbol), '2021-03-01', '2021-03-09')
+    // .then(() => this.props.fetchStockNews(this.props.match.params.symbol), '2021-03-01', '2021-03-09')
     // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
     
   }
@@ -43,9 +45,12 @@ class Stock extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
+    let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
+    debugger
+    this.setState({buyingPower: (this.state.buyingPower - (currentPrice * this.state.shares).toFixed(2)) })
     this.props.addStockAsset(this.props.stock.Symbol, this.props.currentUser.id, this.state.shares, this.props.stock.data['c'][this.props.stock.data['c'].length - 1])
-    console.log('hello')
-
+    .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUser.id))
+    debugger
   }
 
   isCollapsed() {
@@ -402,6 +407,8 @@ class Stock extends React.Component {
                               </div>
                             </div>
                           </section>
+
+                          <StockNewsContainer symbol={this.props.match.params.symbol} />
   
                         </div>
 
@@ -472,7 +479,7 @@ class Stock extends React.Component {
                                       </div>
                                       <div className="trade-market-price-4">
                                         <span className="trade-market-price-5">
-                                        ${this.props.data['c'][this.props.data['c'].length - 1]}
+                                        ${this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)}
                                         </span>
                                       </div>
                                     </div>

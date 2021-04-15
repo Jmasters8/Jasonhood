@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -9,13 +9,12 @@ class Navbar extends React.Component {
       stockSymbol: ""
     }
 
-    // console.log(this.state)
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.handleInput = this.handleInput.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleInput(type) {
@@ -27,7 +26,11 @@ class Navbar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // this.props.fetchStock(this.state.stockSymbol.toUpperCase())
-    
+  }
+
+  handleSearch(e) {
+    e.preventDefault();
+    <Link to ={`/stocks/${this.state.stockSymbol}`}></Link>
   }
 
   onKeyUp() {
@@ -41,7 +44,6 @@ class Navbar extends React.Component {
 
   handleKeyPress(event) {
     if(event.key === 'Enter'){
-      console.log(this.state)
       // <Link to={`/stocks/${this.state.stockSymbol}`}></Link>
     }
   }
@@ -56,11 +58,11 @@ class Navbar extends React.Component {
 
       <header className="navbar">
         <div className="navbar-1">
-          <a className="navbar-logo">
+          <div className="navbar-logo">
             <div className="navbar-logo-1">
-              <img src="https://i.imgur.com/iU9XhbV.png" alt=""/>  
+              <Link to="/"><img src="https://i.imgur.com/iU9XhbV.png" alt=""/></Link>
             </div>
-          </a>
+          </div>
           <form onSubmit={this.handleSubmit}>
           <div className="navbar-search">
             <div className="navbar-search-2">
@@ -81,6 +83,7 @@ class Navbar extends React.Component {
             </div>
           </div>
           </form>
+          <Link className="search-link-button" to ={`/stocks/${this.state.stockSymbol}`}><button className="search-link-button-1">Search</button></Link>
           <div className="navbar-list">
             <div className="navbar-list-1">
 
