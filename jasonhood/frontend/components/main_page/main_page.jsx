@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import GraphContainer from '../graph/graph_container';
+import HomeGraph from '../home_graph/home_graph';
 
 
 class MainPage extends React.Component {
@@ -14,11 +15,30 @@ class MainPage extends React.Component {
 
     this.state = {
       stockSymbol: "",
-      buyingPower: 0
+      buyingPower: 0,
+      start: new Date().setHours(6, 0, 0, 0) / 1000,
+      now: new Date().setHours(13, 0, 0, 0) / 1000
       // buyingPower: this.props.user.buyingPower
     }
     this.handleClick = this.handleClick.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  // getAssets() {
+  //   let myAssets = []
+
+  //   for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
+  //     let asset = this.props.assets[i];
+  //     console.log(asset)
+  //     if (asset.ticker !== null && myAssets[assets.]) {
+  //       myAssets.push({ticker: asset.ticker, })
+  //     }
+  //     // total += totalAssetPrice
+  //   }
+  // }
+
+  componentDidMount() {
+    // this.props.fetchStockData(this.props.match.params.symbol)
   }
 
   handleClick(e) {
@@ -37,6 +57,23 @@ class MainPage extends React.Component {
   }
 
   render() {
+    // console.log(this.props)
+    // console.log(this.getAssets())
+
+    // console.log(this.props.assets[20])
+    const totalAssets = () => {
+      let total = 0;
+      // console.log(this.props.assets[0])
+
+      for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
+        let asset = this.props.assets[i];
+        // console.log(asset)
+        let totalAssetPrice = asset.amount * asset.price
+        total += totalAssetPrice
+      }
+      return total.toFixed(2)
+    }
+
     return (
       <div className="main">
         <div className="main-filler">
@@ -55,7 +92,7 @@ class MainPage extends React.Component {
                         <header className="left-3">
                           <div className="left-4">
                             <h1 className="left-4-header">
-                              $500,000.88
+                              ${totalAssets()}
                             </h1>
                           </div>
                           <div className="left-5">
@@ -71,7 +108,7 @@ class MainPage extends React.Component {
                           </div>
                         </header>
                         <div className="dashboard-graph">
-
+                          <HomeGraph />
                         </div>
                       </section>
                       <div className="dashboard-buying-power">

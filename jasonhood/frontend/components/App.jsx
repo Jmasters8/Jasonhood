@@ -11,7 +11,6 @@ import { Route } from 'react-router-dom';
 
 const App = () => (
   <div>
-    <Route exact path="/potato" component={NavbarContainer}/>
     <Route exact path="/" component={HomePageContainer}/>
     <Route path="/login" component={LoginFormContainer}/>
     <Route path="/signup" component={SignupFormContainer}/>

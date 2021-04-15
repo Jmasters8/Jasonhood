@@ -5,7 +5,8 @@ import { fetchStock, fetchStockInfo } from '../../actions/stocks';
 
 const mapStateToProps = (state, ownProps) => ({
   stock: ownProps.stock,
-  data: ownProps.stock.data
+  data: ownProps.stock.data,
+  ownProps: ownProps
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -5,13 +5,22 @@ class Api::StockAssetsController < ApplicationController
     if @asset.save
       render :show
     else
-      render json: @assets.errors.full_messages, status: 422
+      render json: @asset.errors.full_messages, status: 422
     end
+  end
+
+  def destroy
+    @asset = StockAsset.find_by(id: params[:id])
+    @asset.destroy
+    render :show
   end
 
 
   private
   def stock_asset_params
-    params.require(:stock_asset).permit(:user_id, :stock_id, :amount)
+    params.require(:stock_asset).permit(:owner_id, :ticker, :amount, :price)
   end
 end
+
+
+#add price in schem,a

@@ -32,7 +32,7 @@ export const fetchStockInfo = (symbol) => {
 export const fetchStockData = (symbol, start, end) => {
   return $.ajax({
     method: 'GET',
-    url: `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=5&from=${start}&to=${end}&token=c1o93ii37fkqrr9scqp0`
+    url: `https://finnhub.io/api/v1/stock/candle?symbol=${symbol.toUpperCase()}&resolution=5&from=${start}&to=${end}&token=c1o93ii37fkqrr9scqp0`
     // url: `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=c1o93ii37fkqrr9scqp0`
   })
 }
@@ -40,6 +40,6 @@ export const fetchStockData = (symbol, start, end) => {
 export const fetchStockNews = (symbol, start, end) => {
   return $.ajax({
     method: 'GET',
-    url: `https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=${start}&to=${end}&token=c1o93ii37fkqrr9scqp0`
+    url: `https://finnhub.io/api/v1/company-news?symbol=${symbol.toUpperCase()}&from=${start}&to=${end}&token=c1o93ii37fkqrr9scqp0`
   })
 }

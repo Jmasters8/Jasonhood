@@ -1,6 +1,10 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import GraphTwoContainer from '../graph/graph_container_2';
+import GraphTwo from '../graph/graph_2';
+
+import Odometer from 'react-odometerjs';
+import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
 
 class Stock extends React.Component {
   constructor(props) {
@@ -9,10 +13,12 @@ class Stock extends React.Component {
     this.state = { 
       collapsed: true,
       start: new Date().setHours(6, 0, 0, 0) / 1000,
-      now: Math.floor(Date.now() / 1000),
-      shares: ""
+      // now: Math.floor(Date.now() / 1000),
+      now: new Date().setHours(13, 0, 0, 0) / 1000,
+      shares: 0
      }
     this.toggleDescription = this.toggleDescription.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
  
@@ -35,8 +41,11 @@ class Stock extends React.Component {
     this.setState({[type]: e.target.value})
   }
 
-  handleSubmit(e) {
-    e.preventDefault
+  handleClick(e) {
+    e.preventDefault();
+    this.props.addStockAsset(this.props.stock.Symbol, this.props.currentUser.id, this.state.shares, this.props.stock.data['c'][this.props.stock.data['c'].length - 1])
+    console.log('hello')
+
   }
 
   isCollapsed() {
@@ -71,11 +80,24 @@ class Stock extends React.Component {
 
   render() {
     if (this.props.stock === undefined || this.props.data === undefined) {
-      return null
+      return (
+        <div className="loading">
+          <div className="loading-text">loading...</div>
+          <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/>
+        </div>
+      )
     }
     let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
     let openPrice = this.props.stock.data['o'][0]
-    
+    // console.log(this.props.currentUser.stock_assets)
+
+    const totalDollarAmount = () => {
+      let total = 0;
+      this.props.currentUser.stock_assets.forEach(obj => {
+        total += (obj.amount * currentPrice)
+      })
+      return total
+    }
 
     // console.log(this.props.data['c'][this.props.data['c'].length - 1])
     // console.log(this.props.stock.data)
@@ -163,7 +185,7 @@ class Stock extends React.Component {
                               <div className="graph-header-1">
                                 <h1 className="graph-header-title">
                                   <span className="graph-header-title-1">
-                                  ${this.props.data['c'][this.props.data['c'].length - 1]}
+                                  {/* ${currentPrice.toFixed(2)} */}
                                   </span>
                                 </h1>
                               </div>
@@ -463,7 +485,7 @@ class Stock extends React.Component {
                                         </div>
                                         <div className="trade-estimated-cost-4">
                                           <span className="trade-estimated-cost-5">
-                                            $12.00
+                                            ${(currentPrice * this.state.shares).toFixed(2)}
                                           </span>
                                         </div>
                                       </div>
@@ -478,7 +500,7 @@ class Stock extends React.Component {
                                   <div className="review-order-2">
                                     <div className="review-order-3">
                                       <div className="review-order-4">
-                                        <button className="review-order-5">
+                                        <button onClick={this.handleClick} className="review-order-5">
                                           <div className="review-order-6">
                                             <span className="review-order-7">
                                               Complete Order
