@@ -76,14 +76,21 @@ class GraphTwo extends React.Component {
         data.push({price: this.props.data['o'][i], date: getTime(this.props.data['t'][i]) + "PM"})
       }
     }
-    
 
+    let lineColor = () => {
+      if (currentPrice - openPrice >= 0) {
+        return "rgb(0,200,5)"
+      } else {
+        return "rgb(255,80,0)"
+      }
+    }
+    
     return (
       <div className="main-graph-1">
         <Odometer className="banana" value={this.state.currentPrice}/>
         <ResponsiveContainer width="100%" height="80%" >
           <AreaChart data={data} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice}>
-            <Area dataKey="price" stroke="#00C805" strokeWidth={2} fill="#000000"/>
+            <Area dataKey="price" stroke={`${lineColor()}`} strokeWidth={2} fill="#000000"/>
             <XAxis dataKey="date" hide/>
             <YAxis dataKey="price" type="number" domain={[this.props.data['c'][0], this.props.data['c'][this.props.data[this.props.data.length - 1]]]} hide/>
             <Tooltip 
