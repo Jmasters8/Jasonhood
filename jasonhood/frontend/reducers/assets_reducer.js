@@ -12,7 +12,7 @@ const assetsReducer = (state = {}, action) => {
       nextState[action.asset.id] = action.asset
       return nextState;
     case RECEIVE_CURRENT_USER:
-      return action.assets
+      return action.assets || state
     default:
       return state
   }
