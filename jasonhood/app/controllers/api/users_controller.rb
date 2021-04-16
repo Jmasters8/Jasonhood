@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.buying_power += params[:buyingPower].to_i
+    @user.buying_power = params[:buyingPower].to_i
 
     if @user.buying_power >= 0
       @user.save!

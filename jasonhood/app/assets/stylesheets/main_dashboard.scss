@@ -87,8 +87,8 @@
 }
 
 .dashboard-buying-power {
-  margin-bottom: 60px;
-  margin-top: -24px;
+  margin-bottom: 30px;
+  // margin-top: -24px;
   height: 73px;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .dash-toggle-2 {
-  padding: 24px;
+  // padding: 24px;
   height: 226px;
 }
 
@@ -340,4 +340,55 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: unset;
+}
+
+.main-graph-dayz {
+  border-bottom: 1px solid;
+  border-color: #30363a;
+  height: 33px;
+  margin-top: 50;
+  margin-bottom: 20px;
+}
+
+.dashboard-list {
+  margin-bottom: 60px;
+}
+
+.dashboard-list-1 {
+  border-bottom-color: rgb(48, 54, 58);
+  border-bottom-style: none;
+  width: inherit;
+  height: 224px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.dashboard-list-2 {
+  padding: 24px 0px;
+  height: 176px;
+}
+
+.dashboard-list-3 {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  height: 28px;
+}
+
+.dashboard-list-4 {
+  margin: 0px;
+  color: white;
+  text-decoration: unset;
+  font-weight: 500;
+  font-size: 21px;
+}
+
+.dashboard-list-items {
+  margin-bottom: -8px;
+  max-height: 132px;
+  overflow: hidden;
+  height: 132px;
 }

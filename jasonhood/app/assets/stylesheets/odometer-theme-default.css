@@ -109,3 +109,9 @@
 .odometer.odometer-theme-default .odometer-value {
   text-align: center;
 }
+
+.odometer.odometer-auto-theme {
+  position: absolute;
+  top: 2px;
+  font-size: 32px;
+}

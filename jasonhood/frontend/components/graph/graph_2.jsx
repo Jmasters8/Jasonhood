@@ -15,7 +15,7 @@ class GraphTwo extends React.Component {
 
     this.state = {
       hoverTime: "",
-      currentPrice: this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
+      currentPrice: (this.props.stock.data['c'][this.props.stock.data['c'].length - 1]).toFixed(2)
     }
     this.handleMouseHover = this.handleMouseHover.bind(this);
     this.resetHoverPrice = this.resetHoverPrice.bind(this);
@@ -32,7 +32,7 @@ class GraphTwo extends React.Component {
   }
 
   resetHoverPrice() {
-    this.setState({currentPrice: this.props.stock.data['c'][this.props.stock.data['c'].length - 1]});
+    this.setState({currentPrice: (this.props.stock.data['c'][this.props.stock.data['c'].length - 1]).toFixed(2)});
   }
 
   handleHoverTime() {
@@ -62,18 +62,18 @@ class GraphTwo extends React.Component {
     }
   
     let data = [];
-    let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
+    let currentPrice = (this.props.stock.data['c'][this.props.stock.data['c'].length - 1]).toFixed(2)
     let openPrice = this.props.stock.data['o'][0]
 
     // for (let i = 0; i < this.props.data['o'].length; i++) {
     //   data.push({value: this.props.data['o'][i], date: getTime(this.props.data['t'][i])})
     // }
 
-    for (let i = 0; i < this.props.data['o'].length; i++) {
+    for (let i = 0; i < this.props.data['c'].length; i++) {
       if (i < 72) {
-        data.push({price: this.props.data['o'][i], date: getTime(this.props.data['t'][i]) + "AM"})
+        data.push({price: (this.props.data['c'][i]).toFixed(2), date: getTime(this.props.data['t'][i]) + "AM"})
       } else {
-        data.push({price: this.props.data['o'][i], date: getTime(this.props.data['t'][i]) + "PM"})
+        data.push({price: (this.props.data['c'][i]).toFixed(2), date: getTime(this.props.data['t'][i]) + "PM"})
       }
     }
 

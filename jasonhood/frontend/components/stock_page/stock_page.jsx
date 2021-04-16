@@ -20,7 +20,7 @@ class Stock extends React.Component {
      }
 
     this.toggleDescription = this.toggleDescription.bind(this);
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
  
@@ -46,11 +46,9 @@ class Stock extends React.Component {
   handleClick(e) {
     e.preventDefault();
     let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
-    debugger
     this.setState({buyingPower: (this.state.buyingPower - (currentPrice * this.state.shares).toFixed(2)) })
-    this.props.addStockAsset(this.props.stock.Symbol, this.props.currentUser.id, this.state.shares, this.props.stock.data['c'][this.props.stock.data['c'].length - 1])
+    this.props.addStockAsset(this.props.stock.Symbol, this.props.currentUser.id, this.state.shares, (this.props.stock.data['c'][this.props.stock.data['c'].length - 1]).toFixed(2))
     .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUser.id))
-    debugger
   }
 
   isCollapsed() {
@@ -92,9 +90,18 @@ class Stock extends React.Component {
         </div>
       )
     }
+
+  
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+    console.log(this.props)
     let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
     let openPrice = this.props.stock.data['o'][0]
-    // console.log(this.props.currentUser.stock_assets)
+
+    let percentChange = (((currentPrice - openPrice) / openPrice) * 100).toFixed(2)
 
     const totalDollarAmount = () => {
       let total = 0;
@@ -103,6 +110,149 @@ class Stock extends React.Component {
       })
       return total
     }
+
+    const sharesAmount = () => {
+      let sum = 0;
+      let assets = Object.values(this.props.assets)
+
+      for (let i = 0; i < assets.length; i++) {
+        let asset = assets[i];
+        if (asset.ticker === this.props.stock.Symbol) {
+          sum += asset.amount
+        }
+      }
+      return sum;
+    }
+
+    const portfolioDiversity = () => {
+      let totalPortfolio = 0
+      let assets = Object.values(this.props.assets)
+
+      for (let i = 0; i < assets.length; i++) {
+        let asset = assets[i];
+        totalPortfolio += asset.amount
+      }
+      return (totalAssets() / totalPortfolio).toFixed(2)
+    }
+
+    const averageCost = () => {
+      let sum = 0;
+      let count = 0
+      let assets = Object.values(this.props.assets)
+
+      for (let i = 0; i < assets.length; i++) {
+        let asset = assets[i];
+        if (asset.ticker === this.props.stock.Symbol) {
+          sum += (asset.amount * asset.price)
+          count += asset.amount
+        }
+      }
+      return (sum / count).toFixed(2)
+    }
+
+    const ownedAssets = () => {
+      if (totalAssets() > 0) {
+        return (
+          <section className="owned-assets">
+            <div className="owned-assets-1">
+              <div className="owned-assets-2">
+                <header className="owned-assets-3">
+                  <div className="owned-assets-4">
+                    Your Market Value
+                  </div>
+                  <h2 className="owned-assets-5">
+                    <span className="owned-assets-6">
+                      ${numberWithCommas(totalAssets())}
+                    </span>
+                  </h2>
+                </header>
+                <table className="owned-assets-table">
+                  <tbody className="owned-assets-table-1">
+                    <tr className="owned-assets-table-2">
+                      <td className="owned-assets-table-3">
+                        Cost
+                      </td>
+                      <td className="owned-assets-table-filler"></td>
+                      <td className="owned-assets-table-4">
+                        ${numberWithCommas(totalAssets())}
+                      </td>
+                    </tr>
+                    <tr className="owned-assets-table-2">
+                      <td className="owned-assets-table-3">
+                        Today's Return
+                      </td>
+                      <td className="owned-assets-table-filler"></td>
+                      <td className="owned-assets-table-4">
+                        ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%)
+                      </td>
+                    </tr>
+                    <tr className="owned-assets-table-2">
+                      <td className="owned-assets-table-3">
+                        Total Return
+                      </td>
+                      <td className="owned-assets-table-filler"></td>
+                      <td className="owned-assets-table-4">
+                      ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="owned-assets-2-2">
+                <header className="owned-assets-3">
+                  <div className="owned-assets-4">
+                    Your Average Cost
+                  </div>
+                  <h2 className="owned-assets-5">
+                    <span className="owned-assets-6">
+                      ${averageCost()}
+                    </span>
+                  </h2>
+                </header>
+                <table className="owned-assets-table">
+                  <tbody className="owned-assets-table-1">
+                    <tr className="owned-assets-table-2">
+                      <td className="owned-assets-table-3">
+                        Shares
+                      </td>
+                      <td className="owned-assets-table-filler"></td>
+                      <td className="owned-assets-table-4">
+                        {numberWithCommas(sharesAmount())}
+                      </td>
+                    </tr>
+                    <tr className="owned-assets-table-2">
+                      <td className="owned-assets-table-3">
+                        Portfolio Diversity
+                      </td>
+                      <td className="owned-assets-table-filler"></td>
+                      <td className="owned-assets-table-4">
+                        {portfolioDiversity()}%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )
+      }
+    }
+
+    const totalAssets = () => {
+      let totalPrice = 0;
+      let assets = Object.values(this.props.assets)
+
+      for (let i = 0; i < assets.length; i++) {
+        let asset = assets[i];
+        // console.log(asset)
+        if (asset.ticker === this.props.stock.Symbol) {
+          totalPrice += (asset.amount * asset.price)
+        }
+      }
+      return totalPrice.toFixed(2)
+    }
+
+    // console.log(totalAssets())
 
     // console.log(this.props.data['c'][this.props.data['c'].length - 1])
     // console.log(this.props.stock.data)
@@ -214,13 +364,46 @@ class Stock extends React.Component {
                                 <div className="main-graph-2">
                                   <GraphTwoContainer stock={this.props.stock} />
                                 </div>
-                                <nav className="main-graph-days">
-
-                                </nav>
+                                <div className="main-graph-days">
+                                  <div className="main-graph-days-1">
+                                    <button className="main-graph-days-2">
+                                      <span className="main-graph-days-3">
+                                        1D
+                                      </span>
+                                    </button>
+                                    <button className="main-graph-days-4">
+                                      <span className="main-graph-days-5">
+                                        1W
+                                      </span>
+                                    </button>
+                                    <button className="main-graph-days-4">
+                                      <span className="main-graph-days-5">
+                                        1M
+                                      </span>
+                                    </button>
+                                    <button className="main-graph-days-4">
+                                      <span className="main-graph-days-5">
+                                        3M
+                                      </span>
+                                    </button>
+                                    <button className="main-graph-days-4">
+                                      <span className="main-graph-days-5">
+                                        1Y
+                                      </span>
+                                    </button>
+                                    <button className="main-graph-days-4">
+                                      <span className="main-graph-days-5">
+                                        5Y
+                                      </span>
+                                    </button>
+                                  </div>
+                                </div>
                               </div>
                             </div>
 
                           </section>
+
+                          {ownedAssets()}
 
                           <section className="about">
                             <header className="about-title">

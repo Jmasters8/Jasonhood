@@ -30,7 +30,8 @@ class Navbar extends React.Component {
 
   handleSearch(e) {
     e.preventDefault();
-    <Link to ={`/stocks/${this.state.stockSymbol}`}></Link>
+    // <Link to={`/stocks/${this.state.stockSymbol}`} onClick={()=>this.setState({a: !this.state.a})} key={window.location.pathname} ></Link>
+    <Link to={`/stocks/${this.state.stockSymbol}`} key={window.location.pathname} ></Link>
   }
 
   onKeyUp() {
@@ -39,6 +40,15 @@ class Navbar extends React.Component {
         this.props.history.push(`/stocks/${this.state.stockSymbol}`)
         // <Link to={`/stocks/${this.state.stockSymbol}`}></Link>
       }
+    }
+  }
+  componentWillUnMount() {
+    this.setState({stockSymbol: ""})
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.stockSymbol !== this.state.stockSymbol) {
+      console.log('pokemons state has changed.')
     }
   }
 
@@ -83,7 +93,7 @@ class Navbar extends React.Component {
             </div>
           </div>
           </form>
-          <Link className="search-link-button" to ={`/stocks/${this.state.stockSymbol}`}><button className="search-link-button-1">Search</button></Link>
+          <Link className="search-link-button" to={`/stocks/${this.state.stockSymbol}`}><button className="search-link-button-1">Search</button></Link>
           <div className="navbar-list">
             <div className="navbar-list-1">
 
