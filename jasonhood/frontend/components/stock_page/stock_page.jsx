@@ -135,6 +135,22 @@ class Stock extends React.Component {
       return (totalAssets() / totalPortfolio).toFixed(2)
     }
 
+    const portfolioDiversity2 = () => {
+      let totalPortfolio = 0
+      let totalStockPrice = 0
+      let assets = Object.values(this.props.assets)
+
+      for (let i = 0; i < assets.length; i++) {
+        let asset = assets[i];
+        totalPortfolio += (asset.amount * asset.price)
+        if (asset.ticker === this.props.stock.Symbol) {
+          totalStockPrice += (asset.amount * asset.price)
+        }
+      }
+      return ((totalStockPrice / totalPortfolio) * 100).toFixed(2)
+    }
+
+
     const averageCost = () => {
       let sum = 0;
       let count = 0

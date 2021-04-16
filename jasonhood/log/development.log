@@ -49742,3 +49742,95 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 1.1ms)
 
 
+Started POST "/api/session" for ::1 at 2021-04-16 08:52:58 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"MaidMarian4evr@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (14.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "MaidMarian4evr@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "iOU5LMKiPsdCuifZkhAHHw"], ["updated_at", "2021-04-16 15:52:58.824715"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (29.5ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (32.0ms)
+  Rendered api/users/show.json.jbuilder (33.8ms)
+Completed 200 OK in 238ms (Views: 9.2ms | ActiveRecord: 49.0ms)
+
+
+Started PATCH "/api/users/15" for ::1 at 2021-04-16 08:53:36 -0700
+Processing by Api::UsersController#update as JSON
+  Parameters: {"buyingPower"=>"1000", "id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "buying_power" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["buying_power", 1000], ["updated_at", "2021-04-16 15:53:36.696807"], ["id", 15]]
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:23
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered api/users/show.json.jbuilder (4.0ms)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/stock_assets" for ::1 at 2021-04-16 08:53:50 -0700
+Processing by Api::StockAssetsController#create as JSON
+  Parameters: {"stock_asset"=>{"ticker"=>"LI", "owner_id"=>"15", "amount"=>"1", "price"=>"19.18"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  [1m[36mStockAsset Create (0.4ms)[0m  [1m[32mINSERT INTO "stock_assets" ("owner_id", "amount", "created_at", "updated_at", "ticker", "price") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["owner_id", 15], ["amount", 1], ["created_at", "2021-04-16 15:53:50.406821"], ["updated_at", "2021-04-16 15:53:50.406821"], ["ticker", "LI"], ["price", 19]]
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  Rendering api/stock_assets/show.json.jbuilder
+  Rendered api/stock_assets/_stock_asset.json.jbuilder (0.2ms)
+  Rendered api/stock_assets/show.json.jbuilder (1.1ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/api/users/15" for ::1 at 2021-04-16 08:53:50 -0700
+Processing by Api::UsersController#update as JSON
+  Parameters: {"buyingPower"=>"980.82", "id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "buying_power" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["buying_power", 980], ["updated_at", "2021-04-16 15:53:50.423273"], ["id", 15]]
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:23
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (5.4ms)
+  Rendered api/users/show.json.jbuilder (7.9ms)
+Completed 200 OK in 16ms (Views: 11.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-04-16 09:01:18 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iOU5LMKiPsdCuifZkhAHHw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (28.3ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (31.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 759ms (Views: 716.5ms | ActiveRecord: 41.3ms)
+
+

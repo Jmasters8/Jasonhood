@@ -46,11 +46,11 @@ class Navbar extends React.Component {
     this.setState({stockSymbol: ""})
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.stockSymbol !== this.state.stockSymbol) {
-      console.log('pokemons state has changed.')
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.stockSymbol !== this.state.stockSymbol) {
+      
+  //   }
+  // }
 
   handleKeyPress(event) {
     if(event.key === 'Enter'){
