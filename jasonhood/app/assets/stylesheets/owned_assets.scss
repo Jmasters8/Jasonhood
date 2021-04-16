@@ -10,7 +10,8 @@
   margin-bottom: -64px;
   margin-right: -24px;
   position: sticky;
-  height: calc(100vh - (64px, 64px) - 36px);
+  // height: calc(100vh - (64px, 64px) - 36px);
+  height: 600px;
   padding: 24px;
   top: calc((64px, 64px) + 12px);
 }

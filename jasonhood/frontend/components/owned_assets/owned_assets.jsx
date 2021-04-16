@@ -57,7 +57,7 @@ class OwnedAssets extends React.Component {
 
     return (
       <div className="right-1">
-        {/* <div className="right-2">
+        <div className="right-2">
           <div className="right-3">
             <div className="right-4">
               <div className="right-5">
@@ -87,7 +87,7 @@ class OwnedAssets extends React.Component {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     )
   }

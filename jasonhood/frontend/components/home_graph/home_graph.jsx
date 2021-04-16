@@ -21,15 +21,19 @@ class HomeGraph extends React.Component {
       return formattedTime
     }
 
-    let data = [{price: 10, date: 1}, {price: 11, date: 2}, {price: 15, date: 3}, {price: 13, date: 4},
-                {price: 2, date: 5}, {price: 17, date: 6}, {price: 14, date: 7}, {price: 21, date: 8},
-                {price: 10, date: 9}, {price: 1, date: 10}, {price: 32, date: 11}, {price: 15, date: 12},
-                {price: 17, date: 13}, {price: 25, date: 14,}, {price: 20, date: 15}, {price: 28, date: 16},
-                {price: 18, date: 17}, {price: 12, date: 18}, {price: 15, date: 19}, {price: 19, date: 20},
-                {price: 11, date: 21}, {price: 12, date: 22}, {price: 30, date: 23}, {price: 28, date: 24},
-                {price: 42, date: 25}, {price: 45, date: 26}, {price: 40, date: 27}, {price: 48, date: 28},
-                {price: 50, date: 29}, {price: 58, date: 30}, {price: 51, date: 31}, {price: 60, date: 32},
-                {price: 42, date: 33}, {price: 22, date: 34} ];
+    let data = [{price: 10, date: '6:00 AM'}, {price: 11, date: '6:05 AM'}, {price: 15, date: '6:10 AM'}, {price: 13, date: '6:15 AM'},
+                {price: 2, date: '6:20 AM'}, {price: 17, date: '6:25 AM'}, {price: 14, date: '6:30 AM'}, {price: 21, date: '6:35 AM'},
+                {price: 10, date: '6:40 AM'}, {price: 1, date: '6:45 AM'}, {price: 32, date: '6:50 AM'}, {price: 15, date: '6:55 AM'},
+                {price: 17, date: '7:00 AM'}, {price: 25, date: '7:05 AM'}, {price: 20, date: '7:10 AM'}, {price: 28, date: '7:15 AM'},
+                {price: 18, date: '7:20 AM'}, {price: 12, date: '7:25 AM'}, {price: 15, date: '7:30 AM'}, {price: 19, date: '7:35 AM'},
+                {price: 11, date: '7:40 AM'}, {price: 12, date: '7:45 AM'}, {price: 30, date: '7:50 AM'}, {price: 28, date: '7:55 AM'},
+                {price: 42, date: '8:00 AM'}, {price: 45, date: '8:05 AM'}, {price: 40, date: '8:10 AM'}, {price: 48, date: '8:15 AM'},
+                {price: 50, date: '8:20 AM'}, {price: 58, date: '8:25 AM'}, {price: 51, date: '8:30 AM'}, {price: 60, date: '8:35 AM'},
+                {price: 42, date: '8:40 AM'}, {price: 22, date: '8:45 AM'}, {price: 38, date: '8:50 AM'}, {price: 70, date: '8:55 AM'},
+                {price: 78, date: '9:00 AM'}, {price: 58, date: '9:05 AM'}, {price: 51, date: '9:10 AM'}, {price: 60, date: '9:15 AM'},
+                {price: 42, date: '9:20 AM'}, {price: 22, date: '9:25 AM'}, {price: 38, date: '9:30 AM'}, {price: 70, date: '9:45 AM'},
+                {price: 78, date: '9:50 AM'}, {price: 65, date: '9:55 AM'}, {price: 69, date: '10:00 AM'}, {price: 75, date: '10:05 AM'},
+                {price: 80, date: '10:15 AM'}, {price: 88, date: '10:20 AM'}, {price: 98, date: '10:25 AM'}, {price: 100, date: '10:30 AM'} ];
 
     // for (let i = 0; i < this.props.data['o'].length; i++) {
     //   if (i < 72) {
