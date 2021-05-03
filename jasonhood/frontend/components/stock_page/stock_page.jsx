@@ -97,7 +97,6 @@ class Stock extends React.Component {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-    console.log(this.props)
     let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
     let openPrice = this.props.stock.data['o'][0]
 
