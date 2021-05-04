@@ -50418,3 +50418,15 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 192ms (Views: 7.8ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for ::1 at 2021-05-03 16:37:33 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ODM-ZZ1Q2N9DNisty5zVAw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.3ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 671ms (Views: 669.6ms | ActiveRecord: 0.5ms)
+
+
