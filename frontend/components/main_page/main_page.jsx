@@ -68,6 +68,7 @@ class MainPage extends React.Component {
       for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
         let asset = this.props.assets[i];
         // console.log(asset)
+        if (!asset.amount) break;
         let totalAssetPrice = asset.amount * asset.price
         total += totalAssetPrice
       }
