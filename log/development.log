@@ -50628,3 +50628,525 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 189ms (Views: 7.8ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for ::1 at 2021-05-04 16:54:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "lVecILoPHUI_pvNaDL86-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-05-04 16:54:19 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "lVecILoPHUI_pvNaDL86-g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "0QT_sH2IC0pLrRvwvcQXLQ"], ["updated_at", "2021-05-04 23:54:19.705236"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.3ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered api/users/show.json.jbuilder (4.6ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-04 16:54:23 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"MaidMarian4evr@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "MaidMarian4evr@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "uIhB70aCdhyxe7xLwR4CWw"], ["updated_at", "2021-05-04 23:54:23.716524"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered api/users/show.json.jbuilder (4.4ms)
+Completed 200 OK in 189ms (Views: 8.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 17:01:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uIhB70aCdhyxe7xLwR4CWw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.4ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (5.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 69ms (Views: 52.1ms | ActiveRecord: 15.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-05-04 17:07:01 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uIhB70aCdhyxe7xLwR4CWw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ZTX9dO1SnqM0lgta9K4kNQ"], ["updated_at", "2021-05-05 00:07:01.255330"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.4ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered api/users/show.json.jbuilder (5.8ms)
+Completed 200 OK in 18ms (Views: 9.4ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-04 17:07:03 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"MaidMarian4evr@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "MaidMarian4evr@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "hxEKsTRjlny2eNcdmBtySA"], ["updated_at", "2021-05-05 00:07:03.410361"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered api/users/show.json.jbuilder (5.6ms)
+Completed 200 OK in 191ms (Views: 9.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 17:24:24 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (14.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hxEKsTRjlny2eNcdmBtySA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.4ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (4.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 56ms (Views: 40.6ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 17:24:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hxEKsTRjlny2eNcdmBtySA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.3ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (18.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-05-04 17:24:54 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hxEKsTRjlny2eNcdmBtySA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "yDfhSp0zX7o-Uhbnbi419Q"], ["updated_at", "2021-05-05 00:24:54.894039"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.3ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered api/users/show.json.jbuilder (4.5ms)
+Completed 200 OK in 17ms (Views: 8.1ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-04 17:25:05 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"MaidMarian4evr@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "MaidMarian4evr@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["updated_at", "2021-05-05 00:25:05.922214"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered api/users/show.json.jbuilder (3.9ms)
+Completed 200 OK in 191ms (Views: 7.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 17:25:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 793ms (Views: 791.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 17:25:36 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 17:25:38 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 620ms (Views: 618.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:27:43 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.6ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (5.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 365ms (ActiveRecord: 15.7ms)
+
+
+
+Errno::ENOENT - No such file or directory @ apply2files - /mnt/c/Users/jmast/OneDrive/Desktop/Full_Stack_Project/jasonhood/tmp/cache/assets/sprockets/v3.0/Tt/Ttan2Z7PAXF8RxUnRw_GUijSpICZv40zoFcM1-m6Unc.cache.70368471935400.9418.659942:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__3485583296985110536_69961379671660'
+
+Started POST "/__better_errors/726977e27bb83a07/variables" for ::1 at 2021-05-04 19:27:43 -0700
+Started GET "/" for ::1 at 2021-05-04 19:27:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 574ms (Views: 572.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:27:56 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 596ms (Views: 594.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:28:10 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.4ms)
+
+
+
+Errno::ENOENT - No such file or directory @ apply2files - /mnt/c/Users/jmast/OneDrive/Desktop/Full_Stack_Project/jasonhood/tmp/cache/assets/sprockets/v3.0/AK/AKxU_SBOF_2Sr40OGmKHG4qcmoGlB82xpxrBnQqB6Jw.cache.70368471933140.9418.927918:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__3485583296985110536_69961379475860'
+
+Started POST "/__better_errors/1f788374e9ac16f4/variables" for ::1 at 2021-05-04 19:28:10 -0700
+Started GET "/" for ::1 at 2021-05-04 19:28:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 791ms (Views: 789.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:28:22 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.5ms)
+
+
+
+Errno::ENOENT - No such file or directory @ apply2files - /mnt/c/Users/jmast/OneDrive/Desktop/Full_Stack_Project/jasonhood/tmp/cache/assets/sprockets/v3.0/fm/fmFMeXz_fY2KaquAqExkZiZ0ebFxrqm5wvJtPc1V8h0.cache.70368471933620.9418.496158:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__3485583296985110536_69961376195720'
+
+Started POST "/__better_errors/8a832ab335187f85/variables" for ::1 at 2021-05-04 19:28:22 -0700
+Started GET "/" for ::1 at 2021-05-04 19:28:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 679ms (Views: 677.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:30:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 0.4ms)
+
+
+
+Errno::ENOENT - No such file or directory @ apply2files - /mnt/c/Users/jmast/OneDrive/Desktop/Full_Stack_Project/jasonhood/tmp/cache/assets/sprockets/v3.0/YF/YFOMtGEVlkgjnQUKA7n-u5lkYGUC8wX45vZnX6s8R34.cache.70368471935000.9418.345495:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__3485583296985110536_69961383801180'
+
+Started POST "/__better_errors/68f2bb0ea03f3341/variables" for ::1 at 2021-05-04 19:30:25 -0700
+Started GET "/" for ::1 at 2021-05-04 19:30:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.1ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 564ms (Views: 562.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:31:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 581ms (Views: 579.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:33:04 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.3ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (5.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 662ms (Views: 660.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:33:41 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 626ms (Views: 624.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:33:44 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:33:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 561ms (Views: 559.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:34:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 591ms (Views: 589.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:34:35 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.1ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 699ms (Views: 697.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:35:21 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (8.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 54ms (Views: 52.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-04 19:36:22 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (5.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 618ms (Views: 616.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-05-04 19:36:31 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zK5EYvz-GflQCblSzpAmHg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ILVez-fKPEwmS0uGLJERRg"], ["updated_at", "2021-05-05 02:36:31.954844"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered api/users/show.json.jbuilder (3.8ms)
+Completed 200 OK in 15ms (Views: 7.4ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-04 19:36:35 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"MaidMarian4evr@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "MaidMarian4evr@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "UaGAn0jrMFuIcGIjD5u-BA"], ["updated_at", "2021-05-05 02:36:35.473797"], ["id", 15]]
+  ↳ app/models/user.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:34
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.0ms)
+  Rendered api/users/show.json.jbuilder (3.5ms)
+Completed 200 OK in 188ms (Views: 7.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/stock_assets" for ::1 at 2021-05-04 19:36:47 -0700
+Processing by Api::StockAssetsController#create as JSON
+  Parameters: {"stock_asset"=>{"ticker"=>"AAPL", "owner_id"=>"15", "amount"=>"1", "price"=>"127.77"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  [1m[36mStockAsset Create (1.3ms)[0m  [1m[32mINSERT INTO "stock_assets" ("owner_id", "amount", "created_at", "updated_at", "ticker", "price") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["owner_id", 15], ["amount", 1], ["created_at", "2021-05-05 02:36:47.338969"], ["updated_at", "2021-05-05 02:36:47.338969"], ["ticker", "AAPL"], ["price", 127]]
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/stock_assets_controller.rb:5
+  Rendering api/stock_assets/show.json.jbuilder
+  Rendered api/stock_assets/_stock_asset.json.jbuilder (0.1ms)
+  Rendered api/stock_assets/show.json.jbuilder (0.9ms)
+Completed 200 OK in 23ms (Views: 4.7ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/api/users/15" for ::1 at 2021-05-04 19:36:47 -0700
+Processing by Api::UsersController#update as JSON
+  Parameters: {"buyingPower"=>"586.23", "id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "MaidMarian4evr@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "buying_power" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["buying_power", 586], ["updated_at", "2021-05-05 02:36:47.356803"], ["id", 15]]
+  ↳ app/controllers/api/users_controller.rb:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:23
+  Rendering api/users/show.json.jbuilder
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered api/users/show.json.jbuilder (3.8ms)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 1.2ms)
+
+

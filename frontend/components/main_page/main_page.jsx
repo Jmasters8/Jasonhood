@@ -62,19 +62,18 @@ class MainPage extends React.Component {
 
     // console.log(this.props.assets[20])
     //COMMENT OUT LINE 65 THROUGH 77 and 97
-    // const totalAssets = () => {
-    //   let total = 0;
-    //   // console.log(this.props.assets[0])
-
-    //   for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
-    //     let asset = this.props.assets[i];
-    //     // console.log(asset)
-    //     if (!asset.amount) break;
-    //     let totalAssetPrice = asset.amount * asset.price
-    //     total += totalAssetPrice
-    //   }
-    //   return total.toFixed(2)
-    // }
+    const totalAssets = () => {
+      let total = 0;
+      // console.log(this.props.assets)
+      for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
+        let asset = this.props.assets[i];
+        // console.log(asset)
+        if (!asset) continue;
+        let totalAssetPrice = asset.amount * asset.price
+        total += totalAssetPrice
+      }
+      return total.toFixed(2)
+    }
 
     return (
       <div className="main">
@@ -94,7 +93,7 @@ class MainPage extends React.Component {
                         <header className="left-3">
                           <div className="left-4">
                             <h1 className="left-4-header">
-                              {/* ${totalAssets()} */}
+                              ${totalAssets()}
                             </h1>
                           </div>
                           <div className="left-5">
