@@ -479,8 +479,7 @@ class MainPage extends React.Component {
 
                     </div>
 
-                    <OwnedAssets props={this.props}/>
-                    
+                    <OwnedAssets fetchStockData={this.props.fetchStockData} assets={this.props.assets}/>
                   </div>
                 </main>
               </div>

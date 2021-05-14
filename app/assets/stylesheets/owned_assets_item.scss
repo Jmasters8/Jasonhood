@@ -1,0 +1,69 @@
+.owned-asset-item-list {
+  
+}
+
+.owned-asset-item {
+  height: 60px;
+  top: 52px;
+  left: 0px;
+  width: 100%;
+  border-bottom: 1px solid #40494e;
+}
+
+.owned-asset-item-link {
+  align-items: center;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 0 24px;
+  text-decoration: unset;
+}
+
+.owned-asset-item-ticker {
+  -webkit-box-flex: 0;
+  // flex: 0 1 50%;
+  width: 70px;
+  margin-right: 12px;
+}
+
+.owned-asset-item-ticker-2 {
+  padding-bottom: 2px;
+}
+
+.owned-asset-item-ticker-3 {
+  color: white;
+  margin: 0px;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: unset;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.owned-asset-item-shares {
+  display: flex;
+  min-width: 0px;
+}
+
+.owned-asset-item-shares-2 {
+  margin: 0px;
+  color: white;
+  font-size: 13px;
+  font-weight: 400;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mini-graph {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  flex: 0 0 64px;
+  -webkit-box-pack: center;
+  justify-content: center;
+}

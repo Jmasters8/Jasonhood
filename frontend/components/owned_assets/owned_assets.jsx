@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { fetchStockData } from '../../actions/stocks';
+import OwnedAssetItem from './owned_asset_item'
 
 class OwnedAssets extends React.Component {
   constructor(props) {
@@ -8,20 +10,27 @@ class OwnedAssets extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.props.fetchStockData(this.props.ticker)
+  }
+
   render() {
+
+  let stocks = []
  
-  // const myAssets = () => {
-  //   let stocks = []
-  //     let assets = Object.values(this.props.props.assets)
-  //     for (let i = 0; i < assets.length; i++) {
-  //       let asset = assets[i];
-  //       // console.log(asset)
-  //       if (!stocks.includes(asset.ticker) && asset.ticker !== null ) {
-  //         stocks.push(asset.ticker)
-  //       }
-  //     }
-  //   console.log(stocks)
+  const myAssets = () => {
     
+    let assets = Object.values(this.props.assets)
+    for (let i = 0; i < assets.length; i++) {
+      let asset = assets[i];
+
+      if (!stocks.includes(asset.ticker) && asset.ticker !== null ) {
+        stocks.push(asset.ticker)
+      }
+    }
+  }
+  myAssets()
+  // console.log(stocks)
 
     // const myAssets = () => {
     //   let num = 0;
@@ -55,6 +64,8 @@ class OwnedAssets extends React.Component {
 
   // console.log(myAssets())
 
+  // console.log(this.props)
+
     return (
       <div className="right-1">
         <div className="right-2">
@@ -67,25 +78,12 @@ class OwnedAssets extends React.Component {
                   </span>
                 </header>
               </div>
-              <div className="right-8">
-                <div className="right-9">
-                  <div className="right-10">
-                    <div className='right-12'>
-                      <span className="right-13">
-                        <span classsName="right-14">
-                          NIO
-                        </span>
-                      </span>
-                    </div>
-                    <div className="right-15">
-                      <span className="right-16">
-                        
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
+            <ul className="owned-asset-item=list">
+              {stocks.map((stock, i) => (
+                <OwnedAssetItem fetchStockData={this.props.fetchStockData} key={i} assets={this.props.assets} ticker={stock}/>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
