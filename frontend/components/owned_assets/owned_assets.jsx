@@ -7,12 +7,16 @@ class OwnedAssets extends React.Component {
   constructor(props) {
     super(props);
 
-
+    this.state = {
+      start: new Date().setHours(6, 0, 0, 0) / 1000,
+      now: new Date().setHours(13, 0, 0, 0) / 1000
+    }
   }
 
-  componentDidMount() {
-    this.props.fetchStockData(this.props.ticker)
-  }
+  // componentDidMount() {
+  //   this.props.fetchStock("NIO")
+  //   .then(() => this.props.fetchStockData("NIO", this.state.start, this.state.now))
+  // }
 
   render() {
 
@@ -81,7 +85,7 @@ class OwnedAssets extends React.Component {
             </div>
             <ul className="owned-asset-item=list">
               {stocks.map((stock, i) => (
-                <OwnedAssetItem fetchStockData={this.props.fetchStockData} key={i} assets={this.props.assets} ticker={stock}/>
+                <OwnedAssetItem stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData} key={i} assets={this.props.assets} ticker={stock}/>
               ))}
             </ul>
           </div>

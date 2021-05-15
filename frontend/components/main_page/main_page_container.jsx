@@ -8,7 +8,8 @@ import { updateBuyingPower } from '../../actions/users'
 
 const mapStateToProps = (state) => ({
   user: state.entities.users[state.session.id],
-  assets: state.entities.assets
+  assets: state.entities.assets,
+  stocks: state.entities.stocks
 });
 
 const mapDispatchToProps = (dispatch) => ({

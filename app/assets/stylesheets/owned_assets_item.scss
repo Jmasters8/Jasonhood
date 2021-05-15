@@ -7,7 +7,15 @@
   top: 52px;
   left: 0px;
   width: 100%;
-  border-bottom: 1px solid #40494e;
+  // border-bottom: 1px solid #40494e;
+  padding-bottom: 5px;
+}
+
+.owned-asset-item:hover {
+  background-color: rgb(48,54,58);
+  .recharts-curve {
+    fill: rgb(48,54,58);
+  }
 }
 
 .owned-asset-item-link {
@@ -66,4 +74,37 @@
   flex: 0 0 64px;
   -webkit-box-pack: center;
   justify-content: center;
+}
+
+.owned-asset-item-price {
+  margin: 0 0 0 12px;
+  text-align: right;
+}
+
+.owned-asset-item-price-2 {
+  margin: 0px;
+  color: white;
+  text-decoration: unset;
+  font-weight: 400;
+}
+
+.owned-asset-item-price-3 {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.owned-asset-item-price-5 {
+  height: 2px;
+}
+
+.owned-asset-item-percentage {
+
+}
+
+.owned-asset-item-percentage-increase {
+  color: rgb(0, 200, 5)
+}
+
+.owned-asset-item-percentage-decrease {
+  color: rgb(255, 80, 0);
 }

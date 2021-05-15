@@ -6,9 +6,20 @@ class OwnedAssetItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      start: new Date().setHours(6, 0, 0, 0) / 1000,
+      now: new Date().setHours(13, 0, 0, 0) / 1000
+    }
+  }
+
+  componentDidMount() {
+    this.props.fetchStock(this.props.ticker)
+    .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
   }
 
   render() {
+    if (Object.keys(this.props.stocks).length === 0) return null
+
     let shares = 0;
     let assets = Object.values(this.props.assets)
     assets.forEach(asset => {
@@ -16,7 +27,55 @@ class OwnedAssetItem extends React.Component {
         shares += asset.amount
       }
     })
+
     
+    let currentPrice = () => {
+      
+      for (let key in this.props.stocks) {
+        // console.log(this.props.stocks[key])
+        if (key === this.props.ticker) {
+          return this.props.stocks[key].c
+          // return this.props.stocks[key].data.c[this.props.stocks.key.data.c.length]
+        }
+      }
+    }
+    
+    let stockData = () => {
+      for (let key in this.props.stocks) {
+        if (key === this.props.ticker) {
+          return this.props.stocks[key].data
+        }
+      }
+      return null
+    }
+    // console.log(stockData())
+
+
+    let upOrDown = () => {
+      let percentChange = 0
+      for (let key in this.props.stocks) {
+        if (key === this.props.ticker) {
+          percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
+        }
+      }
+      if (percentChange > 0) {
+        return (
+          <span className="owned-asset-item-percentage-increase">
+            +{percentChange.toFixed(2)}%
+          </span>
+        )
+      } else {
+        return (
+          <span className="owned-asset-item-percentage-decrease">
+            {percentChange.toFixed(2)}%
+          </span>
+        )
+      }
+      
+    }
+    // currentPrice()
+    // console.log(currentPrice())
+
     return (
       <li className="owned-asset-item">
         <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`}>
@@ -32,9 +91,19 @@ class OwnedAssetItem extends React.Component {
               </span>
             </div>
           </div>
-          <MiniGraph />
+          <MiniGraph data={stockData()}/>
           <div className="owned-asset-item-price">
-
+            <span className="owned-asset-item-price-2">
+              <div className="owned-asset-item-price-3">
+                <span className="owned-asset-item-price-2">
+                  ${currentPrice()}
+                </span>
+                <div className="owned-asset-item-price-5"></div>
+                <span className="owned-asset-item-percentage">
+                  {upOrDown()}
+                </span>
+              </div>
+            </span>
           </div>
         </Link>
       </li>

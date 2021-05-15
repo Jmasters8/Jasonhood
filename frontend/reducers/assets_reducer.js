@@ -1,5 +1,6 @@
 import { RECEIVE_STOCK_ASSET } from '../actions/assets';
-import { RECEIVE_CURRENT_USER } from '../actions/session';
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session';
+
 
 
 const assetsReducer = (state = {}, action) => {
@@ -13,6 +14,8 @@ const assetsReducer = (state = {}, action) => {
       return nextState;
     case RECEIVE_CURRENT_USER:
       return action.assets || state
+    case LOGOUT_CURRENT_USER:
+        return {}
     default:
       return state
   }

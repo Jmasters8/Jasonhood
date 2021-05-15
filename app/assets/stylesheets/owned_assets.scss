@@ -27,12 +27,14 @@
   direction: ltr;
   overflow: hidden;
   will-change: transform;
+  min-width: 276px;
 }
 
 .right-4 {
   width: auto;
   overflow: hidden;
   border-bottom: 1px solid #40494e;
+  padding-bottom: 5px;
 }
 
 .right-5 {
@@ -53,7 +55,7 @@
   -webkit-box-pack: justify;
   justify-content: space-between;
   padding: 4px 24px 0px;
-  width: 217px;
+  width: 228px;
 }
 
 .right-7 {
