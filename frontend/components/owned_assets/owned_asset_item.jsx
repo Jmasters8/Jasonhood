@@ -6,19 +6,54 @@ class OwnedAssetItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      start: new Date().setHours(6, 0, 0, 0) / 1000,
-      now: new Date().setHours(13, 0, 0, 0) / 1000
+
+    let currentDate = new Date().toDateString()
+    if (currentDate.includes("Sat")) {
+      this.state = {
+        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
+        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400
+      } 
+    } else if (currentDate.includes("Sun")) {
+      this.state = {
+        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
+        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800
+      }
+    } else {
+      this.state = {
+        start: new Date().setHours(6, 0, 0, 0) / 1000,
+        now: new Date().setHours(13, 0, 0, 0) / 1000
+      }
     }
+  
   }
 
+  // setSatDate() {
+  //   this.setState({start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400, now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400})
+  // }
+
+  // setSunDate() {
+  //   this.setState({start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800, now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800})
+  // }
+
   componentDidMount() {
+    
     this.props.fetchStock(this.props.ticker)
     .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
   }
 
   render() {
+    
     if (Object.keys(this.props.stocks).length === 0) return null
+
+    // let checkDate = () => {
+    //   let currentDate = new Date().toDateString()
+    //   if (currentDate.includes("Sat")) {
+    //     this.setSatDate()
+    //   } else if (currentDate.includes("Sun")) {
+    //     this.setSunDate
+    //   }
+    // }
+    // checkDate()
 
     let shares = 0;
     let assets = Object.values(this.props.assets)

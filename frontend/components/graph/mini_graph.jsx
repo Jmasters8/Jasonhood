@@ -8,8 +8,8 @@ class MiniGraph extends React.Component {
   }
 
   render() {
-    if (!this.props.data) return null
-
+    if (!this.props.data || this.props.data.s === "no_data") return null
+    
     let data = this.props.data['o'];
     let graphData = [];
 

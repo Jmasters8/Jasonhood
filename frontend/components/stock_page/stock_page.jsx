@@ -11,13 +11,32 @@ class Stock extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
-      collapsed: true,
-      start: new Date().setHours(6, 0, 0, 0) / 1000,
-      now: new Date().setHours(13, 0, 0, 0) / 1000,
-      shares: 0,
-      buyingPower: this.props.currentUser.buying_power
-     }
+    let currentDate = new Date().toDateString()
+    if (currentDate.includes("Sat")) {
+      this.state = {
+        collapsed: true,
+        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
+        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400,
+        shares: 0,
+        buyingPower: this.props.currentUser.buying_power
+      }
+    } else if (currentDate.includes("Sun")) {
+      this.state = {
+        collapsed: true,
+        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
+        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800,
+        shares: 0,
+        buyingPower: this.props.currentUser.buying_power
+      }
+    } else {
+      this.state = { 
+        collapsed: true,
+        start: new Date().setHours(6, 0, 0, 0) / 1000,
+        now: new Date().setHours(13, 0, 0, 0) / 1000,
+        shares: 0,
+        buyingPower: this.props.currentUser.buying_power
+       }
+    }
 
     this.toggleDescription = this.toggleDescription.bind(this);
     this.handleClick = this.handleClick.bind(this);
