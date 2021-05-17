@@ -5,9 +5,46 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      stockSymbol: ""
+    // this.state = {
+    //   stockSymbol: ""
+    // }
+
+
+
+    let currentDate = new Date().toDateString()
+    if (currentDate.includes("Sat")) {
+      this.state = {
+        collapsed: true,
+        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
+        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400,
+        shares: 0,
+        buyingPower: this.props.currentUser.buying_power,
+        currentStock: "",
+        stockSymbol: ""
+      }
+    } else if (currentDate.includes("Sun")) {
+      this.state = {
+        collapsed: true,
+        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
+        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800,
+        shares: 0,
+        buyingPower: this.props.currentUser.buying_power,
+        currentStock: "",
+        stockSymbol: ""
+      }
+    } else {
+      this.state = { 
+        collapsed: true,
+        start: new Date().setHours(6, 0, 0, 0) / 1000,
+        now: new Date().setHours(13, 0, 0, 0) / 1000,
+        shares: 0,
+        buyingPower: this.props.currentUser.buying_power,
+        currentStock: "",
+        stockSymbol: ""
+       }
     }
+
+
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -20,7 +57,7 @@ class Navbar extends React.Component {
   handleInput(type) {
     // console.log(this.state)
     return (e) =>
-      this.setState({[type]: e.target.value})
+      this.setState({[type]: (e.target.value).toUpperCase()})
   }
 
   handleSubmit(e) {
@@ -64,6 +101,13 @@ class Navbar extends React.Component {
   }
 
   render() {
+    let symbol;
+    if (!this.props.match.params.symbol) {
+      symbol = this.state.stockSymbol
+    } else {
+      symbol = this.props.match.params.symbol
+    }
+    
     return (
 
       <header className="navbar">
@@ -93,7 +137,12 @@ class Navbar extends React.Component {
             </div>
           </div>
           </form>
-          <Link className="search-link-button" to={`/stocks/${this.state.stockSymbol}`}><button className="search-link-button-1">Search</button></Link>
+          <Link onClick={() => this.props.fetchCurrentStock(this.state.stockSymbol)} className="search-link-button" to={`/stocks/${this.state.stockSymbol}`}><button className="search-link-button-1">Search</button></Link>
+            {/* <Link className="search-link-button" to={`/stocks/${this.state.stockSymbol}`} onClick={
+            () => this.props.fetchCurrentStock(this.state.stockSymbol)
+            .then(this.props.fetchStockInfo(symbol))
+            .then(this.props.fetchStockData(symbol, this.state.start, this.state.now))
+            }><button className="search-link-button-1">Search</button></Link> */}
           <div className="navbar-list">
             <div className="navbar-list-1">
 

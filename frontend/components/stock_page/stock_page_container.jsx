@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
     data: data,
     currentUser: state.entities.users[state.session.id],
     news,
-    assets: state.entities.assets
+    assets: state.entities.assets,
+    currentStock: state.currentStock
   }
 };
 

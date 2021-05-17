@@ -18,7 +18,8 @@ class Stock extends React.Component {
         start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
         now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400,
         shares: 0,
-        buyingPower: this.props.currentUser.buying_power
+        buyingPower: this.props.currentUser.buying_power,
+        currentStock: ""
       }
     } else if (currentDate.includes("Sun")) {
       this.state = {
@@ -26,7 +27,8 @@ class Stock extends React.Component {
         start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
         now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800,
         shares: 0,
-        buyingPower: this.props.currentUser.buying_power
+        buyingPower: this.props.currentUser.buying_power,
+        currentStock: ""
       }
     } else {
       this.state = { 
@@ -34,7 +36,8 @@ class Stock extends React.Component {
         start: new Date().setHours(6, 0, 0, 0) / 1000,
         now: new Date().setHours(13, 0, 0, 0) / 1000,
         shares: 0,
-        buyingPower: this.props.currentUser.buying_power
+        buyingPower: this.props.currentUser.buying_power,
+        currentStock: ""
        }
     }
 
@@ -45,12 +48,25 @@ class Stock extends React.Component {
  
 
   componentDidMount() {
+    
     this.props.fetchStockInfo(this.props.match.params.symbol)
     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+
     // .then(() => this.props.fetchStockNews(this.props.match.params.symbol), '2021-03-01', '2021-03-09')
     // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
-    
   }
+
+  shouldComponentUpdate(nextProps){
+    return nextProps.currentStock !== this.state.currentStock;
+}
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentStock !== this.props.currentStock) {
+      this.props.fetchStockInfo(this.props.match.params.symbol)
+      .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+    }
+  }
+
   toggleDescription() {
     const currentState = this.state.collapsed;
     this.setState({ collapsed: !currentState });
@@ -101,14 +117,24 @@ class Stock extends React.Component {
   }
 
   render() {
+
     if (this.props.stock === undefined || this.props.data === undefined) {
       return (
         <div className="loading">
           <div className="loading-text">loading...</div>
-          <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/>
+          {/* <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/> */}
         </div>
       )
     }
+
+    // if (this.props.data === undefined) {
+    //   return (
+    //     <div className="loading">
+    //       <div className="loading-text">loading...</div>
+    //       <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/>
+    //     </div>
+    //   )
+    // }
 
   
 
@@ -292,8 +318,8 @@ class Stock extends React.Component {
     // console.log(this.props.stock.data)
     // console.log(this.props.data.Name)
     const showStock = () => {
-      
-      // console.log(this.props)
+      let companyName = this.props.stock.Name;
+      if (!this.props.stock.Name) companyName = this.props.match.params.symbol
       return (
         
         <div className="main">
@@ -348,7 +374,7 @@ class Stock extends React.Component {
                         <div className="main-content-1">
                           <header className="main-content-header">
                             <div className="main-content-header-1">
-                              <h1 className="main-content-header-2">{this.props.stock.Name}</h1>
+                              <h1 className="main-content-header-2">{companyName}</h1>
                             </div>
                             <div className="main-content-header-analysis">
                               <div className="main-content-header-analysis-1">

@@ -28,7 +28,7 @@ class StockNews extends React.Component {
 
   render() {
 
-    if (this.props.stocks[this.props.symbol].news === undefined) {
+    if (this.props.stocks[this.props.symbol].news === undefined || this.props.stocks[this.props.symbol].news.length < 3) {
       return null
     }
 

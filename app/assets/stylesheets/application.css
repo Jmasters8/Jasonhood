@@ -69,7 +69,7 @@ table {
 .loading {
 	background-color: black;
 	color: white;
-	height: 1176px;
+	height: 100vh;
 }
 
 .loading-img {
