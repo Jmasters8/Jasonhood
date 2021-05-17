@@ -126,7 +126,7 @@ class Stock extends React.Component {
         </div>
       )
     }
-
+    console.log(this.state.buyingPower)
     // if (this.props.data === undefined) {
     //   return (
     //     <div className="loading">
@@ -679,7 +679,7 @@ class Stock extends React.Component {
                                         <div className="trade-stock-shares-6">
                                           <div className="trade-stock-shares-7">
                                             <div className="trade-stock-shares-8">
-                                              <button className="trade-stock-shares-9">
+                                              <button type="button" className="trade-stock-shares-9">
                                                 <div className="trade-stock-shares-10">
                                                   <span className="trade-stock-shares-11">
                                                     Shares
