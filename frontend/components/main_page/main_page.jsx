@@ -38,9 +38,6 @@ class MainPage extends React.Component {
   //   }
   // }
 
-  componentDidMount() {
-    // this.props.fetchStockData(this.props.match.params.symbol)
-  }
 
   handleClick(e) {
     e.preventDefault();
@@ -57,8 +54,17 @@ class MainPage extends React.Component {
     this.props.fetchStock(this.state.stockSymbol.toUpperCase())
   }
 
+  showInfo() {
+    if (document.getElementById("dash-toggle")) {
+      document.getElementById("dash-toggle").id = "dash-toggle-test"
+      document.getElementById("dashboard-buying-power-2").id = "dashboard-buying-power-2-active"
+    } else {
+      document.getElementById("dash-toggle-test").id = "dash-toggle"
+      document.getElementById("dashboard-buying-power-2-active").id = "dashboard-buying-power-2"
+    }
+  }
+
   render() {
-    // console.log(this.getAssets())
 
     // console.log(this.props.assets[20])
     //COMMENT OUT LINE 65 THROUGH 77 and 97
@@ -74,7 +80,7 @@ class MainPage extends React.Component {
       }
       return total.toFixed(2)
     }
-
+    
     return (
       <div className="main">
         <div className="main-filler">
@@ -109,7 +115,7 @@ class MainPage extends React.Component {
                           </div>
                         </header>
                         <div className="dashboard-graph">
-                          <HomeGraph />
+                          <HomeGraph stocks={this.props.stocks}/>
                           <div className="main-graph-dayz">
                                   <div className="main-graph-days-1">
                                     <button className="main-graph-days-2">
@@ -151,7 +157,7 @@ class MainPage extends React.Component {
                       </section>
                       <div className="dashboard-buying-power">
                         <div className="dashboard-buying-power-1">
-                          <button className="dashboard-buying-power-2">
+                          <button onClick={this.showInfo} id="dashboard-buying-power-2">
                             <header className="dashboard-buying-power-3">
                               <div className="dashboard-buying-power-4">
                                 <span className="dashboard-buying-power-5">
@@ -166,131 +172,133 @@ class MainPage extends React.Component {
                               </div>
                             </header>
                           </button>
-                          {/* <div className="dash-toggle">
-                            <div className="dash-toggle-1">
-                              <div className="dash-toggle-2">
-                                <div className="dash-toggle-3">
-                                  <div className="dash-toggle-4">
-                                    <div className="dash-toggle-5">
-                                      <table className="dash-toggle-6">
-                                        <tbody>
-                                          <tr className="dash-toggle-7">
-                                            <td className="dash-toggle-8">
-                                              <span className="dash-toggle-9">
-                                                Brokerage Cash
-                                              </span>
-                                            </td>
-                                            <td className="dash-filler"></td>
-                                            <td className="dash-toggle-10">
-                                              <span className="dash-toggle-9">
-                                                A lot
-                                              </span>
-                                            </td>
-                                          </tr>
-                                          <tr className="dash-toggle-7-1">
-                                            <td className="dash-toggle-8-1">
-                                              <span className="dash-toggle-9">
-                                                Buying Power
-                                              </span>
-                                            </td>
-                                            <td className="dash-filler"></td>
-                                            <td className="dash-toggle-10">
-                                              <span className="dash-toggle-9">
-                                                ${this.props.user.buying_power}
-                                              </span>
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                    
-                                    <div className="dash-toggle-input">
-                                      <label className="dash-toggle-input-0-0">
-                                        Amount
-
-                                        <input className="dash-toggle-input-0" value={this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
-                                      </label>
-                                    </div>
-                                    <div className="dash-toggle-input-1">
-                                      <div className="dash-toggle-input-2">
-                                        <button onClick={this.handleClick} className="dash-toggle-input-3">
-                                          <div className="dash-toggle-input-4">
-                                            <span className="dash-toggle-input-5">
-                                              Deposit Funds
-                                            </span>
-                                          </div>
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </div>
+  
+                          <div id="dash-toggle">
+                        <div className="dash-toggle-1">
+                          <div className="dash-toggle-2">
+                            <div className="dash-toggle-3">
+                              <div className="dash-toggle-4">
+                                <div className="dash-toggle-5">
+                                  <table className="dash-toggle-6">
+                                    <tbody>
+                                      <tr className="dash-toggle-7">
+                                        <td className="dash-toggle-8">
+                                          <span className="dash-toggle-9">
+                                            Brokerage Cash
+                                          </span>
+                                        </td>
+                                        <td className="dash-filler"></td>
+                                        <td className="dash-toggle-10">
+                                          <span className="dash-toggle-9">
+                                            A lot
+                                          </span>
+                                        </td>
+                                      </tr>
+                                      <tr className="dash-toggle-7-1">
+                                        <td className="dash-toggle-8-1">
+                                          <span className="dash-toggle-9">
+                                            Buying Power
+                                          </span>
+                                        </td>
+                                        <td className="dash-filler"></td>
+                                        <td className="dash-toggle-10">
+                                          <span className="dash-toggle-9">
+                                            ${this.props.user.buying_power}
+                                          </span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                                 </div>
-                              </div>
-                            </div>
-                          </div> */}
-                        </div>
-                      </div>
+                                
+                                <div className="dash-toggle-input">
+                                  <label className="dash-toggle-input-0-0">
+                                    Amount
 
-                      <div className="dash-toggle">
-                            <div className="dash-toggle-1">
-                              <div className="dash-toggle-2">
-                                <div className="dash-toggle-3">
-                                  <div className="dash-toggle-4">
-                                    <div className="dash-toggle-5">
-                                      <table className="dash-toggle-6">
-                                        <tbody>
-                                          <tr className="dash-toggle-7">
-                                            <td className="dash-toggle-8">
-                                              <span className="dash-toggle-9">
-                                                Brokerage Cash
-                                              </span>
-                                            </td>
-                                            <td className="dash-filler"></td>
-                                            <td className="dash-toggle-10">
-                                              <span className="dash-toggle-9">
-                                                A lot
-                                              </span>
-                                            </td>
-                                          </tr>
-                                          <tr className="dash-toggle-7-1">
-                                            <td className="dash-toggle-8-1">
-                                              <span className="dash-toggle-9">
-                                                Buying Power
-                                              </span>
-                                            </td>
-                                            <td className="dash-filler"></td>
-                                            <td className="dash-toggle-10">
-                                              <span className="dash-toggle-9">
-                                                ${this.props.user.buying_power}
-                                              </span>
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                    
-                                    <div className="dash-toggle-input">
-                                      <label className="dash-toggle-input-0-0">
-                                        Amount
-
-                                        <input className="dash-toggle-input-0" value={this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
-                                      </label>
-                                    </div>
-                                    <div className="dash-toggle-input-1">
-                                      <div className="dash-toggle-input-2">
-                                        <button onClick={this.handleClick} className="dash-toggle-input-3">
-                                          <div className="dash-toggle-input-4">
-                                            <span className="dash-toggle-input-5">
-                                              Deposit Funds
-                                            </span>
-                                          </div>
-                                        </button>
+                                    <input className="dash-toggle-input-0" value={this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
+                                  </label>
+                                </div>
+                                <div className="dash-toggle-input-1">
+                                  <div className="dash-toggle-input-2">
+                                    <button onClick={this.handleClick} className="dash-toggle-input-3">
+                                      <div className="dash-toggle-input-4">
+                                        <span className="dash-toggle-input-5">
+                                          Deposit Funds
+                                        </span>
                                       </div>
-                                    </div>
+                                    </button>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
+                        </div>
+                      </div>
+
+                        </div>
+                      </div>
+
+                      {/* <div id="dash-toggle">
+                        <div className="dash-toggle-1">
+                          <div className="dash-toggle-2">
+                            <div className="dash-toggle-3">
+                              <div className="dash-toggle-4">
+                                <div className="dash-toggle-5">
+                                  <table className="dash-toggle-6">
+                                    <tbody>
+                                      <tr className="dash-toggle-7">
+                                        <td className="dash-toggle-8">
+                                          <span className="dash-toggle-9">
+                                            Brokerage Cash
+                                          </span>
+                                        </td>
+                                        <td className="dash-filler"></td>
+                                        <td className="dash-toggle-10">
+                                          <span className="dash-toggle-9">
+                                            A lot
+                                          </span>
+                                        </td>
+                                      </tr>
+                                      <tr className="dash-toggle-7-1">
+                                        <td className="dash-toggle-8-1">
+                                          <span className="dash-toggle-9">
+                                            Buying Power
+                                          </span>
+                                        </td>
+                                        <td className="dash-filler"></td>
+                                        <td className="dash-toggle-10">
+                                          <span className="dash-toggle-9">
+                                            ${this.props.user.buying_power}
+                                          </span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                
+                                <div className="dash-toggle-input">
+                                  <label className="dash-toggle-input-0-0">
+                                    Amount
+
+                                    <input className="dash-toggle-input-0" value={this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
+                                  </label>
+                                </div>
+                                <div className="dash-toggle-input-1">
+                                  <div className="dash-toggle-input-2">
+                                    <button onClick={this.handleClick} className="dash-toggle-input-3">
+                                      <div className="dash-toggle-input-4">
+                                        <span className="dash-toggle-input-5">
+                                          Deposit Funds
+                                        </span>
+                                      </div>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> */}
 
                       <section className="dashboard-list">
                         <div className="dashboard-list-1">

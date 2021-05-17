@@ -10,6 +10,13 @@ class HomeGraph extends React.Component {
   }
 
   render() {
+    if (Object.keys(this.props.stocks).length === 0) return null
+    
+
+    let getStockData = () => {
+      this.props.stocks
+    }
+
 
     function getTime(unixTime) {
       let date = new Date(unixTime * 1000);
