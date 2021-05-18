@@ -43,3 +43,10 @@ export const fetchStockNews = (symbol, start, end) => {
     url: `https://finnhub.io/api/v1/company-news?symbol=${symbol.toUpperCase()}&from=${start}&to=${end}&token=c1o93ii37fkqrr9scqp0`
   })
 }
+
+export const fetchMarketNews = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'https://finnhub.io/api/v1/news?category=general&token=c1o93ii37fkqrr9scqp0'
+  })
+}

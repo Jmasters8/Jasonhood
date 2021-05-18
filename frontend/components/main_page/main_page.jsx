@@ -3,6 +3,7 @@ import NavbarContainer from '../navbar/navbar_container';
 import GraphContainer from '../graph/graph_container';
 import HomeGraph from '../home_graph/home_graph';
 import OwnedAssets from '../owned_assets/owned_assets';
+import MainPageNews from '../stock_news/main_page_news';
 
 
 class MainPage extends React.Component {
@@ -80,6 +81,10 @@ class MainPage extends React.Component {
       }
       return total.toFixed(2)
     }
+
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     
     return (
       <div className="main">
@@ -99,7 +104,7 @@ class MainPage extends React.Component {
                         <header className="left-3">
                           <div className="left-4">
                             <h1 className="left-4-header">
-                              ${totalAssets()}
+                              ${numberWithCommas(totalAssets())}
                             </h1>
                           </div>
                           <div className="left-5">
@@ -484,6 +489,8 @@ class MainPage extends React.Component {
                           </div>
                         </div>
                       </section>
+
+                      <MainPageNews marketNews={this.props.marketNews} fetchMarketNews={this.props.fetchMarketNews}/>
 
                     </div>
 

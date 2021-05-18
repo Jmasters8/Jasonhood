@@ -2,21 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MainPage from './main_page';
 import { logout } from '../../actions/session';
-import { fetchStock, fetchStockData } from '../../actions/stocks';
+import { fetchStock, fetchStockData, fetchMarketNews } from '../../actions/stocks';
 import { updateBuyingPower } from '../../actions/users'
 
 
 const mapStateToProps = (state) => ({
   user: state.entities.users[state.session.id],
   assets: state.entities.assets,
-  stocks: state.entities.stocks
+  stocks: state.entities.stocks,
+  marketNews: state.entities.marketNews
 });
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   fetchStock: symbol => dispatch(fetchStock(symbol)),
   updateBuyingPower: (buyingPower, id) => dispatch(updateBuyingPower(buyingPower, id)),
-  fetchStockData: (symbol, start, end) => dispatch(fetchStockData(symbol, start, end))
+  fetchStockData: (symbol, start, end) => dispatch(fetchStockData(symbol, start, end)),
+  fetchMarketNews: () => dispatch(fetchMarketNews())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

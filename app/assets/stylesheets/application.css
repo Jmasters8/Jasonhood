@@ -40,6 +40,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -83,4 +84,8 @@ table {
 	text-align: center;
 	font-size: 50px;
 	padding: 50px;
+}
+
+html {
+	background-color: black;
 }
