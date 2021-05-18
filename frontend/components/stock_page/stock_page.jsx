@@ -126,7 +126,7 @@ class Stock extends React.Component {
         </div>
       )
     }
-    console.log(this.state.buyingPower)
+
     // if (this.props.data === undefined) {
     //   return (
     //     <div className="loading">
