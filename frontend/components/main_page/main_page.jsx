@@ -488,9 +488,8 @@ class MainPage extends React.Component {
                             </div>
                           </div>
                         </div>
+                        <MainPageNews marketNews={this.props.marketNews} fetchMarketNews={this.props.fetchMarketNews}/>
                       </section>
-
-                      <MainPageNews marketNews={this.props.marketNews} fetchMarketNews={this.props.fetchMarketNews}/>
 
                     </div>
 

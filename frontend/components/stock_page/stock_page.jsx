@@ -68,7 +68,7 @@ class Stock extends React.Component {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
-    
+
     if (prevProps.currentStock !== this.props.currentStock) {
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
@@ -127,7 +127,7 @@ class Stock extends React.Component {
 
   render() {
 
-    if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined || this.props.stock.news.length < 3) {
+    if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined) {
       return (
         <div className="loading">
           <div className="loading-text">loading...</div>

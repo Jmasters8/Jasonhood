@@ -55,7 +55,7 @@ class StockNews extends React.Component {
       }
       time = h + ':' + min + ':' + ampm + ', ' + mm + '/' + dd + '/' + yyyy
       return time;
-  }
+    }
 
     let firstArticle = () => {
       let article = newsArticles[0]

@@ -27,9 +27,11 @@ class MainPageNews extends React.Component {
             </div>
           </div>
         </header>
-        {this.props.marketNews.map((article, i) => {
-          return <MainPageNewsItem key={i} article={article}/>
-        })}
+        <div className="dashboard-articles">
+          {this.props.marketNews.map((article, i) => {
+            return <MainPageNewsItem key={i} article={article}/>
+          })}
+        </div>
         
       </div>
     )
