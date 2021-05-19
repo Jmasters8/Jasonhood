@@ -48,9 +48,13 @@ class Stock extends React.Component {
  
 
   componentDidMount() {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 5)
     
     this.props.fetchStockInfo(this.props.match.params.symbol)
     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+    .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
 
     // .then(() => this.props.fetchStockNews(this.props.match.params.symbol), '2021-03-01', '2021-03-09')
     // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
@@ -61,9 +65,14 @@ class Stock extends React.Component {
 }
 
   componentDidUpdate(prevProps) {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 5)
+    
     if (prevProps.currentStock !== this.props.currentStock) {
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+      .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
     }
   }
 
@@ -118,7 +127,7 @@ class Stock extends React.Component {
 
   render() {
 
-    if (this.props.stock === undefined || this.props.data === undefined) {
+    if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined || this.props.stock.news.length < 3) {
       return (
         <div className="loading">
           <div className="loading-text">loading...</div>

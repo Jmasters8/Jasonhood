@@ -16,7 +16,7 @@ class StockNews extends React.Component {
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
 
-    this.props.fetchStockNews(this.props.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0])
+    // this.props.fetchStockNews(this.props.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0])
   }
 
   toggleDescription() {
