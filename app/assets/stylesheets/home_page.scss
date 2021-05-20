@@ -58,6 +58,7 @@ nav {
 
 .video-1 {
   border: 1px solid transparent;
+  padding-top: 25px;
 }
 
 
@@ -216,7 +217,8 @@ nav {
 
 .home-section-1-2 {
   min-width: 1024px;
-  max-width: 100%;
+  // max-width: 100%; CHANGED
+  max-width: 1280px;
   padding-left: 36px;
   padding-right: 36px;
   width: 100%;
@@ -231,6 +233,10 @@ nav {
   flex-wrap: wrap;
   flex-direction: row;
   display: flex;
+
+  //ADDED
+  -webkit-box-align: center;
+  align-items: center;
 }
 
 .home-section-1-4 {
@@ -239,7 +245,6 @@ nav {
   width: calc(41.667% - 18px);
   display: block;
   visibility: visible;
-  // background-color: pink;
 }
 
 .home-section-1-5 {
@@ -251,7 +256,7 @@ nav {
   white-space: pre-line;
 
   h1 {
-    font-size: 52px;
+    font-size: 54px;
     font-weight: 500;
     line-height: 60px;
     letter-spacing: -1.75px;
@@ -490,6 +495,9 @@ nav {
   flex-direction: row;
   display: flex;
   height: 100%;
+
+  //added
+  align-items: flex-start;
 }
 
 .home-section-4-4 {
@@ -497,11 +505,11 @@ nav {
   margin-right: 9px;
   width: calc(41.667% - 18px);
   display: block;
+  max-width: 492px;
 }
 
 .home-section-4-5 {
   padding: 172px 0;
-  height: 28%;
 }
 
 .home-section-4-6 {
@@ -512,6 +520,7 @@ nav {
     font-weight: 500;
     line-height: 60px;
     letter-spacing: -1.75px;
+    width: 492px;
   }
 }
 
@@ -538,7 +547,7 @@ nav {
 
 //INTRODUCING FRACTIONAL SHARES
 .home-section-5-1 {
-  background-color: white;
+  background-color: #F0EBE6;
   border-bottom-color: black;
   border-bottom-style: solid;
   border-bottom-width: 1px;
