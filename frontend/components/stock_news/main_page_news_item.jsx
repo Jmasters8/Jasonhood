@@ -40,7 +40,7 @@ class MainPageNewsItem extends React.Component {
           <div className="dashboard-articles-source">
             <div className="dashboard-articles-source-1">
               <span className="dashboard-articles-source-2">
-                <img className="dashboard-articles-lightning" src="https://i.imgur.com/HXPDjIx.png" alt=""/>
+                <img className="dashboard-articles-lightning" src="https://i.imgur.com/HXPDjIx.png"/>
               </span>
               <span className="dashboard-articles-source-3">
                 <span className="dashboard-articles-source-4">

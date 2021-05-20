@@ -10,34 +10,17 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.user = null
-    // for (let key in this.props.user) {
-    //   this.user = this.props.user[key].first_name + " " + this.props.user[key].last_name
-    // }
-
     this.state = {
       stockSymbol: "",
       buyingPower: 0,
       start: new Date().setHours(6, 0, 0, 0) / 1000,
       now: new Date().setHours(13, 0, 0, 0) / 1000
-      // buyingPower: this.props.user.buyingPower
     }
     this.handleClick = this.handleClick.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
-  // getAssets() {
-  //   let myAssets = []
-
-  //   for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
-  //     let asset = this.props.assets[i];
-  //     console.log(asset)
-  //     if (asset.ticker !== null && myAssets[assets.]) {
-  //       myAssets.push({ticker: asset.ticker, })
-  //     }
-  //     // total += totalAssetPrice
-  //   }
-  // }
+  
 
 
   handleClick(e) {
@@ -64,6 +47,7 @@ class MainPage extends React.Component {
       document.getElementById("dashboard-buying-power-2-active").id = "dashboard-buying-power-2"
     }
   }
+
 
   render() {
 

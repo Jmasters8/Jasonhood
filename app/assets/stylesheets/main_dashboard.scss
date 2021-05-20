@@ -945,6 +945,7 @@
   align-items: center;
   display: flex;
   margin: 0px;
+  justify-content: space-between;
 }
 
 .dashboard-news-header-3 {
@@ -976,6 +977,10 @@
   padding: 25px 24px;
   position: relative;
   transition: background .15s;
+}
+
+.dashboard-articles-2:hover {
+  background-color: rgb(30,33,36);
 }
 
 .dashboard-article-link {
