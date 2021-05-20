@@ -58,7 +58,10 @@ class StockNews extends React.Component {
     }
 
     let firstArticle = () => {
+      if (!newsArticles[0]) return null;
       let article = newsArticles[0]
+      let img = article.image
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
@@ -72,7 +75,7 @@ class StockNews extends React.Component {
             <span className="article-summary">
               {article.summary}
             </span>
-            <img src={`${article.image}`} className="article-image" alt=""/>
+            <img src={`${img}`} className="article-image" alt=""/>
           </div>
           </a>
         </div>
@@ -80,7 +83,10 @@ class StockNews extends React.Component {
     }
 
     let secondArticle = () => {
+      if (!newsArticles[1]) return null;
       let article = newsArticles[1]
+      let img = article.image
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
@@ -94,7 +100,7 @@ class StockNews extends React.Component {
             <span className="article-summary">
               {article.summary}
             </span>
-            <img src={`${article.image}`} className="article-image" alt=""/>
+            <img src={`${img}`} className="article-image" alt=""/>
           </div>
           </a>
         </div>
@@ -102,7 +108,10 @@ class StockNews extends React.Component {
     }
 
     let thirdArticle = () => {
+      if (!newsArticles[2]) return null;
       let article = newsArticles[2]
+      let img = article.image
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
@@ -116,7 +125,7 @@ class StockNews extends React.Component {
             <span className="article-summary">
               {article.summary}
             </span>
-            <img src={`${article.image}`} className="article-image" alt=""/>
+            <img src={`${img}`} className="article-image" alt=""/>
           </div>
           </a>
         </div>
@@ -124,7 +133,10 @@ class StockNews extends React.Component {
     }
 
     let fourthArticle = () => {
+      if (!newsArticles[3]) return null;
       let article = newsArticles[3]
+      let img = article.image
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
@@ -138,7 +150,7 @@ class StockNews extends React.Component {
             <span className="article-summary">
               {article.summary}
             </span>
-            <img src={`${article.image}`} className="article-image" alt=""/>
+            <img src={`${img}`} className="article-image" alt=""/>
           </div>
           </a>
         </div>
@@ -146,7 +158,10 @@ class StockNews extends React.Component {
     }
 
     let fifthArticle = () => {
+      if (!newsArticles[4]) return null;
       let article = newsArticles[4]
+      let img = article.image
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
@@ -160,7 +175,83 @@ class StockNews extends React.Component {
             <span className="article-summary">
               {article.summary}
             </span>
-            <img src={`${article.image}`} className="article-image" alt=""/>
+            {/* <img src={`${article.image}`} className="article-image" alt=""/> */}
+            <img src={`${img}`} className="article-image" alt=""/>
+          </div>
+          </a>
+        </div>
+      )
+    }
+
+    let sixthArticle = () => {
+      if (!newsArticles[5]) return null;
+      let article = newsArticles[5]
+      let img = article.image
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
+      return (
+        <div className="article-1">
+          <a className="article-link" href={`${article.url}`} target="_blank">
+          <div className="article-2">
+            <span className="article-source">
+              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+            </span>
+            <span className="article-title">
+              {article.headline}
+            </span>
+            <span className="article-summary">
+              {article.summary}
+            </span>
+            <img src={`${img}`} className="article-image" alt=""/>
+          </div>
+          </a>
+        </div>
+      )
+    }
+
+    let seventhArticle = () => {
+      if (!newsArticles[6]) return null;
+      let article = newsArticles[6]
+      let img = article.image
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
+      return (
+        <div className="article-1">
+          <a className="article-link" href={`${article.url}`} target="_blank">
+          <div className="article-2">
+            <span className="article-source">
+              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+            </span>
+            <span className="article-title">
+              {article.headline}
+            </span>
+            <span className="article-summary">
+              {article.summary}
+            </span>
+            <img src={`${img}`} className="article-image" alt=""/>
+          </div>
+          </a>
+        </div>
+      )
+    }
+
+    let eigthArticle = () => {
+      if (!newsArticles[7]) return null;
+      let article = newsArticles[7];
+      let img = article.image;
+      if (img === "") img = "https://i.imgur.com/7y4PIHc.jpeg"
+      return (
+        <div className="article-1">
+          <a className="article-link" href={`${article.url}`} target="_blank">
+          <div className="article-2">
+            <span className="article-source">
+              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+            </span>
+            <span className="article-title">
+              {article.headline}
+            </span>
+            <span className="article-summary">
+              {article.summary}
+            </span>
+            <img src={`${img}`} className="article-image" alt=""/>
           </div>
           </a>
         </div>
@@ -203,6 +294,9 @@ class StockNews extends React.Component {
           {thirdArticle()}
           {fourthArticle()}
           {fifthArticle()}
+          {sixthArticle()}
+          {seventhArticle()}
+          {eigthArticle()}
         </div>
       </div>
         )
