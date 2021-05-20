@@ -66,6 +66,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 999;
 }
 
 .home-header-2 {
@@ -116,10 +117,16 @@ nav {
   margin-top: 0;
   display: inline-block;
 
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
   span {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 28px;
     letter-spacing: -.25px;
+    font-weight: 500;
   }
 
   span:hover {

@@ -39,10 +39,10 @@ class HomePage extends React.Component {
 
               <div className="home-header-5">
                 <ul className="home-header-6">
-                  <li className="home-header-7"><span>Products</span></li>
-                  <li className="home-header-7"><span>Learn</span></li>
-                  <li className="home-header-7"><span>Support</span></li>
-                  <li className="home-header-7"><span>Who we are</span></li>
+                  <li className="home-header-7"><a href="https://github.com/Jmasters8/Jasonhood" target="_blank"><span>Github</span></a></li>
+                  <li className="home-header-7"><a href="https://www.linkedin.com/in/jason-masters8/" target="_blank"><span>LinkedIn</span></a></li>
+                  <li className="home-header-7"><a href="https://angel.co/u/jasonmasters" target="_blank"><span>AngelList</span></a></li>
+                  <li className="home-header-7"><a href="https://www.jasondmasters.com" target="_blank"><span>Portfolio</span></a></li>
                 </ul>
               </div>
               <div className="home-header-8"></div>

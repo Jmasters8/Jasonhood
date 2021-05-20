@@ -146,26 +146,26 @@ class Navbar extends React.Component {
           <div className="navbar-list">
             <div className="navbar-list-1">
 
-              <a className="navbar-list-2">
-                <span className="navbar-list-word">Free Stocks</span>
+              <a href="https://github.com/Jmasters8/Jasonhood" target="_blank" className="navbar-list-2">
+                <span className="navbar-list-word">Github</span>
               </a>
 
-              <a className="navbar-list-3">
+              <a href="https://www.linkedin.com/in/jason-masters8/" target="_blank" className="navbar-list-3">
+                <span className="navbar-list-word">LinkedIn</span>
+              </a>
+
+              <a href="https://angel.co/u/jasonmasters" target="_blank" className="navbar-list-3">
+                <span className="navbar-list-word">AngelList</span>
+              </a>
+
+              <a href="jasondmasters.com" target="_blank" className="navbar-list-3">
                 <span className="navbar-list-word">Portfolio</span>
-              </a>
-
-              <a className="navbar-list-3">
-                <span className="navbar-list-word">Cash</span>
-              </a>
-
-              <a className="navbar-list-3">
-                <span className="navbar-list-word">Messages</span>
               </a>
 
               <div className="navbar-list-4">
                 <div>
                   <a className="nav-bar-account">
-                    <span onClick={this.handleLogout} className="navbar-list-word">Account</span>
+                    <span onClick={this.handleLogout} className="navbar-list-word">Log Out</span>
                   </a>
                 </div>
               </div>
