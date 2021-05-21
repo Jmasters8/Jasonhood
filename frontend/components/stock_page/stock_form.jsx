@@ -80,7 +80,7 @@ class StockForm extends React.Component {
     // this.props.deleteStockAsset(this.props.currentUserId, 69)
     // .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId))
     // this.setState({shares: "", showSellError: false})
-    this.props.updateStockAmount(5, 20)
+    this.props.updateStockAmount(2, 20)
   }
 
   sellAll(sharesAmount) {

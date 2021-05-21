@@ -15,7 +15,7 @@ class Api::StockAssetsController < ApplicationController
     @asset.amount = params[:amount].to_i
 
     if @asset.amount >= 0
-      @asset.save!
+      @asset.save
       render :show
     else
       render json: ['unable to process request']

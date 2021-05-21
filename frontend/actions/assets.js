@@ -1,9 +1,10 @@
 import * as AssetAPIUtil from '../util/asset_api_util';
+import { receiveCurrentUser } from './session'
 
 
 export const RECEIVE_STOCK_ASSET = 'RECEIVE_ASSET';
 export const REMOVE_STOCK_ASSET = 'REMOVE_STOCK_ASSET';
-export const UPDATE_STOCK_ASSET = 'UPDATE_STOCK_ASSET'
+export const UPDATE_STOCK_ASSET = 'UPDATE_STOCK_ASSET';
 
 const receiveStockAsset = (asset, ticker) => ({
   type: RECEIVE_STOCK_ASSET,
@@ -11,10 +12,10 @@ const receiveStockAsset = (asset, ticker) => ({
   ticker
 });
 
-const updateStockAsset = (payload, amount) => ({
+const updateStockAsset = (amount, asset) => ({
   type: UPDATE_STOCK_ASSET,
-  payload,
-  amount
+  amount,
+  asset
 })
 
 const removeStockAsset = (assetId) => ({
@@ -31,8 +32,8 @@ export const addStockAsset = (ticker, ownerId, amount, price) => dispatch => (
 )
 
 export const updateStockAmount = (amount, assetId) => dispatch => (
-  AssetAPIUtil.updateStockAsset(amount, assetId).then((asset, assetId) => {
-    dispatch(updateStockAsset(asset, assetId))
+  AssetAPIUtil.updateStockAsset(amount, assetId).then((amount, asset) => {
+    dispatch(updateStockAsset(amount, asset))
   })
 )
 
