@@ -11,6 +11,7 @@ class StockForm extends React.Component {
       showBuyError: false,
       showSellError: false
     }
+    
 
     this.handleBuy = this.handleBuy.bind(this);
     this.handleSell = this.handleSell.bind(this);
@@ -55,6 +56,20 @@ class StockForm extends React.Component {
     )
   }
 
+  showSellError() {
+   
+    if (!this.state.showSellError) return null
+    
+    
+    return (
+      <div className="stock-errors">
+        <span className="stock-errors-1">
+          Not Enough Shares to Complete this Trade
+        </span>
+      </div>
+    )
+  }
+
   handleBuy(e) {
     e.preventDefault();
     if ((this.props.currentPrice * this.state.shares).toFixed(2) > this.state.buyingPower) {
@@ -62,7 +77,7 @@ class StockForm extends React.Component {
       this.showBuyError()
       return null
     }
-    console.log(this.state)
+
     this.setState({ buyingPower: (this.state.buyingPower - (this.props.currentPrice * this.state.shares).toFixed(2)) })
     
     this.props.addStockAsset(this.props.symbol, this.props.currentUserId, this.state.shares, this.props.currentPrice.toFixed(2))
@@ -72,13 +87,14 @@ class StockForm extends React.Component {
   }
 
   handleSell(sharesAmount) {
+  
     let sellShares = () => {
-      if ((sharesAmount < this.state.shares)) {
-        this.setState({showSellError: !this.state.showSellError})
+      if ((sharesAmount < parseInt(this.state.shares))) {
+        this.setState({showSellError: !this.state.showSellError}, () => console.log(this.state.showSellError))
         this.showSellError();
         return null
       }
-
+      
       let assets = Object.values(this.props.assets);
       let shares = this.state.shares
 
@@ -116,6 +132,7 @@ class StockForm extends React.Component {
           }
         }
       }
+      this.setState({shares: "", showSellError: false})
     }
     sellShares()
    
@@ -124,7 +141,7 @@ class StockForm extends React.Component {
     // this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId)
    
     // this.props.updateBuyingPower((this.state.buyingPower + parseInt((this.props.currentPrice * this.state.shares).toFixed(2))), this.props.currentUserId)
-    this.setState({shares: "", showSellError: false})
+    
   
     
     // this.props.deleteStockAsset(this.props.currentUserId, 69)
@@ -434,8 +451,8 @@ class StockForm extends React.Component {
                     </div>
                     </span>
                   </div>
+                  {this.showSellError()}
                 </footer>
-
               </form>
             </div>
 
