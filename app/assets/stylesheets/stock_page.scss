@@ -25,7 +25,7 @@
 
 .trade-2 {
   width: 100%;
-  height: 415px;
+  // height: 415px;
   box-sizing: border-box;
   background-color: rgb(30, 33, 36);
   border: 1px solid rgb(64, 73, 78);
@@ -57,7 +57,8 @@
 
 .trade-stock-name-2 {
   height: 100%;
-  width: 68px;
+  // width: 68px;
+  width: 100%;
 }
 
 .trade-stock-name-3 {
@@ -72,6 +73,26 @@
   width: 88px;
   position: absolute;
   bottom: 10px;
+  cursor: pointer;
+}
+
+.trade-stock-name-toggled {
+  margin: 0px;
+  color: rgb(0, 200, 5);
+  font-style: normal;
+  text-decoration: unset;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.1px;
+  line-height: 24px;
+  width: 88px;
+  position: absolute;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.trade-stock-name-3:hover {
+  color:rgb(0, 200, 5);
 }
 
 .trade-stock-shares {
@@ -350,7 +371,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 100px;
   height: 20px;
 }
 
@@ -451,11 +471,12 @@
   align-items: center;
   border-top: 1px solid;
   border-color: rgb(64, 73, 78);
-  display: flex;
-  min-height: 48px;
+  // display: flex;
+  min-height: 35px;
   -webkit-box-pack: center;
   justify-content: center;
   padding: 0 15px;
+  padding-top: 10px;
 }
 
 .money-available-1 {
@@ -465,6 +486,23 @@
   border-left: 2px solid transparent;
   height: 20px;
   margin-bottom: 5px;
+}
+
+.stock-errors {
+  -webkit-box-flex: 1;
+  flex: 1;
+  text-align: center;
+  border-left: 2px solid transparent;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.stock-errors-1 {
+  margin: 0px;
+  color: rgb(255,80,0);
+  text-decoration: unset;
+  font-weight: 400;
+  font-size: 13px; 
 }
 
 .money-available-2 {
@@ -482,6 +520,23 @@
   flex-direction: row;
   -webkit-box-pack: center;
   justify-content: center;
+}
+
+.shares-available-2 {
+  margin: 0px;
+  color: white;
+  text-decoration: unset;
+  font-weight: 400;
+  font-size: 13px; 
+}
+
+.shares-available-3 {
+  margin: 0px;
+  color: rgb(0, 200, 5);
+  text-decoration: unset;
+  font-weight: 400;
+  font-size: 13.5px; 
+  cursor: pointer;
 }
 
 .add-list {

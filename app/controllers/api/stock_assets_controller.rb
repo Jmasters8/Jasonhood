@@ -9,6 +9,19 @@ class Api::StockAssetsController < ApplicationController
     end
   end
 
+  def update
+    @asset = StockAsset.find_by(id: params[:id])
+    # p @asset
+    @asset.amount = params[:amount].to_i
+
+    if @asset.amount >= 0
+      @asset.save!
+      render :show
+    else
+      render json: ['unable to process request']
+    end
+  end
+
   def destroy
     @asset = StockAsset.find_by(id: params[:id])
     @asset.destroy

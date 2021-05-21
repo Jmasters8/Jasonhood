@@ -2,7 +2,8 @@ import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import GraphTwoContainer from '../graph/graph_container_2';
 import GraphTwo from '../graph/graph_2';
-import StockNewsContainer from '../stock_news/stock_news_container'
+import StockNewsContainer from '../stock_news/stock_news_container';
+import StockForm from './stock_form';
 
 import Odometer from 'react-odometerjs';
 import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
@@ -135,6 +136,7 @@ class Stock extends React.Component {
         </div>
       )
     }
+    let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
 
     // if (this.props.data === undefined) {
     //   return (
@@ -664,7 +666,8 @@ class Stock extends React.Component {
   
                         </div>
 
-                      <div className="trade">
+                        <StockForm updateStockAmount={this.props.updateStockAmount} deleteStockAsset={this.props.deleteStockAsset} stock={this.props.stock} assets={this.props.assets} currentUserBuyingPower={this.props.currentUser.buying_power} updateBuyingPower={this.props.updateBuyingPower} currentUserId={this.props.currentUser.id} addStockAsset={this.props.addStockAsset} buyingPower={this.state.buyingPower} currentPrice={currentPrice} marketPrice={marketPrice} shares={this.state.shares} symbol={this.props.stock.Symbol}/>
+                      {/* <div className="trade">
                         <div className="trade-1">
                           <div className="trade-2">
                             <form>
@@ -675,6 +678,13 @@ class Stock extends React.Component {
                                       Buy {this.props.stock.Symbol}
                                     </span>
                                   </div>
+
+                                  <div className="trade-stock-name-2">
+                                  <span className="trade-stock-name-3">
+                                      Sell {this.props.stock.Symbol}
+                                    </span>
+                                  </div>
+
                                 </div>
                               </div>
                               <div className="trade-stock-shares">
@@ -698,7 +708,7 @@ class Stock extends React.Component {
                                                   <span className="trade-stock-shares-13">
                                                   △
                                                   ▽
-                                                    {/* <img src="https://listimg.pinclipart.com/picdir/s/71-715206_upside-down-triangle-outline-clipart.png" alt=""/> */}
+                                                    
                                                   </span>
                                                 </div>
                                               </button>
@@ -803,7 +813,7 @@ class Stock extends React.Component {
                           </div>
 
                         </div>
-                      </div>
+                      </div> */}
 
                       </div>
                     </main>
