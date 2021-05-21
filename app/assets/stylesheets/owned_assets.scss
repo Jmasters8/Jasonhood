@@ -11,7 +11,7 @@
   margin-right: -24px;
   position: sticky;
   // height: calc(100vh - (64px, 64px) - 36px);
-  height: 600px;
+  // height: 600px;
   padding: 24px;
   top: calc((64px, 64px) + 12px);
   width: 100%;
@@ -29,6 +29,8 @@
   overflow: hidden;
   will-change: transform;
   min-width: 276px;
+  min-height: 500px;
+  padding-bottom: 30px;
 }
 
 .right-4 {
