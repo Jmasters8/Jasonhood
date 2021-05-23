@@ -1,1 +1,1 @@
-json.extract! watched_asset, :ticker, :price, :watcher_id, :id
+json.extract! watched_asset, :ticker, :price, :category, :watcher_id, :id

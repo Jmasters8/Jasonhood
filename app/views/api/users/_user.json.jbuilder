@@ -14,7 +14,7 @@ end
 json.watched_assets do
   user.watched_assets.each do |watched_asset|
     json.set! watched_asset.id do
-      json.extract! watched_asset, :ticker, :price, :watcher_id, :id
+      json.extract! watched_asset, :ticker, :price, :category, :watcher_id, :id
     end
   end
 end

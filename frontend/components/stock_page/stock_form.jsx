@@ -162,29 +162,29 @@ class StockForm extends React.Component {
   addToWatchList(e) {
     e.preventDefault();
     let watchedAssets = Object.values(this.props.watchedAssets)
-    for (let i = 0; i < watchedAssets.length; i++) {
-      let asset = watchedAssets[i];
-      if (asset.ticker === this.props.symbol) {
-        showWatchListError()
-        return null
-      }
-    }
-    this.props.addWatchedAsset(this.props.symbol, this.props.currentUserId, this.props.currentPrice)
+    // for (let i = 0; i < watchedAssets.length; i++) {
+    //   let asset = watchedAssets[i];
+    //   if (asset.ticker === this.props.symbol) {
+    //     showWatchListError()
+    //     return null
+    //   }
+    // }
+    this.props.addWatchedAsset(this.props.symbol, this.props.currentUserId, this.props.currentPrice, "doodoo")
   }
 
-  showWatchListError() {
+  // showWatchListError() {
    
-    if (!this.state.showWatchListError) return null
+  //   if (!this.state.showWatchListError) return null
     
     
-    return (
-      <div className="stock-errors">
-        <span className="stock-errors-1">
-          This stock is already on your list
-        </span>
-      </div>
-    )
-  }
+  //   return (
+  //     <div className="stock-errors">
+  //       <span className="stock-errors-1">
+  //         This stock is already on your list
+  //       </span>
+  //     </div>
+  //   )
+  // }
 
   render() {
     

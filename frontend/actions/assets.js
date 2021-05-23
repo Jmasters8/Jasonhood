@@ -48,8 +48,8 @@ export const deleteStockAsset = (ownerId, assetId) => dispatch => (
   AssetAPIUtil.deleteStockAsset(ownerId, assetId).then(assetId => dispatch(removeStockAsset(assetId)))
 )
 
-export const addWatchedAsset = (ticker, ownerId, price) => dispatch => (
-  AssetAPIUtil.addWatchedAsset(ticker, ownerId, price).then(watchedAsset => {
+export const addWatchedAsset = (ticker, ownerId, price, category) => dispatch => (
+  AssetAPIUtil.addWatchedAsset(ticker, ownerId, price, category).then(watchedAsset => {
     dispatch(receiveWatchedAsset(watchedAsset, ticker))
   })
 )

@@ -68359,3 +68359,90 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 187ms (Views: 7.9ms | ActiveRecord: 1.2ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8709305028498251835)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCategoryToWatchedAssets (20210523033507)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "watched_assets" ADD "category" character varying[0m
+  ↳ db/migrate/20210523033507_add_category_to_watched_assets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210523033507"]]
+  ↳ bin/rails:9
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8709305028498251835)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-05-22 20:44:02 -0700
+  [1m[35m (9.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jason/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9GNQXvGWoz019xgGqKR42w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.4ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  [1m[36mWatchedAsset Load (17.1ms)[0m  [1m[34mSELECT "watched_assets".* FROM "watched_assets" WHERE "watched_assets"."watcher_id" = $1[0m  [["watcher_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:15
+  Rendered api/users/_user.json.jbuilder (38.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (78.8ms)
+Completed 200 OK in 815ms (Views: 762.4ms | ActiveRecord: 51.4ms)
+
+
+Started POST "/api/watched_assets" for ::1 at 2021-05-22 20:44:34 -0700
+Processing by Api::WatchedAssetsController#create as JSON
+  Parameters: {"watched_asset"=>{"ticker"=>"WKHS", "watcher_id"=>"15", "price"=>"8.46"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  [1m[36mWatchedAsset Create (0.3ms)[0m  [1m[32mINSERT INTO "watched_assets" ("watcher_id", "ticker", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["watcher_id", 15], ["ticker", "WKHS"], ["price", 8], ["created_at", "2021-05-23 03:44:34.681325"], ["updated_at", "2021-05-23 03:44:34.681325"]]
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  Rendering api/watched_assets/show.json.jbuilder
+  Rendered api/watched_assets/_watched_asset.json.jbuilder (0.2ms)
+  Rendered api/watched_assets/show.json.jbuilder (0.9ms)
+Completed 200 OK in 13ms (Views: 4.8ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2021-05-22 20:45:04 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9GNQXvGWoz019xgGqKR42w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStockAsset Load (0.2ms)[0m  [1m[34mSELECT "stock_assets".* FROM "stock_assets" WHERE "stock_assets"."owner_id" = $1[0m  [["owner_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:7
+  [1m[36mWatchedAsset Load (0.1ms)[0m  [1m[34mSELECT "watched_assets".* FROM "watched_assets" WHERE "watched_assets"."watcher_id" = $1[0m  [["watcher_id", 15]]
+  ↳ app/views/api/users/_user.json.jbuilder:15
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 608ms (Views: 606.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/watched_assets" for ::1 at 2021-05-22 20:45:09 -0700
+Processing by Api::WatchedAssetsController#create as JSON
+  Parameters: {"watched_asset"=>{"ticker"=>"WKHS", "watcher_id"=>"15", "price"=>"8.46", "category"=>"doodoo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  [1m[36mWatchedAsset Create (0.2ms)[0m  [1m[32mINSERT INTO "watched_assets" ("watcher_id", "ticker", "price", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["watcher_id", 15], ["ticker", "WKHS"], ["price", 8], ["created_at", "2021-05-23 03:45:09.033008"], ["updated_at", "2021-05-23 03:45:09.033008"], ["category", "doodoo"]]
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/watched_assets_controller.rb:5
+  Rendering api/watched_assets/show.json.jbuilder
+  Rendered api/watched_assets/_watched_asset.json.jbuilder (0.2ms)
+  Rendered api/watched_assets/show.json.jbuilder (0.9ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+
+
