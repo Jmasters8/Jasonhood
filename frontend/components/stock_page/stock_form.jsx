@@ -86,8 +86,8 @@ class StockForm extends React.Component {
     console.log(this.state)
   }
 
-  handleSell(sharesAmount) {
-  
+  handleSell(e, sharesAmount) {
+    e.preventDefault()
     let sellShares = () => {
       if ((sharesAmount < parseInt(this.state.shares))) {
         this.setState({showSellError: !this.state.showSellError}, () => console.log(this.state.showSellError))
@@ -428,7 +428,7 @@ class StockForm extends React.Component {
                     <div className="review-order-2">
                       <div className="review-order-3">
                         <div className="review-order-4">
-                          <button onClick={() => this.handleSell(sharesAmount)} className="review-order-5">
+                          <button onClick={(e) => this.handleSell(e, sharesAmount)} className="review-order-5">
                             <div className="review-order-6">
                               <span className="review-order-7">
                                 Complete Order

@@ -12,7 +12,7 @@ class MainPage extends React.Component {
 
     this.state = {
       stockSymbol: "",
-      buyingPower: 0,
+      buyingPower: "",
       start: new Date().setHours(6, 0, 0, 0) / 1000,
       now: new Date().setHours(13, 0, 0, 0) / 1000
     }
@@ -26,7 +26,7 @@ class MainPage extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)
-    this.setState({buyingPower: 0})
+    this.setState({buyingPower: ""})
   }
 
   handleInput(type) {
