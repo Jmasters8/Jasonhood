@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
       session: { id: window.currentUser.users.id },
       entities: {
         users: { [window.currentUser.users.id]: window.currentUser.users },
-        assets: window.currentUser.assets
+        assets: window.currentUser.assets,
+        watchedAssets: window.currentUser.watched_assets
       }
     }
     store = configureStore(preloadedState);

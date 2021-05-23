@@ -23,3 +23,12 @@ export const deleteStockAsset = (ownerId, assetId) => {
     data: { stock_asset: {owner_id: ownerId } }
   })
 }
+
+
+export const addWatchedAsset = (ticker, watcherId, price) => {
+  return $.ajax({
+    url: '/api/watched_assets',
+    method: 'POST',
+    data: { watched_asset: {ticker, watcher_id: watcherId, price} }
+  })
+}

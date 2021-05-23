@@ -16,7 +16,8 @@ export const receiveCurrentUser = payload => {
   return {
   type: RECEIVE_CURRENT_USER,
   currentUser: payload.users,
-  assets: payload.assets
+  assets: payload.assets,
+  watchedAssets: payload.watched_assets
 }
 }
 

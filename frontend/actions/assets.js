@@ -5,6 +5,7 @@ import { receiveCurrentUser } from './session'
 export const RECEIVE_STOCK_ASSET = 'RECEIVE_ASSET';
 export const REMOVE_STOCK_ASSET = 'REMOVE_STOCK_ASSET';
 export const UPDATE_STOCK_ASSET = 'UPDATE_STOCK_ASSET';
+export const RECEIVE_WATCHED_ASSET = 'RECEIVE_WATCHED_ASSET';
 
 const receiveStockAsset = (asset, ticker) => ({
   type: RECEIVE_STOCK_ASSET,
@@ -23,6 +24,12 @@ const removeStockAsset = (assetId) => ({
   assetId
 });
 
+const receiveWatchedAsset = (watchedAsset, ticker) => ({
+  type: RECEIVE_WATCHED_ASSET,
+  watchedAsset,
+  ticker
+})
+
 
 
 export const addStockAsset = (ticker, ownerId, amount, price) => dispatch => (
@@ -39,4 +46,10 @@ export const updateStockAmount = (amount, assetId) => dispatch => (
 
 export const deleteStockAsset = (ownerId, assetId) => dispatch => (
   AssetAPIUtil.deleteStockAsset(ownerId, assetId).then(assetId => dispatch(removeStockAsset(assetId)))
+)
+
+export const addWatchedAsset = (ticker, ownerId, price) => dispatch => (
+  AssetAPIUtil.addWatchedAsset(ticker, ownerId, price).then(watchedAsset => {
+    dispatch(receiveWatchedAsset(watchedAsset, ticker))
+  })
 )

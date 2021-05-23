@@ -1,0 +1,1 @@
+json.extract! watched_asset, :ticker, :price, :watcher_id, :id

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_020135) do
+ActiveRecord::Schema.define(version: 2021_05_23_015938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(version: 2021_04_15_020135) do
     t.string "last_name", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
+  end
+
+  create_table "watched_assets", force: :cascade do |t|
+    t.integer "watcher_id", null: false
+    t.string "ticker"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["watcher_id"], name: "index_watched_assets_on_watcher_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

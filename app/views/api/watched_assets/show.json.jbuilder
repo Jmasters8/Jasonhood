@@ -1,0 +1,1 @@
+json.partial! "api/watched_assets/watched_asset", watched_asset: @watched_asset

@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :stock_assets,
     foreign_key: :owner_id,
     class_name: "StockAsset"
+
+  has_many :watched_assets,
+    foreign_key: :watcher_id,
+    class_name: "WatchedAsset"
   
   has_many :crypto_assets,
     foreign_key: :owner_id,

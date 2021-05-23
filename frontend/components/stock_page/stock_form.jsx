@@ -9,7 +9,8 @@ class StockForm extends React.Component {
       buyingPower: this.props.buyingPower,
       transaction: "buy",
       showBuyError: false,
-      showSellError: false
+      showSellError: false,
+      showWatchListError: false
     }
     
 
@@ -18,6 +19,7 @@ class StockForm extends React.Component {
     // this.toggleTransaction = this.toggleTransaction.bind(this)
     this.toggleBuy = this.toggleBuy.bind(this);
     this.toggleSell = this.toggleSell.bind(this);
+    this.addToWatchList = this.addToWatchList.bind(this);
   }
 
   handleInput(type) {
@@ -155,6 +157,33 @@ class StockForm extends React.Component {
 
   sellAll(sharesAmount) {
     this.setState({shares: sharesAmount})
+  }
+
+  addToWatchList(e) {
+    e.preventDefault();
+    let watchedAssets = Object.values(this.props.watchedAssets)
+    for (let i = 0; i < watchedAssets.length; i++) {
+      let asset = watchedAssets[i];
+      if (asset.ticker === this.props.symbol) {
+        showWatchListError()
+        return null
+      }
+    }
+    this.props.addWatchedAsset(this.props.symbol, this.props.currentUserId, this.props.currentPrice)
+  }
+
+  showWatchListError() {
+   
+    if (!this.state.showWatchListError) return null
+    
+    
+    return (
+      <div className="stock-errors">
+        <span className="stock-errors-1">
+          This stock is already on your list
+        </span>
+      </div>
+    )
   }
 
   render() {
@@ -307,7 +336,7 @@ class StockForm extends React.Component {
             <div className="add-list">
               <div className="add-list-1"></div>
               <div className="add-list-2">
-                <button className="add-list-3">
+                <button onClick={this.addToWatchList} className="add-list-3">
                   <div className="add-list-4">
                     <span className="add-list-5">
                       <span className="add-list-6">
@@ -459,7 +488,7 @@ class StockForm extends React.Component {
             <div className="add-list">
               <div className="add-list-1"></div>
               <div className="add-list-2">
-                <button className="add-list-3">
+                <button onClick={this.addToWatchList} className="add-list-3">
                   <div className="add-list-4">
                     <span className="add-list-5">
                       <span className="add-list-6">

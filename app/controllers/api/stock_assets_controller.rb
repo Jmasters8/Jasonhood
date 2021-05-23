@@ -35,5 +35,3 @@ class Api::StockAssetsController < ApplicationController
   end
 end
 
-
-#add price in schem,a

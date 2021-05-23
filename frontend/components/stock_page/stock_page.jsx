@@ -666,7 +666,20 @@ class Stock extends React.Component {
   
                         </div>
 
-                        <StockForm updateStockAmount={this.props.updateStockAmount} deleteStockAsset={this.props.deleteStockAsset} stock={this.props.stock} assets={this.props.assets} currentUserBuyingPower={this.props.currentUser.buying_power} updateBuyingPower={this.props.updateBuyingPower} currentUserId={this.props.currentUser.id} addStockAsset={this.props.addStockAsset} buyingPower={this.state.buyingPower} currentPrice={currentPrice} marketPrice={marketPrice} shares={this.state.shares} symbol={this.props.stock.Symbol}/>
+                        <StockForm
+                        addWatchedAsset={this.props.addWatchedAsset}
+                        updateStockAmount={this.props.updateStockAmount}
+                        deleteStockAsset={this.props.deleteStockAsset}
+                        stock={this.props.stock} assets={this.props.assets}
+                        currentUserBuyingPower={this.props.currentUser.buying_power}
+                        updateBuyingPower={this.props.updateBuyingPower}
+                        currentUserId={this.props.currentUser.id}
+                        addStockAsset={this.props.addStockAsset}
+                        buyingPower={this.state.buyingPower} currentPrice={currentPrice}
+                        marketPrice={marketPrice} shares={this.state.shares}
+                        symbol={this.props.stock.Symbol}
+                        watchedAssets={this.props.watchedAssets}
+                        />
                       {/* <div className="trade">
                         <div className="trade-1">
                           <div className="trade-2">

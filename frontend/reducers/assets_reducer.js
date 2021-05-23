@@ -22,7 +22,7 @@ const assetsReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return action.assets || state
     case LOGOUT_CURRENT_USER:
-        return {}
+        return {};
     default:
       return state
   }
