@@ -37,7 +37,7 @@ class WatchListCategory extends React.Component {
               <div className="watch-list-edit">
                 <button className="watch-list-edit-button">
                   {/* <img className="watch-list-edit-button-1" src="https://i.imgur.com/u5oCv3G.png" alt=""/> */}
-                  <div></div>
+                  <div className="watch-list-edit-button-1"></div>
                 </button>
               </div>
 

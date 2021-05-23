@@ -41,7 +41,7 @@
   display: flex;
   color: white;
   font-size: 28px;
-  padding-right: 8px;
+  // padding-right: 8px;
 }
 
 .watch-list-button:hover {
@@ -79,6 +79,18 @@
     visibility: visible;
   }
 }
+
+.watch-list-edit-button-1:hover {
+  content: url('https://i.imgur.com/dUkgXrp.png');
+  
+  .watch-list-dropdown-3 {
+    content: url('https://i.imgur.com/9xOZVK8.png');
+    width: 50px;
+  }
+}
+
+
+
 
 .watch-list-category-3 {
   -webkit-box-align: center;
@@ -187,6 +199,7 @@
 }
 
 .watch-list-edit-button-1 {
+  content: url('https://i.imgur.com/u5oCv3G.png');
   width: 20px;
 }
 
