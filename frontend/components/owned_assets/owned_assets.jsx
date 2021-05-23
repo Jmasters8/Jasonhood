@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { fetchStockData } from '../../actions/stocks';
-import OwnedAssetItem from './owned_asset_item'
+import OwnedAssetItem from './owned_asset_item';
+import WatchLists from '../watch_lists/watch_lists';
+import WatchListCategory from '../watch_lists/watch_list_category';
 
 class OwnedAssets extends React.Component {
   constructor(props) {
@@ -34,41 +36,24 @@ class OwnedAssets extends React.Component {
     }
   }
   myAssets()
-  // console.log(stocks)
+  
+  let allWatchedAssets = Object.values(this.props.watchedAssets)
+  let watchedAssets = [];
+  for (let i = 0; i < allWatchedAssets.length; i++) {
+    let asset = allWatchedAssets[i]
+    if (!watchedAssets.includes(asset) && asset.category !== null) {
+      watchedAssets.push(asset)
+    }
+  }
 
-    // const myAssets = () => {
-    //   let num = 0;
-
-    //   let assets = Object.values(this.props.props.assets)
-
-    //   for (let i = 0; i < assets.length; i++) {
-    //     let asset = assets[i];
-    //     if (asset.ticker === "NIO") {
-    //       num += asset.amount
-    //     }
-    //   }
-    //   return num
-    // }
-
-    // const totalSharesPrice = () => {
-    //   let sum = 0;
-    //   let assets = Object.values(this.props.props.assets)
-
-    //   for (let i = 0; i < assets.length; i++) {
-    //     let asset = assets[i];
-    //     if (asset.ticker === this.props.stock.Symbol) {
-    //       sum += asset.amount
-    //     }
-    //   }
-    //   return sum;
-    // }
-
-
-
-
-  // console.log(myAssets())
-
-  // console.log(this.props)
+  let categories = [];
+  for (let i = 0; i < allWatchedAssets.length; i++) {
+    let asset = allWatchedAssets[i];
+    if (!categories.includes(asset.category) && asset.category !== null) {
+      categories.push(asset.category)
+    }
+  }
+  console.log(categories)
 
     return (
       <div className="right-1">
@@ -87,6 +72,12 @@ class OwnedAssets extends React.Component {
               {stocks.map((stock, i) => (
                 <OwnedAssetItem stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData} key={i} assets={this.props.assets} ticker={stock}/>
               ))}
+            </ul>
+            <WatchLists watchedAssets={this.props.watchedAssets}/>
+            <ul className="watch-list-category">
+              {categories.map((category, i) => {
+                return <WatchListCategory key={i} category={category} watchedAssets={watchedAssets}/>
+              })}
             </ul>
           </div>
         </div>

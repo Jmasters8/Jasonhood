@@ -169,7 +169,7 @@ class StockForm extends React.Component {
     //     return null
     //   }
     // }
-    this.props.addWatchedAsset(this.props.symbol, this.props.currentUserId, this.props.currentPrice, "doodoo")
+    this.props.addWatchedAsset(this.props.symbol, this.props.currentUserId, this.props.currentPrice, "To the Moon Please!!")
   }
 
   // showWatchListError() {

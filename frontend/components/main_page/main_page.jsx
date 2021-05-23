@@ -483,6 +483,7 @@ class MainPage extends React.Component {
                       fetchStock={this.props.fetchStock}
                       fetchStockData={this.props.fetchStockData}
                       assets={this.props.assets}
+                      watchedAssets={this.props.watchedAssets}
                     />
                   </div>
                 </main>

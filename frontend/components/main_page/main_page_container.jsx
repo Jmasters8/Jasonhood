@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
   user: state.entities.users[state.session.id],
   assets: state.entities.assets,
   stocks: state.entities.stocks,
-  marketNews: state.entities.marketNews
+  marketNews: state.entities.marketNews,
+  watchedAssets: state.entities.watchedAssets
 });
 
 const mapDispatchToProps = (dispatch) => ({
