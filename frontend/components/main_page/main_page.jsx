@@ -40,6 +40,7 @@ class MainPage extends React.Component {
   }
 
   showInfo() {
+    
     if (document.getElementById("dash-toggle")) {
       document.getElementById("dash-toggle").id = "dash-toggle-test"
       document.getElementById("dashboard-buying-power-2").id = "dashboard-buying-power-2-active"

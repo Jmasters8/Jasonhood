@@ -70,7 +70,9 @@
   cursor: pointer;
 }
 
+
 .watch-list-category-2:hover {
+
   .watch-list-dropdown-3 {
     content: url('https://i.imgur.com/YNZ1wZY.png');
   }
@@ -85,10 +87,10 @@
   
   .watch-list-dropdown-3 {
     content: url('https://i.imgur.com/9xOZVK8.png');
-    width: 50px;
+    
   }
-}
 
+}
 
 
 
@@ -221,3 +223,12 @@
   content: url('https://i.imgur.com/9xOZVK8.png');
   width: 20px;
 }
+
+#watched-asset-item-list-none {
+  display: none;
+}
+
+#watched-asset-item-list-show {
+  display: block;
+}
+

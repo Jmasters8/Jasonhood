@@ -53,7 +53,6 @@ class OwnedAssets extends React.Component {
       categories.push(asset.category)
     }
   }
-  console.log(categories)
 
     return (
       <div className="right-1">
@@ -76,7 +75,7 @@ class OwnedAssets extends React.Component {
             <WatchLists watchedAssets={this.props.watchedAssets}/>
             <ul className="watch-list-category">
               {categories.map((category, i) => {
-                return <WatchListCategory key={i} category={category} watchedAssets={watchedAssets}/>
+                return <WatchListCategory stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData} key={i} id={i} category={category} watchedAssets={watchedAssets} assets={this.props.assets}/>
               })}
             </ul>
           </div>
