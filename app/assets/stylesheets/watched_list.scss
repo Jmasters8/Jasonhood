@@ -317,7 +317,7 @@
   box-shadow: none;
   border: 1px solid rgb(48, 54, 58);
   background-color: rgb(48, 54, 58);
-  border-radius: 8px;
+  border-radius: 4px;
   color: white;
   // padding-left: 12px;
   // padding-right: 12px;
@@ -326,5 +326,15 @@
   width: 100%;
   height: 100%;
   outline: none;
+}
 
+.watch-list-form-inputs-title-2:hover {
+  border-color: rgb(64, 73, 78);
+  background-color: rgb(30, 33, 36);
+}
+
+.watch-list-form-inputs-title-2:focus {
+  outline: 0px;
+  border-color: rgb(255, 80, 0);
+  background-color: rgb(30, 33, 36);
 }
