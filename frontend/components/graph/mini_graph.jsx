@@ -16,12 +16,13 @@ class MiniGraph extends React.Component {
     for (let i = 0; i < data.length; i++) {
       graphData.push({price: data[i], date: i})
     }
+ 
 
     let lineColor = () => {
-      if ((this.props.data['c'][this.props.data.length - 1] - this.props.data['o'][0]) >= 0) {
-        return "rgb(255,80,0)"
-      } else {
+      if ((this.props.data['c'][this.props.data['c'].length - 1] - this.props.data['o'][0]) >= 0) {
         return "rgb(0,200,5)"
+      } else {
+        return "rgb(255,80,0)"
       }
     }
 

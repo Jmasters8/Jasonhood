@@ -50,7 +50,7 @@ class WatchListCategory extends React.Component {
 
                   <div className="watch-list-title">
                     <span className="watch-list-title-1">
-                      {(this.props.category)} {this.props.id}
+                      {(this.props.category)}
                     </span>
                   </div>
 

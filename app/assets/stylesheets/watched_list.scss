@@ -78,7 +78,8 @@
   }
 
   .watch-list-edit {
-    visibility: visible;
+    // visibility: visible;
+    display: block;
   }
 }
 
@@ -162,6 +163,9 @@
   color: white;
   font-size: 14px;
   font-weight: 400;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .watch-list-dropdown {
@@ -171,7 +175,8 @@
 }
 
 .watch-list-edit {
-  visibility: hidden;
+  // visibility: hidden;
+  display: none;
   height: 24px;
   margin-right: 20px;
 }
