@@ -232,3 +232,51 @@
   display: block;
 }
 
+.watch-list-form {
+  height: 92px;
+  left: 0px;
+  // position: absolute;
+  top: 164px;
+  width: 100%;
+}
+
+.watch-list-form-1 {
+  padding: 8px 24px 0px 18px;
+}
+
+.watch-list-form-inputs {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.watch-list-form-inputs-emoji {
+  -webkit-appearance: button;
+  background: none;
+  border: 0px;
+  color: unset;
+  cursor: pointer;
+  padding: 0px;
+  flex-shrink: 0;
+}
+
+.watch-list-form-inputs-emoji-1 {
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(30, 33, 36);
+  border: 1px solid rgb(64, 73, 78);
+  height: 40px;
+  width: 40px;
+}
+
+.watch-list-form-inputs-emoji-2 {
+  
+}

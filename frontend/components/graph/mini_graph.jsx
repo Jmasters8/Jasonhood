@@ -27,7 +27,7 @@ class MiniGraph extends React.Component {
 
     return (
       <div className="mini-graph">
-        <ResponsiveContainer width="100%" height="80%">
+        <ResponsiveContainer width="100%" height="80%" minWidth="0%" minHeight="0%">
           <AreaChart data={graphData}>
             <Area className="potato" dataKey="price" stroke={`${lineColor()}`} strokeWidth={1} fill="#1e2124"/>
             <XAxis dataKey="date" hide/>

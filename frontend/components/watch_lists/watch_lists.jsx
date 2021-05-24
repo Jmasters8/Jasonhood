@@ -1,4 +1,5 @@
 import React from 'react';
+import WatchListForm from './watch_list_form';
 
 class WatchLists extends React.Component {
   constructor(props) {
@@ -19,18 +20,23 @@ class WatchLists extends React.Component {
     
 
     return (
-      <div className="watch-list-header">
-        <div className="watch-list-header-1">
-          <header className="watch-list-header-2">
-            <span className="watch-list-header-3">
-              Lists
-            </span>
-            <button className="watch-list-button">
-              +
-            </button>
+      <div>
+        <div className="watch-list-header">
+          <div className="watch-list-header-1">
+            <header className="watch-list-header-2">
+              <span className="watch-list-header-3">
+                Lists
+              </span>
+              <button className="watch-list-button">
+                +
+              </button>
 
-          </header>
+            </header>
+          </div>
         </div>
+
+        <WatchListForm />
+      
       </div>
     )
   }
