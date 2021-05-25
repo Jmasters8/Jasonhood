@@ -7,6 +7,7 @@ class WatchListCategory extends React.Component {
 
     this.showList = this.showList.bind(this);
     this.showEdit = this.showEdit.bind(this);
+    this.deleteList = this.deleteList.bind(this);
   }
 
   showList() {
@@ -19,28 +20,29 @@ class WatchListCategory extends React.Component {
   }
 
   showEdit() {
-    // document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.inset = '0px auto auto 0px'
-    document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.position = 'absolute'
-    document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.zIndex = '999'
-    document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.left = '50px'
-    document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.top = '35px'
-    // document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility = 'hidden'
-    
     if (document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility === "hidden" || document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility === "") {
       document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility = "visible";
-      console.log(document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility)
     } else if (document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility === "visible") {
       document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility = "hidden";
     }
   }
 
+  deleteList() {
+    console.log(this.props.watchedAssets)
+  }
+
   render() {
-    // if (!document.getElementById(this.props.id)) return null;
-    // document.getElementById(this.props.id).style.display = "block";
-    let page = document.getElementsByTagName("HTML")[0];
-    page.onClick = () => {
-      document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility = "hidden";
+      if (document.getElementsByClassName("left-1")[0]) {
+        let page = document.getElementsByClassName("left-1")[0]
+        page.addEventListener("click", () => {
+          if (document.getElementById(`watch-list-dropdown-edit${this.props.id}`) && document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility === "visible") {
+            document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility = "hidden";
+            console.log('potato')
+          }
+        })
     }
+      
+   
 
     let list = [];
     let assets = this.props.watchedAssets
@@ -113,7 +115,7 @@ class WatchListCategory extends React.Component {
                       </div>
                     </button>
 
-                    <button className="watch-list-dropdown-delete">
+                    <button onClick={this.deleteList} className="watch-list-dropdown-delete">
                       <div className="watch-list-dropdown-delete-1">
                         <div className="watch-list-dropdown-delete-2">
                           <div className="watch-list-dropdown-delete-3">
