@@ -17,6 +17,6 @@ class Api::WatchedAssetsController < ApplicationController
 
   private
   def watched_asset_params
-    params.require(:watched_asset).permit(:watcher_id, :ticker, :price, :category)
+    params.require(:watched_asset).permit(:watcher_id, :ticker, :price, :category, :emoji)
   end
 end

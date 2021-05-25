@@ -5,10 +5,12 @@ class WatchListForm extends React.Component {
     super(props);
 
     this.state = {
-      categoryName: ""
+      categoryName: "",
+      emoji: "💡"
     }
 
     this.handleClick = this.handleClick.bind(this);
+    this.chooseEmoji = this.chooseEmoji.bind(this);
   }
 
   hideForm() {
@@ -21,10 +23,16 @@ class WatchListForm extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.addWatchedAsset(null, this.props.currentUserId, null, this.state.categoryName)
+    console.log(this.state.emoji)
+    this.props.addWatchedAsset(null, this.props.currentUserId, null, this.state.categoryName, this.state.emoji)
 
     this.hideForm()
     this.setState({categoryName: ""})
+  }
+
+  chooseEmoji() {
+    console.log(this.state.emoji)
+    this.setState({emoji: "😂"})
   }
 
   render() {
@@ -32,11 +40,11 @@ class WatchListForm extends React.Component {
       <div id="watch-list-form" className="watch-list-form">
         <form className="watch-list-form-1">
           <div className="watch-list-form-inputs">
-            <button type="button" className="watch-list-form-inputs-emoji">
+            <button onClick={this.chooseEmoji} type="button" className="watch-list-form-inputs-emoji">
               <div className="watch-list-form-inputs-emoji-1">
                 <div className="watch-list-form-inputs-emoji-2">
                   <div className="watch-list-form-inputs-emoji-3">
-                    💡
+                    {this.state.emoji}
                   </div>
                 </div>
               </div>

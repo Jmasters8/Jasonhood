@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   fetchStock: symbol => dispatch(fetchStock(symbol)),
   updateBuyingPower: (buyingPower, id) => dispatch(updateBuyingPower(buyingPower, id)),
-  addWatchedAsset: (ticker, userId, price, category) => dispatch(addWatchedAsset(ticker, userId, price, category)),
+  addWatchedAsset: (ticker, userId, price, category, emoji) => dispatch(addWatchedAsset(ticker, userId, price, category, emoji)),
   deleteWatchedAsset: (watcherId, assetId) => dispatch(deleteWatchedAsset(watcherId, assetId)),
   fetchStockData: (symbol, start, end) => dispatch(fetchStockData(symbol, start, end)),
   fetchMarketNews: () => dispatch(fetchMarketNews())

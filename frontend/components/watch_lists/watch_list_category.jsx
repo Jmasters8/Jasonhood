@@ -67,7 +67,6 @@ class WatchListCategory extends React.Component {
       left: "50px",
       top: "35px"
     }
-    
 
     return (
       <div>
@@ -80,7 +79,7 @@ class WatchListCategory extends React.Component {
                     <div className="watch-list-category-7">
                       <div className="watch-list-lightbulb">
                       <div className="watch-list-lightbulb-1">
-                      💡
+                        {this.props.emoji}
                       </div>
                       </div>
                     </div>

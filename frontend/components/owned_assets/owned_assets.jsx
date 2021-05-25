@@ -47,10 +47,17 @@ class OwnedAssets extends React.Component {
   }
 
   let categories = [];
+  // for (let i = 0; i < allWatchedAssets.length; i++) {
+  //   let asset = allWatchedAssets[i];
+  //   if (!categories.includes(asset.category) && asset.category !== null) {
+  //     categories.push(asset.category)
+  //   }
+  // }
+
   for (let i = 0; i < allWatchedAssets.length; i++) {
     let asset = allWatchedAssets[i];
     if (!categories.includes(asset.category) && asset.category !== null) {
-      categories.push(asset.category)
+      categories.push([asset.category, asset.emoji])
     }
   }
 
@@ -75,7 +82,7 @@ class OwnedAssets extends React.Component {
             <WatchLists currentUserId={this.props.currentUserId} addWatchedAsset={this.props.addWatchedAsset} watchedAssets={this.props.watchedAssets}/>
             <ul className="watch-list-category">
               {categories.map((category, i) => {
-                return <WatchListCategory currentUserId={this.props.currentUserId} deleteWatchedAsset={this.props.deleteWatchedAsset} stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData} key={i} id={i} category={category} watchedAssets={watchedAssets} allWatchedAssets={this.props.watchedAssets} assets={this.props.assets}/>
+                return <WatchListCategory currentUserId={this.props.currentUserId} deleteWatchedAsset={this.props.deleteWatchedAsset} stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData} key={i} id={i} category={category[0]} emoji={category[1]} watchedAssets={watchedAssets} allWatchedAssets={this.props.watchedAssets} assets={this.props.assets}/>
               })}
             </ul>
           </div>
