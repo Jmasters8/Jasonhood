@@ -15,10 +15,6 @@ class OwnedAssets extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.props.fetchStock("NIO")
-  //   .then(() => this.props.fetchStockData("NIO", this.state.start, this.state.now))
-  // }
 
   render() {
 

@@ -74,8 +74,8 @@ class OwnedAssetItem extends React.Component {
       
       for (let key in this.props.stocks) {
         // console.log(this.props.stocks[key])
-        if (key === this.props.ticker) {
-          return this.props.stocks[key].c
+        if (key === this.props.ticker && this.props.stocks[key].data) {
+          return this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1]
           // return this.props.stocks[key].data.c[this.props.stocks.key.data.c.length]
         }
       }
@@ -94,11 +94,29 @@ class OwnedAssetItem extends React.Component {
 
     let upOrDown = () => {
       let percentChange = 0
+      // for (let key in this.props.stocks) {
+      //   if (key === this.props.ticker) {
+      //     percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
+      //   } 
+      // }
+
+      // for (let key in this.props.stocks) {
+      //   if (key === this.props.ticker && this.props.stocks[key].c !== undefined) {
+      //     percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
+      //   } else if (key === this.props.ticker) {
+      //     // let cLength = this.props.stocks[key].data.c.length
+      //     percentChange = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0]) / this.props.stocks[key].data.o[0] * 100
+      //     // console.log( (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1])
+      //     // console.log(percentChange)
+      //   }
+      // }
+      
       for (let key in this.props.stocks) {
-        if (key === this.props.ticker) {
-          percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
+        if (key === this.props.ticker && this.props.stocks[key].data) {
+          percentChange = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0]) / this.props.stocks[key].data.o[0] * 100
         }
       }
+
       if (percentChange > 0) {
         return (
           <span className="owned-asset-item-percentage-increase">

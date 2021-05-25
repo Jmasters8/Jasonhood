@@ -13,7 +13,11 @@ class MainPageNews extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMarketNews()
+    if (Object.keys(this.props.marketNews).length === 0) {
+      this.props.fetchMarketNews()
+    }
+
+    // this.props.fetchMarketNews()
   }
 
   toggleNews() {
