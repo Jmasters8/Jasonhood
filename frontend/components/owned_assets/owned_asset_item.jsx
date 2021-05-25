@@ -36,9 +36,15 @@ class OwnedAssetItem extends React.Component {
   // }
 
   componentDidMount() {
-    
-    this.props.fetchStock(this.props.ticker)
-    .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
+    if (Object.keys(this.props.stocks).length === 0) {
+      this.props.fetchStock(this.props.ticker)
+      .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
+    }
+
+
+
+    // this.props.fetchStock(this.props.ticker)
+    // .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
   }
 
   render() {
