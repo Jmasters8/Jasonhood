@@ -13,7 +13,6 @@ const assetsReducer = (state = {}, action) => {
       nextState[action.asset.id] = action.asset
       return nextState;
     case UPDATE_STOCK_ASSET:
-      
       nextState[action.amount.id].amount = action.amount.amount
       return nextState;
     case REMOVE_STOCK_ASSET: 

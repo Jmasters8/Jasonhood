@@ -36,6 +36,7 @@ export const addWatchedAsset = (ticker, watcherId, price, category) => {
 export const deleteWatchedAsset = (watcherId, assetId) => {
   return $.ajax({
     url: `/api/watched_assets/${assetId}`,
+    method: 'DELETE',
     data: { watched_asset: {watcher_id: watcherId}}
   })
 }

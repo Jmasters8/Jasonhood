@@ -28,7 +28,14 @@ class WatchListCategory extends React.Component {
   }
 
   deleteList() {
-    console.log(this.props.watchedAssets)
+    this.props.watchedAssets.forEach(asset => {
+      if (asset.category === this.props.category) {
+        this.props.deleteWatchedAsset(this.props.currentUserId, asset.id)
+      }
+    })
+
+    
+
   }
 
   render() {

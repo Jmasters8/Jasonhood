@@ -50,6 +50,7 @@ export const updateStockAmount = (amount, assetId) => dispatch => (
 
 export const deleteStockAsset = (ownerId, assetId) => dispatch => (
   AssetAPIUtil.deleteStockAsset(ownerId, assetId).then(assetId => dispatch(removeStockAsset(assetId)))
+  
 )
 
 export const addWatchedAsset = (ticker, ownerId, price, category) => dispatch => (

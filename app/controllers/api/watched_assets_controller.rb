@@ -7,15 +7,13 @@ class Api::WatchedAssetsController < ApplicationController
     else
       render json: @watched_asset.errors.full_messages, status: 422
     end
+  end
 
   def destroy
-    @watched_asset = WatchedAsset.find_buy(id: params[:id])
+    @watched_asset = WatchedAsset.find_by(id: params[:id])
     @watched_asset.destroy
     render :show
   end
-
-  end
-
 
   private
   def watched_asset_params
