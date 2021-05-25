@@ -44,7 +44,6 @@ class WatchListCategory extends React.Component {
         page.addEventListener("click", () => {
           if (document.getElementById(`watch-list-dropdown-edit${this.props.id}`) && document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility === "visible") {
             document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility = "hidden";
-            console.log('potato')
           }
         })
     }

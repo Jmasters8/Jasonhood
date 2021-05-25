@@ -85,7 +85,6 @@ class StockForm extends React.Component {
     this.props.addStockAsset(this.props.symbol, this.props.currentUserId, this.state.shares, this.props.currentPrice.toFixed(2))
       .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId))
     this.setState({shares: "", showBuyError: false})
-    console.log(this.state)
   }
 
   handleSell(e, sharesAmount) {

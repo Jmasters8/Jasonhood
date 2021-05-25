@@ -4,8 +4,6 @@ import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session';
 const watchedAssetsReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState = Object.assign({}, state)
-  
-  console.log(nextState)
 
   switch (action.type) {
     case RECEIVE_WATCHED_ASSET:
