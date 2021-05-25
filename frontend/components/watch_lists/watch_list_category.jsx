@@ -34,7 +34,7 @@ class WatchListCategory extends React.Component {
       }
     })
 
-    
+    document.getElementById(`watch-list-dropdown-edit${this.props.id}`).style.visibility = "hidden";
 
   }
 

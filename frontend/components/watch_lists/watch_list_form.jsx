@@ -22,6 +22,9 @@ class WatchListForm extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.addWatchedAsset(null, this.props.currentUserId, null, this.state.categoryName)
+
+    this.hideForm()
+    this.setState({categoryName: ""})
   }
 
   render() {
