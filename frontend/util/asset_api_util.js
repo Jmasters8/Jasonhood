@@ -32,3 +32,7 @@ export const addWatchedAsset = (ticker, watcherId, price, category) => {
     data: { watched_asset: {ticker, watcher_id: watcherId, price, category} }
   })
 }
+
+export const deleteWatchedAsset = (ticker, watcherId, category) => {
+  
+}
