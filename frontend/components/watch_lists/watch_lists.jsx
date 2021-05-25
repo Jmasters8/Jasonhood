@@ -5,7 +5,12 @@ class WatchLists extends React.Component {
   constructor(props) {
     super(props);
 
+    this.showForm = this.showForm.bind(this);
+  }
 
+  showForm() {
+
+    document.getElementById("watch-list-form").style.display = "block";
   }
 
   render() {
@@ -18,7 +23,6 @@ class WatchLists extends React.Component {
       }
     }
     
-
     return (
       <div>
         <div className="watch-list-header">
@@ -27,7 +31,7 @@ class WatchLists extends React.Component {
               <span className="watch-list-header-3">
                 Lists
               </span>
-              <button className="watch-list-button">
+              <button onClick={this.showForm} className="watch-list-button">
                 +
               </button>
 
@@ -35,8 +39,7 @@ class WatchLists extends React.Component {
           </div>
         </div>
 
-        <WatchListForm />
-      
+        <WatchListForm currentUserId={this.props.currentUserId} addWatchedAsset={this.props.addWatchedAsset} />
       </div>
     )
   }

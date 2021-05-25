@@ -45,7 +45,7 @@
 }
 
 .watch-list-button:hover {
-  color: rgb(255,80,0);
+  color: rgb(0, 255 ,0);
 }
 
 .watch-list-category {
@@ -68,6 +68,10 @@
   position: relative;
   width: 100%;
   cursor: pointer;
+}
+
+.watch-list-category-2:hover {
+  
 }
 
 
@@ -243,6 +247,7 @@
   // position: absolute;
   top: 164px;
   width: 100%;
+  display: none;
 }
 
 .watch-list-form-1 {
@@ -340,6 +345,127 @@
 
 .watch-list-form-inputs-title-2:focus {
   outline: 0px;
-  border-color: rgb(255, 80, 0);
+  border-color: rgb(0, 255, 5);
   background-color: rgb(30, 33, 36);
 }
+
+.watch-list-form-cancel {
+  display: flex;
+  -webkit-box-pack: end;
+  // justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.watch-list-form-cancel-1 {
+  margin-right: 8px;
+}
+
+.watch-list-form-cancel-3 {
+  -webkit-appearance: button;
+  background: none;
+  border: 1px solid currentColor;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: nowrap;
+  max-width: 420px;
+  color: rgb(0, 200, 5);
+  height: 34px;
+  min-width: 96px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.watch-list-form-cancel-3:hover {
+  background-color: rgba(0,200,5,0.2);
+}
+
+.watch-list-form-cancel-4 {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.watch-list-form-cancel-5 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.watch-list-form-cancel-6 {
+  margin: 0px;
+  color:rgb(0, 200, 5);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  text-decoration: unset;
+}
+
+.watch-list-form-create {
+  width: 112px;
+}
+
+.watch-list-form-create-1 {
+  background: none currentcolor;
+  border: 0px;
+  text-align: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: nowrap;
+  max-width: 420px;
+  color:rgb(0, 200, 5);
+  height: 36px;
+  min-width: 96px;
+  padding: 0px 24px 0px 24px;
+}
+
+.watch-list-form-create-1:hover {
+  color: rgba(38, 208, 43, 1);
+}
+
+.watch-list-form-create-2 {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.watch-list-form-create-3 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.watch-list-form-create-4 {
+  margin: 0px;
+  color: black;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+  text-decoration: unset;
+}
+

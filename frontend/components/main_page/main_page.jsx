@@ -485,6 +485,8 @@ class MainPage extends React.Component {
                       fetchStockData={this.props.fetchStockData}
                       assets={this.props.assets}
                       watchedAssets={this.props.watchedAssets}
+                      addWatchedAsset={this.props.addWatchedAsset}
+                      currentUserId={this.props.currentUserId}
                     />
                   </div>
                 </main>
