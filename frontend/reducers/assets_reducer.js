@@ -18,7 +18,7 @@ const assetsReducer = (state = {}, action) => {
       return nextState;
     case REMOVE_STOCK_ASSET: 
       delete nextState[action.assetId]
-      return nextState
+      return nextState;
     case RECEIVE_CURRENT_USER:
       return action.assets || state
     case LOGOUT_CURRENT_USER:

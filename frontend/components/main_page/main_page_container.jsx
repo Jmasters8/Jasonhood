@@ -4,7 +4,7 @@ import MainPage from './main_page';
 import { logout } from '../../actions/session';
 import { fetchStock, fetchStockData, fetchMarketNews } from '../../actions/stocks';
 import { updateBuyingPower } from '../../actions/users'
-import { addWatchedAsset } from '../../actions/assets';
+import { addWatchedAsset, deleteWatchedAsset } from '../../actions/assets';
 
 
 const mapStateToProps = (state) => ({
@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchStock: symbol => dispatch(fetchStock(symbol)),
   updateBuyingPower: (buyingPower, id) => dispatch(updateBuyingPower(buyingPower, id)),
   addWatchedAsset: (ticker, userId, price, category) => dispatch(addWatchedAsset(ticker, userId, price, category)),
+  deleteWatchedAsset: (watcherId, assetId) => dispatch(deleteWatchedAsset(watcherId, assetId)),
   fetchStockData: (symbol, start, end) => dispatch(fetchStockData(symbol, start, end)),
   fetchMarketNews: () => dispatch(fetchMarketNews())
 });

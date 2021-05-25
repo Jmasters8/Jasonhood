@@ -486,7 +486,9 @@ class MainPage extends React.Component {
                       assets={this.props.assets}
                       watchedAssets={this.props.watchedAssets}
                       addWatchedAsset={this.props.addWatchedAsset}
+                      deleteWatchedAsset={this.props.deleteWatchedAsset}
                       currentUserId={this.props.currentUserId}
+
                     />
                   </div>
                 </main>

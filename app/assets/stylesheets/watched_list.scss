@@ -474,3 +474,226 @@
   text-decoration: unset;
 }
 
+// .watch-list-dropdown-edit {
+//   inset: 0px auto auto 0px;
+//   // height: 168px;
+//   // width: 180px;
+//   position: absolute;
+//   // background-color: pink;
+//   /* left: 0; */
+//   z-index: 999;
+//   box-sizing: border-box;
+//   left: 50px;
+//   top: 35px;
+//   visibility: hidden;
+// }
+
+// #watch-list-dropdown-edit0 {
+//   visibility: hidden;
+//   inset: 0px auto auto 0px;
+//   // height: 168px;
+//   // width: 180px;
+//   position: absolute;
+//   // background-color: pink;
+//   /* left: 0; */
+//   z-index: 999;
+//   box-sizing: border-box;
+//   left: 50px;
+//   top: 35px;
+// }
+
+// #watch-list-dropdown-edit1 {
+//   visibility: hidden;
+//   inset: 0px auto auto 0px;
+//   // height: 168px;
+//   // width: 180px;
+//   position: absolute;
+//   // background-color: pink;
+//   /* left: 0; */
+//   z-index: 999;
+//   box-sizing: border-box;
+//   left: 50px;
+//   top: 35px;
+// }
+// #watch-list-dropdown-edit2 {
+//   visibility: hidden;
+//   inset: 0px auto auto 0px;
+//   // height: 168px;
+//   // width: 180px;
+//   position: absolute;
+//   // background-color: pink;
+//   /* left: 0; */
+//   z-index: 999;
+//   box-sizing: border-box;
+//   left: 50px;
+//   top: 35px;
+// }
+// #watch-list-dropdown-edit3 {
+//   visibility: hidden;
+//   inset: 0px auto auto 0px;
+//   // height: 168px;
+//   // width: 180px;
+//   position: absolute;
+//   // background-color: pink;
+//   /* left: 0; */
+//   z-index: 999;
+//   box-sizing: border-box;
+//   left: 50px;
+//   top: 35px;
+// }
+
+
+
+
+
+
+
+
+
+
+.watch-list-dropdown-edit-1 {
+  background-color: rgb(30, 33, 36);
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0px 12px 24px rgba(0,0,0,0.6), 
+              0px -12px 24px rgba(0,0,0,0.6);
+  padding: 12px 0px 12px;
+  min-width: 180px;
+}
+
+.watch-list-dropdown-edit-modal {
+  -webkit-appearance: button;
+  background: none;
+  border: 0px;
+  text-align: unset;
+  color: unset;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 12px 0px 12px;
+  width: 100%;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+}
+
+.watch-list-dropdown-edit-modal:hover {
+  .watch-list-dropdown-edit-modal-cog {
+    content: url('https://i.imgur.com/64HsmhZ.png');
+  }
+
+  .watch-list-dropdown-edit-modal-4 {
+    color:rgb(0, 200, 5);
+  }
+}
+
+.watch-list-dropdown-edit-modal-1 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-left: 2px solid transparent;
+  padding-left: 22px;
+  padding-right: 24px;
+  min-height: 24px;
+}
+
+.watch-list-dropdown-edit-modal-2 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.watch-list-dropdown-edit-modal-3 {
+  display: flex;
+  margin-right: 12px;
+}
+
+.watch-list-dropdown-edit-modal-cog {
+  content: url('https://i.imgur.com/hLjxnPO.png');
+  height: 24px;
+  width: 24px;
+}
+
+
+.watch-list-dropdown-edit-modal-4 {
+  margin: 0px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: unset;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+}
+
+.watch-list-dropdown-delete {
+  -webkit-appearance: button;
+  background: none;
+  border: 0px;
+  text-align: unset;
+  color: unset;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 12px 0px 12px;
+  width: 100%;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+}
+
+.watch-list-dropdown-delete:hover {
+  .watch-list-dropdown-delete-x {
+    content: url('https://i.imgur.com/mU8ff1B.jpg');
+  }
+
+  .watch-list-dropdown-delete-4 {
+    color:rgb(0, 200, 5);
+  }
+}
+
+.watch-list-dropdown-delete-1 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-left: 2px solid transparent;
+  padding-left: 23px;
+  padding-right: 24px;
+  min-height: 24px;
+}
+
+.watch-list-dropdown-delete-2 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.watch-list-dropdown-delete-3 {
+  display: flex;
+  margin-right: 12px;
+}
+
+.watch-list-dropdown-delete-x {
+  content: url('https://i.imgur.com/r1sRcfF.jpg');
+  height: 24px;
+  width: 24px;
+}
+
+.watch-list-dropdown-delete-4 {
+  margin: 0px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: unset;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+}
+
+#tomato {
+  visibility: hidden;
+}
