@@ -8,6 +8,7 @@ class WatchListCategory extends React.Component {
     this.showList = this.showList.bind(this);
     this.showEdit = this.showEdit.bind(this);
     this.deleteList = this.deleteList.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   showList() {
@@ -44,6 +45,8 @@ class WatchListCategory extends React.Component {
     for (let i = 0; i < col.length; i++) {
       col[i].style.visibility = "hidden"
     }
+    document.getElementsByClassName('watch-list-edit-modal-input-emoji-2')[0].innerHTML = this.props.emoji
+    document.getElementsByClassName('watch-list-edit-modal-input-text-2')[0].value = this.props.category
   }
 
   render() {

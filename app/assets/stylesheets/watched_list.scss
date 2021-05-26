@@ -1024,3 +1024,18 @@
   font-weight: 700;
   text-decoration: unset;
 }
+
+.watch-list-edit-emoji {
+  background-color: #1e2124;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid #40494e;
+  display: none;
+  z-index: 999;
+  box-sizing: border-box;
+  height: 250px;
+  overflow: auto;
+  padding: 0px 24px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}

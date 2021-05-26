@@ -47,6 +47,10 @@ class MainPage extends React.Component {
     document.getElementsByClassName('watch-list-edit-modal')[0].style.visibility = "hidden"
   }
 
+  openEmojis() {
+    document.getElementsByClassName('watch-list-edit-emoji')[0].style.display = "block"
+  }
+
   showInfo() {
     
     if (document.getElementById("dash-toggle")) {
@@ -530,7 +534,7 @@ class MainPage extends React.Component {
               </header>
               <form className="watch-list-edit-modal-input">
                 <div className="watch-list-edit-modal-input-1">
-                  <button className="watch-list-edit-modal-input-emoji">
+                  <button onClick={this.openEmojis} className="watch-list-edit-modal-input-emoji">
                     <div className="watch-list-edit-modal-input-emoji-1">
                       <div className="watch-list-edit-modal-input-emoji-2">
                         💡
@@ -542,7 +546,13 @@ class MainPage extends React.Component {
                       <input className="watch-list-edit-modal-input-text-2" type="text"/>
                     </div>
                   </div>
+
                 </div>
+                
+                <div className="watch-list-edit-emoji">
+
+                </div>
+
                 <footer className="watch-list-edit-modal-submit">
                   <div className="watch-list-edit-modal-submit-1">
                     <button onClick={this.submitEditForm} className="watch-list-edit-modal-submit-2">
