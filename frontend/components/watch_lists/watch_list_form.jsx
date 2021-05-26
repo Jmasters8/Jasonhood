@@ -31,8 +31,8 @@ class WatchListForm extends React.Component {
   }
 
   chooseEmoji() {
-    console.log(this.state.emoji)
-    this.setState({emoji: "😂"})
+    // this.setState({emoji: "😂"})
+    document.getElementById("emoji-modal").style.display = "block";
   }
 
   render() {
@@ -88,6 +88,14 @@ class WatchListForm extends React.Component {
           </footer>
 
         </form>
+
+        {/* <div className="emoji-modal">
+          <div className="emoji-modal-1">
+            
+          </div>
+        </div> */}
+
+
       </div>
     )
   }

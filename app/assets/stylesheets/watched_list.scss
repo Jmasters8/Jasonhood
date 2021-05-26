@@ -694,6 +694,66 @@
   line-height: 20px;
 }
 
-#tomato {
-  visibility: hidden;
+
+.emoji-modal {
+  background-color: rgb(30, 33, 36);
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid rgb(64, 73, 78);
+  display: none;
+
+  z-index: 999;
+
+  box-sizing: border-box;
+  height: 250px;
+  overflow: auto;
+  padding: 0px 24px;
+  margin-top: 8px;
+  
+}
+
+.emoji-modal-1 {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  padding-top: 10px;
+  font-size: 20px;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+}
+
+.emoji-modal-2 {
+  margin: 0px 2px 0px 0px;
+  padding: 8px;
+}
+
+.emoji-modal-categories {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+}
+
+.emoji-modal-categories-1 {
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.emoji-modal-categories-2 {
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.emoji-modal-categories-3 {
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.emoji-modal-categories-1:hover {
+  color:rgb(0, 200, 5);
 }
