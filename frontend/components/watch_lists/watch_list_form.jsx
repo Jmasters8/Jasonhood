@@ -15,6 +15,7 @@ class WatchListForm extends React.Component {
 
   hideForm() {
     document.getElementById("watch-list-form").style.display = "none";
+    document.getElementById("emoji-modal").style.display = "none";
   }
 
   handleInput(type) {

@@ -60,6 +60,7 @@ class WatchLists extends React.Component {
   setEmoji(emoji) {
     // console.log(emoji)
     this.setState({chosenEmoji: emoji})
+    document.getElementById("emoji-modal").style.display = "none";
     // console.log(this.state.chosenEmoji)
   }
 

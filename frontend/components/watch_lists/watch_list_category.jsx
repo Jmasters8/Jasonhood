@@ -38,6 +38,14 @@ class WatchListCategory extends React.Component {
 
   }
 
+  openModal() {
+    document.getElementsByClassName('watch-list-edit-modal')[0].style.visibility = "visible"
+    let col = document.getElementsByClassName("watch-list-dropdown-edit")
+    for (let i = 0; i < col.length; i++) {
+      col[i].style.visibility = "hidden"
+    }
+  }
+
   render() {
       if (document.getElementsByClassName("left-1")[0]) {
         let page = document.getElementsByClassName("left-1")[0]
@@ -107,7 +115,7 @@ class WatchListCategory extends React.Component {
 
                 <div id={`watch-list-dropdown-edit` + this.props.id} style={editStyle} className="watch-list-dropdown-edit">
                   <div className="watch-list-dropdown-edit-1">
-                    <button className="watch-list-dropdown-edit-modal">
+                    <button onClick={this.openModal} className="watch-list-dropdown-edit-modal">
                       <div className="watch-list-dropdown-edit-modal-1">
                         <div className="watch-list-dropdown-edit-modal-2">
                           <div className="watch-list-dropdown-edit-modal-3">
@@ -145,6 +153,7 @@ class WatchListCategory extends React.Component {
               </div>
               
             </div>
+
           </div>
         </li>
         <ul id={this.props.id} className="watched-asset-item-list">

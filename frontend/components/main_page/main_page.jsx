@@ -17,7 +17,7 @@ class MainPage extends React.Component {
       now: new Date().setHours(13, 0, 0, 0) / 1000
     }
     this.handleClick = this.handleClick.bind(this);
-    
+    this.submitEditForm = this.submitEditForm.bind(this);
   }
 
   
@@ -37,6 +37,14 @@ class MainPage extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.fetchStock(this.state.stockSymbol.toUpperCase())
+  }
+
+  submitEditForm() {
+
+  }
+
+  closeModal() {
+    document.getElementsByClassName('watch-list-edit-modal')[0].style.visibility = "hidden"
   }
 
   showInfo() {
@@ -505,7 +513,51 @@ class MainPage extends React.Component {
           </div>
         </div>
 
-        
+        <div className="watch-list-edit-modal">
+          <section className="watch-list-edit-modal-1">
+            <div className="watch-list-edit-modal-2">
+              <header className="watch-list-edit-modal-3">
+                <h1 className="watch-list-edit-modal-4">
+                  <span className="watch-list-edit-modal-5">
+                    Edit List
+                  </span>
+                </h1>
+                <button onClick={this.closeModal} className="watch-list-edit-modal-x">
+                  <div className="watch-list-edit-modal-x-1">
+                    <img src="https://i.imgur.com/rmBxqXX.png" className="watch-list-edit-modal-x-2" />
+                  </div>
+                </button>
+              </header>
+              <form className="watch-list-edit-modal-input">
+                <div className="watch-list-edit-modal-input-1">
+                  <button className="watch-list-edit-modal-input-emoji">
+                    <div className="watch-list-edit-modal-input-emoji-1">
+                      <div className="watch-list-edit-modal-input-emoji-2">
+                        💡
+                      </div>
+                    </div>
+                  </button>
+                  <div className="watch-list-edit-modal-input-text">
+                    <div className="watch-list-edit-modal-input-text-1">
+                      <input className="watch-list-edit-modal-input-text-2" type="text"/>
+                    </div>
+                  </div>
+                </div>
+                <footer className="watch-list-edit-modal-submit">
+                  <div className="watch-list-edit-modal-submit-1">
+                    <button onClick={this.submitEditForm} className="watch-list-edit-modal-submit-2">
+                      <div className="watch-list-edit-modal-submit-3">
+                        <span className="watch-list-edit-modal-submit-4">
+                          Save
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </footer>
+              </form>
+            </div>
+          </section>
+        </div>
         
       </div>
     )
