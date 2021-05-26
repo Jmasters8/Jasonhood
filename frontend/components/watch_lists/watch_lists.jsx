@@ -85,9 +85,9 @@ class WatchLists extends React.Component {
         return (
           animalsArr.map((emoji, i) => {
             return (
-              <span key={i} id={'emoji' + i} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
                 {emoji}
-              </span>
+              </button>
             )
           })
         )
@@ -95,9 +95,9 @@ class WatchLists extends React.Component {
         return (
           itemsArr.map((emoji, i) => {
             return (
-              <span key={i} id={'emoji' + i} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
                 {emoji}
-              </span>
+              </button>
             )
           })
         )
