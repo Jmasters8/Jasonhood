@@ -47,6 +47,7 @@ class WatchListCategory extends React.Component {
     }
     document.getElementsByClassName('watch-list-edit-modal-input-emoji-2')[0].innerHTML = this.props.emoji
     document.getElementsByClassName('watch-list-edit-modal-input-text-2')[0].value = this.props.category
+    document.getElementById("placeholder").innerHTML = this.props.category
   }
 
   render() {
@@ -129,6 +130,7 @@ class WatchListCategory extends React.Component {
                           </span>
                         </div>
                       </div>
+                      <div id="placeholder"></div>
                     </button>
 
                     <button onClick={this.deleteList} className="watch-list-dropdown-delete">

@@ -33,6 +33,18 @@ export const addWatchedAsset = (ticker, watcherId, price, category, emoji) => {
   })
 }
 
+export const updateWatchedAsset = (emoji, category, watchedAssetId) => {
+  // console.log(emoji)
+  // console.log(category)
+  // console.log(watchedAssetId)
+  return $.ajax({
+    url: `/api/watched_assets/${watchedAssetId}`,
+    method: 'PATCH',
+    // data: { watched_asset: {emoji, category}}
+    data: { emoji, category }
+  })
+}
+
 export const deleteWatchedAsset = (watcherId, assetId) => {
   return $.ajax({
     url: `/api/watched_assets/${assetId}`,

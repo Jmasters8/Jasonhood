@@ -6,6 +6,7 @@ export const RECEIVE_STOCK_ASSET = 'RECEIVE_ASSET';
 export const REMOVE_STOCK_ASSET = 'REMOVE_STOCK_ASSET';
 export const UPDATE_STOCK_ASSET = 'UPDATE_STOCK_ASSET';
 export const RECEIVE_WATCHED_ASSET = 'RECEIVE_WATCHED_ASSET';
+export const UPDATE_WATCHED_ASSET = 'UPDATE_WATCHED_ASSET';
 export const REMOVE_WATCHED_ASSET = 'REMOVE_WATCHED_ASSET';
 
 const receiveStockAsset = (asset, ticker) => ({
@@ -29,6 +30,11 @@ const receiveWatchedAsset = (watchedAsset, ticker) => ({
   type: RECEIVE_WATCHED_ASSET,
   watchedAsset,
   ticker
+})
+
+const editWatchedAsset = (watchedAsset) => ({
+  type: UPDATE_WATCHED_ASSET,
+  watchedAsset
 })
 
 const removeWatchedAsset = (assetId) => ({
@@ -56,6 +62,12 @@ export const deleteStockAsset = (ownerId, assetId) => dispatch => (
 export const addWatchedAsset = (ticker, ownerId, price, category, emoji) => dispatch => (
   AssetAPIUtil.addWatchedAsset(ticker, ownerId, price, category, emoji).then(watchedAsset => {
     dispatch(receiveWatchedAsset(watchedAsset, ticker))
+  })
+)
+
+export const updateWatchedAsset = (emoji, category, watchedAssetId) => dispatch => (
+  AssetAPIUtil.updateWatchedAsset(emoji, category, watchedAssetId).then(watchedAsset => {
+    dispatch(editWatchedAsset(watchedAsset))
   })
 )
 

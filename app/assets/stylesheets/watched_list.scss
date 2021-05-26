@@ -1039,3 +1039,24 @@
   margin-top: 8px;
   margin-bottom: 15px;
 }
+
+.watch-list-edit-emoji-1 {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+}
+
+.watch-list-edit-emoji-2 {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  padding-top: 10px;
+  font-size: 20px;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+}
+
+#placeholder {
+  display: none;
+
+}

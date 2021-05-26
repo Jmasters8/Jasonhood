@@ -28,7 +28,7 @@ class WatchListForm extends React.Component {
     console.log(this.state.emoji)
     this.props.addWatchedAsset(null, this.props.currentUserId, null, this.state.categoryName, this.props.chosenEmoji)
 
-    this.hideForm()
+    this.hideForm(e)
     this.setState({categoryName: "", emoji: "💡"})
     document.getElementById("emoji-modal").style.display = "none";
   }

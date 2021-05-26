@@ -9,6 +9,22 @@ class Api::WatchedAssetsController < ApplicationController
     end
   end
 
+  def update
+    # debugger
+    # emoji = params[:emoji]
+    # category = params[:category]
+    @watched_asset = WatchedAsset.find_by(id: params[:id])
+    @watched_asset.emoji = params[:emoji]
+    @watched_asset.category = params[:category]
+
+    if @watched_asset.category != ""
+      @watched_asset.save
+      render :show
+    else
+      render json: ['Add a List Name']
+    end
+  end
+
   def destroy
     @watched_asset = WatchedAsset.find_by(id: params[:id])
     @watched_asset.destroy

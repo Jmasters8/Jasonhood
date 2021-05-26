@@ -14,10 +14,15 @@ class MainPage extends React.Component {
       stockSymbol: "",
       buyingPower: "",
       start: new Date().setHours(6, 0, 0, 0) / 1000,
-      now: new Date().setHours(13, 0, 0, 0) / 1000
+      now: new Date().setHours(13, 0, 0, 0) / 1000,
+      emojis: "smilies"
     }
     this.handleClick = this.handleClick.bind(this);
     this.submitEditForm = this.submitEditForm.bind(this);
+    this.setSmilies = this.setSmilies.bind(this);
+    this.setAnimals = this.setAnimals.bind(this);
+    this.setItems = this.setItems.bind(this);
+    this.setEmoji = this.setEmoji.bind(this)
   }
 
   
@@ -40,6 +45,20 @@ class MainPage extends React.Component {
   }
 
   submitEditForm() {
+    let assets = Object.values(this.props.watchedAssets)
+    let listCategory = document.getElementById("placeholder").innerHTML
+    let inputValue = document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0].value
+    let emoji = document.getElementsByClassName("watch-list-edit-modal-input-emoji-2")[0].innerHTML
+    document.getElementsByClassName("watch-list-edit-modal")[0].style.display = "none"
+    for (let i = 0; i < assets.length; i++) {
+      let asset = assets[i];
+      if (asset.category === listCategory) {
+        // console.log('emoji: ', emoji)
+        // console.log('inputValue: ', inputValue)
+        // console.log('asset.id: ', asset.id)
+        this.props.updateWatchedAsset(emoji, inputValue, asset.id)
+      }
+    }
 
   }
 
@@ -62,17 +81,54 @@ class MainPage extends React.Component {
     }
   }
 
+  setSmilies() {
+    this.setState({emojis: "smilies"})
+    document.getElementById('smilies-2').style.color = "#00c805"
+    document.getElementById('animals-2').style.color = "white"
+    document.getElementById('items-2').style.color = "white"
+
+    document.getElementById('smilies-2').style.borderBottom = "1px solid #00c805"
+    document.getElementById('animals-2').style.borderBottom = "none"
+    document.getElementById('items-2').style.borderBottom = "none"
+  }
+
+  setAnimals() {
+    this.setState({emojis: "animals"})
+    document.getElementById('animals-2').style.color = "#00c805"
+    document.getElementById('smilies-2').style.color = "white"
+    document.getElementById('items-2').style.color = "white"
+
+    document.getElementById('animals-2').style.borderBottom = "1px solid #00c805"
+    document.getElementById('smilies-2').style.borderBottom = "none"
+    document.getElementById('items-2').style.borderBottom = "none"
+  }
+
+  setItems() {
+    this.setState({emojis: "items"})
+    document.getElementById('items-2').style.color = "#00c805"
+    document.getElementById('smilies-2').style.color = "white"
+    document.getElementById('animals-2').style.color = "white"
+
+    document.getElementById('items-2').style.borderBottom = "1px solid #00c805"
+    document.getElementById('smilies-2').style.borderBottom = "none"
+    document.getElementById('animals-2').style.borderBottom = "none"
+  }
+
+  setEmoji(emoji) {
+    // this.setState({chosenEmoji: emoji})
+    document.getElementsByClassName("watch-list-edit-modal-input-emoji-2")[0].innerHTML = emoji
+    document.getElementsByClassName("watch-list-edit-emoji")[0].style.display = "none";
+  }
+
 
   render() {
 
-    // console.log(this.props.assets[20])
-    //COMMENT OUT LINE 65 THROUGH 77 and 97
     const totalAssets = () => {
       let total = 0;
-      // console.log(this.props.assets)
+
       for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
         let asset = this.props.assets[i];
-        // console.log(asset)
+
         if (!asset) continue;
         let totalAssetPrice = asset.amount * asset.price
         total += totalAssetPrice
@@ -83,6 +139,76 @@ class MainPage extends React.Component {
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
+    let displayEmojis = () => {
+      if (this.state.emojis === "smilies") {
+        return (
+          smiliesArr.map((emoji, i) => {
+            return (
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+                {emoji}
+              </button>
+            )
+          })
+        )
+      } else if (this.state.emojis === "animals") {
+        return (
+          animalsArr.map((emoji, i) => {
+            return (
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+                {emoji}
+              </button>
+            )
+          })
+        )
+      } else if (this.state.emojis === "items") {
+        return (
+          itemsArr.map((emoji, i) => {
+            return (
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+                {emoji}
+              </button>
+            )
+          })
+        )
+      }
+    }
+
+    let smilies = 
+    "😀😁😂🤣😃😄😅😆😉😊😋😎😍😘🥰😗😙😚🙂🤗🤩🤔🤨😐😑😶🙄😏😣😥😮" +
+    "🤐😯😪😫🥱😴😌😛😜😝🤤😒😓😔😕🙃🤑😲🙁😖😞😟😤😢😭😦😧😨😩🤯" + 
+    "😬😰😱🥵🥶😳🤪😵🥴😠😡🤬😷🤒🤕🤢🤮🤧😇🥳🥺🤠🤡🤥🤫🤭🧐🤓😈👿👹👺💀" +
+    "👩👨🧑👧👦🧒👶👵👴" +
+    "💪🦵🦶👂🦻👃🤏👈👉☝👆👇✌🤞🖖🤘🤙🖐✋👌👍👎✊👊🤛🤜🤚👋🤟✍👏👐🙌🤲🙏🤝💅"
+
+
+    let animals = 
+    "🙈🙉🙊🐵🐶🐺🐱🦁🐯🦒🦊🦝🐮🐷🐗🐭🐹🐰🐻🐨🐼🐸🦓🐴🦄🐔🐲🐽" +
+    "🐾🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐅🐆🐎🦌🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🐁🐀🦔🐇" + 
+    "🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🦢🦜🦩🦚🦉🐦🐧🐥🐤" + 
+    "🐣🦇🦋🐌🐛🦟🦗🐜🐝🐞🦂🦠"
+
+    let items =
+    "🎈🧨✨🎉🎊🎃🎄🎋🎍🎎🎏🎑🧧🎀🎁🎗🎫🎠🎡🎢🎪🎭🖼🎨🧵🧶🛒👓🕶🦺🥽🥼🧥👔👕👖" +
+    "🩳🧣🧤🧦👗🥻👘👚🩲🩱👙👛👜👝🥾👠🥿👡👢🩰👑🧢⛑👒🎩🎓💋💄💍💎⚽🥎🏀🏐🏈" + 
+    "🏉🎱🎳⛳🥌⛸🎣🤿🛶🎿🥅🏒🥍🏏🏑🏓🏸🥏🪁🎯🥊🥋🥇🏆🎮🕹🎰🎲🔮🧩🧸🪀🃏🔊📣🎼" +
+    "🔔🎵🎤🎧📯🥁🎷🎺🎸🎻🎹🔒🔑🪓🔨🧪🩸💊🏹📸💰💸💵📄📓📚💡📞☎💣🗿⌚📈📉📌"
+
+    let emojiStringToArray = function (str) {
+      let split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
+      let emojis = [];
+      for (let i = 0; i < split.length; i++) {
+        let emoji = split[i]
+        if (emoji !== "" && !emojis.includes(emoji) && emoji.length > 1) {
+          emojis.push(emoji);
+        }
+      }
+      return emojis;
+    };
+
+    let smiliesArr = emojiStringToArray(smilies)
+    let animalsArr = emojiStringToArray(animals)
+    let itemsArr = emojiStringToArray(items)
     
     return (
       <div className="main">
@@ -240,68 +366,6 @@ class MainPage extends React.Component {
 
                         </div>
                       </div>
-
-                      {/* <div id="dash-toggle">
-                        <div className="dash-toggle-1">
-                          <div className="dash-toggle-2">
-                            <div className="dash-toggle-3">
-                              <div className="dash-toggle-4">
-                                <div className="dash-toggle-5">
-                                  <table className="dash-toggle-6">
-                                    <tbody>
-                                      <tr className="dash-toggle-7">
-                                        <td className="dash-toggle-8">
-                                          <span className="dash-toggle-9">
-                                            Brokerage Cash
-                                          </span>
-                                        </td>
-                                        <td className="dash-filler"></td>
-                                        <td className="dash-toggle-10">
-                                          <span className="dash-toggle-9">
-                                            A lot
-                                          </span>
-                                        </td>
-                                      </tr>
-                                      <tr className="dash-toggle-7-1">
-                                        <td className="dash-toggle-8-1">
-                                          <span className="dash-toggle-9">
-                                            Buying Power
-                                          </span>
-                                        </td>
-                                        <td className="dash-filler"></td>
-                                        <td className="dash-toggle-10">
-                                          <span className="dash-toggle-9">
-                                            ${this.props.user.buying_power}
-                                          </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                                
-                                <div className="dash-toggle-input">
-                                  <label className="dash-toggle-input-0-0">
-                                    Amount
-
-                                    <input className="dash-toggle-input-0" value={this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
-                                  </label>
-                                </div>
-                                <div className="dash-toggle-input-1">
-                                  <div className="dash-toggle-input-2">
-                                    <button onClick={this.handleClick} className="dash-toggle-input-3">
-                                      <div className="dash-toggle-input-4">
-                                        <span className="dash-toggle-input-5">
-                                          Deposit Funds
-                                        </span>
-                                      </div>
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> */}
 
                       <section className="dashboard-list">
                         <div className="dashboard-list-1">
@@ -550,7 +614,20 @@ class MainPage extends React.Component {
                 </div>
                 
                 <div className="watch-list-edit-emoji">
-
+                  <div className="watch-list-edit-emoji-1">
+                    <span onClick={this.setSmilies} id="smilies-2" className="emoji-modal-categories-1">
+                      Smilies
+                    </span>
+                    <span onClick={this.setAnimals} id="animals-2" className="emoji-modal-categories-2">
+                      Animals
+                    </span>
+                    <span onClick={this.setItems} id="items-2" className="emoji-modal-categories-3">
+                      Items
+                    </span>
+                  </div>
+                  <div className="watch-list-edit-emoji-2">
+                    {displayEmojis()}
+                  </div>
                 </div>
 
                 <footer className="watch-list-edit-modal-submit">

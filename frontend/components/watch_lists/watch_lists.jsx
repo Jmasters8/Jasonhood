@@ -30,7 +30,6 @@ class WatchLists extends React.Component {
     document.getElementById('smilies').style.borderBottom = "1px solid #00c805"
     document.getElementById('animals').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
-
   }
 
   setAnimals() {
@@ -42,7 +41,6 @@ class WatchLists extends React.Component {
     document.getElementById('animals').style.borderBottom = "1px solid #00c805"
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
-  
   }
 
   setItems() {
@@ -54,14 +52,11 @@ class WatchLists extends React.Component {
     document.getElementById('items').style.borderBottom = "1px solid #00c805"
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('animals').style.borderBottom = "none"
-
   }
 
   setEmoji(emoji) {
-    // console.log(emoji)
     this.setState({chosenEmoji: emoji})
     document.getElementById("emoji-modal").style.display = "none";
-    // console.log(this.state.chosenEmoji)
   }
 
   render() {
