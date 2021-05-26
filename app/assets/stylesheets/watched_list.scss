@@ -50,6 +50,7 @@
 
 .watch-list-category {
   list-style: none;
+  padding-top: 8px;
 }
 
 .watch-list-category-1 {
@@ -723,11 +724,16 @@
 }
 
 .emoji-modal-2 {
-  margin: 0px 2px 0px 0px;
   padding: 10px;
   border: none;
   background: none;
   font-size: 22px;
+  cursor: pointer;
+}
+
+.emoji-modal-2:hover {
+  background-color:rgb(48, 54, 58);
+  border-radius: 3px;
 }
 
 .emoji-modal-categories {
@@ -737,34 +743,35 @@
 }
 
 .emoji-modal-categories-1 {
-  color: white;
-  font-weight: 500;
+  color: #00c805;
+  font-weight: 600;
   font-size: 15px;
   cursor: pointer;
+  border-bottom: 1px solid #00c805;
 }
 
 .emoji-modal-categories-2 {
   color: white;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
   cursor: pointer;
 }
 
 .emoji-modal-categories-3 {
   color: white;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
   cursor: pointer;
 }
 
 .emoji-modal-categories-1:hover {
-  color:rgb(0, 200, 5);
+  color:#00c805;
 }
 
 .emoji-modal-categories-2:hover {
-  color:rgb(0, 200, 5);
+  color:#00c805;
 }
 
 .emoji-modal-categories-3:hover {
-  color:rgb(0, 200, 5);
+  color:#00c805;
 }

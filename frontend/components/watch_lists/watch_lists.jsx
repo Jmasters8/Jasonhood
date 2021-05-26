@@ -23,14 +23,35 @@ class WatchLists extends React.Component {
 
   setSmilies() {
     this.setState({emojis: "smilies"})
+    document.getElementById('smilies').style.color = "#00c805"
+    document.getElementById('animals').style.color = "white"
+    document.getElementById('items').style.color = "white"
+
+    document.getElementById('smilies').style.borderBottom = "1px solid #00c805"
+    document.getElementById('animals').style.borderBottom = "none"
+    document.getElementById('items').style.borderBottom = "none"
   }
 
   setAnimals() {
     this.setState({emojis: "animals"})
+    document.getElementById('animals').style.color = "#00c805"
+    document.getElementById('smilies').style.color = "white"
+    document.getElementById('items').style.color = "white"
+
+    document.getElementById('animals').style.borderBottom = "1px solid #00c805"
+    document.getElementById('smilies').style.borderBottom = "none"
+    document.getElementById('items').style.borderBottom = "none"
   }
 
   setItems() {
     this.setState({emojis: "items"})
+    document.getElementById('items').style.color = "#00c805"
+    document.getElementById('smilies').style.color = "white"
+    document.getElementById('animals').style.color = "white"
+
+    document.getElementById('items').style.borderBottom = "1px solid #00c805"
+    document.getElementById('smilies').style.borderBottom = "none"
+    document.getElementById('animals').style.borderBottom = "none"
   }
 
   setEmoji(emoji) {
@@ -139,14 +160,14 @@ class WatchLists extends React.Component {
 
         <div id="emoji-modal"className="emoji-modal">
           <div className="emoji-modal-categories">
-            <span onClick={this.setSmilies} className="emoji-modal-categories-1">
+            <span onClick={this.setSmilies} id="smilies" className="emoji-modal-categories-1">
               Smilies
             </span>
-            <span onClick={this.setAnimals} className="emoji-modal-categories-2">
-              animals
+            <span onClick={this.setAnimals} id="animals" className="emoji-modal-categories-2">
+              Animals
             </span>
-            <span onClick={this.setItems} className="emoji-modal-categories-3">
-              items
+            <span onClick={this.setItems} id="items" className="emoji-modal-categories-3">
+              Items
             </span>
           </div>
           <div className="emoji-modal-1">
