@@ -6,7 +6,7 @@ class WatchListForm extends React.Component {
 
     this.state = {
       categoryName: "",
-      emoji: "💡"
+      emoji: this.props.chosenEmoji
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -36,6 +36,8 @@ class WatchListForm extends React.Component {
   }
 
   render() {
+
+    console.log(this.props.chosenEmoji)
     return(
       <div id="watch-list-form" className="watch-list-form">
         <form className="watch-list-form-1">
@@ -44,7 +46,8 @@ class WatchListForm extends React.Component {
               <div className="watch-list-form-inputs-emoji-1">
                 <div className="watch-list-form-inputs-emoji-2">
                   <div className="watch-list-form-inputs-emoji-3">
-                    {this.state.emoji}
+                    {/* {this.state.emoji} */}
+                    {this.props.chosenEmoji}
                   </div>
                 </div>
               </div>

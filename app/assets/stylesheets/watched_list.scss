@@ -724,7 +724,10 @@
 
 .emoji-modal-2 {
   margin: 0px 2px 0px 0px;
-  padding: 8px;
+  padding: 10px;
+  border: none;
+  background: none;
+  font-size: 22px;
 }
 
 .emoji-modal-categories {
@@ -755,5 +758,13 @@
 }
 
 .emoji-modal-categories-1:hover {
+  color:rgb(0, 200, 5);
+}
+
+.emoji-modal-categories-2:hover {
+  color:rgb(0, 200, 5);
+}
+
+.emoji-modal-categories-3:hover {
   color:rgb(0, 200, 5);
 }

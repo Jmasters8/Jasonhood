@@ -6,13 +6,15 @@ class WatchLists extends React.Component {
     super(props);
 
     this.state = {
-      emojis: "smilies"
+      emojis: "smilies",
+      chosenEmoji: "💡"
     }
 
     this.showForm = this.showForm.bind(this);
     this.setSmilies = this.setSmilies.bind(this);
     this.setAnimals = this.setAnimals.bind(this);
     this.setItems = this.setItems.bind(this);
+    this.setEmoji = this.setEmoji.bind(this)
   }
 
   showForm() {
@@ -28,7 +30,13 @@ class WatchLists extends React.Component {
   }
 
   setItems() {
+    this.setState({emojis: "items"})
+  }
 
+  setEmoji(emoji) {
+    // console.log(emoji)
+    this.setState({chosenEmoji: emoji})
+    // console.log(this.state.chosenEmoji)
   }
 
   render() {
@@ -46,9 +54,9 @@ class WatchLists extends React.Component {
         return (
           smiliesArr.map((emoji, i) => {
             return (
-              <span key={i} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
                 {emoji}
-              </span>
+              </button>
             )
           })
         )
@@ -56,7 +64,17 @@ class WatchLists extends React.Component {
         return (
           animalsArr.map((emoji, i) => {
             return (
-              <span key={i} className="emoji-modal-2">
+              <span key={i} id={'emoji' + i} className="emoji-modal-2">
+                {emoji}
+              </span>
+            )
+          })
+        )
+      } else if (this.state.emojis === "items") {
+        return (
+          itemsArr.map((emoji, i) => {
+            return (
+              <span key={i} id={'emoji' + i} className="emoji-modal-2">
                 {emoji}
               </span>
             )
@@ -76,11 +94,14 @@ class WatchLists extends React.Component {
     let animals = 
     "🙈🙉🙊🐵🐶🐺🐱🦁🐯🦒🦊🦝🐮🐷🐗🐭🐹🐰🐻🐨🐼🐸🦓🐴🦄🐔🐲🐽" +
     "🐾🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐅🐆🐎🦌🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🐁🐀🦔🐇" + 
-    "🐿🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🕊🦢🦜🦩🦚🦉🐦🐧🐥🐤" + 
+    "🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🦢🦜🦩🦚🦉🐦🐧🐥🐤" + 
     "🐣🦇🦋🐌🐛🦟🦗🐜🐝🐞🦂🦠"
 
     let items =
-    ""
+    "🎈🧨✨🎉🎊🎃🎄🎋🎍🎎🎏🎑🧧🎀🎁🎗🎫🎠🎡🎢🎪🎭🖼🎨🧵🧶🛒👓🕶🦺🥽🥼🧥👔👕👖" +
+    "🩳🧣🧤🧦👗🥻👘👚🩲🩱👙👛👜👝🥾👠🥿👡👢🩰👑🧢⛑👒🎩🎓💋💄💍💎⚽🥎🏀🏐🏈" + 
+    "🏉🎱🎳⛳🥌⛸🎣🤿🛶🎿🥅🏒🥍🏏🏑🏓🏸🥏🪁🎯🥊🥋🥇🏆🎮🕹🎰🎲🔮🧩🧸🪀🃏🔊📣🎼" +
+    "🔔🎵🎤🎧📯🥁🎷🎺🎸🎻🎹🔒🔑🪓🔨🧪🩸💊🏹📸💰💸💵📄📓📚💡📞☎💣🗿⌚📈📉📌"
     
     let emojiStringToArray = function (str) {
       let split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
@@ -96,6 +117,7 @@ class WatchLists extends React.Component {
 
     let smiliesArr = emojiStringToArray(smilies)
     let animalsArr = emojiStringToArray(animals)
+    let itemsArr = emojiStringToArray(items)
 
     return (
       <div>
@@ -113,7 +135,7 @@ class WatchLists extends React.Component {
           </div>
         </div>
 
-        <WatchListForm currentUserId={this.props.currentUserId} addWatchedAsset={this.props.addWatchedAsset} />
+        <WatchListForm chosenEmoji={this.state.chosenEmoji} currentUserId={this.props.currentUserId} addWatchedAsset={this.props.addWatchedAsset} />
 
         <div id="emoji-modal"className="emoji-modal">
           <div className="emoji-modal-categories">
