@@ -13,7 +13,8 @@ class WatchListForm extends React.Component {
     this.chooseEmoji = this.chooseEmoji.bind(this);
   }
 
-  hideForm() {
+  hideForm(e) {
+    e.preventDefault()
     document.getElementById("watch-list-form").style.display = "none";
     document.getElementById("emoji-modal").style.display = "none";
   }
