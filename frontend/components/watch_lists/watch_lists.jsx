@@ -30,6 +30,7 @@ class WatchLists extends React.Component {
     document.getElementById('smilies').style.borderBottom = "1px solid #00c805"
     document.getElementById('animals').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
+
   }
 
   setAnimals() {
@@ -41,6 +42,7 @@ class WatchLists extends React.Component {
     document.getElementById('animals').style.borderBottom = "1px solid #00c805"
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
+  
   }
 
   setItems() {
@@ -52,6 +54,7 @@ class WatchLists extends React.Component {
     document.getElementById('items').style.borderBottom = "1px solid #00c805"
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('animals').style.borderBottom = "none"
+
   }
 
   setEmoji(emoji) {
@@ -61,6 +64,7 @@ class WatchLists extends React.Component {
   }
 
   render() {
+  
     let allWatchedAssets = Object.values(this.props.watchedAssets)
     let watchedAssets = [];
     for (let i = 0; i < allWatchedAssets.length; i++) {
