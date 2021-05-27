@@ -4,6 +4,7 @@ import GraphTwoContainer from '../graph/graph_container_2';
 import GraphTwo from '../graph/graph_2';
 import StockNewsContainer from '../stock_news/stock_news_container';
 import StockForm from './stock_form';
+import StockPageWatchList from './stock_page_watch_list';
 
 import Odometer from 'react-odometerjs';
 import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
@@ -849,7 +850,7 @@ class Stock extends React.Component {
           </div>
 
 
-        <div className="add-watch-list">
+        {/* <div className="add-watch-list">
           <section className="add-watch-list-1">
             <div className="add-watch-list-2">
               <header className="add-watch-list-header">
@@ -858,10 +859,21 @@ class Stock extends React.Component {
                     Add {this.props.stock.Symbol} to Your Lists
                   </span>
                 </h1>
+                <button className="add-watch-list-header-x">
+                  <div className="add-watch-list-header-x-1">
+                    <img className="add-watch-list-header-x-2" src="https://i.imgur.com/rmBxqXX.png" />
+                  </div>
+                </button>
               </header>
+              <div>
+                <div className="add-watch-list-3">
+
+                </div>
+              </div>
             </div>
           </section>
-        </div>
+        </div> */}
+        <StockPageWatchList ticker={this.props.stock.Symbol} />
 
 
         </div>
