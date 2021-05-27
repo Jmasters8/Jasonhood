@@ -173,7 +173,7 @@ class StockForm extends React.Component {
   }
 
   openWatchListModal() {
-    document.getElementById("placeholder-2").innerHTML = this.props.symbol
+    document.getElementsByClassName("add-watch-list")[0].style.visibility = "visible"
   }
 
   // showWatchListError() {

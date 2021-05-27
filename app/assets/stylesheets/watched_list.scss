@@ -1071,7 +1071,7 @@
   justify-content: center;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.6);
-  display: none;
+  visibility: hidden;
 }
 
 .add-watch-list-1 {
@@ -1116,6 +1116,11 @@
   -webkit-line-clamp: 2;
 }
 
-#placeholder-2 {
-  display: none;
+.add-watch-list-header-2 {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  line-height: 28px;
+  
 }

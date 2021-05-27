@@ -53,9 +53,6 @@ class MainPage extends React.Component {
     for (let i = 0; i < assets.length; i++) {
       let asset = assets[i];
       if (asset.category === listCategory) {
-        // console.log('emoji: ', emoji)
-        // console.log('inputValue: ', inputValue)
-        // console.log('asset.id: ', asset.id)
         this.props.updateWatchedAsset(emoji, inputValue, asset.id)
       }
     }
@@ -682,88 +679,9 @@ class MainPage extends React.Component {
           </section>
         </div>
         
-
-        {/* <div className="add-watch-list">
-          <section className="add-watch-list-1">
-            <div className="add-watch-list-2">
-              <header className="add-watch-list-header">
-                <h1 className="add-watch-list-header-1">
-                  Add {document.getElementsByClassName("placeholder-2")[0].style} to Your Lists
-                </h1>
-              </header>
-            </div>
-          </section>
-        </div> */}
-        
       </div>
     )
   }
 }
 
 export default MainPage;
-
-
-
-
-{/* <div className="main-content">
-                      <div className="main-content-1">
-                        <header className="main-content-header">
-                          <div className="main-content-header-1">
-                            <h1 className="main-content-header-2">NIO</h1>
-                          </div>
-                          <div className="main-content-header-analysis">
-                            <div className="main-content-header-analysis-1">
-                              <div className="main-content-header-analysis-2">
-                                <button className="main-content-header-analysis-3">
-                                  <div className="main-content-header-analysis-4">
-                                    <img src="https://learnscrivenerfast.com/wp-content/uploads/2015/11/price-tag.png" alt=""/>
-                                    <span className="main-content-header-analysis-5">
-                                      <span className="main-content-header-analysis-6">
-                                        61% Buy
-                                      </span>
-                                    </span>
-
-                                  </div>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </header>
-
-                        <section className="graph">
-                          <header className="graph-header">
-                            <div className="graph-header-1">
-                              <h1 className="graph-header-title">
-                                <span className="graph-header-title-1">
-                                  $38.05
-                                </span>
-                              </h1>
-                            </div>
-
-                            <div className="price-change">
-                              <span className="price-change-today">
-                                <span>
-                                  -$0.58
-                                </span>
-                                <span className="price-change-today-span-2">
-                                  (-$1.50%)
-                                </span>
-                              </span>
-                              <span className="price-change-today-1">Today</span>
-                            </div>
-                            
-                            <div className="main-graph">
-                              <GraphContainer />
-                            </div>
-
-                          </header>
-                        </section>
-
-                      </div>
-                    </div> */}
-
-        //             <div className="analysis-hover">
-        //   <span className="analysis-hover-text">
-        //     61% of analysts rate stock as a buy
-        //   </span>
-        // </div>

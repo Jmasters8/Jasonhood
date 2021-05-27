@@ -854,7 +854,9 @@ class Stock extends React.Component {
             <div className="add-watch-list-2">
               <header className="add-watch-list-header">
                 <h1 className="add-watch-list-header-1">
-                  Add {this.props.stock.Symbol} to Your Lists
+                  <span className="add-watch-list-header-2">
+                    Add {this.props.stock.Symbol} to Your Lists
+                  </span>
                 </h1>
               </header>
             </div>
