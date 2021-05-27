@@ -51,6 +51,7 @@ class WatchListCategory extends React.Component {
   }
 
   render() {
+    
       if (document.getElementsByClassName("left-1")[0]) {
         let page = document.getElementsByClassName("left-1")[0]
         page.addEventListener("click", () => {
@@ -59,6 +60,46 @@ class WatchListCategory extends React.Component {
           }
         })
     }
+    
+    // let count = 0
+    // window.onclick = (event) => {
+    //   let edit = ""
+    //   let allElements;
+    //   let isOpen = false
+
+    //   for (let i = 0; i <= this.props.id; i++) {
+    //     let ele = `watch-list-dropdown-edit${i}`
+
+    //     if (document.getElementById(ele).style.visibility === "visible") {
+    //       edit = document.getElementById(ele)
+    //     }
+    //   }
+    //   if (edit === "") return null
+    //   if (edit !== "") {
+    //     allElements = edit.getElementsByTagName("*")
+    //   }
+
+    //   if (event.target === document.getElementsByClassName("watch-list-edit-button-1")[0]) count ++
+    //   if (event.target !== edit && edit.style.visibility === "visible" && event.target !== document.getElementsByClassName("watch-list-edit-button-1")[0]) {
+    //     count += 1
+
+    //     for (let i = 0; i < allElements.length; i++) {
+    //       if (event.target === allElements[i]) {
+    //         isOpen = true
+    //       }
+    //     }
+        
+        
+    //     if (count >= 2) {
+    //       for (let i = 0; i <= this.props.id; i++) {
+    //         document.getElementById(`watch-list-dropdown-edit${i}`).style.visibility = "hidden"
+    //         count = 0
+    //       }
+    //     }
+    //   }
+    // }
+
+
       
    
 

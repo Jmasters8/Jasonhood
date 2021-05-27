@@ -211,32 +211,40 @@ class MainPage extends React.Component {
     let itemsArr = emojiStringToArray(items)
 
     // let modal = document.getElementsByClassName('watch-list-edit-modal-2')[0]
-    let count = 0
-    // let isInModal = true
-    window.onclick = (event) => {
-      let mainModal = document.getElementsByClassName('watch-list-edit-modal')[0]
-      let modal = document.getElementsByClassName('watch-list-edit-modal-2')[0]
-      let header = document.getElementsByClassName('watch-list-edit-modal-3')[0]
-      let form = document.getElementsByClassName('watch-list-edit-modal-input')[0]
-      let allElements = modal.getElementsByTagName("*")
-      console.log(allElements.length)
-     
+    // let count = 0
+    // // let isInModal = true
+    // window.onclick = (event) => {
+    //   let mainModal = document.getElementsByClassName('watch-list-edit-modal')[0]
+    //   let modal = document.getElementsByClassName('watch-list-edit-modal-2')[0]
+    //   let allElements = modal.getElementsByTagName("*")
       
-      if (event.target !== modal && mainModal.style.visibility === "visible") {
-        let isInModal = false
-        count += 1
-        console.log(count)
-        for (let i = 0; i < allElements.length; i++) {
-          if (event.target === allElements[i]) {
-            isInModal = true
-          }
-        }
-        if (count > 1 && isInModal === false) {
-          mainModal.style.visibility = "hidden"
-          count = 0
-        }
-      }
-    }
+    //   let editButton = document.getElementsByClassName('watch-list-dropdown-edit-modal')[0]
+    //   let children = editButton.getElementsByTagName("*")
+    //   console.log(event.target)
+    //   for (let i = 0; i < children.length; i++) {
+    //     if (event.target === editButton || event.target === children[i] ) {
+    //       console.log('change visibility')
+    //       console.log(document.getElementsByClassName('watch-list-edit-modal')[0].style.visibility)
+    //       document.getElementsByClassName('watch-list-edit-modal')[0].style.visibility = "visible"
+    //     } 
+
+    //   }
+
+    //   if (event.target !== modal && mainModal.style.visibility === "visible") {
+    //     let isInModal = false
+    //     count += 1
+        
+    //     for (let i = 0; i < allElements.length; i++) {
+    //       if (event.target === allElements[i]) {
+    //         isInModal = true
+    //       }
+    //     }
+    //     if (count > 1 && isInModal === false) {
+    //       mainModal.style.visibility = "hidden"
+    //       count = 0
+    //     }
+    //   }
+    // }
 
     return (
       <div className="main">
@@ -673,6 +681,19 @@ class MainPage extends React.Component {
             </div>
           </section>
         </div>
+        
+
+        {/* <div className="add-watch-list">
+          <section className="add-watch-list-1">
+            <div className="add-watch-list-2">
+              <header className="add-watch-list-header">
+                <h1 className="add-watch-list-header-1">
+                  Add {document.getElementsByClassName("placeholder-2")[0].style} to Your Lists
+                </h1>
+              </header>
+            </div>
+          </section>
+        </div> */}
         
       </div>
     )

@@ -127,7 +127,7 @@ class Stock extends React.Component {
   }
 
   render() {
-
+    
     if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined) {
       return (
         <div className="loading">
@@ -137,7 +137,7 @@ class Stock extends React.Component {
       )
     }
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
-
+    
     // if (this.props.data === undefined) {
     //   return (
     //     <div className="loading">
@@ -847,6 +847,21 @@ class Stock extends React.Component {
               61% of analysts rate stock as a buy
             </span>
           </div>
+
+
+        <div className="add-watch-list">
+          <section className="add-watch-list-1">
+            <div className="add-watch-list-2">
+              <header className="add-watch-list-header">
+                <h1 className="add-watch-list-header-1">
+                  Add {this.props.stock.Symbol} to Your Lists
+                </h1>
+              </header>
+            </div>
+          </section>
+        </div>
+
+
         </div>
       )
     }

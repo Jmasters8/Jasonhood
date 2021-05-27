@@ -20,6 +20,7 @@ class StockForm extends React.Component {
     this.toggleBuy = this.toggleBuy.bind(this);
     this.toggleSell = this.toggleSell.bind(this);
     this.addToWatchList = this.addToWatchList.bind(this);
+    this.openWatchListModal = this.openWatchListModal.bind(this);
   }
 
   handleInput(type) {
@@ -169,6 +170,10 @@ class StockForm extends React.Component {
     //   }
     // }
     this.props.addWatchedAsset(this.props.symbol, this.props.currentUserId, this.props.currentPrice, "potato")
+  }
+
+  openWatchListModal() {
+    document.getElementById("placeholder-2").innerHTML = this.props.symbol
   }
 
   // showWatchListError() {
@@ -335,7 +340,7 @@ class StockForm extends React.Component {
             <div className="add-list">
               <div className="add-list-1"></div>
               <div className="add-list-2">
-                <button onClick={this.addToWatchList} className="add-list-3">
+                <button onClick={this.openWatchListModal} className="add-list-3">
                   <div className="add-list-4">
                     <span className="add-list-5">
                       <span className="add-list-6">

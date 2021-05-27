@@ -11,8 +11,8 @@ const currentStockReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_STOCK:
       // nextState.currentStock = action.symbol
-      return action.symbol
-      return nextState;
+      nextState[action.symbol] = action.stock
+      return nextState
     default:
       return state;
   }
