@@ -1,4 +1,5 @@
 import React from 'react';
+import StockPageLists from './stock_page_lists';
 
 class StockPageWatchList extends React.Component {
   constructor(props) {
@@ -22,13 +23,16 @@ class StockPageWatchList extends React.Component {
   }
 
   render() {
+    let watchedAssets = Object.values(this.props.watchedAssets)
     let categories = [];
-    Object.values(this.props.watchedAssets).forEach(asset => {
-      if (asset.category !== null && !categories.includes(asset.category)) {
-        categories.push(asset.category)
+
+    for (let i = 0; i < watchedAssets.length; i++) {
+      let asset = watchedAssets[i];
+      if (asset.category !== null) {
+        categories.push([asset.category, asset.emoji])
       }
-    })
-    console.log(categories)
+    }
+
 
     return (
       <div className="add-watch-list">
@@ -124,6 +128,23 @@ class StockPageWatchList extends React.Component {
                       Create New List
                     </span>
                   </label>
+                </div>
+              </button>
+            </div>
+
+            <div className="create-new-list-container">
+              {categories.map((list, i) => {
+                return <StockPageLists stock={this.props.stock} allWatchedAssets={watchedAssets} category={list[0]} emoji={list[1]} key={i}/>
+              })}
+            </div>
+            <div className="create-new-list-submit">
+              <button onClick={() => console.log('potato')} className="create-new-list-submit-off">
+                <div className="create-new-list-submit-1">
+                  <span className="create-new-list-submit-2">
+                    <span className="create-new-list-submit-3">
+                      Save Changes
+                    </span>
+                  </span>
                 </div>
               </button>
             </div>

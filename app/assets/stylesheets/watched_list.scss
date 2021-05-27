@@ -1478,3 +1478,197 @@
   letter-spacing: -0.1px;
   text-decoration: unset;
 }
+
+.create-new-list-category {
+  -webkit-appearance: button;
+  background: none;
+  border: 0px;
+  color: unset;
+  cursor: pointer;
+  font: inherit;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  padding: 8px 0px;
+  text-align: left;
+  width: 100%;
+  outline: none;
+}
+
+.create-new-list-category-check {
+  margin-right: 12px;
+}
+
+.create-new-list-category-checkbox {
+  display: flex;
+  color: rgb(0, 200, 5)
+}
+
+.create-new-list-category-checkbox-empty {
+  content: url("https://i.imgur.com/cXKHK8l.png");
+  height: 20px;
+  width: 20px;
+}
+
+.create-new-list-emoji {
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.create-new-list-emoji-1 {
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(48, 54, 58);
+  height: 64px;
+  width: 48px;
+}
+
+.create-new-list-emoji-2 {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+}
+
+.create-new-list-emoji-3 {
+  font-size: 21px;
+}
+
+.create-new-list-category {
+  box-sizing: inherit;
+}
+
+.create-new-list-category-1 {
+  cursor: pointer;
+  display: block;
+}
+
+.create-new-list-category-2 {
+  margin: 0px;
+  color: white;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.1px;
+  text-decoration: unset;
+}
+
+.create-new-list-category-3 {
+  margin: 0px;
+  color: rgb(132, 145, 151);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+  text-decoration: unset;
+}
+
+.create-new-list-container {
+  margin-bottom: 24px;
+  max-height: 365px;
+  overflow: auto;
+}
+
+.create-new-list-submit {
+  width: 100%;
+  text-align: center;
+}
+
+.create-new-list-submit-off {
+  -webkit-appearance: button;
+  background: none currentcolor;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: unset;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 4px;
+  white-space: nowrap;
+  height: 48px;
+  min-width: 120px;
+  max-width: 420px;
+  padding-left: 48px;
+  padding-right: 48px;
+  color: rgb(98, 108, 112);
+  width: 100%;
+  pointer-events: none;
+}
+
+.create-new-list-submit-on {
+  -webkit-appearance: button;
+  background: none currentcolor;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: unset;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 4px;
+  white-space: nowrap;
+  height: 48px;
+  min-width: 120px;
+  max-width: 420px;
+  padding-left: 48px;
+  padding-right: 48px;
+  color: rgb(98, 108, 112);
+  width: 100%;
+  color:rgb(0, 200, 5);
+}
+
+.create-new-list-submit-on:hover {
+  background-color: rgba(38, 208, 43, 1);
+}
+
+.create-new-list-submit-on:active {
+  background-color: rgba(64, 214, 68, 1);
+}
+
+.create-new-list-submit-1 {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.create-new-list-submit-2 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.create-new-list-submit-3 {
+  margin: 0px;
+  color: rgb(30, 33, 36);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+  font-style: normal;
+  text-decoration: unset;
+}
