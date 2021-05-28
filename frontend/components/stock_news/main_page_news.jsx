@@ -53,7 +53,7 @@ class MainPageNews extends React.Component {
       </div>
       )
     } else {
-      let marketNews = this.props.marketNews.slice(0, this.props.marketNews.length / 2)
+      let marketNews = this.props.marketNews.slice(0, this.props.marketNews.length / 5)
       return (
         <div>
         <header className="dashboard-news">

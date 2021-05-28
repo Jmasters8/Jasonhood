@@ -42,7 +42,8 @@ class MainPage extends React.Component {
     this.props.fetchStock(this.state.stockSymbol.toUpperCase())
   }
 
-  submitEditForm() {
+  submitEditForm(e) {
+    e.preventDefault()
     let assets = Object.values(this.props.watchedAssets)
     let listCategory = document.getElementById("placeholder").innerHTML
     let inputValue = document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0].value
@@ -242,6 +243,9 @@ class MainPage extends React.Component {
     //   }
     // }
 
+   
+    
+
     return (
       <div className="main">
         <div className="main-filler">
@@ -327,7 +331,7 @@ class MainPage extends React.Component {
                                 <span className="dashboard-buying-power-6">
                                   <span className="dashboard-buying-power-5">
                                   
-                                    ${this.props.user.buying_power}
+                                    ${numberWithCommas(this.props.user.buying_power)}
                                   </span>
                                 </span>
                               </div>
@@ -364,7 +368,7 @@ class MainPage extends React.Component {
                                         <td className="dash-filler"></td>
                                         <td className="dash-toggle-10">
                                           <span className="dash-toggle-9">
-                                            ${this.props.user.buying_power}
+                                            ${numberWithCommas(this.props.user.buying_power)}
                                           </span>
                                         </td>
                                       </tr>
