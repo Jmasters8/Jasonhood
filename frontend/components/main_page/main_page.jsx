@@ -26,8 +26,6 @@ class MainPage extends React.Component {
   }
 
   
-
-
   handleClick(e) {
     e.preventDefault();
     this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)

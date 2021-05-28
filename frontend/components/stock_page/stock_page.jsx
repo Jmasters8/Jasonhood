@@ -873,7 +873,7 @@ class Stock extends React.Component {
             </div>
           </section>
         </div> */}
-        <StockPageWatchList stock={this.props.stock} watchedAssets={this.props.watchedAssets} ticker={this.props.stock.Symbol} />
+        <StockPageWatchList watcherId={this.props.currentUser.id} addWatchedAsset={this.props.addWatchedAsset} stock={this.props.stock} watchedAssets={this.props.watchedAssets} ticker={this.props.stock.Symbol} />
 
 
         </div>

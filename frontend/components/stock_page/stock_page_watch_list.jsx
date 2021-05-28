@@ -6,6 +6,7 @@ class StockPageWatchList extends React.Component {
     super(props);
 
     this.closeModal = this.closeModal.bind(this);
+    this.saveChanges = this.saveChanges.bind(this);
   }
 
   showForm(e) {
@@ -22,13 +23,49 @@ class StockPageWatchList extends React.Component {
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
   }
 
+  saveChanges() {
+    let unchecked = 'url("https://i.imgur.com/cXKHK8l.png")'
+    let checked = 'url("https://i.imgur.com/eqjgMg7.png")'
+    // let category = document.getElementById(`create-new-list-category-2${this.props.i}`)
+    let watchedAssets = Object.values(this.props.watchedAssets)
+    let categories = [];
+    for (let i = 0; i < watchedAssets.length; i++) {
+      let asset = watchedAssets[i];
+      if (asset.category !== null && asset.ticker === "") {
+        categories.push([asset.category, asset.ticker, asset.emoji, asset.id])
+      }
+    }
+    console.log(categories.length)
+    for (let i = 0; i < categories.length; i++) {
+      if (document.getElementsByClassName(`create-new-list-category-checkbox-empty${i}`)[0].style.content === 'url("https://i.imgur.com/eqjgMg7.png")') {
+        for (let j = 0; j < watchedAssets.length; j++) {
+          if (watchedAssets[j].ticker === this.props.ticker && watchedAssets[j].category === categories[i][0]) {
+            document.getElementsByClassName("watch-list-error")[0].style.display = "block"
+            return null
+          }
+        }
+
+
+        this.props.addWatchedAsset(this.props.ticker, this.props.watcherId, null, categories[i][0])
+      } 
+    }
+
+    document.getElementsByClassName("add-watch-list")[0].style.visibility = "hidden"
+    document.getElementsByClassName('create-new-list-submit-off')[0].style.pointerEvents = "none"
+    document.getElementsByClassName('create-new-list-submit-off')[0].style.color = "rgb(98, 108, 112)"
+    for (let i = 0; i < categories.length; i++) {
+      document.getElementsByClassName(`create-new-list-category-checkbox-empty${i}`)[0].style.content = unchecked
+    }
+  }
+
   render() {
+
     let watchedAssets = Object.values(this.props.watchedAssets)
     let categories = [];
 
     for (let i = 0; i < watchedAssets.length; i++) {
       let asset = watchedAssets[i];
-      if (asset.category !== null) {
+      if (asset.category !== null && asset.ticker === "") {
         categories.push([asset.category, asset.emoji])
       }
     }
@@ -134,11 +171,12 @@ class StockPageWatchList extends React.Component {
 
             <div className="create-new-list-container">
               {categories.map((list, i) => {
-                return <StockPageLists stock={this.props.stock} allWatchedAssets={watchedAssets} category={list[0]} emoji={list[1]} key={i}/>
+                return <StockPageLists length={categories.length} addWatchedAsset={this.props.addWatchedAsset} stock={this.props.stock} allWatchedAssets={watchedAssets} category={list[0]} emoji={list[1]} key={i} index={i} />
               })}
             </div>
+            <div className="watch-list-error">This stock is already in one of your checked lists</div>
             <div className="create-new-list-submit">
-              <button onClick={() => console.log('potato')} className="create-new-list-submit-off">
+              <button onClick={this.saveChanges} className="create-new-list-submit-off">
                 <div className="create-new-list-submit-1">
                   <span className="create-new-list-submit-2">
                     <span className="create-new-list-submit-3">

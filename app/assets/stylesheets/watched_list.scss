@@ -1550,9 +1550,6 @@
 .create-new-list-category-1 {
   cursor: pointer;
   display: block;
-}
-
-.create-new-list-category-2 {
   margin: 0px;
   color: white;
   font-size: 15px;
@@ -1561,6 +1558,17 @@
   line-height: 24px;
   letter-spacing: -0.1px;
   text-decoration: unset;
+}
+
+.create-new-list-category-2 {
+  // margin: 0px;
+  // color: white;
+  // font-size: 15px;
+  // font-style: normal;
+  // font-weight: 400;
+  // line-height: 24px;
+  // letter-spacing: -0.1px;
+  // text-decoration: unset;
 }
 
 .create-new-list-category-3 {
@@ -1671,4 +1679,10 @@
   line-height: 20px;
   font-style: normal;
   text-decoration: unset;
+}
+
+.watch-list-error {
+  display: none;
+  color: rgb(255, 80, 0);
+  text-align-last: center;
 }

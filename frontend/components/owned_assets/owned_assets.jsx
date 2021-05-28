@@ -52,7 +52,7 @@ class OwnedAssets extends React.Component {
 
   for (let i = 0; i < allWatchedAssets.length; i++) {
     let asset = allWatchedAssets[i];
-    if (!categories.includes(asset.category) && asset.category !== null) {
+    if (!categories.includes(asset.category) && asset.category !== null && asset.ticker === "") {
       categories.push([asset.category, asset.emoji])
     }
   }
