@@ -4,6 +4,7 @@ import GraphContainer from '../graph/graph_container';
 import HomeGraph from '../home_graph/home_graph';
 import OwnedAssets from '../owned_assets/owned_assets';
 import MainPageNews from '../stock_news/main_page_news';
+import WatchListEdit from '../watch_lists/watch_list_edit';
 
 
 class MainPage extends React.Component {
@@ -242,8 +243,7 @@ class MainPage extends React.Component {
     //     }
     //   }
     // }
-
-   
+    
     
 
     return (
@@ -665,6 +665,7 @@ class MainPage extends React.Component {
                     {displayEmojis()}
                   </div>
                 </div>
+
 
                 <footer className="watch-list-edit-modal-submit">
                   <div className="watch-list-edit-modal-submit-1">

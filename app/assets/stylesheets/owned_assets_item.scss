@@ -23,6 +23,55 @@
   text-decoration: unset;
 }
 
+.owned-asset-item-link-2 {
+  align-items: center;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding-right: 24px;
+  // padding-left: 20px;
+  padding-left: 7px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-decoration: unset;
+  min-width: 226px;
+}
+
+.owned-asset-item-delete {
+  height: 60px;
+  top: 52px;
+  left: 0px;
+  width: 100%;
+  padding-bottom: 5px;
+  display: flex;
+}
+
+.owned-asset-item-delete:hover {
+  background-color: rgb(48,54,58);
+  .recharts-curve {
+    fill: rgb(48,54,58);
+  }
+
+  .delete-watched-item {
+    visibility: visible;
+  }
+
+}
+
+.delete-watched-item {
+  align-self: center;
+  // font-size: 20px;
+  // padding-left: 5px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.delete-watched-item:hover {
+  content: url("https://i.imgur.com/petjNSP.png")
+}
+
 .owned-asset-item-ticker {
   -webkit-box-flex: 0;
   // flex: 0 1 50%;

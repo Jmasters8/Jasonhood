@@ -6,6 +6,7 @@ class StockPageWatchList extends React.Component {
     super(props);
 
     this.state = {
+      categoryName: "",
       emojis: "smilies"
     }
 
@@ -15,12 +16,17 @@ class StockPageWatchList extends React.Component {
     this.setAnimals = this.setAnimals.bind(this);
     this.setItems = this.setItems.bind(this);
     this.setEmoji = this.setEmoji.bind(this);
+    this.createList = this.createList.bind(this);
   }
 
   showForm(e) {
     e.preventDefault();
     document.getElementsByClassName("create-new-list")[0].style.display = "none"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "block"
+  }
+
+  handleInput(type) {
+    return (e) => this.setState({[type]: e.target.value})
   }
 
   openEmojis(e) {
@@ -37,10 +43,19 @@ class StockPageWatchList extends React.Component {
     e.preventDefault();
     document.getElementsByClassName("create-new-list")[0].style.display = "block"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
+    document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = "💡"
+    document.getElementsByClassName("add-watch-list-input-2")[0].value = ""
   }
   
-  createList() {
+  createList(e) {
+    e.preventDefault()
+    let emoji = document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML
+    this.props.addWatchedAsset(null, this.props.watcherId, null, this.state.categoryName, emoji)
+
     document.getElementsByClassName("create-new-list")[0].style.display = "block"
+    document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
+    document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = "💡"
+    document.getElementsByClassName("add-watch-list-input-2")[0].value = ""
   }
 
   setSmilies() {
@@ -77,7 +92,7 @@ class StockPageWatchList extends React.Component {
   }
 
   setEmoji(emoji) {
-    document.getElementsByClassName("add-watch-list-emoji-3")[0].innherHTML = emoji
+    document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = emoji
     document.getElementsByClassName("stock-page-emojis")[0].style.display = "none"
   }
 
@@ -231,7 +246,7 @@ class StockPageWatchList extends React.Component {
                     </button>
                     <div className="add-watch-list-input">
                       <div className="add-watch-list-input-1">
-                        <input className="add-watch-list-input-2" type="text" placeholder="List Name"/>
+                        <input className="add-watch-list-input-2" value={this.state.categoryName} onChange={this.handleInput('categoryName')} type="text" placeholder="List Name"/>
                       </div>
                     </div>
                   </div>
