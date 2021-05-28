@@ -5,22 +5,80 @@ class StockPageWatchList extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      emojis: "smilies"
+    }
+
     this.closeModal = this.closeModal.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
+    this.setSmilies = this.setSmilies.bind(this);
+    this.setAnimals = this.setAnimals.bind(this);
+    this.setItems = this.setItems.bind(this);
+    this.setEmoji = this.setEmoji.bind(this);
   }
 
   showForm(e) {
     e.preventDefault();
+    document.getElementsByClassName("create-new-list")[0].style.display = "none"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "block"
   }
 
-  closeModal() {
+  openEmojis(e) {
+    e.preventDefault();
+    document.getElementsByClassName("stock-page-emojis")[0].style.display = "block"
+  }
+
+  closeModal(e) {
+    e.preventDefault();
     document.getElementsByClassName("add-watch-list")[0].style.visibility = "hidden"
   }
 
   closeForm(e) {
     e.preventDefault();
+    document.getElementsByClassName("create-new-list")[0].style.display = "block"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
+  }
+  
+  createList() {
+    document.getElementsByClassName("create-new-list")[0].style.display = "block"
+  }
+
+  setSmilies() {
+    this.setState({emojis: "smilies"})
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = "#00c805"
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "white"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "white"
+
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = "1px solid #00c805"
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "none"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "none"
+  }
+
+  setAnimals() {
+    this.setState({emojis: "animals"})
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "#00c805"
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = "white"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "white"
+
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "1px solid #00c805"
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = "none"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "none"
+  }
+
+  setItems() {
+    this.setState({emojis: "items"})
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "#00c805"
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = "white"
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "white"
+
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "1px solid #00c805"
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = "none"
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "none"
+  }
+
+  setEmoji(emoji) {
+    document.getElementsByClassName("add-watch-list-emoji-3")[0].innherHTML = emoji
+    document.getElementsByClassName("stock-page-emojis")[0].style.display = "none"
   }
 
   saveChanges() {
@@ -70,6 +128,76 @@ class StockPageWatchList extends React.Component {
       }
     }
 
+    let smilies = 
+    "😀😁😂🤣😃😄😅😆😉😊😋😎😍😘🥰😗😙😚🙂🤗🤩🤔🤨😐😑😶🙄😏😣😥😮" +
+    "🤐😯😪😫🥱😴😌😛😜😝🤤😒😓😔😕🙃🤑😲🙁😖😞😟😤😢😭😦😧😨😩🤯" + 
+    "😬😰😱🥵🥶😳🤪😵🥴😠😡🤬😷🤒🤕🤢🤮🤧😇🥳🥺🤠🤡🤥🤫🤭🧐🤓😈👿👹👺💀" +
+    "👩👨🧑👧👦🧒👶👵👴" +
+    "💪🦵🦶👂🦻👃🤏👈👉☝👆👇✌🤞🖖🤘🤙🖐✋👌👍👎✊👊🤛🤜🤚👋🤟✍👏👐🙌🤲🙏🤝💅"
+
+
+    let animals = 
+    "🙈🙉🙊🐵🐶🐺🐱🦁🐯🦒🦊🦝🐮🐷🐗🐭🐹🐰🐻🐨🐼🐸🦓🐴🦄🐔🐲🐽" +
+    "🐾🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐅🐆🐎🦌🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🐁🐀🦔🐇" + 
+    "🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🦢🦜🦩🦚🦉🐦🐧🐥🐤" + 
+    "🐣🦇🦋🐌🐛🦟🦗🐜🐝🐞🦂🦠"
+
+    let items =
+    "🎈🧨✨🎉🎊🎃🎄🎋🎍🎎🎏🎑🧧🎀🎁🎗🎫🎠🎡🎢🎪🎭🖼🎨🧵🧶🛒👓🕶🦺🥽🥼🧥👔👕👖" +
+    "🩳🧣🧤🧦👗🥻👘👚🩲🩱👙👛👜👝🥾👠🥿👡👢🩰👑🧢⛑👒🎩🎓💋💄💍💎⚽🥎🏀🏐🏈" + 
+    "🏉🎱🎳⛳🥌⛸🎣🤿🛶🎿🥅🏒🥍🏏🏑🏓🏸🥏🪁🎯🥊🥋🥇🏆🎮🕹🎰🎲🔮🧩🧸🪀🃏🔊📣🎼" +
+    "🔔🎵🎤🎧📯🥁🎷🎺🎸🎻🎹🔒🔑🪓🔨🧪🩸💊🏹📸💰💸💵📄📓📚💡📞☎💣🗿⌚📈📉📌"
+
+    let emojiStringToArray = function (str) {
+      let split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
+      let emojis = [];
+      for (let i = 0; i < split.length; i++) {
+        let emoji = split[i]
+        if (emoji !== "" && !emojis.includes(emoji) && emoji.length > 1) {
+          emojis.push(emoji);
+        }
+      }
+      return emojis;
+    };
+
+    let smiliesArr = emojiStringToArray(smilies)
+    let animalsArr = emojiStringToArray(animals)
+    let itemsArr = emojiStringToArray(items)
+
+    let displayEmojis = () => {
+      if (this.state.emojis === "smilies") {
+        return (
+          smiliesArr.map((emoji, i) => {
+            return (
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+                {emoji}
+              </button>
+            )
+          })
+        )
+      } else if (this.state.emojis === "animals") {
+        return (
+          animalsArr.map((emoji, i) => {
+            return (
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+                {emoji}
+              </button>
+            )
+          })
+        )
+      } else if (this.state.emojis === "items") {
+        return (
+          itemsArr.map((emoji, i) => {
+            return (
+              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+                {emoji}
+              </button>
+            )
+          })
+        )
+      }
+    }
+
 
     return (
       <div className="add-watch-list">
@@ -92,7 +220,7 @@ class StockPageWatchList extends React.Component {
               <div className="add-watch-list-3">
                 <form className="add-watch-list-4">
                   <div className="add-watch-list-5">
-                    <button className="add-watch-list-emoji">
+                    <button onClick={this.openEmojis} className="add-watch-list-emoji">
                       <div className="add-watch-list-emoji-1">
                         <div className="add-watch-list-emoji-2">
                           <div className="add-watch-list-emoji-3">
@@ -123,7 +251,7 @@ class StockPageWatchList extends React.Component {
                       </div>
                     </div>
                     <div className="add-watch-list-buttons-7">
-                      <button className="add-watch-list-buttons-8">
+                      <button onClick={this.createList} className="add-watch-list-buttons-8">
                         <div className="add-watch-list-buttons-9">
                           <span className="add-watch-list-buttons-10">
                             <span className="add-watch-list-buttons-11">
@@ -135,15 +263,30 @@ class StockPageWatchList extends React.Component {
                     </div>
                   </footer>
 
+                  <div className="stock-page-emojis">
+                    <div className="stock-page-emojis-categories">
+                      <span onClick={this.setSmilies} className="stock-page-emojis-smilies">
+                        Smilies
+                      </span>
+                      <span onClick={this.setAnimals} className="stock-page-emojis-animals">
+                        Animals
+                      </span>
+                      <span onClick={this.setItems} className="stock-page-emojis-items">
+                        Items
+                      </span>
+                    </div>
+
+                    <div className="stock-page-emojis-list">
+                      {displayEmojis()}
+                    </div>
+
+                  </div>
+
                 </form>
-                {/* <div>
-                {categories.map(list => {
-                  return <StockPageLists list={list}/>
-                })}
-                </div> */}
 
               </div>
             </div>
+
 
             <div className="create-new-list">
               <button onClick={this.showForm} className="create-new-list-1">

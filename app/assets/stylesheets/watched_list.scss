@@ -1689,3 +1689,58 @@
   padding-bottom: 5px;
   font-weight: 600;
 }
+
+
+.stock-page-emojis {
+  background-color: #1e2124;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid #40494e;
+  display: none;
+  z-index: 999;
+  box-sizing: border-box;
+  height: 250px;
+  overflow: auto;
+  padding: 0px 24px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.stock-page-emojis-categories {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+}
+
+.stock-page-emojis-smilies {
+  color: #00c805;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #00c805;
+}
+
+.stock-page-emojis-animals {
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.stock-page-emojis-items {
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.stock-page-emojis-list {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  padding-top: 10px;
+  font-size: 20px;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+}
+
