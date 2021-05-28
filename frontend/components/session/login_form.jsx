@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleInput(type) {
@@ -35,18 +36,6 @@ class LoginForm extends React.Component {
   componentDidMount() {
     this.props.clearErrors()
   }
-
-  // renderErrors() {
-  //   return (
-  //     <ul>
-  //       {this.props.loginErrors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
 
   renderErrors() {
     return (
