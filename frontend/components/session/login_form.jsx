@@ -37,8 +37,21 @@ class LoginForm extends React.Component {
     this.props.clearErrors()
   }
 
+  // renderErrors() {
+    
+  //   return (
+  //     <ul>
+  //       {this.props.loginErrors.map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
+
   renderErrors() {
-    console.log('in renderErrors function: ', this.props.loginErrors)
+    
     return (
       <ul>
         {this.props.loginErrors.map((error, i) => (
@@ -49,6 +62,8 @@ class LoginForm extends React.Component {
       </ul>
     );
   }
+
+
 
   render() {
     console.log('after render: ', this.props.loginErrors)
