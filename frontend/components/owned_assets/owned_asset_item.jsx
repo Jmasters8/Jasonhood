@@ -36,7 +36,12 @@ class OwnedAssetItem extends React.Component {
   // }
 
   componentDidMount() {
-    if (Object.keys(this.props.stocks).length === 0) {
+    // if (Object.keys(this.props.stocks).length >= 0) {
+    //   this.props.fetchStock(this.props.ticker)
+    //   .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
+    // }
+
+    if (!this.props.stocks[this.props.ticker]) {
       this.props.fetchStock(this.props.ticker)
       .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
     }
@@ -50,7 +55,6 @@ class OwnedAssetItem extends React.Component {
   render() {
     
     if (Object.keys(this.props.stocks).length === 0) return null
-
     // let checkDate = () => {
     //   let currentDate = new Date().toDateString()
     //   if (currentDate.includes("Sat")) {
