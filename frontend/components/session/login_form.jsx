@@ -38,6 +38,7 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    console.log('in renderErrors function: ', this.props.loginErrors)
     return (
       <ul>
         {this.props.loginErrors.map((error, i) => (
@@ -50,6 +51,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    console.log('after render: ', this.props.loginErrors)
     return (
       <div className="login-form">
         <div className="login-form-1">
