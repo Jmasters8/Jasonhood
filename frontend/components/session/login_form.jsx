@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
 
 
   render() {
-    console.log('after render: ', this.props.loginErrors)
+  
     return (
       <div className="login-form">
         <div className="login-form-1">
@@ -122,7 +122,7 @@ class LoginForm extends React.Component {
 
                                   <div className="login-errors-text">
                                     <span>
-                                      {this.renderErrors()}
+                                      {/* {this.renderErrors()} */}
                                     </span>
                                   </div>
 
