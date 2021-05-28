@@ -26,7 +26,6 @@ class WatchListForm extends React.Component {
   handleClick(e) {
     e.preventDefault();
 
-    console.log(this.state.emoji)
     this.props.addWatchedAsset(null, this.props.currentUserId, null, this.state.categoryName, this.props.chosenEmoji)
 
     this.hideForm(e)
@@ -41,7 +40,7 @@ class WatchListForm extends React.Component {
   }
 
   render() {
-    console.log(this.state.emoji)
+  
     return(
       <div id="watch-list-form" className="watch-list-form">
         <form className="watch-list-form-1">

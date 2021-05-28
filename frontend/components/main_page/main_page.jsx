@@ -61,7 +61,8 @@ class MainPage extends React.Component {
     document.getElementsByClassName('watch-list-edit-modal')[0].style.visibility = "hidden"
   }
 
-  openEmojis() {
+  openEmojis(e) {
+    e.preventDefault()
     document.getElementsByClassName('watch-list-edit-emoji')[0].style.display = "block"
   }
 

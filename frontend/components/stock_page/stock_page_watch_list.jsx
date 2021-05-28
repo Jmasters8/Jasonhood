@@ -35,7 +35,7 @@ class StockPageWatchList extends React.Component {
         categories.push([asset.category, asset.ticker, asset.emoji, asset.id])
       }
     }
-    console.log(categories.length)
+    
     for (let i = 0; i < categories.length; i++) {
       if (document.getElementsByClassName(`create-new-list-category-checkbox-empty${i}`)[0].style.content === 'url("https://i.imgur.com/eqjgMg7.png")') {
         for (let j = 0; j < watchedAssets.length; j++) {

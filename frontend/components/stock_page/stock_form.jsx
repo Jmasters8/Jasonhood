@@ -492,7 +492,7 @@ class StockForm extends React.Component {
             <div className="add-list">
               <div className="add-list-1"></div>
               <div className="add-list-2">
-                <button onClick={this.addToWatchList} className="add-list-3">
+                <button onClick={this.openWatchListModal} className="add-list-3">
                   <div className="add-list-4">
                     <span className="add-list-5">
                       <span className="add-list-6">
