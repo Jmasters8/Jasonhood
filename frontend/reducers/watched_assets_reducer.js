@@ -10,7 +10,6 @@ const watchedAssetsReducer = (state = {}, action) => {
       nextState[action.watchedAsset.id] = action.watchedAsset
       return nextState;
     case UPDATE_WATCHED_ASSET:
-      console.log(action)
       nextState[action.watchedAsset.id].category = action.watchedAsset.category
       nextState[action.watchedAsset.id].emoji = action.watchedAsset.emoji
       return nextState;
