@@ -23,6 +23,14 @@ class StockPageLists extends React.Component {
     let button = document.getElementsByClassName('create-new-list-submit-off')[0]
     let unchecked = 'url("https://i.imgur.com/cXKHK8l.png")'
     let checked = 'url("https://i.imgur.com/eqjgMg7.png")'
+    document.getElementsByClassName("watch-list-error")[0].style.display = "none"
+    for (let i = 0; i < this.props.allWatchedAssets.length; i++) {
+      let asset = this.props.allWatchedAssets[i];
+      if (asset.category === this.props.category && asset.ticker === this.props.stock.Symbol) {
+        document.getElementsByClassName("watch-list-error")[0].style.display = "block"
+        return null
+      }
+    }
 
     if (element.style.content === unchecked) {
       element.style.content = checked
@@ -55,7 +63,18 @@ class StockPageLists extends React.Component {
       }
     }
 
+    let aleadyOnList = () => {
+      for (let i = 0; i < this.props.allWatchedAssets.length; i++) {
+        let asset = this.props.allWatchedAssets[i];
+        if (asset.category === this.props.category && asset.ticker === this.props.stock.Symbol) {
+          return "create-new-list-category-off"
+        } 
+      }
+      return "create-new-list-category"
+    }
+
     return (
+      // <button onClick={this.addToList} className="create-new-list-category">
       <button onClick={this.addToList} className="create-new-list-category">
         <div className="create-new-list-category-check">
           <div className="create-new-list-category-checkbox">

@@ -174,7 +174,7 @@ class StockPageWatchList extends React.Component {
                 return <StockPageLists length={categories.length} addWatchedAsset={this.props.addWatchedAsset} stock={this.props.stock} allWatchedAssets={watchedAssets} category={list[0]} emoji={list[1]} key={i} index={i} />
               })}
             </div>
-            <div className="watch-list-error">This stock is already in one of your checked lists</div>
+            <div className="watch-list-error">This stock is already on that list</div>
             <div className="create-new-list-submit">
               <button onClick={this.saveChanges} className="create-new-list-submit-off">
                 <div className="create-new-list-submit-1">
