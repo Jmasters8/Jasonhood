@@ -204,7 +204,7 @@ class WatchListCategory extends React.Component {
         </li>
         <ul id={this.props.id} className="watched-asset-item-list">
           {list.map((asset, i) => {
-            return <WatchListItem addWatchedAsset={this.props.addWatchedAsset} key={i} asset={asset} assets={this.props.assets} stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData}/>
+            return <WatchListItem deleteWatchedAsset={this.props.deleteWatchedAsset} currentUserId={this.props.currentUserId} addWatchedAsset={this.props.addWatchedAsset} key={i} asset={asset} assets={this.props.assets} stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData}/>
           })}
         </ul>
       </div>

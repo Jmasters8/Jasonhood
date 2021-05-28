@@ -25,6 +25,8 @@ class WatchListItem extends React.Component {
       }
     }
 
+    this.deleteAsset = this.deleteAsset.bind(this);
+
   }
 
   componentDidMount() {
@@ -32,10 +34,13 @@ class WatchListItem extends React.Component {
     .then(() => this.props.fetchStockData(this.props.asset.ticker, this.state.start, this.state.now))
   }
 
+  deleteAsset() {
+    this.props.deleteWatchedAsset(this.props.currentUserId, this.props.asset.id)
+  }
+
   render() {
 
     if (Object.keys(this.props.stocks).length === 0) return null;
-
     let hasShares = () => {
       let shares = 0;
 
@@ -89,25 +94,12 @@ class WatchListItem extends React.Component {
       
     }
 
-    let trashColor = () => {
-      
-      let change = 0
-      let trashCans = document.getElementsByClassName("delete-watched-item")
-      for (let key in this.props.stocks) {
-        if (key === this.props.asset.ticker) {
-          change = (this.props.stocks[key].c - this.props.stocks[key].o)
-        }
-      }
-      
-      
-    }
-
-    trashColor()
+  
 
     return (
       <li className="owned-asset-item-delete">
         {/* <span className="delete-watched-item" onClick={() => console.log('potato')}></span> */}
-        <img className="delete-watched-item" src="https://i.imgur.com/C02Ou7j.png"></img>
+        <img onClick={this.deleteAsset} className="delete-watched-item" src="https://i.imgur.com/C02Ou7j.png"></img>
         <Link className="owned-asset-item-link-2" to={`/stocks/${this.props.asset.ticker}`}>
           <div className="owned-asset-item-ticker">
             <div className="owned-asset-item-ticker-2">
