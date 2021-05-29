@@ -53,30 +53,34 @@ class Stock extends React.Component {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
-    
-    this.props.fetchStockInfo(this.props.match.params.symbol)
-    .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-    .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+    if (Object.keys(this.props.currentStock).length === 0) {
+      this.props.fetchStockInfo(this.props.match.params.symbol)
+      .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+      .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+    }
+    // this.props.fetchStockInfo(this.props.match.params.symbol)
+    // .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+    // .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
 
     // .then(() => this.props.fetchStockNews(this.props.match.params.symbol), '2021-03-01', '2021-03-09')
     // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
   }
 
-  shouldComponentUpdate(nextProps){
-    return nextProps.currentStock !== this.state.currentStock;
-}
+//   shouldComponentUpdate(nextProps){
+//     return nextProps.currentStock !== this.state.currentStock;
+// }
 
-  componentDidUpdate(prevProps) {
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 5)
+//   componentDidUpdate(prevProps) {
+//     const today = new Date();
+//     const yesterday = new Date(today);
+//     yesterday.setDate(yesterday.getDate() - 5)
 
-    if (prevProps.currentStock !== this.props.currentStock) {
-      this.props.fetchStockInfo(this.props.match.params.symbol)
-      .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-      .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-    }
-  }
+//     if (prevProps.currentStock !== this.props.currentStock && Object.keys(this.props.currentStock).length !== 0) {
+//       this.props.fetchStockInfo(this.props.match.params.symbol)
+//       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+//       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+//     }
+//   }
 
   toggleDescription() {
     const currentState = this.state.collapsed;

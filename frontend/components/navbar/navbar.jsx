@@ -124,7 +124,7 @@ class Navbar extends React.Component {
       //   dropdown.style.display = "none"
       // }
 
-      if (!search.activeElement) {
+      if (!search.activeElement && dropdown) {
         dropdown.style.display = "none"
       }
       
