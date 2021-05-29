@@ -56,6 +56,13 @@
     visibility: visible;
   }
 
+  .delete-watched-item-green {
+    visibility: visible;
+  }
+
+  .delete-watched-item-red {
+    visibility: visible;
+  }
 }
 
 .delete-watched-item {
@@ -68,8 +75,32 @@
   visibility: hidden;
 }
 
-.delete-watched-item:hover {
+// .delete-watched-item:hover {
+//   content: url("https://i.imgur.com/petjNSP.png")
+// }
+
+.delete-watched-item-green {
+  align-self: center;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.delete-watched-item-green:hover {
   content: url("https://i.imgur.com/petjNSP.png")
+}
+
+.delete-watched-item-red {
+  align-self: center;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.delete-watched-item-red:hover {
+  content: url("https://i.imgur.com/CJEbwNR.png")
 }
 
 .owned-asset-item-ticker {
