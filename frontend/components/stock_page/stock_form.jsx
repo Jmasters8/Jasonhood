@@ -199,7 +199,10 @@ class StockForm extends React.Component {
         sharesAmount += asset.amount
       }
     })
-    // this.props.assets[49].amount -= 3
+    
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
     if (this.state.transaction === "buy") {
       return (
@@ -322,7 +325,7 @@ class StockForm extends React.Component {
                   <div className="money-available-1">
                     <span className="money-available-2">
                       <div className="money-available-3">
-                        ${this.props.currentUserBuyingPower} Buying Power Available
+                        ${numberWithCommas(this.props.currentUserBuyingPower)} Buying Power Available
                       </div>
                     </span>
                   </div>

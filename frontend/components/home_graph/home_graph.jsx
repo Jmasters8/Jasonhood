@@ -50,6 +50,8 @@ class HomeGraph extends React.Component {
     //   }
     // }
 
+    
+
     return(
       <div className="main-graph-1">
         <ResponsiveContainer width="100%" height="80%" >

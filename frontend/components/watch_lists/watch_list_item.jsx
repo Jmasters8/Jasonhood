@@ -107,9 +107,7 @@ class WatchListItem extends React.Component {
     } else {
       name = "delete-watched-item-red"
     }
-    
-
-    console.log(name)
+  
     
     let editStyle = {
       visibility: "hidden",

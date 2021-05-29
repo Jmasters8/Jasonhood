@@ -32,8 +32,6 @@ class WatchListEdit extends React.Component {
       }
     }
 
-    console.log(list)
-
     return (
       <div className="thismelist">
         {list.map(stock => {
