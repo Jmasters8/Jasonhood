@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import data from './data';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -118,6 +119,24 @@ class Navbar extends React.Component {
             </div>
           </div>
           <form onSubmit={this.handleSubmit}>
+            <div className="search-dropdown">
+              {data.map((obj, i) => {
+                if (this.state.stockSymbol === "") return null
+                if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase() || 
+                this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
+                  return (
+                    <div key={i}>
+                      <span>
+                        {obj.ticker}
+                      </span>
+                      <span>
+                        {obj.name}
+                      </span>
+                    </div>
+                  )
+                }
+              })}
+            </div>
           <div className="navbar-search">
             <div className="navbar-search-2">
               <div className="navbar-search-3">
