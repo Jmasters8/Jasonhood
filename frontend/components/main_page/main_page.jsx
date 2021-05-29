@@ -256,7 +256,7 @@ class MainPage extends React.Component {
                           </div>
                         </header>
                         <div className="dashboard-graph">
-                          <HomeGraph stocks={this.props.stocks}/>
+                          <HomeGraph assets={this.props.assets} stocks={this.props.stocks}/>
                           <div className="main-graph-dayz">
                                   <div className="main-graph-days-1">
                                     <button className="main-graph-days-2">

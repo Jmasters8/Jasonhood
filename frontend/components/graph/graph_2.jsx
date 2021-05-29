@@ -94,7 +94,7 @@ class GraphTwo extends React.Component {
             <XAxis dataKey="date" hide/>
             <YAxis dataKey="price" type="number" domain={[this.props.data['c'][0], this.props.data['c'][this.props.data[this.props.data.length - 1]]]} hide/>
             <Tooltip 
-            content={<CustomToolTip />} position={{ y: -20 }}/>
+            content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35 }}/>
             <Tooltip />
           </AreaChart>
         </ResponsiveContainer>

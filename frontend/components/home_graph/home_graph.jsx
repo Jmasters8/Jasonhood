@@ -7,15 +7,68 @@ class HomeGraph extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      hoverTime: ""
+    }
+
+    this.handleHoverTime = this.handleHoverTime.bind(this);
+  }
+
+  handleHoverTime() {
+    return (
+      <div>
+        { new Date(this.state.hoverTime * 1000).toLocaleTimeString(["en-US"], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
+      </div>
+    )
   }
 
   render() {
-    if (Object.keys(this.props.stocks).length === 0) return null
+    // if (Object.keys(this.props.stocks).length === 0) return null
     
+    // let getStockData = () => {
+      
+    //   let stocks = Object.values(this.props.stocks)
+    //   let assets = Object.values(this.props.assets)
+    //   let data = [];
+    //   if (stocks.length !== 8) return null
 
-    let getStockData = () => {
-      this.props.stocks
-    }
+    //   for (let i = 0; i < stocks.length; i++) {
+    //     let dataPoint = {
+    //       price: null,
+    //       date: null
+    //     }
+    //     let assetsAmount = 0
+    //     let stock = stocks[i]
+    //     let stockTicker = Object.keys(this.props.stocks)[i]
+    //     if (stock.data === undefined) {
+    //       return null
+    //     }
+
+    //     for (let j = 0; j < stock.data['o'].length; j++) {
+    //       let stockPrice = stock.data['o'][j]
+    //       // console.log(stockTicker, stockPrice)
+    //       dataPoint.date = stock.data['t'][j]
+    //       for (let k = 0; k < assets.length; k++) {
+    //         let asset = assets[k];
+    //         // console.log(asset)
+    //         if (asset.ticker === stockTicker) {
+    //           assetsAmount += (asset.amount * stockPrice)
+    //         }
+    //       }
+          
+    //     }
+    //     dataPoint.price = assetsAmount
+    //     data.push(dataPoint)
+    //   }
+    //   // console.log(data)
+    // }
+    // getStockData()
+
+    
+     
 
 
     function getTime(unixTime) {
@@ -59,8 +112,9 @@ class HomeGraph extends React.Component {
             <Area dataKey="price" stroke="#00C805" strokeWidth={2} fill="#000000"/>
             <XAxis dataKey="date" hide/>
             <YAxis dataKey="price" type="number" hide/>
-            <Tooltip content={<CustomToolTip />} position={{ y: -20 }}/>
-            <Tooltip />
+            {/* <Tooltip content={<CustomToolTip />} position={{ y: -20 }}/>
+            <Tooltip /> */}
+            <Tooltip content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35}}/>
           </AreaChart>
         </ResponsiveContainer>
       </div>
