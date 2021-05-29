@@ -51,6 +51,18 @@
   height: 36px;
 }
 
+.navbar-search-5:hover {
+  background-color: rgb(30, 33, 36);
+}
+
+
+.navbar-search-5:focus-within {
+  background-color: rgb(30, 33, 36);
+}
+
+
+
+
 
 .navbar-search-2 {
   box-sizing: inherit;
@@ -71,8 +83,9 @@
 
 .navbar-search-5 {
   background-color: black;
-  border: 1px solid rgb(48, 54, 58);
+  // border: 1px solid rgb(48, 54, 58);
   // position: absolute;
+  border: 1px solid rgb(64, 73, 78);
   top: 0px;
   left: 0px;
   right: 0px;
@@ -225,10 +238,19 @@
 }
 
 .search-dropdown {
-  width: 480px;
+  background-color: rgb(30, 33, 36);
+  border-radius: 4px;
+  border: 1px solid rgb(64, 73, 78);
+  border-top: none;
+  // top: 0px;
+  // left: 0px;
+  // right: 0px;
+  transition: border-color 300ms ease 0s, box-shadow 300ms ease 0s;
+  // box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.6), 0px -12px 24px rgba(0, 0, 0, 0.6);
+
+  width: 478px;
   height: 300px;
-  background-color: pink;
   position: absolute;
-  margin-top: 36px;
-  display: none;
+  margin-top: 33px;
+  // display: none;
 }

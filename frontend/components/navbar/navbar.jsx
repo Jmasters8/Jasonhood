@@ -109,6 +109,27 @@ class Navbar extends React.Component {
       symbol = this.props.match.params.symbol
     }
     
+    if (this.state.stockSymbol !== "") {
+      document.getElementsByClassName("search-dropdown")[0].style.display = "block"
+    } else if (this.state.stockSymbol === "" && document.getElementsByClassName("search-dropdown")[0]) {
+      document.getElementsByClassName("search-dropdown")[0].style.display = "none"
+    }
+
+    
+    document.addEventListener("click", e => {
+      let dropdown = document.getElementsByClassName("search-dropdown")[0]
+      let search = document.getElementsByClassName("navbar-search-5")
+      // if (e.target !== dropdown && search.contains('active') && (dropdown.style.display === "block" || dropdown.style.display === "")) {
+      //   console.log('remove pls')
+      //   dropdown.style.display = "none"
+      // }
+
+      if (!search.activeElement) {
+        dropdown.style.display = "none"
+      }
+      
+    })
+
     return (
 
       <header className="navbar">
