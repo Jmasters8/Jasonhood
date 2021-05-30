@@ -148,7 +148,7 @@ class Navbar extends React.Component {
                 if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase() || 
                 this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
                   return (
-                    <div className="search-dropdown-stocks-1" key={i}>
+                    <Link to={`/stocks/${obj.ticker}`} onClick={() => this.props.fetchCurrentStock(obj.ticker)} className="search-dropdown-stocks-1" key={i}>
                       <div className="search-dropdown-ticker">
                         <span>
                           <span className="search-dropdown-name-green">
@@ -171,7 +171,7 @@ class Navbar extends React.Component {
                           </span>
                         </span>
                       </div>
-                    </div>
+                    </Link>
                   )
                 }
               })}
