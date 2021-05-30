@@ -126,9 +126,13 @@ class Navbar extends React.Component {
 
       if (!search.activeElement && dropdown) {
         dropdown.style.display = "none"
+        document.getElementsByClassName("navbar-search-5")[0].style.backgroundColor = "black"
       }
       
     })
+    if (document.getElementsByClassName("search-dropdown")[0] && document.getElementsByClassName("search-dropdown")[0].style.display === "block") {
+      document.getElementsByClassName("navbar-search-5")[0].style.backgroundColor = "#1e2124"
+    }
 
     return (
 
