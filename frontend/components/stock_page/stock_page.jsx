@@ -57,6 +57,7 @@ class Stock extends React.Component {
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+      .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
     }
     // this.props.fetchStockInfo(this.props.match.params.symbol)
     // .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
