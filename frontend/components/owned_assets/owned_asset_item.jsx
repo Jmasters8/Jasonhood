@@ -141,7 +141,7 @@ class OwnedAssetItem extends React.Component {
 
     return (
       <li className="owned-asset-item">
-        <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`}>
+        <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`} onClick={() => this.props.fetchCurrentStock(this.props.ticker)}>
           <div className="owned-asset-item-ticker">
             <div className="owned-asset-item-ticker-2">
               <span className="owned-asset-item-ticker-3">

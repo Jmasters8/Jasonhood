@@ -72,7 +72,7 @@ class OwnedAssets extends React.Component {
             </div>
             <ul className="owned-asset-item=list">
               {stocks.map((stock, i) => (
-                <OwnedAssetItem stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData} key={i} assets={this.props.assets} ticker={stock}/>
+                <OwnedAssetItem fetchCurrentStock={this.props.fetchCurrentStock} stocks={this.props.stocks} fetchStock={this.props.fetchStock} fetchStockData={this.props.fetchStockData} key={i} assets={this.props.assets} ticker={stock}/>
               ))}
             </ul>
             <WatchLists currentUserId={this.props.currentUserId} addWatchedAsset={this.props.addWatchedAsset} watchedAssets={this.props.watchedAssets}/>

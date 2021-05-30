@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MainPage from './main_page';
 import { logout } from '../../actions/session';
-import { fetchStock, fetchStockData, fetchMarketNews } from '../../actions/stocks';
+import { fetchStock, fetchStockData, fetchMarketNews, fetchCurrentStock } from '../../actions/stocks';
 import { updateBuyingPower } from '../../actions/users'
 import { addWatchedAsset, updateWatchedAsset, deleteWatchedAsset } from '../../actions/assets';
 
@@ -19,6 +19,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   fetchStock: symbol => dispatch(fetchStock(symbol)),
+  fetchCurrentStock: symbol => dispatch(fetchCurrentStock(symbol)),
   updateBuyingPower: (buyingPower, id) => dispatch(updateBuyingPower(buyingPower, id)),
   addWatchedAsset: (ticker, userId, price, category, emoji) => dispatch(addWatchedAsset(ticker, userId, price, category, emoji)),
   updateWatchedAsset: (emoji, category, watchedAssetId) => dispatch(updateWatchedAsset(emoji, category, watchedAssetId)),

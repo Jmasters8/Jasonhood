@@ -576,6 +576,7 @@ class MainPage extends React.Component {
                       addWatchedAsset={this.props.addWatchedAsset}
                       deleteWatchedAsset={this.props.deleteWatchedAsset}
                       currentUserId={this.props.currentUserId}
+                      fetchCurrentStock={this.props.fetchCurrentStock}
 
                     />
                   </div>
