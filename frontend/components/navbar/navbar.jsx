@@ -134,6 +134,8 @@ class Navbar extends React.Component {
       document.getElementsByClassName("navbar-search-5")[0].style.backgroundColor = "#1e2124"
     }
 
+    let count = 0
+
     return (
 
       <header className="navbar">
@@ -148,14 +150,30 @@ class Navbar extends React.Component {
               <section className="search-dropdown-1">
                 <h4 className="search-dropdown-stocks">Stocks</h4>
               {data.map((obj, i) => {
+                
                 if (this.state.stockSymbol === "") return null
-                if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase() || 
-                this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
+                if ((count <= 8) && this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase() || (count <= 8 &&
+                this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase())) {
+                  count += 1
+                  let tickerClass;
+                  let nameClass;
+                  if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase()) {
+                    tickerClass = "search-dropdown-name-green"
+                  } else {
+                    tickerClass = "search-dropdown-name-white"
+                  }
+
+                  if (this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
+                    nameClass = "search-dropdown-name-green"
+                  } else {
+                    nameClass = "search-dropdown-name-white"
+                  }
+              
                   return (
                     <Link to={`/stocks/${obj.ticker}`} onClick={() => this.props.fetchCurrentStock(obj.ticker)} className="search-dropdown-stocks-1" key={i}>
                       <div className="search-dropdown-ticker">
                         <span>
-                          <span className="search-dropdown-name-green">
+                          <span className={tickerClass}>
                             {obj.ticker.slice(0, this.state.stockSymbol.length)}
                           </span>
                           <span className="search-dropdown-name-white">
@@ -165,7 +183,7 @@ class Navbar extends React.Component {
                       </div>
                       <div className="search-dropdown-name">
                         <span>
-                          <span className="search-dropdown-name-green">
+                          <span className={nameClass}>
                             {obj.name.slice(0, this.state.stockSymbol.length)}
                           </span>
                         </span>

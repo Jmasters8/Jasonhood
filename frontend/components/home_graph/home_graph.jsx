@@ -114,7 +114,7 @@ class HomeGraph extends React.Component {
             <YAxis dataKey="price" type="number" hide/>
             {/* <Tooltip content={<CustomToolTip />} position={{ y: -20 }}/>
             <Tooltip /> */}
-            <Tooltip content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35}}/>
+            <Tooltip content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35}} allowEscapeViewBox={{x: true, y: true}}/>
           </AreaChart>
         </ResponsiveContainer>
       </div>
