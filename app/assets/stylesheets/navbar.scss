@@ -248,9 +248,63 @@
   transition: border-color 300ms ease 0s, box-shadow 300ms ease 0s;
   // box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.6), 0px -12px 24px rgba(0, 0, 0, 0.6);
 
-  width: 478px;
+  width: 430px;
   height: 300px;
   position: absolute;
   margin-top: 33px;
   display: none;
+  padding: 0px 24px 24px;
+}
+
+.search-dropdown-1 {
+  margin: 12px 0 24px;
+}
+
+.search-dropdown-stocks {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-weight: 500;
+  margin: 0 0 4px;
+  font-size: 13px;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+  color: rgb(132, 145, 151);
+}
+
+.search-dropdown-stocks-1 {
+  font-weight: 500;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 28px;
+  margin: 0 -24px;
+  padding: 0 24px;
+}
+
+.search-dropdown-stocks-1:hover {
+  background-color: rgb(48, 54, 58);
+}
+
+.search-dropdown-ticker {
+  -webkit-box-flex: 0;
+  flex: 0 0 75px;
+}
+
+.search-dropdown-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-dropdown-name-green {
+  color: rgb(0, 200, 5);
+  font-size: 15px;
+}
+
+.search-dropdown-name-white {
+  color: white;
+  font-size: 15px;
 }

@@ -141,22 +141,41 @@ class Navbar extends React.Component {
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="search-dropdown">
+              <section className="search-dropdown-1">
+                <h4 className="search-dropdown-stocks">Stocks</h4>
               {data.map((obj, i) => {
                 if (this.state.stockSymbol === "") return null
                 if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase() || 
                 this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
                   return (
-                    <div key={i}>
-                      <span>
-                        {obj.ticker}
-                      </span>
-                      <span>
-                        {obj.name}
-                      </span>
+                    <div className="search-dropdown-stocks-1" key={i}>
+                      <div className="search-dropdown-ticker">
+                        <span>
+                          <span className="search-dropdown-name-green">
+                            {obj.ticker.slice(0, this.state.stockSymbol.length)}
+                          </span>
+                          <span className="search-dropdown-name-white">
+                            {obj.ticker.slice(this.state.stockSymbol.length, obj.ticker.length)}
+                          </span>
+                        </span>
+                      </div>
+                      <div className="search-dropdown-name">
+                        <span>
+                          <span className="search-dropdown-name-green">
+                            {obj.name.slice(0, this.state.stockSymbol.length)}
+                          </span>
+                        </span>
+                        <span>
+                          <span className="search-dropdown-name-white">
+                            {obj.name.slice(this.state.stockSymbol.length, obj.name.length)}
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   )
                 }
               })}
+              </section>
             </div>
           <div className="navbar-search">
             <div className="navbar-search-2">
