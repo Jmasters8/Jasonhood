@@ -54,7 +54,7 @@ class Stock extends React.Component {
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
     if (Object.keys(this.props.currentStock).length === 0) {
-      console.log('I just mounted and did the API calls')
+      // console.log('I just mounted and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
@@ -76,11 +76,11 @@ class Stock extends React.Component {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
-    console.log("prevProps: ", prevProps.currentStock)
-    console.log("this.props: ", this.props.currentStock)
+    // console.log("prevProps: ", prevProps.currentStock)
+    // console.log("this.props: ", this.props.currentStock)
 
     if (prevProps.currentStock !== this.props.currentStock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
-      console.log('I just updated and did the API calls')
+      // console.log('I just updated and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))

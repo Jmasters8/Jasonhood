@@ -21,9 +21,6 @@ let data = [
   {"ticker": "FDX", "name": "FedEx"},
   {"ticker": "ROST", "name": "Ross"},
   {"ticker": "JPM", "name": "JPMorgan Chase"},
-  {"ticker": "EMB", "name": "iShares JP Morgan USD Emerging Markets Bond ETF"},
-  {"ticker": "AMJ", "name": "JPMorgan Ultra-Short Municipal Income ETF"},
-  {"ticker": "JPST", "name": "JPMorgan Ultra-Short Income ETF"},
   {"ticker": "DOW", "name": "Dow"},
   {"ticker": "V", "name": "Visa"},
   {"ticker": "DASH", "name": "DoorDash"},
@@ -792,6 +789,9 @@ let data = [
   {"ticker": "LSXMA", "name": "Liberty Media"},
   {"ticker": "DT", "name": "Dynatrace"},
   {"ticker": "GDRX", "name": "GoodRx"},
+  {"ticker": "EMB", "name": "iShares JP Morgan USD Emerging Markets Bond ETF"},
+  {"ticker": "AMJ", "name": "JPMorgan Ultra-Short Municipal Income ETF"},
+  {"ticker": "JPST", "name": "JPMorgan Ultra-Short Income ETF"},
 ]
 
 export default data;
