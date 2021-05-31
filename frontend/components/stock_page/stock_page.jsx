@@ -39,7 +39,7 @@ class Stock extends React.Component {
         now: new Date().setHours(13, 0, 0, 0) / 1000,
         shares: 0,
         buyingPower: this.props.currentUser.buying_power,
-        currentStock: ""
+        currentStock: this.props.currentStock
        }
     }
 
@@ -54,6 +54,7 @@ class Stock extends React.Component {
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
     if (Object.keys(this.props.currentStock).length === 0) {
+      // this.setState({currentStock: this.props.currentStock})
       // console.log('I just mounted and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
@@ -69,8 +70,8 @@ class Stock extends React.Component {
   }
 
   shouldComponentUpdate(nextProps){
-    return nextProps.currentStock !== this.state.currentStock;
-}
+    return nextProps.currentStock !== this.props.currentStock;
+  }
 
   componentDidUpdate(prevProps) {
     const today = new Date();
@@ -79,11 +80,13 @@ class Stock extends React.Component {
     // console.log("prevProps: ", prevProps.currentStock)
     // console.log("this.props: ", this.props.currentStock)
 
-    if (prevProps.currentStock !== this.props.currentStock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
+    if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
+      console.log("I just updated")
       // console.log('I just updated and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+      .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
     }
   }
 

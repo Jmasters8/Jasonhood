@@ -124,7 +124,7 @@ class WatchListItem extends React.Component {
         {/* <span className="delete-watched-item" onClick={() => console.log('potato')}></span> */}
         {/* <img onClick={this.deleteAsset} className="delete-watched-item" src="https://i.imgur.com/C02Ou7j.png"></img> */}
         <img onClick={this.deleteAsset} className={name} src="https://i.imgur.com/C02Ou7j.png"></img>
-        <Link className="owned-asset-item-link-2" to={`/stocks/${this.props.asset.ticker}`}>
+        <Link className="owned-asset-item-link-2" to={`/stocks/${this.props.asset.ticker}`} onClick={() => this.props.fetchCurrentStock(this.props.asset.ticker)}>
           <div className="owned-asset-item-ticker">
             <div className="owned-asset-item-ticker-2">
               <span className="owned-asset-item-ticker-3">
