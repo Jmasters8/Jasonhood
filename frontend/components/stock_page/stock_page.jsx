@@ -7,6 +7,7 @@ import StockForm from './stock_form';
 import StockPageWatchList from './stock_page_watch_list';
 // import Example from '../loading';
 import Loading from '../loading';
+import OwnedStocksInfo from './owned_stocks_info';
 
 import Odometer from 'react-odometerjs';
 import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
@@ -23,7 +24,8 @@ class Stock extends React.Component {
         now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400,
         shares: 0,
         buyingPower: this.props.currentUser.buying_power,
-        currentStock: ""
+        currentStock: "",
+        assets: []
       }
     } else if (currentDate.includes("Sun")) {
       this.state = {
@@ -32,7 +34,8 @@ class Stock extends React.Component {
         now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800,
         shares: 0,
         buyingPower: this.props.currentUser.buying_power,
-        currentStock: ""
+        currentStock: "",
+        assets: []
       }
     } else {
       this.state = { 
@@ -41,7 +44,8 @@ class Stock extends React.Component {
         now: new Date().setHours(13, 0, 0, 0) / 1000,
         shares: 0,
         buyingPower: this.props.currentUser.buying_power,
-        currentStock: this.props.currentStock
+        currentStock: this.props.currentStock,
+        assets: []
        }
     }
 
@@ -71,8 +75,30 @@ class Stock extends React.Component {
     // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
   }
 
-  shouldComponentUpdate(nextProps){
-    return nextProps.currentStock !== this.props.currentStock;
+  shouldComponentUpdate(nextProps, prevProps){
+    console.log(Object.values(nextProps.assets))
+    console.log(prevProps.assets)
+   
+
+
+    let prevAssets = Object.values(nextProps.assets)
+    let nextAssets = prevProps.assets
+    let assetChange = () => {
+      // let prevAssets = Object.values(this.props.assets)
+      // let prevAssets = this.state.assets
+      // let nextAssets = Object.values(nextProps.assets)
+
+      if (prevAssets.length !== nextAssets.length) return true
+      // console.log(prevAssets)
+      // console.log(nextAssets)
+      for (let i = 0; i < nextAssets.length; i++) {
+        if (nextAssets[i].amount !== prevAssets[i].amount) {
+          return true
+        }
+      }
+      return false
+    }
+    return (nextProps.currentStock !== this.props.currentStock || assetChange())
   }
 
   componentDidUpdate(prevProps) {
@@ -246,6 +272,12 @@ class Stock extends React.Component {
       return (sum / count).toFixed(2)
     }
 
+    // const ownedAssets = () => {
+    //   if (totalAssets() > 0) {
+    //     return <OwnedStocksInfo percentChange={percentChange} ticker={this.props.stock.Symbol} assets={this.props.assets}/>
+    //   }
+    // }
+
     const ownedAssets = () => {
       if (totalAssets() > 0) {
         return (
@@ -312,7 +344,7 @@ class Stock extends React.Component {
                         Shares
                       </td>
                       <td className="owned-assets-table-filler"></td>
-                      <td className="owned-assets-table-4">
+                      <td id="sharesAmount" className="owned-assets-table-4">
                         {numberWithCommas(sharesAmount())}
                       </td>
                     </tr>
@@ -500,6 +532,7 @@ class Stock extends React.Component {
                           </section>
 
                           {ownedAssets()}
+                          {/* <OwnedStocksInfo percentChange={percentChange} ticker={this.props.stock.Symbol} assets={this.props.assets}/> */}
 
                           <section className="about">
                             <header className="about-title">
