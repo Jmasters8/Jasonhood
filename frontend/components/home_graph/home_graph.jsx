@@ -25,8 +25,25 @@ class HomeGraph extends React.Component {
     )
   }
 
+
   render() {
-    // if (Object.keys(this.props.stocks).length === 0) return null
+    let assets = Object.values(this.props.assets)
+    let uniqueAssets = [];
+    for (let i = 0; i < assets.length; i++) {
+      let asset = assets[i].ticker
+      if (!uniqueAssets.includes(asset)) {
+        uniqueAssets.push(asset)
+      }
+    }
+
+    
+
+    if (Object.values(this.props.stocks).length !== uniqueAssets.length) return null
+    for (let i = 0; i < Object.values(this.props.stocks).length; i++) {
+      if (Object.values(this.props.stocks)[i].data === undefined) {
+        return null
+      }
+    }
     
     // let getStockData = () => {
       
@@ -95,20 +112,114 @@ class HomeGraph extends React.Component {
                 {price: 78, date: '9:50 AM'}, {price: 65, date: '9:55 AM'}, {price: 69, date: '10:00 AM'}, {price: 75, date: '10:05 AM'},
                 {price: 80, date: '10:15 AM'}, {price: 88, date: '10:20 AM'}, {price: 98, date: '10:25 AM'}, {price: 100, date: '10:30 AM'} ];
 
-    // for (let i = 0; i < this.props.data['o'].length; i++) {
-    //   if (i < 72) {
-    //     data.push({price: this.props.data['o'][i], date: getTime(this.props.data['t'][i]) + "AM"})
-    //   } else {
-    //     data.push({price: this.props.data['o'][i], date: getTime(this.props.data['t'][i]) + "PM"})
+    
+    // console.log(Object.values(this.props.assets))
+    // console.log(this.props.stocks)
+    
+    let stocks = this.props.stocks
+    // console.log(stocks["AAPL"].data.c.length)
+    
+    // let getData = () => {
+    //   let assets = Object.values(this.props.assets);
+    //   let data = [];
+
+    //   for (let i = 0; i < uniqueAssets.length; i++) {
+    //     let ticker = uniqueAssets[i]; //AAPL
+        
+    //     for (let j = 0; j < stocks[ticker].data.c.length; j++) {
+    //       let dataPoint = {
+    //         price: 0, //125.51 + 125.51
+    //         date: stocks[ticker].data.t[i]
+    //       }
+
+    //       let price = stocks[ticker].data.c[i]; //125.51
+
+    //       for (let i = 0; i < assets.length; i++) {
+    //         let asset = assets[i]; //AAPL
+
+    //         if (asset.ticker === ticker) {
+    //           dataPoint.price += (asset.amount * price)
+    //         }
+    //       }
+    //       data.push(dataPoint)
+    //     }
+    //   }
+    //   return data
+    // }
+    // console.log(getData())
+    // console.log(stocks[assets[0].ticker].data.c.length)
+
+    let data2 = []
+
+
+    let getData = () => {
+      let assets = Object.values(this.props.assets);
+      
+
+      for (let i = 0; i < stocks[assets[0].ticker].data.c.length - 1; i++) {
+        let time;
+        if (i < 72) {
+          time = getTime(stocks[assets[0].ticker].data.t[i]) + "AM"
+        } else {
+          time = getTime(stocks[assets[0].ticker].data.t[i]) + "PM"
+        }
+        
+        let dataPoint = {
+          price: 0,
+          date: time
+        }
+        
+        for (let j = 0; j < uniqueAssets.length; j++) {
+          let ticker = uniqueAssets[j];
+          let price = stocks[ticker].data.c[i]
+          if (i >= stocks[ticker].data.c.length) continue
+
+          for (let k = 0; k < assets.length; k++) {
+            let asset = assets[k];
+            
+
+            if (asset.ticker === ticker) {
+              dataPoint.price += (asset.amount * price)
+            }
+          }
+        }
+        dataPoint.price = parseInt(dataPoint.price.toFixed(2))
+        data2.push(dataPoint)
+      }
+      
+    }
+
+    if (data2.length === 0) {
+      getData()
+    }
+
+    console.log(data2)
+
+    // let test = () => {
+    //   let assets = Object.values(this.props.assets);
+      
+    //   for (let i = 0; i < uniqueAssets.length; i++) {
+    //     let ticker = uniqueAssets[i]
+        
+    //     for (let j = 0; j < assets.length; j++) {
+    //       let asset = assets[i];
+          
+    //       if (asset.ticker === ticker) {
+    //         // console.log(asset.amount)
+    //       }
+    //     }
     //   }
     // }
 
+    // test()
+
+  
     
 
     return(
       <div className="main-graph-1">
         <ResponsiveContainer width="100%" height="80%" >
-          <AreaChart data={data}>
+          <AreaChart data={data2}>
             <Area dataKey="price" stroke="#00C805" strokeWidth={2} fill="#000000"/>
             <XAxis dataKey="date" hide/>
             <YAxis dataKey="price" type="number" hide/>

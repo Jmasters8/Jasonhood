@@ -6,7 +6,7 @@ import MainPageContainer from '../main_page/main_page_container'
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(this.props)
+    
     this.user = null
 
     for (let key in this.props.user) {

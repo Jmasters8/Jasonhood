@@ -19,62 +19,13 @@ class Graph extends React.Component {
 
   render() {
     
-    // console.log(this.props.data)
+    
 
     if (this.props.data === undefined) {
       return null
     }
     
-    // console.log(this.props.data)
-
-    // console.log(this.props.data)
-    // const stockInfoIntervals = this.props.stock.data['Time Series (60min)']
-    // console.log(this.props.stock['Time Series (5min)'])
-    // console.log(this.props.stock)
-
-    // const testData = (data) => {
-    //   let arr = [];
-    //   let time = '6:00'
-
-    //   for (const item of Object.entries(data)) {
-    //     // arr.push(item[1]['1. open'])
-    //     // arr.push({x: item[0], y: item[1]['1. open']})
-    //     // console.log(item[1]['1. open'])
-    //   }
-    //   return arr
-    // }
-
-    // testData(stockInfoIntervals)
-
-    // const createDates = () => {
-    //   let dates = [];
-    //   let value= 50;
-
-    //   for (let i = 0; i < 366; i++) {
-    //     let date = new Date();
-    //     date.setHours(0, 0, 0, 0);
-    //     date.setDate(i);
-    //     value += Math.round((Math.random() < 0.5 ? 1 : 0) * Math.random() * 10)
-    //     dates.push({x: date, y: value});
-    //   }
-    //   setGraphData(dates)
-    // }
-
-    // console.log(testData(stockInfoIntervals))
-    // const data = 
-    // [{
-    //   x: '2017-09-08 00:00:00',
-    //   y: 12
-    // }, {
-    //   x: '2017-10-04 00:00:00',
-    //   y: 12
-    // }, {
-    //   x: '2017-09-28 00:00:00',
-    //   y: 5
-    // }, {
-    //   x: '2017-09-08 00:00:00',
-    //   y: 28
-    // }]
+    
 
     const data2 = [
       {x: "May 12",

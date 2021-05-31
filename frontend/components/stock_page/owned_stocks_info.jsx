@@ -22,7 +22,7 @@ class OwnedStocksInfo extends React.Component {
 
       for (let i = 0; i < assets.length; i++) {
         let asset = assets[i];
-        // console.log(asset)
+        
         if (asset.ticker === this.props.ticker) {
           totalPrice += (asset.amount * asset.price)
         }

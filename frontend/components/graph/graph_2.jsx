@@ -49,7 +49,7 @@ class GraphTwo extends React.Component {
   render() {
 
     
-    // console.log(this.props)
+    
      
     function getTime(unixTime) {
       let date = new Date(unixTime * 1000);

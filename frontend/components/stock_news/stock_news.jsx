@@ -22,7 +22,6 @@ class StockNews extends React.Component {
   toggleDescription() {
     const currentState = this.state.collapsed;
     this.setState({ collapsed: !currentState });
-    // console.log(this.state)
   }
 
 

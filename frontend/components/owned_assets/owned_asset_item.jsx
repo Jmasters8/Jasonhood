@@ -77,7 +77,7 @@ class OwnedAssetItem extends React.Component {
     let currentPrice = () => {
       
       for (let key in this.props.stocks) {
-        // console.log(this.props.stocks[key])
+        
         if (key === this.props.ticker && this.props.stocks[key].data) {
           return (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1]).toFixed(2)
           // return this.props.stocks[key].data.c[this.props.stocks.key.data.c.length]
@@ -136,8 +136,6 @@ class OwnedAssetItem extends React.Component {
       }
       
     }
-    // currentPrice()
-    // console.log(currentPrice())
 
     return (
       <li className="owned-asset-item">

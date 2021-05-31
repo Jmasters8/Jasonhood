@@ -76,8 +76,8 @@ class Stock extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, prevProps){
-    console.log(Object.values(nextProps.assets))
-    console.log(prevProps.assets)
+    // console.log(Object.values(nextProps.assets))
+    // console.log(prevProps.assets)
    
 
 
@@ -109,7 +109,6 @@ class Stock extends React.Component {
     // console.log("this.props: ", this.props.currentStock)
 
     if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
-      console.log("I just updated")
       // console.log('I just updated and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
