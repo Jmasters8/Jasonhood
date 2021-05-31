@@ -5,6 +5,8 @@ import GraphTwo from '../graph/graph_2';
 import StockNewsContainer from '../stock_news/stock_news_container';
 import StockForm from './stock_form';
 import StockPageWatchList from './stock_page_watch_list';
+// import Example from '../loading';
+import Loading from '../loading';
 
 import Odometer from 'react-odometerjs';
 import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
@@ -141,14 +143,24 @@ class Stock extends React.Component {
 
   render() {
     
-    if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined) {
-      return (
-        <div className="loading">
-          <div className="loading-text">loading...</div>
-          {/* <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/> */}
-        </div>
-      )
+    // if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined) {
+    //   return (
+    //     <div className="loading">
+    //       <div className="loading-text">loading...</div>
+    //       {/* <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/> */}
+    //     </div>
+    //   )
+    // }
+
+    // if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined) {
+    //   return <Loading />
+    // }
+
+    if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.Name === undefined) {
+      return <Loading />
     }
+   
+
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
     
     // if (this.props.data === undefined) {
@@ -343,7 +355,7 @@ class Stock extends React.Component {
     // console.log(this.props.data.Name)
     const showStock = () => {
       let companyName = this.props.stock.Name;
-      if (!this.props.stock.Name) companyName = this.props.match.params.symbol
+      // if (!this.props.stock.Name) companyName = this.props.match.params.symbol
       return (
         
         <div className="main">
@@ -693,153 +705,6 @@ class Stock extends React.Component {
                         symbol={this.props.stock.Symbol}
                         watchedAssets={this.props.watchedAssets}
                         />
-                      {/* <div className="trade">
-                        <div className="trade-1">
-                          <div className="trade-2">
-                            <form>
-                              <div className="trade-stock-name">
-                                <div className="trade-stock-name-1">
-                                  <div className="trade-stock-name-2">
-                                    <span className="trade-stock-name-3">
-                                      Buy {this.props.stock.Symbol}
-                                    </span>
-                                  </div>
-
-                                  <div className="trade-stock-name-2">
-                                  <span className="trade-stock-name-3">
-                                      Sell {this.props.stock.Symbol}
-                                    </span>
-                                  </div>
-
-                                </div>
-                              </div>
-                              <div className="trade-stock-shares">
-                                <div className="trade-stock-shares-1">
-                                  <div className="trade-stock-shares-2">
-                                    <div className="trade-stock-shares-3">
-                                      <label className="trade-stock-shares-4">
-                                        Invest in
-                                      </label>
-                                      <div className="trade-stock-shares-5">
-                                        <div className="trade-stock-shares-6">
-                                          <div className="trade-stock-shares-7">
-                                            <div className="trade-stock-shares-8">
-                                              <button type="button" className="trade-stock-shares-9">
-                                                <div className="trade-stock-shares-10">
-                                                  <span className="trade-stock-shares-11">
-                                                    Shares
-                                                  </span>
-                                                </div>
-                                                <div className="trade-stock-shares-12">
-                                                  <span className="trade-stock-shares-13">
-                                                  △
-                                                  ▽
-                                                    
-                                                  </span>
-                                                </div>
-                                              </button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div className="shares-amount">
-                                      <label className="shares-amount-1">
-                                        Shares
-                                      </label>
-                                      <div className="shares-amount-2">
-                                        <div className="shares-amount-3">
-                                          
-                                          <input className="shares-amount-input" value={this.state.shares} onChange={this.handleInput('shares')} type="text" placeholder="0"/>
-                                          
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div className="trade-market-price">
-                                      <div className="trade-market-price-1">
-                                        <a className="trade-market-price-2">
-                                          <span className="trade-market-price-3">
-                                            Market Price
-                                          </span>
-                                        </a>
-                                      </div>
-                                      <div className="trade-market-price-4">
-                                        <span className="trade-market-price-5">
-                                        ${this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)}
-                                        </span>
-                                      </div>
-                                    </div>
-                                    <div className="trade-estimated-cost">
-                                      <div className="trade-estimated-cost-1">
-                                        <div className="trade-estimated-cost-2">
-                                          <span className="trade-estimated-cost-3">
-                                            Estimated Cost
-                                          </span>
-                                        </div>
-                                        <div className="trade-estimated-cost-4">
-                                          <span className="trade-estimated-cost-5">
-                                            ${(currentPrice * this.state.shares).toFixed(2)}
-                                          </span>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div className="review-order">
-                                <div className="review-order-1">
-                                  <div className="review-order-2">
-                                    <div className="review-order-3">
-                                      <div className="review-order-4">
-                                        <button onClick={this.handleClick} className="review-order-5">
-                                          <div className="review-order-6">
-                                            <span className="review-order-7">
-                                              Complete Order
-                                            </span>
-                                          </div>
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <footer className="money-available">
-                                <div className="money-available-1">
-                                  <span className="money-available-2">
-                                    <div className="money-available-3">
-                                      ${this.props.currentUser.buying_power} Buying Power Available
-                                    </div>
-                                  </span>
-                                </div>
-                              </footer>
-
-                            </form>
-                          </div>
-
-                          <div className="add-list">
-                            <div className="add-list-1"></div>
-                            <div className="add-list-2">
-                              <button className="add-list-3">
-                                <div className="add-list-4">
-                                  <span className="add-list-5">
-                                    <span className="add-list-6">
-                                      <span className="add-list-7">
-                                      ✓ Add to Lists
-                                      </span>
-                                    </span>
-                                  </span>
-                                </div>
-                              </button>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div> */}
 
                       </div>
                     </main>

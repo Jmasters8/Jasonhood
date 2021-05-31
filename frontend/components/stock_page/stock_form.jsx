@@ -4,13 +4,22 @@ class StockForm extends React.Component {
   constructor(props) {
     super(props);
 
+    let sharesAmount = 0;
+    let assets = Object.values(this.props.assets);
+    assets.forEach(asset => {
+      if (this.props.symbol === asset.ticker && asset.ticker !== null) {
+        sharesAmount += asset.amount
+      }
+    })
+
     this.state = {
       shares: "",
       buyingPower: this.props.buyingPower,
       transaction: "buy",
       showBuyError: false,
       showSellError: false,
-      showWatchListError: false
+      showWatchListError: false,
+      sharesAmount: sharesAmount
     }
     
 
@@ -28,12 +37,12 @@ class StockForm extends React.Component {
       this.setState({ [type]: e.target.value })
   }
 
-  // toggleTransaction() {
-  //   if (this.state.transaction === "buy") {
-  //     this.setState({transaction: "sell", shares: "", showBuyError: false, showSellError: false})
-  //   } else if (this.state.transaction === "sell") {
-  //     this.setState({transaction: "buy", shares: "", showBuyError: false, showSellError: false})
-  //   }
+  shouldComponentUpdate(nextProps) {
+    return nextProps.currentUserByingPower !== this.props.currentUserBuyingPower
+  }
+
+  // componentDidUpdate() {
+    
   // }
 
   toggleBuy() {
@@ -80,18 +89,17 @@ class StockForm extends React.Component {
       this.showBuyError()
       return null
     }
-
-    this.setState({ buyingPower: (this.state.buyingPower - (this.props.currentPrice * this.state.shares).toFixed(2)) })
+    this.setState({ buyingPower: (this.state.buyingPower - (this.props.currentPrice * parseInt(this.state.shares)).toFixed(2)) })
     
     this.props.addStockAsset(this.props.symbol, this.props.currentUserId, this.state.shares, this.props.currentPrice.toFixed(2))
       .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId))
-    this.setState({shares: "", showBuyError: false})
+    this.setState({shares: "", showBuyError: false, sharesAmount: this.state.sharesAmount + parseInt(this.state.shares)})
   }
 
   handleSell(e, sharesAmount) {
     e.preventDefault()
     let sellShares = () => {
-      if ((sharesAmount < parseInt(this.state.shares))) {
+      if ((this.state.sharesAmount < parseInt(this.state.shares))) {
         this.setState({showSellError: !this.state.showSellError}, () => console.log(this.state.showSellError))
         this.showSellError();
         return null
@@ -99,14 +107,16 @@ class StockForm extends React.Component {
       
       let assets = Object.values(this.props.assets);
       let shares = this.state.shares
+      console.log(shares)
 
       for (let i = 0; i < assets.length; i++) {
         let asset = assets[i];
-    
+        
         if (asset.ticker === this.props.symbol) {
           if (asset.amount === shares) {
+            
             // delete this.props.assets[asset.id]
-            this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * asset.amount).toFixed(2))) })
+            this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * asset.amount).toFixed(2))), sharesAmount: this.state.sharesAmount - asset.amount })
             this.props.deleteStockAsset(this.props.currentUserId, asset.id)
             .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId)) 
             return 
@@ -116,8 +126,9 @@ class StockForm extends React.Component {
         if (asset.ticker === this.props.symbol) {
           
           if (asset.amount > shares) {
+            
             // this.props.assets[asset.id].amount -= shares;
-            this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * shares).toFixed(2))) })
+            this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * shares).toFixed(2))), sharesAmount: this.state.sharesAmount - shares })
             this.props.updateStockAmount((this.props.assets[asset.id].amount - shares), asset.id)
             .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId)) 
             return
@@ -125,15 +136,16 @@ class StockForm extends React.Component {
         }
     
         if (asset.ticker === this.props.symbol && shares !== 0) {
+          shares -= asset.amount
           if (shares - asset.amount >= 0) {
             shares -= asset.amount;
             // delete this.props.assets[asset.id];
-            this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * asset.amount).toFixed(2))) })
+            this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * asset.amount).toFixed(2))), sharesAmount: this.state.sharesAmount - asset.amount })
             this.props.deleteStockAsset(this.props.currentUserId, asset.id)
             .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId)) 
           }
         }
-      }
+    }
       this.setState({shares: "", showSellError: false})
     }
     sellShares()
@@ -156,7 +168,7 @@ class StockForm extends React.Component {
   }
 
   sellAll(sharesAmount) {
-    this.setState({shares: sharesAmount})
+    this.setState({shares: this.state.sharesAmount})
   }
 
   addToWatchList(e) {
@@ -176,22 +188,11 @@ class StockForm extends React.Component {
     document.getElementsByClassName("add-watch-list")[0].style.visibility = "visible"
   }
 
-  // showWatchListError() {
-   
-  //   if (!this.state.showWatchListError) return null
-    
-    
-  //   return (
-  //     <div className="stock-errors">
-  //       <span className="stock-errors-1">
-  //         This stock is already on your list
-  //       </span>
-  //     </div>
-  //   )
+  // setSharesAmount(shares) {
+  //   this.setState({sharesAmount: shares})
   // }
 
   render() {
-    
     let sharesAmount = 0;
     let assets = Object.values(this.props.assets);
     assets.forEach(asset => {
@@ -199,6 +200,7 @@ class StockForm extends React.Component {
         sharesAmount += asset.amount
       }
     })
+    // this.setSharesAmount(sharesAmount)
     
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -325,7 +327,8 @@ class StockForm extends React.Component {
                   <div className="money-available-1">
                     <span className="money-available-2">
                       <div className="money-available-3">
-                        ${numberWithCommas(this.props.currentUserBuyingPower)} Buying Power Available
+                        {/* ${numberWithCommas(this.props.currentUserBuyingPower)} Buying Power Available */}
+                        ${numberWithCommas(this.state.buyingPower)} Buying Power Available
                       </div>
                     </span>
                   </div>
@@ -481,7 +484,8 @@ class StockForm extends React.Component {
                   <div className="money-available-1">
                     <span className="money-available-2">
                       <div className="shares-available-2">
-                        {sharesAmount} Shares Available - 
+                        {/* {sharesAmount} Shares Available -  */}
+                        {this.state.sharesAmount} Shares Available -
                         &nbsp;
                         <span onClick={() => this.sellAll(sharesAmount)} className="shares-available-3"> Sell All</span>
                     </div>
