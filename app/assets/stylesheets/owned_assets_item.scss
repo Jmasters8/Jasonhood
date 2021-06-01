@@ -180,3 +180,9 @@
 .owned-asset-item-percentage-decrease {
   color: rgb(255, 80, 0);
 }
+
+.mini-graph {
+	.recharts-wrapper {
+		cursor: pointer !important;
+	}
+}

@@ -99,7 +99,7 @@ html {
 
 .odometer.odometer-auto-theme {
 	color: white;
-	margin-left: 22px;
+	margin-left: 16px;
 }
 
 .home-graph-money {
@@ -117,6 +117,7 @@ html {
 	color: white;
 }
 
+
 .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, 
 .odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner,
 .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating 
@@ -128,6 +129,3 @@ html {
   transition-duration: .2s !important
 }
 
-.recharts-layer {
-	
-}
