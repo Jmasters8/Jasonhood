@@ -175,6 +175,7 @@ class HomeGraph extends React.Component {
 
     let price;
     let percent;
+    let color;
 
     function change() {
       let beginningPrice = data2[0].price
@@ -191,14 +192,14 @@ class HomeGraph extends React.Component {
 
     percent >= 0 ? document.getElementById("percent-change").innerHTML = `(+${percent.toFixed(2)}%)` : document.getElementById("percent-change").innerHTML = `(${percent.toFixed(2)}%)`
     price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `$${numberWithCommas(price.toFixed(2))}`
-   
+    price >= 0 ? color = "rgb(0,200,5)" : color = "rgb(255,80,0)"
     
     return(
       <div className="main-graph-1">
         <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={test()}/>
         <ResponsiveContainer width="100%" height="80%" >
           <AreaChart data={data2} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice}>
-            <Area dataKey="price" stroke="#00C805" strokeWidth={2} fill="#000000"/>
+            <Area dataKey="price" stroke={color} strokeWidth={2} fill="#000000"/>
             <XAxis dataKey="date" hide/>
             <YAxis dataKey="price" type="number" domain={data2[0].price, data2[data2.length - 1].price} hide/>
             {/* <Tooltip content={<CustomToolTip />} position={{ y: -20 }}/>
