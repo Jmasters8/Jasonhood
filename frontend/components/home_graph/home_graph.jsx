@@ -2,16 +2,39 @@ import React from 'react';
 import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
 import { render } from 'react-dom';
 import { format, parseISO, subDays } from "date-fns";
+import Odometer from 'react-odometerjs';
+import data from '../navbar/data';
 
 class HomeGraph extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      hoverTime: ""
-    }
 
+    if (document.getElementsByClassName("left-4-header")[0]) {
+      this.state = {
+        hoverTime: "",
+        currentPrice: document.getElementsByClassName("left-4-header")[0].innerHTML
+      }
+    } else {
+      this.state = {
+        hoverTime: "",
+        currentPrice: ""
+      }
+    }
+    
+    
+
+    this.handleMouseHover = this.handleMouseHover.bind(this);
+    this.resetHoverPrice = this.resetHoverPrice.bind(this);
     this.handleHoverTime = this.handleHoverTime.bind(this);
+  }
+
+  componentDidMount() {
+    if (Object.values(this.props.stocks).length === 0) {
+      return null
+    } else {
+      console.log(this.props.stocks)
+    }
   }
 
   handleHoverTime() {
@@ -25,8 +48,24 @@ class HomeGraph extends React.Component {
     )
   }
 
+  resetHoverPrice() {
+    this.setState({currentPrice: HomeGraph.data[HomeGraph.data.length - 1].price});
+  }
+
+  handleMouseHover(e) {
+    // document.getElementsByClassName("odometer-inside")[0].style.display = "block"
+    // document.getElementsByClassName("left-4-header")[0].style.display = "none"
+    if (e.activePayload) {
+      let priceHovered = e.activePayload[0].payload.price;
+      let timeHovered = e.activePayload[0].payload.time;
+      this.setState({hoverTime: timeHovered});
+      this.setState({currentPrice: priceHovered})
+    }
+  }
+
 
   render() {
+    
     let assets = Object.values(this.props.assets)
     let uniqueAssets = [];
     for (let i = 0; i < assets.length; i++) {
@@ -35,59 +74,16 @@ class HomeGraph extends React.Component {
         uniqueAssets.push(asset)
       }
     }
-
     
-
     if (Object.values(this.props.stocks).length !== uniqueAssets.length) return null
     for (let i = 0; i < Object.values(this.props.stocks).length; i++) {
+      
       if (Object.values(this.props.stocks)[i].data === undefined) {
         return null
       }
     }
-    
-    // let getStockData = () => {
-      
-    //   let stocks = Object.values(this.props.stocks)
-    //   let assets = Object.values(this.props.assets)
-    //   let data = [];
-    //   if (stocks.length !== 8) return null
 
-    //   for (let i = 0; i < stocks.length; i++) {
-    //     let dataPoint = {
-    //       price: null,
-    //       date: null
-    //     }
-    //     let assetsAmount = 0
-    //     let stock = stocks[i]
-    //     let stockTicker = Object.keys(this.props.stocks)[i]
-    //     if (stock.data === undefined) {
-    //       return null
-    //     }
-
-    //     for (let j = 0; j < stock.data['o'].length; j++) {
-    //       let stockPrice = stock.data['o'][j]
-    //       // console.log(stockTicker, stockPrice)
-    //       dataPoint.date = stock.data['t'][j]
-    //       for (let k = 0; k < assets.length; k++) {
-    //         let asset = assets[k];
-    //         // console.log(asset)
-    //         if (asset.ticker === stockTicker) {
-    //           assetsAmount += (asset.amount * stockPrice)
-    //         }
-    //       }
-          
-    //     }
-    //     dataPoint.price = assetsAmount
-    //     data.push(dataPoint)
-    //   }
-    //   // console.log(data)
-    // }
-    // getStockData()
-
-    
-     
-
-
+  
     function getTime(unixTime) {
       let date = new Date(unixTime * 1000);
       let hours = date.getHours();
@@ -98,59 +94,22 @@ class HomeGraph extends React.Component {
       return formattedTime
     }
 
-    let data = [{price: 10, date: '6:00 AM'}, {price: 11, date: '6:05 AM'}, {price: 15, date: '6:10 AM'}, {price: 13, date: '6:15 AM'},
-                {price: 2, date: '6:20 AM'}, {price: 17, date: '6:25 AM'}, {price: 14, date: '6:30 AM'}, {price: 21, date: '6:35 AM'},
-                {price: 10, date: '6:40 AM'}, {price: 1, date: '6:45 AM'}, {price: 32, date: '6:50 AM'}, {price: 15, date: '6:55 AM'},
-                {price: 17, date: '7:00 AM'}, {price: 25, date: '7:05 AM'}, {price: 20, date: '7:10 AM'}, {price: 28, date: '7:15 AM'},
-                {price: 18, date: '7:20 AM'}, {price: 12, date: '7:25 AM'}, {price: 15, date: '7:30 AM'}, {price: 19, date: '7:35 AM'},
-                {price: 11, date: '7:40 AM'}, {price: 12, date: '7:45 AM'}, {price: 30, date: '7:50 AM'}, {price: 28, date: '7:55 AM'},
-                {price: 42, date: '8:00 AM'}, {price: 45, date: '8:05 AM'}, {price: 40, date: '8:10 AM'}, {price: 48, date: '8:15 AM'},
-                {price: 50, date: '8:20 AM'}, {price: 58, date: '8:25 AM'}, {price: 51, date: '8:30 AM'}, {price: 60, date: '8:35 AM'},
-                {price: 42, date: '8:40 AM'}, {price: 22, date: '8:45 AM'}, {price: 38, date: '8:50 AM'}, {price: 70, date: '8:55 AM'},
-                {price: 78, date: '9:00 AM'}, {price: 58, date: '9:05 AM'}, {price: 51, date: '9:10 AM'}, {price: 60, date: '9:15 AM'},
-                {price: 42, date: '9:20 AM'}, {price: 22, date: '9:25 AM'}, {price: 38, date: '9:30 AM'}, {price: 70, date: '9:45 AM'},
-                {price: 78, date: '9:50 AM'}, {price: 65, date: '9:55 AM'}, {price: 69, date: '10:00 AM'}, {price: 75, date: '10:05 AM'},
-                {price: 80, date: '10:15 AM'}, {price: 88, date: '10:20 AM'}, {price: 98, date: '10:25 AM'}, {price: 100, date: '10:30 AM'} ];
+    // let data = [{price: 10, date: '6:00 AM'}, {price: 11, date: '6:05 AM'}, {price: 15, date: '6:10 AM'}, {price: 13, date: '6:15 AM'},
+    //             {price: 2, date: '6:20 AM'}, {price: 17, date: '6:25 AM'}, {price: 14, date: '6:30 AM'}, {price: 21, date: '6:35 AM'},
+    //             {price: 10, date: '6:40 AM'}, {price: 1, date: '6:45 AM'}, {price: 32, date: '6:50 AM'}, {price: 15, date: '6:55 AM'},
+    //             {price: 17, date: '7:00 AM'}, {price: 25, date: '7:05 AM'}, {price: 20, date: '7:10 AM'}, {price: 28, date: '7:15 AM'},
+    //             {price: 18, date: '7:20 AM'}, {price: 12, date: '7:25 AM'}, {price: 15, date: '7:30 AM'}, {price: 19, date: '7:35 AM'},
+    //             {price: 11, date: '7:40 AM'}, {price: 12, date: '7:45 AM'}, {price: 30, date: '7:50 AM'}, {price: 28, date: '7:55 AM'},
+    //             {price: 42, date: '8:00 AM'}, {price: 45, date: '8:05 AM'}, {price: 40, date: '8:10 AM'}, {price: 48, date: '8:15 AM'},
+    //             {price: 50, date: '8:20 AM'}, {price: 58, date: '8:25 AM'}, {price: 51, date: '8:30 AM'}, {price: 60, date: '8:35 AM'},
+    //             {price: 42, date: '8:40 AM'}, {price: 22, date: '8:45 AM'}, {price: 38, date: '8:50 AM'}, {price: 70, date: '8:55 AM'},
+    //             {price: 78, date: '9:00 AM'}, {price: 58, date: '9:05 AM'}, {price: 51, date: '9:10 AM'}, {price: 60, date: '9:15 AM'},
+    //             {price: 42, date: '9:20 AM'}, {price: 22, date: '9:25 AM'}, {price: 38, date: '9:30 AM'}, {price: 70, date: '9:45 AM'},
+    //             {price: 78, date: '9:50 AM'}, {price: 65, date: '9:55 AM'}, {price: 69, date: '10:00 AM'}, {price: 75, date: '10:05 AM'},
+    //             {price: 80, date: '10:15 AM'}, {price: 88, date: '10:20 AM'}, {price: 98, date: '10:25 AM'}, {price: 100, date: '10:30 AM'} ];
 
-    
-    // console.log(Object.values(this.props.assets))
-    // console.log(this.props.stocks)
-    
     let stocks = this.props.stocks
-    // console.log(stocks["AAPL"].data.c.length)
-    
-    // let getData = () => {
-    //   let assets = Object.values(this.props.assets);
-    //   let data = [];
-
-    //   for (let i = 0; i < uniqueAssets.length; i++) {
-    //     let ticker = uniqueAssets[i]; //AAPL
-        
-    //     for (let j = 0; j < stocks[ticker].data.c.length; j++) {
-    //       let dataPoint = {
-    //         price: 0, //125.51 + 125.51
-    //         date: stocks[ticker].data.t[i]
-    //       }
-
-    //       let price = stocks[ticker].data.c[i]; //125.51
-
-    //       for (let i = 0; i < assets.length; i++) {
-    //         let asset = assets[i]; //AAPL
-
-    //         if (asset.ticker === ticker) {
-    //           dataPoint.price += (asset.amount * price)
-    //         }
-    //       }
-    //       data.push(dataPoint)
-    //     }
-    //   }
-    //   return data
-    // }
-    // console.log(getData())
-    // console.log(stocks[assets[0].ticker].data.c.length)
-
     let data2 = []
-
 
     let getData = () => {
       let assets = Object.values(this.props.assets);
@@ -193,36 +152,24 @@ class HomeGraph extends React.Component {
       getData()
     }
 
-    console.log(data2)
+    HomeGraph.data = data2
 
-    // let test = () => {
-    //   let assets = Object.values(this.props.assets);
-      
-    //   for (let i = 0; i < uniqueAssets.length; i++) {
-    //     let ticker = uniqueAssets[i]
-        
-    //     for (let j = 0; j < assets.length; j++) {
-    //       let asset = assets[i];
-          
-    //       if (asset.ticker === ticker) {
-    //         // console.log(asset.amount)
-    //       }
-    //     }
-    //   }
-    // }
-
-    // test()
-
-  
+    let test = () => {
+      if (this.state.currentPrice === "") {
+        return data2[data2.length - 1].price
+      } else {
+        return this.state.currentPrice
+      }
+    }
     
-
     return(
       <div className="main-graph-1">
+        <span className="home-graph-money">$</span><Odometer className="banana" value={test()}/>
         <ResponsiveContainer width="100%" height="80%" >
-          <AreaChart data={data2}>
+          <AreaChart data={data2} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice}>
             <Area dataKey="price" stroke="#00C805" strokeWidth={2} fill="#000000"/>
             <XAxis dataKey="date" hide/>
-            <YAxis dataKey="price" type="number" hide/>
+            <YAxis dataKey="price" type="number" domain={data2[0].price, data2[data2.length - 1].price} hide/>
             {/* <Tooltip content={<CustomToolTip />} position={{ y: -20 }}/>
             <Tooltip /> */}
             <Tooltip content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35}} allowEscapeViewBox={{x: true, y: true}}/>

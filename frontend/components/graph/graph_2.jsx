@@ -12,7 +12,7 @@ import { format, parseISO, subDays } from "date-fns";
 class GraphTwo extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       hoverTime: "",
       currentPrice: (this.props.stock.data['c'][this.props.stock.data['c'].length - 1]).toFixed(2)

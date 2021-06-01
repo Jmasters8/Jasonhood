@@ -16,7 +16,7 @@ class MainPage extends React.Component {
       buyingPower: "",
       start: new Date().setHours(6, 0, 0, 0) / 1000,
       now: new Date().setHours(13, 0, 0, 0) / 1000,
-      emojis: "smilies"
+      emojis: "smilies",
     }
     this.handleClick = this.handleClick.bind(this);
     this.submitEditForm = this.submitEditForm.bind(this);

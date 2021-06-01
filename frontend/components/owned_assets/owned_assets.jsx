@@ -13,6 +13,7 @@ class OwnedAssets extends React.Component {
       start: new Date().setHours(6, 0, 0, 0) / 1000,
       now: new Date().setHours(13, 0, 0, 0) / 1000
     }
+
   }
 
 
