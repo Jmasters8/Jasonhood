@@ -168,19 +168,7 @@ class Stock extends React.Component {
 
   render() {
     
-    // if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined) {
-    //   return (
-    //     <div className="loading">
-    //       <div className="loading-text">loading...</div>
-    //       {/* <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/> */}
-    //     </div>
-    //   )
-    // }
-
-    // if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.news === undefined) {
-    //   return <Loading />
-    // }
-
+  
     if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.Name === undefined) {
       return <Loading />
     }
@@ -188,20 +176,11 @@ class Stock extends React.Component {
 
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
     
-    // if (this.props.data === undefined) {
-    //   return (
-    //     <div className="loading">
-    //       <div className="loading-text">loading...</div>
-    //       <img className="loading-img" src="https://media1.tenor.com/images/b7e563cd1180cf061bf9980d52104fc9/tenor.gif?itemid=14700496" alt=""/>
-    //     </div>
-    //   )
-    // }
 
-  
 
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
     let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
     let openPrice = this.props.stock.data['o'][0]

@@ -5,6 +5,7 @@ import HomeGraph from '../home_graph/home_graph';
 import OwnedAssets from '../owned_assets/owned_assets';
 import MainPageNews from '../stock_news/main_page_news';
 import WatchListEdit from '../watch_lists/watch_list_edit';
+import Loading from '../loading';
 
 
 class MainPage extends React.Component {
@@ -121,19 +122,6 @@ class MainPage extends React.Component {
 
   render() {
     let assets = Object.values(this.props.assets)
-
-    // const totalAssets = () => {
-    //   let total = 0;
-
-    //   for (let i = 1; i <= Object.keys(this.props.assets).length; i++) {
-    //     let asset = this.props.assets[i];
-
-    //     if (!asset) continue;
-    //     let totalAssetPrice = asset.amount * asset.price
-    //     total += totalAssetPrice
-    //   }
-    //   return total.toFixed(2)
-    // }
 
     const totalAssets = () => {
       let total = 0;

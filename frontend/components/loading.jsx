@@ -14,7 +14,11 @@ class Loading extends React.Component {
 
   render() {
     const { loading } = this.state;
-    return <ClapSpinner class="loading-spinner" size={48} color="##00c805" loading={loading}/>
+    return (
+      <div className="loading-background">
+        <ClapSpinner class="loading-spinner" size={48} color="##00c805" loading={loading}/>
+      </div>
+    )
   }
 }
 

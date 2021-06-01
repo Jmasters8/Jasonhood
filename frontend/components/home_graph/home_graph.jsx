@@ -1,9 +1,10 @@
 import React from 'react';
-import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
+import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, ReferenceLine} from "recharts";
 import { render } from 'react-dom';
 import { format, parseISO, subDays } from "date-fns";
 import Odometer from 'react-odometerjs';
 import data from '../navbar/data';
+import Loading from '../loading';
 
 class HomeGraph extends React.Component {
   constructor(props) {
@@ -75,14 +76,18 @@ class HomeGraph extends React.Component {
       }
     }
     
-    if (Object.values(this.props.stocks).length !== uniqueAssets.length) return null
+    if (Object.values(this.props.stocks).length !== uniqueAssets.length) {
+      HomeGraph.ready = false
+      return <Loading />
+    }
     for (let i = 0; i < Object.values(this.props.stocks).length; i++) {
       
       if (Object.values(this.props.stocks)[i].data === undefined) {
-        return null
+        HomeGraph.ready = false
+        return <Loading />
       }
     }
-
+    HomeGraph.ready = true
     let lowestDataAmount = 0
 
     for (let n = 0; n < Object.values(this.props.stocks).length; n++) {
@@ -176,6 +181,7 @@ class HomeGraph extends React.Component {
     let price;
     let percent;
     let color;
+    let opening = data2[0].price
 
     function change() {
       let beginningPrice = data2[0].price
@@ -189,9 +195,11 @@ class HomeGraph extends React.Component {
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-
-    percent >= 0 ? document.getElementById("percent-change").innerHTML = `(+${percent.toFixed(2)}%)` : document.getElementById("percent-change").innerHTML = `(${percent.toFixed(2)}%)`
-    price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `$${numberWithCommas(price.toFixed(2))}`
+    if (document.getElementById("percent-change") && document.getElementById("price-change")) {
+      percent >= 0 ? document.getElementById("percent-change").innerHTML = `(+${percent.toFixed(2)}%)` : document.getElementById("percent-change").innerHTML = `(${percent.toFixed(2)}%)`
+      price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `$${numberWithCommas(price.toFixed(2))}`
+      
+    }
     price >= 0 ? color = "rgb(0,200,5)" : color = "rgb(255,80,0)"
     
     return(
@@ -205,6 +213,7 @@ class HomeGraph extends React.Component {
             {/* <Tooltip content={<CustomToolTip />} position={{ y: -20 }}/>
             <Tooltip /> */}
             <Tooltip content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35}} allowEscapeViewBox={{x: true, y: true}}/>
+            <ReferenceLine y={opening} strokeWidth={1.5} strokeHeight={1.5} strokeDasharray="1 6" stroke="lightslategray" />
           </AreaChart>
         </ResponsiveContainer>
       </div>

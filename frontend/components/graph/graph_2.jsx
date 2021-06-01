@@ -1,11 +1,10 @@
 import React from 'react';
-import {Line}  from 'react-chartjs-2'
 import { withRouter } from 'react-router-dom';
 import { fetchStock } from '../../actions/stocks';
 import {moment} from 'react-moment';
 import Odometer from 'react-odometerjs';
 
-import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
+import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, ReferenceLine} from "recharts";
 import { render } from 'react-dom';
 import { format, parseISO, subDays } from "date-fns";
 
@@ -96,6 +95,7 @@ class GraphTwo extends React.Component {
             <Tooltip 
             content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35 }} allowEscapeViewBox={{x: true, y: true}}/>
             <Tooltip />
+            <ReferenceLine y={openPrice} strokeWidth={1.5} strokeHeight={1.5} strokeDasharray="1 6" stroke="lightslategray" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
