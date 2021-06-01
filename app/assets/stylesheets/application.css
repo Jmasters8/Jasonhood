@@ -116,3 +116,18 @@ html {
 .test-hover {
 	color: white;
 }
+
+.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, 
+.odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner,
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating 
+.odometer-ribbon-inner {
+  -webkit-transition-duration: .2s !important;
+  -moz-transition-duration: .2s !important;
+  -ms-transition-duration: .2s !important;
+  -o-transition-duration: .2s !important;
+  transition-duration: .2s !important
+}
+
+.recharts-layer {
+	
+}

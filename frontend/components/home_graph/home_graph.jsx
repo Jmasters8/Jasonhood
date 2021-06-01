@@ -30,11 +30,11 @@ class HomeGraph extends React.Component {
   }
 
   componentDidMount() {
-    if (Object.values(this.props.stocks).length === 0) {
-      return null
-    } else {
-      console.log(this.props.stocks)
-    }
+    // if (Object.values(this.props.stocks).length === 0) {
+    //   return null
+    // } else {
+    //   console.log(this.props.stocks)
+    // }
   }
 
   handleHoverTime() {
@@ -161,8 +161,9 @@ class HomeGraph extends React.Component {
     if (data2.length === 0) {
       getData()
     }
-
     HomeGraph.data = data2
+
+
 
     let test = () => {
       if (this.state.currentPrice === "") {
@@ -171,10 +172,30 @@ class HomeGraph extends React.Component {
         return this.state.currentPrice
       }
     }
+
+    let price;
+    let percent;
+
+    function change() {
+      let beginningPrice = data2[0].price
+      let lastPrice = data2[data2.length - 1].price
+
+      price = lastPrice - beginningPrice
+      percent = (lastPrice - beginningPrice) / beginningPrice * 100
+    }
+    change()
+
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    percent >= 0 ? document.getElementById("percent-change").innerHTML = `(+${percent.toFixed(2)}%)` : document.getElementById("percent-change").innerHTML = `(${percent.toFixed(2)}%)`
+    price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `$${numberWithCommas(price.toFixed(2))}`
+   
     
     return(
       <div className="main-graph-1">
-        <span className="home-graph-money">$</span><Odometer className="banana" value={test()}/>
+        <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={test()}/>
         <ResponsiveContainer width="100%" height="80%" >
           <AreaChart data={data2} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice}>
             <Area dataKey="price" stroke="#00C805" strokeWidth={2} fill="#000000"/>

@@ -244,11 +244,11 @@ class MainPage extends React.Component {
                             </h1>
                           </div>
                           <div className="left-5">
-                            <span className="left-6">
-                              +$1,000.88
+                            <span id="price-change" className="left-6">
+                              
                             </span>&nbsp;
-                            <span className="left-6">
-                              (+2.23%)
+                            <span id="percent-change" className="left-6">
+                              
                             </span>&nbsp;
                             <span className="left-7">
                               Today
