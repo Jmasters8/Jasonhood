@@ -92,6 +92,7 @@ class StockForm extends React.Component {
     }
     this.setState({ buyingPower: (this.state.buyingPower - (this.props.currentPrice * parseInt(this.state.shares)).toFixed(2)) })
     
+    
     this.props.addStockAsset(this.props.symbol, this.props.currentUserId, this.state.shares, this.props.currentPrice.toFixed(2))
       .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId))
     this.setState({shares: "", showBuyError: false, sharesAmount: this.state.sharesAmount + parseInt(this.state.shares)})
@@ -125,7 +126,8 @@ class StockForm extends React.Component {
             // this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * asset.amount).toFixed(2))), sharesAmount: this.state.sharesAmount - asset.amount })
             this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * asset.amount).toFixed(2))) })
             this.props.deleteStockAsset(this.props.currentUserId, asset.id)
-            .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId)) 
+            .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId))
+            this.setState({shares: "", showSellError: false}) 
             return 
           }
         }
@@ -138,7 +140,8 @@ class StockForm extends React.Component {
             // this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * shares).toFixed(2))), sharesAmount: this.state.sharesAmount - shares })
             this.setState({ buyingPower: (this.state.buyingPower + parseInt((this.props.currentPrice * shares).toFixed(2))) })
             this.props.updateStockAmount((this.props.assets[asset.id].amount - shares), asset.id)
-            .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId)) 
+            .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId))
+            this.setState({shares: "", showSellError: false}) 
             return
           }
         }
@@ -154,8 +157,7 @@ class StockForm extends React.Component {
             .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUserId)) 
           }
         }
-    }
-      this.setState({shares: "", showSellError: false})
+      }
     }
     sellShares()
    
