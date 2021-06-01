@@ -467,7 +467,7 @@ class Stock extends React.Component {
                               <div className="graph-header-1">
                                 <h1 className="graph-header-title">
                                   <span className="graph-header-title-1">
-                                  {/* ${currentPrice.toFixed(2)} */}
+                                    ${/* ${currentPrice.toFixed(2)} */}
                                   </span>
                                 </h1>
                               </div>

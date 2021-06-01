@@ -83,6 +83,16 @@ class HomeGraph extends React.Component {
       }
     }
 
+    let lowestDataAmount = 0
+
+    for (let n = 0; n < Object.values(this.props.stocks).length; n++) {
+      let stock = Object.values(this.props.stocks)[n];
+      if (lowestDataAmount === 0 || stock.data.c.length <= lowestDataAmount) {
+        lowestDataAmount = stock.data.c.length
+      }
+    }
+    
+
   
     function getTime(unixTime) {
       let date = new Date(unixTime * 1000);
@@ -115,7 +125,7 @@ class HomeGraph extends React.Component {
       let assets = Object.values(this.props.assets);
       
 
-      for (let i = 0; i < stocks[assets[0].ticker].data.c.length - 1; i++) {
+      for (let i = 0; i < lowestDataAmount; i++) {
         let time;
         if (i < 72) {
           time = getTime(stocks[assets[0].ticker].data.t[i]) + "AM"
