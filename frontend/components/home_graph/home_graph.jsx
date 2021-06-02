@@ -76,7 +76,7 @@ class HomeGraph extends React.Component {
       }
     }
     
-    if (Object.values(this.props.stocks).length !== uniqueAssets.length) {
+    if (Object.values(this.props.stocks).length < uniqueAssets.length) {
       HomeGraph.ready = false
       return <Loading />
     }
