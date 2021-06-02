@@ -339,7 +339,7 @@ class StockForm extends React.Component {
                     <span className="money-available-2">
                       <div className="money-available-3">
                         {/* ${numberWithCommas(this.props.currentUserBuyingPower)} Buying Power Available */}
-                        ${numberWithCommas(this.state.buyingPower)} Buying Power Available
+                        ${numberWithCommas((this.state.buyingPower).toFixed(2))} Buying Power Available
                       </div>
                     </span>
                   </div>
