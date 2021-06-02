@@ -27,10 +27,6 @@ class MainPage extends React.Component {
     this.setEmoji = this.setEmoji.bind(this)
   }
 
-  componentDidMount() {
-    this.props.fetchCurrentStock("None")
-  }
-
   handleClick(e) {
     e.preventDefault();
     this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)
@@ -61,6 +57,10 @@ class MainPage extends React.Component {
       }
     }
 
+  }
+
+  componentDidMount() {
+    this.props.resetCurrentStock()
   }
 
   closeModal() {
@@ -247,7 +247,7 @@ class MainPage extends React.Component {
                           </div>
                         </header>
                         <div className="dashboard-graph">
-                          <HomeGraph assets={this.props.assets} stocks={this.props.stocks}/>
+                          <HomeGraph fetchCurrentStock={this.props.fetchCurrentStock} assets={this.props.assets} stocks={this.props.stocks}/>
                           <div className="main-graph-dayz">
                                   <div className="main-graph-days-1">
                                     <button className="main-graph-days-2">
@@ -568,7 +568,7 @@ class MainPage extends React.Component {
                       deleteWatchedAsset={this.props.deleteWatchedAsset}
                       currentUserId={this.props.currentUserId}
                       fetchCurrentStock={this.props.fetchCurrentStock}
-
+                      currentStock={this.props.currentStock}
                     />
                   </div>
                 </main>

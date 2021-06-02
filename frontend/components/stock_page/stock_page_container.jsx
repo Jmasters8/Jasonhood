@@ -17,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
     assets: state.entities.assets,
     watchedAssets: state.entities.watchedAssets,
     currentStock: state.currentStock,
-    watchLists: state.entities.watchedAssets
+    watchLists: state.entities.watchedAssets,
+    stocks: state.entities.stocks
   }
 };
 

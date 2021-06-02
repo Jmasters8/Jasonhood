@@ -5,6 +5,7 @@ export const RECEIVE_CURRENT_STOCK = 'RECEIVE_CURRENT_STOCK';
 export const RECEIVE_STOCK_DATA = "RECEIVE_STOCK_DATA"
 export const RECEIVE_STOCK_NEWS = 'RECEIVE_STOCK_NEWS'
 export const RECEIVE_MARKET_NEWS = 'RECEIVE_MARKET_NEWS'
+export const RESET_CURRENT_STOCK = 'RESET_CURRENT_STOCK'
 
 export const receiveStock = (stock, symbol) => ({
   type: RECEIVE_STOCK,
@@ -35,6 +36,9 @@ export const receiveMarketNews = news => ({
   news
 })
 
+export const resetStock = () => ({
+  type: RESET_CURRENT_STOCK
+})
 
 export const fetchStock = symbol => dispatch => (
   StockAPIUtil.fetchStock(symbol).then((stock) => (dispatch(receiveStock(stock, symbol))))
@@ -63,4 +67,8 @@ export const fetchStockNews = (symbol, start, end) => dispatch => (
 
 export const fetchMarketNews = () => dispatch => (
   StockAPIUtil.fetchMarketNews().then(news => dispatch(receiveMarketNews(news)))
+)
+
+export const resetCurrentStock = () => dispatch => (
+  StockAPIUtil.resetCurrentStock().then(() => dispatch(resetStock()))
 )

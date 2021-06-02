@@ -30,13 +30,9 @@ class HomeGraph extends React.Component {
     this.handleHoverTime = this.handleHoverTime.bind(this);
   }
 
-  componentDidMount() {
-    // if (Object.values(this.props.stocks).length === 0) {
-    //   return null
-    // } else {
-    //   console.log(this.props.stocks)
-    // }
-  }
+  // componentDidMount() {
+  //   this.props.fetchCurrentStock()
+  // }
 
   handleHoverTime() {
     return (

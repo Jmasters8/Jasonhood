@@ -42,3 +42,9 @@ export const fetchYesterClosing = () => {
     method: 'GET'
   })
 }
+
+export const resetCurrentStock = () => {
+  return $.ajax({
+    method: 'GET'
+  })
+}

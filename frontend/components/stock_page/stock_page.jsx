@@ -45,7 +45,9 @@ class Stock extends React.Component {
         shares: 0,
         buyingPower: this.props.currentUser.buying_power,
         currentStock: this.props.currentStock,
-        assets: []
+        assets: [],
+        currentStock: "",
+        loading: true
        }
     }
 
@@ -55,11 +57,96 @@ class Stock extends React.Component {
 
  
 
+  // componentDidMount() {
+  //   this.setState({currentStock: this.props.match.params.symbol})
+  //   const today = new Date();
+  //   const yesterday = new Date(today);
+  //   yesterday.setDate(yesterday.getDate() - 5)
+  //   console.log("Will I MOUnt???")
+  //   if (Object.keys(this.props.currentStock).length === 0 || this.props.currentStock.stock === "None") {
+  //     // console.log(this.props.match.params.symbol, this.props.currentStock)
+  //     console.log("I mounted")
+  //     if (this.props.match.params.symbol !== this.props.currentStock) {
+  //       console.log('first')
+  //     this.props.fetchStockInfo(this.props.match.params.symbol)
+  //     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+  //     .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+  //     .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
+  //     } else {
+  //       console.log('second')
+  //       this.props.fetchStockInfo(this.props.match.params.symbol)
+  //       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+  //       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+  //     }
+  //   }
+  // }
+
+  // shouldComponentUpdate(nextProps, prevProps){
+
+  //   let prevAssets = Object.values(nextProps.assets)
+  //   let nextAssets = prevProps.assets
+  //   console.log(prevAssets, nextAssets)
+  //   let assetChange = () => {
+  //     // let prevAssets = Object.values(this.props.assets)
+  //     // let prevAssets = this.state.assets
+  //     // let nextAssets = Object.values(nextProps.assets)
+
+  //     if (prevAssets.length !== nextAssets.length) return true
+  //     // console.log(prevAssets)
+  //     // console.log(nextAssets)
+  //     for (let i = 0; i < nextAssets.length; i++) {
+  //       if (nextAssets[i].amount !== prevAssets[i].amount) {
+  //         return true
+  //       }
+  //     }
+  //     return false
+  //   }
+  //   console.log(nextProps.currentStock.stock, this.state.currentStock)
+  //   // return ((nextProps.currentStock.stock !== this.props.currentStock.stock || assetChange()))
+  //   return (nextProps.currentStock.stock !== this.state.currentStock || assetChange())
+  // }
+
+  // componentDidUpdate(prevProps) {
+  //   const today = new Date();
+  //   const yesterday = new Date(today);
+  //   yesterday.setDate(yesterday.getDate() - 5)
+  //   // console.log("prevProps: ", prevProps.currentStock.stock)
+  //   // console.log("this.props: ", this.props.currentStock.stock)
+  //   // if (this.props.stocks[this.props.match.params.symbol] && this.props.stocks[this.props.match.params.symbol].Name) return null
+  //   if (this.props.currentStock.stock === "None") return null
+
+  //   if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0) {
+  //     console.log('I just updated and did the API calls')
+  //     this.props.fetchStockInfo(this.props.match.params.symbol)
+  //     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+  //     .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+  //     // .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
+  //   }
+    
+  // }
+
+
+  // componentDidMount() {
+  //   this.setState({currentStock: this.props.match.params.symbol})
+  //   this.setState({loading: true})
+  //   // if (this.props.stocks[this.props.match.params.symbol] && this.props.stocks[this.props.match.params.symbol].Name) return null
+  //   const today = new Date();
+  //   const yesterday = new Date(today);
+  //   yesterday.setDate(yesterday.getDate() - 5)
+  //   this.props.fetchStockInfo(this.props.match.params.symbol)
+  //     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+  //     .then(() => this.setState({loading: false}))
+  //     .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+  //     .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
+  // }
+
+ 
+
   componentDidMount() {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
-    if (Object.keys(this.props.currentStock).length === 0) {
+    if (Object.keys(this.props.currentStock).length === 0 || Object.keys(this.props.currentStock === "None")) {
       // this.setState({currentStock: this.props.currentStock})
       // console.log('I just mounted and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
@@ -98,7 +185,8 @@ class Stock extends React.Component {
       }
       return false
     }
-    return (nextProps.currentStock !== this.props.currentStock || assetChange())
+    // return (nextProps.currentStock !== this.props.currentStock || assetChange())
+    return ((nextProps.currentStock !== this.props.currentStock || assetChange()) && this.props.currentStock.stock !== "None")
   }
 
   componentDidUpdate(prevProps) {
@@ -116,6 +204,12 @@ class Stock extends React.Component {
       .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
     }
   }
+
+  
+  
+
+
+
 
   toggleDescription() {
     const currentState = this.state.collapsed;
@@ -168,10 +262,21 @@ class Stock extends React.Component {
 
   render() {
     
-  
-    if (this.props.stock === undefined || this.props.data === undefined || this.props.stock.Name === undefined) {
+    
+    if (this.props.stock === undefined || this.props.stock.data === undefined || this.props.stock.Name === undefined) {
       return <Loading />
     }
+    // console.log('check loading')
+    // if (this.props.stock === undefined || this.props.stock.data === undefined) {
+    //   console.log(this.props.stock)
+    //   return <Loading />
+    // }
+
+    // if (this.state.loading === true) {
+    //   return <Loading />
+    // }
+
+   
    
 
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
