@@ -148,7 +148,7 @@ class WatchLists extends React.Component {
               <span className="watch-list-header-3">
                 Lists
               </span>
-              <button onClick={this.showForm} className="watch-list-button">
+              <button onClick={this.showForm} className="watch-list-button-green">
                 +
               </button>
 

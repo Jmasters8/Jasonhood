@@ -27,7 +27,10 @@ class MainPage extends React.Component {
     this.setEmoji = this.setEmoji.bind(this)
   }
 
-  
+  componentDidMount() {
+    this.props.fetchCurrentStock("None")
+  }
+
   handleClick(e) {
     e.preventDefault();
     this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)

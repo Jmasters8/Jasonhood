@@ -198,7 +198,14 @@ class HomeGraph extends React.Component {
     if (document.getElementById("percent-change") && document.getElementById("price-change")) {
       percent >= 0 ? document.getElementById("percent-change").innerHTML = `(+${percent.toFixed(2)}%)` : document.getElementById("percent-change").innerHTML = `(${percent.toFixed(2)}%)`
       price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `$${numberWithCommas(price.toFixed(2))}`
-      
+    }
+
+    if (document.getElementsByClassName("watch-list-button-green")[0] || document.getElementsByClassName("watch-list-button-red")[0]) {
+      if (document.getElementsByClassName("watch-list-button-green")[0] && price <= 0) {
+        document.getElementsByClassName("watch-list-button-green")[0].className = "watch-list-button-red"
+      } else if (document.getElementsByClassName("watch-list-button-red")[0] && price >= 0) {
+        document.getElementsByClassName("watch-list-button-red")[0].className = "watch-list-button-green"
+      }
     }
     price >= 0 ? color = "rgb(0,200,5)" : color = "rgb(255,80,0)"
     

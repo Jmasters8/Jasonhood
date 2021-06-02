@@ -31,7 +31,7 @@
   text-decoration: unset;
 }
 
-.watch-list-button {
+.watch-list-button-green {
   -webkit-appearance: button;
   background: none;
   border: 0px;
@@ -41,11 +41,26 @@
   display: flex;
   color: white;
   font-size: 28px;
-  // padding-right: 8px;
 }
 
-.watch-list-button:hover {
+.watch-list-button-green:hover {
   color: rgb(0, 255 ,0);
+}
+
+.watch-list-button-red {
+  -webkit-appearance: button;
+  background: none;
+  border: 0px;
+  color: unset;
+  cursor: pointer;
+  padding: 0px;
+  display: flex;
+  color: white;
+  font-size: 28px;
+}
+
+.watch-list-button-red:hover {
+  color: rgb(255, 80, 0);
 }
 
 .watch-list-category {
