@@ -207,7 +207,7 @@ class Navbar extends React.Component {
                     <div className="navbar-search-6">
                       <div className="navbar-search-7">
                         <span className="navbar-search-8">
-                          <img src="https://cdn3.iconfinder.com/data/icons/gray-toolbar/512/find-512.png" alt=""/>
+                          <img src="https://i.imgur.com/MJfg7Ne.png" alt=""/>
                         </span>
                       </div>
                       <input onKeyPress={this.handleKeyPress} type="text" className="navbar-search-input" placeholder="Search" value={this.state.stockSymbol} onChange={this.handleInput('stockSymbol')}/>
