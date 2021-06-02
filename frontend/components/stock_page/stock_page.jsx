@@ -148,7 +148,7 @@ class Stock extends React.Component {
     yesterday.setDate(yesterday.getDate() - 5)
     if (Object.keys(this.props.currentStock).length === 0 || Object.keys(this.props.currentStock === "None")) {
       // this.setState({currentStock: this.props.currentStock})
-      // console.log('I just mounted and did the API calls')
+      console.log('I just mounted and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
@@ -163,10 +163,9 @@ class Stock extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, prevProps){
-    // console.log(Object.values(nextProps.assets))
-    // console.log(prevProps.assets)
-   
-
+    // if (this.props.stocks[this.props.match.params.symbol] && this.props.stocks[this.props.match.params.symbol].Symbol) {
+    //   return false
+    // }
 
     let prevAssets = Object.values(nextProps.assets)
     let nextAssets = prevProps.assets
@@ -291,14 +290,7 @@ class Stock extends React.Component {
     let openPrice = this.props.stock.data['o'][0]
 
     let percentChange = (((currentPrice - openPrice) / openPrice) * 100).toFixed(2)
-
-    const totalDollarAmount = () => {
-      let total = 0;
-      this.props.currentUser.stock_assets.forEach(obj => {
-        total += (obj.amount * currentPrice)
-      })
-      return total
-    }
+    let totalPortfolio = 0;
 
     const sharesAmount = () => {
       let sum = 0;
@@ -313,30 +305,26 @@ class Stock extends React.Component {
       return sum;
     }
 
-    const portfolioDiversity = () => {
-      let totalPortfolio = 0
-      let assets = Object.values(this.props.assets)
-
-      for (let i = 0; i < assets.length; i++) {
-        let asset = assets[i];
-        totalPortfolio += asset.amount
-      }
-      return (totalAssets() / totalPortfolio).toFixed(2)
+    
+    
+    for (let j = 0; j < Object.values(this.props.assets).length; j++) {
+      totalPortfolio += (Object.values(this.props.assets)[j].amount * Object.values(this.props.assets)[j].price)
     }
-
-    const portfolioDiversity2 = () => {
-      let totalPortfolio = 0
-      let totalStockPrice = 0
+   
+    const portfolioDiversity = () => {
+      let totalAmountOfStock = 0
       let assets = Object.values(this.props.assets)
 
       for (let i = 0; i < assets.length; i++) {
         let asset = assets[i];
-        totalPortfolio += (asset.amount * asset.price)
         if (asset.ticker === this.props.stock.Symbol) {
-          totalStockPrice += (asset.amount * asset.price)
+          totalAmountOfStock += (asset.amount * asset.price)
         }
+      
       }
-      return ((totalStockPrice / totalPortfolio) * 100).toFixed(2)
+ 
+      return ((totalAmountOfStock / totalPortfolio) * 100).toFixed(2)
+      // return (totalAssets() / totalPortfolio).toFixed(2)
     }
 
 
@@ -355,12 +343,77 @@ class Stock extends React.Component {
       return (sum / count).toFixed(2)
     }
 
-    // const ownedAssets = () => {
-    //   if (totalAssets() > 0) {
-    //     return <OwnedStocksInfo percentChange={percentChange} ticker={this.props.stock.Symbol} assets={this.props.assets}/>
-    //   }
-    // }
+   const todaysReturn = () => {
+      let assets = Object.values(this.props.assets);
+      let totalAssetAmount = 0
+      let shares = 0
 
+      for (let i = 0; i < assets.length; i++) {
+        let asset = assets[i]
+        if (asset.ticker === this.props.stock.Symbol) {
+          totalAssetAmount += (asset.price * asset.amount)
+          shares += asset.amount
+        }
+      }
+      let averageSharePrice = totalAssetAmount - shares
+      let returnAmount = ((currentPrice * shares) - (openPrice * shares))
+      if (returnAmount >= 0) {
+        return "+$" + returnAmount.toFixed(2)
+      } else {
+        return "-$" + (-1 * returnAmount.toFixed(2))
+      }
+   }
+   const todaysReturnPercent = () => {
+    let assets = Object.values(this.props.assets);
+    let totalAssetAmount = 0
+    let shares = 0
+
+    for (let i = 0; i < assets.length; i++) {
+      let asset = assets[i]
+      if (asset.ticker === this.props.stock.Symbol) {
+        totalAssetAmount += (asset.price * asset.amount)
+        shares += asset.amount
+      }
+    }
+    let returnAmount = ((currentPrice * shares) - (openPrice * shares))
+    if (returnAmount >= 0) {
+      return "(+" + (returnAmount / totalPortfolio * 100).toFixed(2) + "%)"
+    }
+    
+   }
+
+   let totalAssetAmount = 0
+   const totalReturn = () => {
+    let assets = Object.values(this.props.assets);
+    
+    let shares = 0
+    for (let i = 0; i < assets.length; i++) {
+      let asset = assets[i]
+      if (asset.ticker === this.props.stock.Symbol) {
+        totalAssetAmount += (asset.price * asset.amount)
+        shares += asset.amount
+      }
+    }
+    
+    return (totalAssetAmount - (currentPrice * shares))
+   }
+
+   
+   
+   const marketValue = () => {
+    let assets = Object.values(this.props.assets);
+    let shares = 0
+
+    for (let i = 0; i < assets.length; i++) {
+      let asset = assets[i]
+      if (asset.ticker === this.props.stock.Symbol) {
+        shares += asset.amount
+      }
+    }
+    console.log(shares * currentPrice)
+    return (shares * currentPrice).toFixed(2)
+   }
+   
     const ownedAssets = () => {
       if (totalAssets() > 0) {
         return (
@@ -373,13 +426,14 @@ class Stock extends React.Component {
                   </div>
                   <h2 className="owned-assets-5">
                     <span className="owned-assets-6">
-                      ${numberWithCommas(totalAssets())}
+                      {/* ${numberWithCommas(totalAssets())} */}
+                      ${marketValue()}
                     </span>
                   </h2>
                 </header>
                 <table className="owned-assets-table">
                   <tbody className="owned-assets-table-1">
-                    <tr className="owned-assets-table-2">
+                    {/* <tr className="owned-assets-table-2">
                       <td className="owned-assets-table-3">
                         Cost
                       </td>
@@ -387,14 +441,15 @@ class Stock extends React.Component {
                       <td className="owned-assets-table-4">
                         ${numberWithCommas(totalAssets())}
                       </td>
-                    </tr>
+                    </tr> */}
                     <tr className="owned-assets-table-2">
                       <td className="owned-assets-table-3">
                         Today's Return
                       </td>
                       <td className="owned-assets-table-filler"></td>
                       <td className="owned-assets-table-4">
-                        ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%)
+                        {/* ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%) */}
+                        {todaysReturn()} {todaysReturnPercent()}
                       </td>
                     </tr>
                     <tr className="owned-assets-table-2">
@@ -403,7 +458,8 @@ class Stock extends React.Component {
                       </td>
                       <td className="owned-assets-table-filler"></td>
                       <td className="owned-assets-table-4">
-                      ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%)
+                      {/* ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%) */}
+                      ${totalReturn().toFixed(2)} {totalReturn() / totalAssetAmount * 100 }%
                       </td>
                     </tr>
                   </tbody>
