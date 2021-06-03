@@ -266,7 +266,7 @@ class StockNews extends React.Component {
               News
             </span>
             <button onClick={this.toggleDescription} className="news-button">
-              <span className="news-button-text">Show More</span>
+              <span className={this.props.newsButtonClass}>Show More</span>
             </button>
           </header>
           <div className="news-articles">

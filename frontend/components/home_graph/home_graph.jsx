@@ -62,7 +62,7 @@ class HomeGraph extends React.Component {
 
 
   render() {
-    
+    let shouldLoad = true
     let assets = Object.values(this.props.assets)
     let uniqueAssets = [];
     for (let i = 0; i < assets.length; i++) {
@@ -82,7 +82,14 @@ class HomeGraph extends React.Component {
         HomeGraph.ready = false
         return <Loading />
       }
+      
+      for (let t = 0; t < uniqueAssets.length; t++) {
+        if (uniqueAssets[t] === Object.keys(this.props.stocks)[i]) {
+          shouldLoad = false
+        }
+      }
     }
+    if (shouldLoad) return <Loading />
     HomeGraph.ready = true
     let lowestDataAmount = 0
 
@@ -126,8 +133,9 @@ class HomeGraph extends React.Component {
       let assets = Object.values(this.props.assets);
       if (assets.length === 0) {
         data2.push({price: 0, date: 0})
+        return null
       }
-
+      
       for (let i = 0; i < lowestDataAmount; i++) {
         let time;
         if (i < 72) {
@@ -184,7 +192,7 @@ class HomeGraph extends React.Component {
     function change() {
       let beginningPrice = data2[0].price
       let lastPrice = data2[data2.length - 1].price
-      console.log(lastPrice, beginningPrice)
+
       price = lastPrice - beginningPrice
       if (lastPrice === 0 && beginningPrice === 0) {
         percent = 0
@@ -233,6 +241,12 @@ class HomeGraph extends React.Component {
       document.getElementsByClassName("main-graph-days-2")[0].style.color = "rgb(255, 80, 0)"
     }
     
+    if (document.getElementsByClassName("home-news-button-text")[0] && price < 0) {
+      document.getElementsByClassName("home-news-button-text")[0].className = "home-news-button-text-red"
+    } else if (document.getElementsByClassName("home-news-button-text-red")[0] && price >= 0) {
+      document.getElementsByClassName("home-news-button-text-red")[0].className = "home-news-button-text"
+    }
+
     return(
       <div className="main-graph-1">
         <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={test()}/>

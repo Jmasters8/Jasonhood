@@ -76,6 +76,25 @@
   cursor: pointer;
 }
 
+.trade-stock-name-3-red {
+  margin: 0px;
+  color: white;
+  font-style: normal;
+  text-decoration: unset;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.1px;
+  line-height: 24px;
+  width: 88px;
+  position: absolute;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.trade-stock-name-3-red:hover {
+  color: rgb(255, 80, 0);
+}
+
 .trade-stock-name-toggled {
   margin: 0px;
   color: rgb(0, 200, 5);
@@ -91,8 +110,27 @@
   cursor: pointer;
 }
 
+.trade-stock-name-toggled-red {
+  margin: 0px;
+  color: rgb(255, 80, 0);
+  font-style: normal;
+  text-decoration: unset;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.1px;
+  line-height: 24px;
+  width: 88px;
+  position: absolute;
+  bottom: 10px;
+  cursor: pointer;
+}
+
 .trade-stock-name-3:hover {
   color:rgb(0, 200, 5);
+}
+
+.trade-stock-name-toggled-red:hover {
+  color: rgb(255, 80, 0);
 }
 
 .trade-stock-shares {
@@ -652,8 +690,46 @@
   height: inherit;
 }
 
+.add-list-3-red {
+  -webkit-appearance: button;
+  background: none;
+  border: 1px solid currentcolor;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font: inherit;
+  text-align: unset;
+  display: inline-flex;
+  box-sizing: border-box;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  white-space: nowrap;
+  min-width: 120px;
+  max-width: 360px;
+  color: rgb(255, 80, 0);
+  width: 100%;
+  padding-left: 48px;
+  padding-right: 48px;
+  height: inherit;
+}
+
+.add-list-3-red:hover {
+  background-color: rgba(255, 80, 0, 0.2);
+}
+
+.add-list-3-red:active {
+  background-color: rgba(255, 80, 0, 0.4);
+}
+
 .add-list-3:hover {
-  background-color: rgba(0,200,5,0.2)
+  background-color: rgba(0, 200, 5, 0.2)
+}
+
+.add-list-3:active {
+  background-color: rgba(0, 200, 5, 0.4);
 }
 
 .add-list-4 {
@@ -688,7 +764,7 @@
 
 .add-list-7 {
   margin: 0px;
-  color: rgb(0, 200, 5);
+  // color: rgb(0, 200, 5);
   font-weight: 700;
 }
 
@@ -848,6 +924,20 @@
   padding: 0px;
   border: 0px;
   text-align: unset;
+  color: rgb(0, 200, 5);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  line-height: 24px;
+}
+
+.about-info-button-red {
+  outline: none;
+  background: none;
+  padding: 0px;
+  border: 0px;
+  text-align: unset;
   color: rgb(255,80,0);
   cursor: pointer;
   font-size: 15px;
@@ -857,6 +947,10 @@
 }
 
 .about-info-button:hover {
+  color: rgba(38, 208, 43, 1)
+}
+
+.about-info-button-red:hover {
   color: rgba(255,124,64,1);
 }
 

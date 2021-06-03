@@ -212,6 +212,8 @@ class MainPage extends React.Component {
     let animalsArr = emojiStringToArray(animals)
     let itemsArr = emojiStringToArray(items)
 
+    
+
 
     return (
       <div className="main">

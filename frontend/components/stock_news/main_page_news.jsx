@@ -38,7 +38,7 @@ class MainPageNews extends React.Component {
                   News
                 </span>
                 <button onClick={this.toggleNews} className="news-button">
-                  <span className="news-button-text">Show More</span>
+                  <span className="home-news-button-text">Show More</span>
                 </button>
               </h2>
             </div>

@@ -229,14 +229,14 @@ class Stock extends React.Component {
     .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUser.id))
   }
 
-  isCollapsed() {
+  isCollapsed(buttonClass) {
     if (this.state.collapsed) {
       return (
       <div>
         <div className="about-info-2">
           {this.props.stock.Description}
         </div>
-        <button className="about-info-button" onClick={this.toggleDescription}>Read More</button>
+        <button className={buttonClass} onClick={this.toggleDescription}>Read More</button>
       </div>
       )
     } else {
@@ -245,7 +245,7 @@ class Stock extends React.Component {
           <div className="about-info-3">
             {this.props.stock.Description}
           </div> &nbsp;
-          <button className="about-info-button" onClick={this.toggleDescription}>Read Less</button>
+          <button className={buttonClass} onClick={this.toggleDescription}>Read Less</button>
       </div>
       )
     }
@@ -265,7 +265,7 @@ class Stock extends React.Component {
     if (this.props.stock === undefined || this.props.stock.data === undefined || this.props.stock.Name === undefined) {
       return <Loading />
     }
-    console.log(this.props.data)
+    
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
    
     function numberWithCommas(x) {
@@ -286,6 +286,8 @@ class Stock extends React.Component {
     if (document.getElementsByClassName("nav-logo")[0]) {
       currentPrice - openPrice >= 0 ? document.getElementsByClassName("nav-logo")[0].className = "nav-logo-green" : document.getElementsByClassName("nav-logo")[0].className = "nav-logo-red"
     }
+
+    let priceChange = currentPrice - openPrice
   
     let buttonClass;
     currentPrice - openPrice >= 0 ? buttonClass = "review-order-5" : buttonClass = "review-order-5-red"
@@ -293,12 +295,41 @@ class Stock extends React.Component {
     let marketPriceClass;
     currentPrice - openPrice >= 0 ? marketPriceClass = "trade-market-price-2" : marketPriceClass = "trade-market-price-2-red"
 
-    let moneyAvailableClass
+    let moneyAvailableClass;
     currentPrice - openPrice >= 0 ? moneyAvailableClass = "money-available-2" : moneyAvailableClass = "money-available-2-red"
 
-    let sharesAvailableClass
+    let sharesAvailableClass;
     currentPrice - openPrice >= 0 ? sharesAvailableClass = "shares-available-3" : sharesAvailableClass = "shares-available-3-red"
 
+    let addToListsClass;
+    priceChange >= 0 ? addToListsClass = "add-list-3" : addToListsClass = "add-list-3-red"
+
+    let buySellToggleClass;
+    priceChange >= 0 ? buySellToggleClass = "trade-stock-name-toggled" : buySellToggleClass = "trade-stock-name-toggled-red"
+
+    let buySellToggleHoverClass;
+    priceChange >= 0 ? buySellToggleHoverClass = "trade-stock-name-3" : buySellToggleHoverClass = "trade-stock-name-3-red"
+
+    let aboutInfoButtonClass;
+    priceChange >= 0 ? aboutInfoButtonClass = "about-info-button" : aboutInfoButtonClass = "about-info-button-red"
+
+    let newsButtonClass;
+    priceChange >= 0 ? newsButtonClass = "news-button-text" : newsButtonClass = "news-button-text-red"
+
+    let eles = document.getElementsByClassName("navbar-list-word")
+    console.log(eles.length)
+    if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
+      if (priceChange >= 0) {
+        for (let e = eles.length - 1; e >= 0; e--) {
+          eles[e].className="navbar-list-word-green"
+        } 
+      } else {
+        for (let e = eles.length - 1; e >= 0; e--) {
+          eles[e].className="navbar-list-word-red"
+        } 
+      }
+    }
+      
 
     ///////////////////////////////////////////////////////////////////////////
 
@@ -730,7 +761,7 @@ class Stock extends React.Component {
                                 {/* <span className="about-info-2">
                                   {this.props.stock.Description}
                                 </span> */}
-                                {this.isCollapsed()}
+                                {this.isCollapsed(aboutInfoButtonClass)}
                                 {/* <button onClick={this.toggleDescription}>Read More</button> */}
                                 
                                 {/* <span className="about-info-3">
@@ -897,7 +928,7 @@ class Stock extends React.Component {
                             </div>
                           </section>
 
-                          <StockNewsContainer symbol={this.props.match.params.symbol} />
+                          <StockNewsContainer symbol={this.props.match.params.symbol} newsButtonClass={newsButtonClass}/>
   
                         </div>
 
@@ -918,6 +949,9 @@ class Stock extends React.Component {
                         marketPriceClass={marketPriceClass}
                         moneyAvailableClass={moneyAvailableClass}
                         sharesAvailableClass={sharesAvailableClass}
+                        addToListsClass={addToListsClass}
+                        buySellToggleClass={buySellToggleClass}
+                        buySellToggleHoverClass={buySellToggleHoverClass}
                         />
 
                       </div>

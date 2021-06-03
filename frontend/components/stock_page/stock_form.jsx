@@ -226,13 +226,13 @@ class StockForm extends React.Component {
                 <div className="trade-stock-name">
                   <div className="trade-stock-name-1">
                     <div className="trade-stock-name-2">
-                      <span onClick={this.toggleBuy} className="trade-stock-name-toggled">
+                      <span onClick={this.toggleBuy} className={this.props.buySellToggleClass}>
                         Buy {this.props.symbol}
                       </span>
                     </div>
 
                     <div className="trade-stock-name-2">
-                      <span onClick={this.toggleSell} className="trade-stock-name-3">
+                      <span onClick={this.toggleSell} className={this.props.buySellToggleHoverClass}>
                         Sell {this.props.symbol}
                       </span>
                     </div>
@@ -357,7 +357,7 @@ class StockForm extends React.Component {
             <div className="add-list">
               <div className="add-list-1"></div>
               <div className="add-list-2">
-                <button onClick={this.openWatchListModal} className="add-list-3">
+                <button onClick={this.openWatchListModal} className={this.props.addToListsClass}>
                   <div className="add-list-4">
                     <span className="add-list-5">
                       <span className="add-list-6">
@@ -383,13 +383,13 @@ class StockForm extends React.Component {
                 <div className="trade-stock-name">
                   <div className="trade-stock-name-1">
                     <div className="trade-stock-name-2">
-                      <span onClick={this.toggleBuy} className="trade-stock-name-3">
+                      <span onClick={this.toggleBuy} className={this.props.buySellToggleHoverClass}>
                         Buy {this.props.symbol}
                       </span>
                     </div>
 
                     <div className="trade-stock-name-2">
-                      <span onClick={this.toggleSell} className="trade-stock-name-toggled">
+                      <span onClick={this.toggleSell} className={this.props.buySellToggleClass}>
                         Sell {this.props.symbol}
                       </span>
                     </div>
@@ -510,7 +510,7 @@ class StockForm extends React.Component {
             <div className="add-list">
               <div className="add-list-1"></div>
               <div className="add-list-2">
-                <button onClick={this.openWatchListModal} className="add-list-3">
+                <button onClick={this.openWatchListModal} className={this.props.addToListsClass}>
                   <div className="add-list-4">
                     <span className="add-list-5">
                       <span className="add-list-6">
