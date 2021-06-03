@@ -332,9 +332,12 @@ class Stock extends React.Component {
       
 
     ///////////////////////////////////////////////////////////////////////////
-
+    let peRatio = parseFloat(this.props.stock.PERatio).toFixed(2)
     let dividendYield = this.props.stock.DividendYield
-    if (dividendYield === "0") dividendYield = "−"
+    let eps = this.props.stock.EPS
+    if (dividendYield === "0" || dividendYield === "None") dividendYield = "−"
+    if (this.props.stock.PERatio === "None" || this.props.stock.PERatio === "0") peRatio = "−"
+    if (eps === "None" || eps === "0") eps = "−"
     let percentChange = (((currentPrice - openPrice) / openPrice) * 100).toFixed(2)
     let totalPortfolio = 0;
 
@@ -796,7 +799,7 @@ class Stock extends React.Component {
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                  {parseFloat(this.props.stock.PERatio).toFixed(2)}
+                                  {peRatio}
                                 </div>
                               </div>
 
@@ -861,7 +864,7 @@ class Stock extends React.Component {
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                  {this.props.stock.EPS}
+                                  {eps}
                                 </div>
                               </div>
 
