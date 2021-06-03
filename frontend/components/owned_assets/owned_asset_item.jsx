@@ -24,7 +24,7 @@ class OwnedAssetItem extends React.Component {
         now: new Date().setHours(13, 0, 0, 0) / 1000
       }
     }
-    // this.routeToStockPage = this.routeToStockPage.bind(this)
+    this.routeToStockPage = this.routeToStockPage.bind(this)
   }
 
   // setSatDate() {
@@ -52,13 +52,12 @@ class OwnedAssetItem extends React.Component {
     // .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
   }
 
-  // routeToStockPage() {
-  //   // console.log("owned_asset_item: ", this.props.currentStock)
-  //   if (this.props.currentStock === "None") {
-  //     console.log("owned_asset_item ticker: ", this.props.ticker)
-  //     this.props.fetchCurrentStock(this.props.ticker)
-  //   }
-  // }
+  routeToStockPage() {
+    // console.log("owned_asset_item: ", this.props.currentStock)
+    if (!this.props.stocks[this.props.ticker].Symbol) { 
+      this.props.fetchCurrentStock(this.props.ticker)
+    }
+  }
 
   render() {
     
@@ -147,8 +146,8 @@ class OwnedAssetItem extends React.Component {
 
     return (
       <li className="owned-asset-item">
-        <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`} onClick={() => this.props.fetchCurrentStock(this.props.ticker)}>
-        {/* <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`} onClick={this.routeToStockPage}> */}
+        {/* <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`} onClick={() => this.props.fetchCurrentStock(this.props.ticker)}> */}
+        <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`} onClick={this.routeToStockPage}>
           <div className="owned-asset-item-ticker">
             <div className="owned-asset-item-ticker-2">
               <span className="owned-asset-item-ticker-3">

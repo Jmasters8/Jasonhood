@@ -45,7 +45,7 @@ class Navbar extends React.Component {
        }
     }
 
-
+    this.routeToStockPage = this.routeToStockPage.bind(this)
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -99,6 +99,13 @@ class Navbar extends React.Component {
   handleLogout(e) {
     e.preventDefault() 
     this.props.logout().then(() => this.props.history.push('/'))
+  }
+
+  routeToStockPage(ticker) {
+  
+    if (!this.props.stocks[ticker] || !this.props.stocks[ticker].Symbol) { 
+      this.props.fetchCurrentStock(ticker)
+    }
   }
 
   render() {
@@ -170,7 +177,8 @@ class Navbar extends React.Component {
                   }
               
                   return (
-                    <Link to={`/stocks/${obj.ticker}`} onClick={() => this.props.fetchCurrentStock(obj.ticker)} className="search-dropdown-stocks-1" key={i}>
+                    // <Link to={`/stocks/${obj.ticker}`} onClick={() => this.props.fetchCurrentStock(obj.ticker)} className="search-dropdown-stocks-1" key={i}>
+                      <Link to={`/stocks/${obj.ticker}`} onClick={() => this.routeToStockPage(obj.ticker)} className="search-dropdown-stocks-1" key={i}>
                       <div className="search-dropdown-ticker">
                         <span>
                           <span className={tickerClass}>
