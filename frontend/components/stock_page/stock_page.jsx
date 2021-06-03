@@ -333,7 +333,8 @@ class Stock extends React.Component {
 
     ///////////////////////////////////////////////////////////////////////////
 
-    
+    let dividendYield = this.props.stock.DividendYield
+    if (dividendYield === "0") dividendYield = "−"
     let percentChange = (((currentPrice - openPrice) / openPrice) * 100).toFixed(2)
     let totalPortfolio = 0;
 
@@ -776,65 +777,13 @@ class Stock extends React.Component {
                               <div className="about-info-5">
                                 <span className="about-info-6">
                                   <div className="about-info-7">
-                                    CEO
+                                    Market Cap
                                   </div>
                                 </span>
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                  Joe
-                                </div>
-                              </div>
-
-                              <div className="about-info-5">
-                                <span className="about-info-6">
-                                  <div className="about-info-7">
-                                    Employees
-                                  </div>
-                                </span>
-                                <div className="about-info-8">
-                                </div>
-                                <div className="about-info-7">
-                                  {this.props.stock.FullTimeEmployees}
-                                </div>
-                              </div>
-
-                              <div className="about-info-5">
-                                <span className="about-info-6">
-                                  <div className="about-info-7">
-                                    Headquarters
-                                  </div>
-                                </span>
-                                <div className="about-info-8">
-                                </div>
-                                <div className="about-info-7">
-                                  Joe
-                                </div>
-                              </div>
-
-                              <div className="about-info-5">
-                                <span className="about-info-6">
-                                  <div className="about-info-7">
-                                    Founded
-                                  </div>
-                                </span>
-                                <div className="about-info-8">
-                                </div>
-                                <div className="about-info-7">
-                                  Joe
-                                </div>
-                              </div>
-
-                              <div className="about-info-5">
-                                <span className="about-info-6">
-                                  <div className="about-info-7">
-                                    {'Market Cap'.toUpperCase()}
-                                  </div>
-                                </span>
-                                <div className="about-info-8">
-                                </div>
-                                <div className="about-info-7">
-                                  {parseInt(this.props.stock.MarketCapitalization).toLocaleString()}
+                                {parseInt(this.props.stock.MarketCapitalization).toLocaleString()}
                                 </div>
                               </div>
 
@@ -847,7 +796,7 @@ class Stock extends React.Component {
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                  {this.props.stock.PERatio}
+                                  {parseFloat(this.props.stock.PERatio).toFixed(2)}
                                 </div>
                               </div>
 
@@ -860,20 +809,72 @@ class Stock extends React.Component {
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                  {this.props.stock.DividendYield}
+                                  {dividendYield}
                                 </div>
                               </div>
 
                               <div className="about-info-5">
                                 <span className="about-info-6">
                                   <div className="about-info-7">
-                                    Average Volume
+                                    Employees
                                   </div>
                                 </span>
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                  Joe
+                                  {numberWithCommas(parseFloat(this.props.stock.FullTimeEmployees))}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    52 Week High
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  ${parseFloat(this.props.stock['52WeekHigh']).toFixed(2)}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    52 Week Low
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  ${parseFloat(this.props.stock['52WeekLow']).toFixed(2)}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    EPS
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  {this.props.stock.EPS}
+                                </div>
+                              </div>
+
+                              <div className="about-info-5">
+                                <span className="about-info-6">
+                                  <div className="about-info-7">
+                                    Analyst Target Price
+                                  </div>
+                                </span>
+                                <div className="about-info-8">
+                                </div>
+                                <div className="about-info-7">
+                                  ${this.props.stock.AnalystTargetPrice}
                                 </div>
                               </div>
 
