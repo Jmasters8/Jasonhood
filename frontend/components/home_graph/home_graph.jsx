@@ -89,7 +89,7 @@ class HomeGraph extends React.Component {
         }
       }
     }
-    if (shouldLoad) return <Loading />
+    if (shouldLoad && uniqueAssets.length !== 0) return <Loading />
     HomeGraph.ready = true
     let lowestDataAmount = 0
 
@@ -132,7 +132,7 @@ class HomeGraph extends React.Component {
     let getData = () => {
       let assets = Object.values(this.props.assets);
       if (assets.length === 0) {
-        data2.push({price: 0, date: 0})
+        data2.push({price: null, date: null})
         return null
       }
       
@@ -194,7 +194,7 @@ class HomeGraph extends React.Component {
       let lastPrice = data2[data2.length - 1].price
 
       price = lastPrice - beginningPrice
-      if (lastPrice === 0 && beginningPrice === 0) {
+      if ((lastPrice === 0 && beginningPrice === 0) || (lastPrice === null && beginningPrice === null)) {
         percent = 0
       } else {
         percent = (lastPrice - beginningPrice) / beginningPrice * 100
