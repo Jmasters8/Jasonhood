@@ -124,7 +124,9 @@ class HomeGraph extends React.Component {
 
     let getData = () => {
       let assets = Object.values(this.props.assets);
-      
+      if (assets.length === 0) {
+        data2.push({price: 0, date: 0})
+      }
 
       for (let i = 0; i < lowestDataAmount; i++) {
         let time;
@@ -182,11 +184,16 @@ class HomeGraph extends React.Component {
     function change() {
       let beginningPrice = data2[0].price
       let lastPrice = data2[data2.length - 1].price
-
+      console.log(lastPrice, beginningPrice)
       price = lastPrice - beginningPrice
-      percent = (lastPrice - beginningPrice) / beginningPrice * 100
+      if (lastPrice === 0 && beginningPrice === 0) {
+        percent = 0
+      } else {
+        percent = (lastPrice - beginningPrice) / beginningPrice * 100
+      }
     }
     change()
+    
 
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -204,6 +211,27 @@ class HomeGraph extends React.Component {
       }
     }
     price >= 0 ? color = "rgb(0,200,5)" : color = "rgb(255,80,0)"
+
+    if (document.getElementsByClassName("nav-logo")[0]) {
+      price >= 0 ? document.getElementsByClassName("nav-logo")[0].className = "nav-logo-green" : document.getElementsByClassName("nav-logo")[0].className = "nav-logo-red"
+    }
+
+    let eles = document.getElementsByClassName("navbar-list-word")
+    if (document.getElementsByClassName("navbar-list-word")[0] && price >= 0) {
+      for (let e = 0; e < eles.length; e++) {
+        eles[e].className="navbar-list-word-green"
+      } 
+    } else {
+      for (let e = 0; e < eles.length; e++) {
+        eles[e].className="navbar-list-word-red"
+      } 
+    }
+  
+    if (document.getElementsByClassName("main-graph-days-2")[0] && price >= 0) {
+      document.getElementsByClassName("main-graph-days-2")[0].style.color = "rgb(0, 200, 5)"
+    } else if (document.getElementsByClassName("main-graph-days-2")[0] && price < 0) {
+      document.getElementsByClassName("main-graph-days-2")[0].style.color = "rgb(255, 80, 0)"
+    }
     
     return(
       <div className="main-graph-1">

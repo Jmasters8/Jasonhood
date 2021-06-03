@@ -327,6 +327,18 @@
   text-decoration: none;
 }
 
+.trade-market-price-2-red {
+  color: rgb(255, 80, 0);
+  font-weight: 500;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  display: flex;
+  -webkit-box-align: center;
+  height: 48px;
+  padding-top: 2px;
+  text-decoration: none;
+}
+
 .trade-market-price-3 {
   -webkit-box-align: center;
   align-items: center;
@@ -456,6 +468,39 @@
   background-color: rgba(64, 214, 68, 1);
 }
 
+.review-order-5-red {
+  width: 100%;
+  background: none currentcolor;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font: inherit;
+  appearance: none;
+  text-align: unset;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  justify-content: cneter;
+  cursor: pointer;
+  border-radius: 5px;
+  min-width: 12px;
+  max-width: 360px;
+  padding-left: 48px;
+  padding-right: 48px;
+  height: inherit;
+  color: rgb(255, 80, 0);
+}
+
+.review-order-5-red:hover {
+  background-color: rgba(255,106,38,1);
+}
+
+.review-order-5-red:active {
+  background-color: rgba(255,124,64,1);
+}
+
 .review-order-6 {
   position: relative;
   display: flex;
@@ -521,6 +566,14 @@
   font-size: 13px; 
 }
 
+.money-available-2-red {
+  margin: 0px;
+  color: rgb(255, 80, 0);
+  text-decoration: unset;
+  font-weight: 400;
+  font-size: 13px; 
+}
+
 .money-available-3 {
   -webkit-box-align: center;
   align-items: center;
@@ -541,6 +594,15 @@
 .shares-available-3 {
   margin: 0px;
   color: rgb(0, 200, 5);
+  text-decoration: unset;
+  font-weight: 400;
+  font-size: 13.5px; 
+  cursor: pointer;
+}
+
+.shares-available-3-red {
+  margin: 0px;
+  color: rgb(255, 80, 0);
   text-decoration: unset;
   font-weight: 400;
   font-size: 13.5px; 
@@ -663,15 +725,15 @@
 
 .main-graph-days-3 {
   border-bottom: 2px solid;
-    border-color: #ff5000;
-    padding-top: 2px;
-    text-decoration: unset;
-    font-weight: 700;
-    padding-bottom: 12px;
-    display: flex;
-    align-items: center;
-    height: 20px;
-    width: 18px;
+  // border-color: #ff5000;
+  padding-top: 2px;
+  text-decoration: unset;
+  font-weight: 700;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 18px;
 }
 
 .main-graph-days-4 {

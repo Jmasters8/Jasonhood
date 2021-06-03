@@ -285,7 +285,7 @@ class StockForm extends React.Component {
 
                       <div className="trade-market-price">
                         <div className="trade-market-price-1">
-                          <a className="trade-market-price-2">
+                          <a className={this.props.marketPriceClass}>
                             <span className="trade-market-price-3">
                               Market Price
                           </span>
@@ -321,7 +321,7 @@ class StockForm extends React.Component {
                     <div className="review-order-2">
                       <div className="review-order-3">
                         <div className="review-order-4">
-                          <button onClick={this.handleBuy} className="review-order-5">
+                          <button onClick={this.handleBuy} className={this.props.buttonClass}>
                             <div className="review-order-6">
                               <span className="review-order-7">
                                 Complete Order
@@ -336,7 +336,7 @@ class StockForm extends React.Component {
 
                 <footer className="money-available">
                   <div className="money-available-1">
-                    <span className="money-available-2">
+                    <span className={this.props.moneyAvailableClass}>
                       <div className="money-available-3">
                         {/* ${numberWithCommas(this.props.currentUserBuyingPower)} Buying Power Available */}
                         ${numberWithCommas((this.state.buyingPower).toFixed(2))} Buying Power Available
@@ -442,7 +442,7 @@ class StockForm extends React.Component {
 
                       <div className="trade-market-price">
                         <div className="trade-market-price-1">
-                          <a className="trade-market-price-2">
+                          <a className={this.props.marketPriceClass}>
                             <span className="trade-market-price-3">
                               Market Price
                           </span>
@@ -478,7 +478,7 @@ class StockForm extends React.Component {
                     <div className="review-order-2">
                       <div className="review-order-3">
                         <div className="review-order-4">
-                          <button onClick={(e) => this.handleSell(e, sharesAmount)} className="review-order-5">
+                          <button onClick={(e) => this.handleSell(e, sharesAmount)} className={this.props.buttonClass}>
                             <div className="review-order-6">
                               <span className="review-order-7">
                                 Complete Order
@@ -493,12 +493,12 @@ class StockForm extends React.Component {
 
                 <footer className="money-available">
                   <div className="money-available-1">
-                    <span className="money-available-2">
+                    <span className={this.props.moneyAvailableClass}>
                       <div className="shares-available-2">
                         {sharesAmount} Shares Available - 
                         {/* {this.state.sharesAmount} Shares Available - */}
                         &nbsp;
-                        <span onClick={() => this.sellAll(sharesAmount)} className="shares-available-3"> Sell All</span>
+                        <span onClick={() => this.sellAll(sharesAmount)} className={this.props.sharesAvailableClass}> Sell All</span>
                     </div>
                     </span>
                   </div>

@@ -265,23 +265,9 @@ class Stock extends React.Component {
     if (this.props.stock === undefined || this.props.stock.data === undefined || this.props.stock.Name === undefined) {
       return <Loading />
     }
-    // console.log('check loading')
-    // if (this.props.stock === undefined || this.props.stock.data === undefined) {
-    //   console.log(this.props.stock)
-    //   return <Loading />
-    // }
-
-    // if (this.state.loading === true) {
-    //   return <Loading />
-    // }
-
-   
-   
-
+    console.log(this.props.data)
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
-    
-
-
+   
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -289,6 +275,34 @@ class Stock extends React.Component {
     let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
     let openPrice = this.props.stock.data['o'][0]
 
+    /////////////////////////CSS CHANGES DEPENDING ON STOCK DATA////////////////
+
+    if (currentPrice - openPrice >= 0 && document.getElementsByClassName("main-graph-days-2")[0]) {
+      document.getElementsByClassName("main-graph-days-2")[0].style.color = "rgb(0, 200, 5)"
+    } else if (currentPrice - openPrice < 0 && document.getElementsByClassName("main-graph-days-2")[0]) {
+      document.getElementsByClassName("main-graph-days-2")[0].style.color = "rgb(255, 80, 0)"
+    }
+
+    if (document.getElementsByClassName("nav-logo")[0]) {
+      currentPrice - openPrice >= 0 ? document.getElementsByClassName("nav-logo")[0].className = "nav-logo-green" : document.getElementsByClassName("nav-logo")[0].className = "nav-logo-red"
+    }
+  
+    let buttonClass;
+    currentPrice - openPrice >= 0 ? buttonClass = "review-order-5" : buttonClass = "review-order-5-red"
+
+    let marketPriceClass;
+    currentPrice - openPrice >= 0 ? marketPriceClass = "trade-market-price-2" : marketPriceClass = "trade-market-price-2-red"
+
+    let moneyAvailableClass
+    currentPrice - openPrice >= 0 ? moneyAvailableClass = "money-available-2" : moneyAvailableClass = "money-available-2-red"
+
+    let sharesAvailableClass
+    currentPrice - openPrice >= 0 ? sharesAvailableClass = "shares-available-3" : sharesAvailableClass = "shares-available-3-red"
+
+
+    ///////////////////////////////////////////////////////////////////////////
+
+    
     let percentChange = (((currentPrice - openPrice) / openPrice) * 100).toFixed(2)
     let totalPortfolio = 0;
 
@@ -900,6 +914,10 @@ class Stock extends React.Component {
                         marketPrice={marketPrice} shares={this.state.shares}
                         symbol={this.props.stock.Symbol}
                         watchedAssets={this.props.watchedAssets}
+                        buttonClass={buttonClass}
+                        marketPriceClass={marketPriceClass}
+                        moneyAvailableClass={moneyAvailableClass}
+                        sharesAvailableClass={sharesAvailableClass}
                         />
 
                       </div>
@@ -921,37 +939,11 @@ class Stock extends React.Component {
               61% of analysts rate stock as a buy
             </span>
           </div>
-
-
-        {/* <div className="add-watch-list">
-          <section className="add-watch-list-1">
-            <div className="add-watch-list-2">
-              <header className="add-watch-list-header">
-                <h1 className="add-watch-list-header-1">
-                  <span className="add-watch-list-header-2">
-                    Add {this.props.stock.Symbol} to Your Lists
-                  </span>
-                </h1>
-                <button className="add-watch-list-header-x">
-                  <div className="add-watch-list-header-x-1">
-                    <img className="add-watch-list-header-x-2" src="https://i.imgur.com/rmBxqXX.png" />
-                  </div>
-                </button>
-              </header>
-              <div>
-                <div className="add-watch-list-3">
-
-                </div>
-              </div>
-            </div>
-          </section>
-        </div> */}
         <StockPageWatchList watcherId={this.props.currentUser.id} addWatchedAsset={this.props.addWatchedAsset} stock={this.props.stock} watchedAssets={this.props.watchedAssets} ticker={this.props.stock.Symbol} />
-
-
         </div>
       )
     }
+
 
     const noShowStock = () => {
       return null

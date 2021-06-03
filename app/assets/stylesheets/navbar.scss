@@ -21,25 +21,25 @@
   display: flex;
 }
 
-.navbar-logo {
-  margin-right: 6px;
-  height: 54px;
-  width: 48px;
-}
+// .navbar-logo {
+//   margin-right: 6px;
+//   height: 54px;
+//   width: 48px;
+// }
 
-.navbar-logo-1 {
-  cursor: pointer;
-  height: 54px;
-  width: 48px;
+// .navbar-logo-1 {
+//   cursor: pointer;
+//   height: 54px;
+//   width: 48px;
 
-  img {
-    box-sizing: border-box;
-    height: 30px;
-    width: 30;
-    margin-top: 10px;
-    margin-left: 15px;
-  }
-}
+//   img {
+//     box-sizing: border-box;
+//     height: 30px;
+//     width: 30;
+//     margin-top: 10px;
+//     margin-left: 15px;
+//   }
+// }
 
 .navbar-search {
   flex-basis: 480px;
@@ -186,7 +186,31 @@
 }
 
 .navbar-list-word:hover {
-  color: rgb(0,200,5);
+  color: rgb(0 ,200, 5);
+}
+
+.navbar-list-word-green {
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+}
+
+.navbar-list-word-green:hover {
+  color: rgb(0 ,200, 5);
+}
+
+.navbar-list-word-red {
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+}
+
+.navbar-list-word-red:hover {
+  color: rgb(255, 80, 0);
 }
 
 .navbar-list-3 {
@@ -310,4 +334,39 @@
 .search-dropdown-name-white {
   color: white;
   font-size: 15px;
+}
+
+.nav-logo {
+  content: url("https://i.imgur.com/iU9XhbV.png");
+  height: 35px;
+  width: 32px;
+  padding-right: 8px;
+}
+
+.nav-logo-green {
+  content: url("https://i.imgur.com/iU9XhbV.png");
+  height: 35px;
+  width: 32px;
+  padding-right: 8px;
+}
+
+.nav-logo-green:hover {
+  content: url("https://i.imgur.com/o7G0Jf9.jpg");
+  height: 35px;
+  width: 32px;
+  padding-right: 8px;
+}
+
+.nav-logo-red {
+  content: url("https://i.imgur.com/iU9XhbV.png");
+  height: 35px;
+  width: 32px;
+  padding-right: 8px;
+}
+
+.nav-logo-red:hover {
+  content: url("https://i.imgur.com/lZC92b8.jpg");
+  height: 35px;
+  width: 32px;
+  padding-right: 8px;
 }

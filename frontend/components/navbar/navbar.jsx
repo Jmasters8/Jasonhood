@@ -149,7 +149,7 @@ class Navbar extends React.Component {
         <div className="navbar-1">
           <div className="navbar-logo">
             <div className="navbar-logo-1">
-              <Link to="/"><img src="https://i.imgur.com/iU9XhbV.png" alt=""/></Link>
+              <Link to="/"><div className="nav-logo"></div></Link>
             </div>
           </div>
           <form onSubmit={this.handleSubmit}>
