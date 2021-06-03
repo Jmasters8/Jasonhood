@@ -148,7 +148,7 @@ class Stock extends React.Component {
     yesterday.setDate(yesterday.getDate() - 5)
     if (Object.keys(this.props.currentStock).length === 0 || Object.keys(this.props.currentStock === "None")) {
       // this.setState({currentStock: this.props.currentStock})
-      console.log('I just mounted and did the API calls')
+      
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
@@ -317,7 +317,7 @@ class Stock extends React.Component {
     priceChange >= 0 ? newsButtonClass = "news-button-text" : newsButtonClass = "news-button-text-red"
 
     let eles = document.getElementsByClassName("navbar-list-word")
-    console.log(eles.length)
+    
     if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
       if (priceChange >= 0) {
         for (let e = eles.length - 1; e >= 0; e--) {
