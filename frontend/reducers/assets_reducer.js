@@ -19,7 +19,8 @@ const assetsReducer = (state = {}, action) => {
       delete nextState[action.assetId]
       return nextState;
     case RECEIVE_CURRENT_USER:
-      return action.assets || state
+      return action.assets || {}
+      // return action.assets || state
     case LOGOUT_CURRENT_USER:
         return {};
     default:

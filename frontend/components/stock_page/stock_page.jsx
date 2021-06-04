@@ -172,7 +172,7 @@ class Stock extends React.Component {
     let prevAssets = Object.values(nextProps.assets)
     let nextAssets = prevProps.assets
 
-    console.log(nextProps, prevProps)
+    // console.log(nextProps, prevProps)
     let assetChange = () => {
       // let prevAssets = Object.values(this.props.assets)
       // let prevAssets = this.state.assets
@@ -198,7 +198,7 @@ class Stock extends React.Component {
     yesterday.setDate(yesterday.getDate() - 5)
     // console.log("prevProps: ", prevProps.currentStock)
     // console.log("this.props: ", this.props.currentStock)
-
+    console.log('passed should comp update')
     if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
       console.log('componentdidupdate updated')
       // console.log('I just updated and did the API calls')
