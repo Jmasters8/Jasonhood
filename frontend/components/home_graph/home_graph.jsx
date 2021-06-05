@@ -274,6 +274,7 @@ class HomeGraph extends React.Component {
 
     if (price >= 0) {
       document.getElementById("search-words").innerHTML = "search-dropdown-name-green"
+
     } else if (price < 0) {
       document.getElementById("search-words").innerHTML = "search-dropdown-name-red"
     }
