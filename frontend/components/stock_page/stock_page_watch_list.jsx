@@ -124,8 +124,9 @@ class StockPageWatchList extends React.Component {
     }
 
     document.getElementsByClassName("add-watch-list")[0].style.visibility = "hidden"
-    document.getElementsByClassName('create-new-list-submit-off')[0].style.pointerEvents = "none"
-    document.getElementsByClassName('create-new-list-submit-off')[0].style.color = "rgb(98, 108, 112)"
+    // document.getElementsByClassName('create-new-list-submit-off')[0].style.pointerEvents = "none"
+    // document.getElementsByClassName('create-new-list-submit-off')[0].style.color = "rgb(98, 108, 112)"
+    document.getElementsByClassName(this.props.submitButton)[0].className = "create-new-list-submit-off"
     for (let i = 0; i < categories.length; i++) {
       document.getElementsByClassName(`create-new-list-category-checkbox-empty${i}`)[0].style.content = unchecked
     }
@@ -309,9 +310,9 @@ class StockPageWatchList extends React.Component {
 
                 </div>
                 <div className="create-new-list-3">
-                  <div className="create-new-list-4">
+                  <div className={this.props.plusButtonBackgroundClass}>
                     <div className="create-new-list-5">
-                      <span className="create-new-list-6">
+                      <span className={this.props.plusButtonClass}>
                         +
                       </span>
                     </div>
@@ -329,7 +330,17 @@ class StockPageWatchList extends React.Component {
 
             <div className="create-new-list-container">
               {categories.map((list, i) => {
-                return <StockPageLists length={categories.length} addWatchedAsset={this.props.addWatchedAsset} stock={this.props.stock} allWatchedAssets={watchedAssets} category={list[0]} emoji={list[1]} key={i} index={i} />
+                return <StockPageLists 
+                        length={categories.length}
+                        addWatchedAsset={this.props.addWatchedAsset}
+                        stock={this.props.stock}
+                        allWatchedAssets={watchedAssets}
+                        category={list[0]}
+                        emoji={list[1]}
+                        key={i}
+                        index={i}
+                        submitButton={this.props.submitButton}
+                        />
               })}
             </div>
             <div className="watch-list-error">This stock is already on that list</div>

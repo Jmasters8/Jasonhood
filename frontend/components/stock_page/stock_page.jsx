@@ -321,6 +321,15 @@ class Stock extends React.Component {
     let sharesAmountClass;
     priceChange >= 0 ? sharesAmountClass = "shares-amount-input" : sharesAmountClass = "shares-amount-input-red"
 
+    let plusButtonBackgroundClass;
+    priceChange >= 0 ? plusButtonBackgroundClass = "create-new-list-4" : plusButtonBackgroundClass = "create-new-list-4-red"
+
+    let plusButtonClass;
+    priceChange >= 0 ? plusButtonClass = "create-new-list-6" : plusButtonClass = "create-new-list-6-red"
+
+    let submitButton;
+    priceChange >= 0 ? submitButton = "create-new-list-submit-on" : submitButton = "create-new-list-submit-on-red"
+
     let eles = document.getElementsByClassName("navbar-list-word")
     
     if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
@@ -989,7 +998,16 @@ class Stock extends React.Component {
               61% of analysts rate stock as a buy
             </span>
           </div>
-        <StockPageWatchList watcherId={this.props.currentUser.id} addWatchedAsset={this.props.addWatchedAsset} stock={this.props.stock} watchedAssets={this.props.watchedAssets} ticker={this.props.stock.Symbol} />
+        <StockPageWatchList
+          watcherId={this.props.currentUser.id}
+          addWatchedAsset={this.props.addWatchedAsset}
+          stock={this.props.stock}
+          watchedAssets={this.props.watchedAssets}
+          ticker={this.props.stock.Symbol}
+          plusButtonBackgroundClass={plusButtonBackgroundClass}
+          plusButtonClass={plusButtonClass}
+          submitButton={submitButton}
+          />
         </div>
       )
     }

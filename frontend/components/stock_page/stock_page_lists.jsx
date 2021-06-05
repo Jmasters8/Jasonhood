@@ -20,7 +20,7 @@ class StockPageLists extends React.Component {
 
   addToList() {
     let element= document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0]
-    let button = document.getElementsByClassName('create-new-list-submit-off')[0]
+    let button = document.getElementsByClassName('create-new-list-submit-off')[0] || document.getElementsByClassName('create-new-list-submit-on')[0] || document.getElementsByClassName('create-new-list-submit-on-red')[0]
     let unchecked = 'url("https://i.imgur.com/cXKHK8l.png")'
     let checked = 'url("https://i.imgur.com/eqjgMg7.png")'
     document.getElementsByClassName("watch-list-error")[0].style.display = "none"
@@ -31,23 +31,26 @@ class StockPageLists extends React.Component {
         return null
       }
     }
-
+    console.log(button)
     if (element.style.content === unchecked) {
       element.style.content = checked
-      button.style.pointerEvents = "visible"
-      button.style.color = "rgb(0, 200, 5)"
-      button.style.cursor = "pointer"
+      // button.style.pointerEvents = "visible"
+      // button.style.color = "rgb(0, 200, 5)"
+      // button.style.cursor = "pointer"
+      button.className = this.props.submitButton
     } else {
       element.style.content = unchecked
-      button.style.pointerEvents = "none"
-      button.style.color = "rgb(98, 108, 112)"
+      // button.style.pointerEvents = "none"
+      // button.style.color = "rgb(98, 108, 112)"
+      button.className = "create-new-list-submit-off"
     }
 
     for (let i = 0; i < this.props.length; i++) {
       if (document.getElementsByClassName(`create-new-list-category-checkbox-empty${i}`)[0].style.content === checked) {
-        button.style.pointerEvents = "visible"
-        button.style.color = "rgb(0, 200, 5)"
-        button.style.cursor = "pointer"
+        // button.style.pointerEvents = "visible"
+        // button.style.color = "rgb(0, 200, 5)"
+        // button.style.cursor = "pointer"
+        button.className = this.props.submitButton
       }
     }
       

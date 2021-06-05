@@ -1472,6 +1472,21 @@
   width: 48px;
 }
 
+.create-new-list-4-red {
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(255, 80, 0, 0.2);
+  height: 64px;
+  width: 48px;
+}
+
 .create-new-list-5 {
   -webkit-box-align: center;
   align-items: center;
@@ -1484,6 +1499,12 @@
 .create-new-list-6 {
   display: inline-flex;
   color: rgb(0, 200, 5);
+  font-size: 45px;
+}
+
+.create-new-list-6-red {
+  display: inline-flex;
+  color: rgb(255, 80, 0);
   font-size: 45px;
 }
 
@@ -1664,7 +1685,7 @@
   max-width: 420px;
   padding-left: 48px;
   padding-right: 48px;
-  color: rgb(98, 108, 112);
+  // color: rgb(98, 108, 112);
   width: 100%;
   color:rgb(0, 200, 5);
 }
@@ -1676,6 +1697,41 @@
 .create-new-list-submit-on:active {
   background-color: rgba(64, 214, 68, 1);
 }
+
+.create-new-list-submit-on-red {
+  -webkit-appearance: button;
+  background: none currentcolor;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: unset;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 4px;
+  white-space: nowrap;
+  height: 48px;
+  min-width: 120px;
+  max-width: 420px;
+  padding-left: 48px;
+  padding-right: 48px;
+  color: rgb(98, 108, 112);
+  width: 100%;
+  color:rgb(255, 80, 0);
+}
+
+.create-new-list-submit-on-red:hover {
+  background-color: rgba(255, 106, 38, 1);
+  cursor: pointer;
+}
+
+.create-new-list-submit-on-red:active {
+  background-color: rgba(255, 124, 64, 1);
+} 
 
 .create-new-list-submit-1 {
   position: relative;
