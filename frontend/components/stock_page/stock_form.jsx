@@ -277,7 +277,7 @@ class StockForm extends React.Component {
                         <div className="shares-amount-2">
                           <div className="shares-amount-3">
 
-                            <input className="shares-amount-input" value={this.state.shares} onChange={this.handleInput('shares')} type="text" placeholder="0" />
+                            <input className={this.props.sharesAmountClass} value={this.state.shares} onChange={this.handleInput('shares')} type="text" placeholder="0" />
 
                           </div>
                         </div>
@@ -434,7 +434,7 @@ class StockForm extends React.Component {
                         <div className="shares-amount-2">
                           <div className="shares-amount-3">
 
-                            <input className="shares-amount-input" value={this.state.shares} onChange={this.handleInput('shares')} type="text" placeholder="0" />
+                            <input className={this.props.sharesAmountClass} value={this.state.shares} onChange={this.handleInput('shares')} type="text" placeholder="0" />
 
                           </div>
                         </div>

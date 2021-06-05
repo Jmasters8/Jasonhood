@@ -321,6 +321,9 @@ class Stock extends React.Component {
     let newsButtonClass;
     priceChange >= 0 ? newsButtonClass = "news-button-text" : newsButtonClass = "news-button-text-red"
 
+    let sharesAmountClass;
+    priceChange >= 0 ? sharesAmountClass = "shares-amount-input" : sharesAmountClass = "shares-amount-input-red"
+
     let eles = document.getElementsByClassName("navbar-list-word")
     
     if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
@@ -961,6 +964,7 @@ class Stock extends React.Component {
                         addToListsClass={addToListsClass}
                         buySellToggleClass={buySellToggleClass}
                         buySellToggleHoverClass={buySellToggleHoverClass}
+                        sharesAmountClass={sharesAmountClass}
                         />
 
                       </div>
