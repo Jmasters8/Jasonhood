@@ -168,7 +168,6 @@ class Stock extends React.Component {
     // if (this.props.stocks[this.props.match.params.symbol] && this.props.stocks[this.props.match.params.symbol].Symbol) {
     //   return false
     // }
-    console.log('is it checking')
     let prevAssets = Object.values(nextProps.assets)
     let nextAssets = prevProps.assets
 
@@ -198,9 +197,7 @@ class Stock extends React.Component {
     yesterday.setDate(yesterday.getDate() - 5)
     // console.log("prevProps: ", prevProps.currentStock)
     // console.log("this.props: ", this.props.currentStock)
-    console.log('passed should comp update')
     if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
-      console.log('componentdidupdate updated')
       // console.log('I just updated and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
