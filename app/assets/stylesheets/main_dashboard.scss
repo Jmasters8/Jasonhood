@@ -346,7 +346,46 @@
 }
 
 .dash-toggle-input-3:hover {
-  background-color: rgba(38,208,43,1);
+  background-color: rgba(38, 208, 43, 1);
+}
+
+.dash-toggle-input-3:active {
+  background-color: rgba(64, 214, 68, 1);
+}
+
+.dash-toggle-input-3-red {
+  -webkit-appearance: button;
+  background: none currentcolor;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font: inherit;
+  text-align: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  white-space: nowrap;
+  height: inherit;
+  min-width: 120px;
+  max-width: 360px;
+  color: rgb(255, 80, 0);
+  width: 100%;
+  padding-left: 48px;
+  padding-right: 48px;
+  outline: none;
+}
+
+.dash-toggle-input-3-red:hover {
+  background-color: rgba(255,106,38,1);
+}
+
+.dash-toggle-input-3-red:active {
+  background-color: rgba(255,124,64,1);
 }
 
 .dash-toggle-input-0 {
@@ -365,6 +404,25 @@
 
 .dash-toggle-input-0:focus {
   border-color:rgb(0, 200, 5);
+  background-color: black;
+}
+
+.dash-toggle-input-0-red {
+  background: rgb(30, 33, 36);
+  color: white;
+  border: 1px solid rgb(30, 33, 36);
+  border-radius: 4px;
+  height: 36px;
+  outline: none;
+  margin-left: 99px;
+}
+
+.dash-toggle-input-0-red:hover {
+  background-color: black;
+}
+
+.dash-toggle-input-0-red:focus {
+  border-color:rgb(255, 80, 0);
   background-color: black;
 }
 

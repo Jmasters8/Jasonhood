@@ -306,7 +306,7 @@ class StockForm extends React.Component {
                           </div>
                           <div className="trade-estimated-cost-4">
                             <span className="trade-estimated-cost-5">
-                              ${(this.props.currentPrice * this.state.shares).toFixed(2)}
+                              ${numberWithCommas((this.props.currentPrice * this.state.shares).toFixed(2))}
                             </span>
                           </div>
                         </div>
@@ -463,7 +463,7 @@ class StockForm extends React.Component {
                           </div>
                           <div className="trade-estimated-cost-4">
                             <span className="trade-estimated-cost-5">
-                              ${(this.props.currentPrice * this.state.shares).toFixed(2)}
+                              ${numberWithCommas((this.props.currentPrice * this.state.shares).toFixed(2))}
                             </span>
                           </div>
                         </div>

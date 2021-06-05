@@ -146,6 +146,7 @@ class Navbar extends React.Component {
     return (
 
       <header className="navbar">
+        <div id="search-words">search-dropdown-name-green</div>
         <div className="navbar-1">
           <div className="navbar-logo">
             <div className="navbar-logo-1">
@@ -165,13 +166,14 @@ class Navbar extends React.Component {
                   let tickerClass;
                   let nameClass;
                   if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase()) {
-                    tickerClass = "search-dropdown-name-green"
+                    tickerClass = document.getElementById("search-words").innerHTML
                   } else {
                     tickerClass = "search-dropdown-name-white"
                   }
+                  
 
                   if (this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
-                    nameClass = "search-dropdown-name-green"
+                    nameClass = document.getElementById("search-words").innerHTML
                   } else {
                     nameClass = "search-dropdown-name-white"
                   }

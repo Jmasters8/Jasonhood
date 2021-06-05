@@ -206,6 +206,8 @@ class HomeGraph extends React.Component {
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
+    //CSS CHANGES BASED ON UP OR DOWN DAY
     if (document.getElementById("percent-change") && document.getElementById("price-change")) {
       percent >= 0 ? document.getElementById("percent-change").innerHTML = `(+${percent.toFixed(2)}%)` : document.getElementById("percent-change").innerHTML = `(${percent.toFixed(2)}%)`
       price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `$${numberWithCommas(price.toFixed(2))}`
@@ -247,6 +249,36 @@ class HomeGraph extends React.Component {
       document.getElementsByClassName("home-news-button-text-red")[0].className = "home-news-button-text"
     }
 
+    if (document.getElementsByClassName("dash-toggle-input-3")[0] && price < 0) {
+      document.getElementsByClassName("dash-toggle-input-3")[0].className = "dash-toggle-input-3-red"
+      document.getElementsByClassName("dash-toggle-input-0")[0].className = "dash-toggle-input-0-red"
+    } else if (document.getElementsByClassName("dash-toggle-input-3-red")[0] & price >= 0) {
+      document.getElementsByClassName("dash-toggle-input-3-red")[0].className = "dash-toggle-input-3"
+      document.getElementsByClassName("dash-toggle-input-0-red")[0].className = "dash-toggle-input-0"
+    }
+
+    let greenEles = document.getElementsByClassName("search-dropdown-name-green")
+    let redEles = document.getElementsByClassName("search-dropdown-name-red")
+
+    // if (price >= 0 ) {
+    //   console.log('green hitting?')
+    //   for (let r = 0; r < redEles.length; r++) {
+    //     redEles[r].className = "search-dropdown-name-green"
+    //   }
+    // } else if (price < 0) {
+    //   console.log('red hitting?')
+    //   for (let g = 0; g < greenEles.length; g++) {
+    //     greenEles[g].className = "search-dropdown-name-red"
+    //   }
+    // }
+
+    if (price >= 0) {
+      document.getElementById("search-words").innerHTML = "search-dropdown-name-green"
+    } else if (price < 0) {
+      document.getElementById("search-words").innerHTML = "search-dropdown-name-red"
+    }
+
+    
     return(
       <div className="main-graph-1">
         <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={test()}/>

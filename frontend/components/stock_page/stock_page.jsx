@@ -337,6 +337,12 @@ class Stock extends React.Component {
         } 
       }
     }
+
+    if (priceChange >= 0 && document.getElementById("search-words")) {
+      document.getElementById("search-words").innerHTML = "search-dropdown-name-green"
+    } else if (priceChange < 0 && document.getElementById("search-words")) {
+      document.getElementById("search-words").innerHTML = "search-dropdown-name-red"
+    }
       
 
     ///////////////////////////////////////////////////////////////////////////

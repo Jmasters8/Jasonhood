@@ -331,6 +331,11 @@
   font-size: 15px;
 }
 
+.search-dropdown-name-red {
+  color: rgb(255, 80, 0);
+  font-size: 15px;
+}
+
 .search-dropdown-name-white {
   color: white;
   font-size: 15px;
@@ -369,4 +374,8 @@
   height: 35px;
   width: 32px;
   padding-right: 8px;
+}
+
+#search-words {
+  display: none;
 }
