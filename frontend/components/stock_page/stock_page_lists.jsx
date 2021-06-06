@@ -13,7 +13,8 @@ class StockPageLists extends React.Component {
 
   componentDidMount() {
     // console.log(document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0].style)
-    document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0].style.content = "url('https://i.imgur.com/cXKHK8l.png')"
+    // document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0].style.content = "url('https://i.imgur.com/cXKHK8l.png')"
+    document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0].style.content = `url(${this.props.checkbox})`
     document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0].style.height = "20px"
     document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0].style.width = "20px"
   }
@@ -21,8 +22,8 @@ class StockPageLists extends React.Component {
   addToList() {
     let element= document.getElementsByClassName(`create-new-list-category-checkbox-empty${this.props.index}`)[0]
     let button = document.getElementsByClassName('create-new-list-submit-off')[0] || document.getElementsByClassName('create-new-list-submit-on')[0] || document.getElementsByClassName('create-new-list-submit-on-red')[0]
-    let unchecked = 'url("https://i.imgur.com/cXKHK8l.png")'
-    let checked = 'url("https://i.imgur.com/eqjgMg7.png")'
+    let unchecked = `url("${this.props.checkbox}")`
+    let checked = `url("${this.props.checkboxFill}")`
     document.getElementsByClassName("watch-list-error")[0].style.display = "none"
     for (let i = 0; i < this.props.allWatchedAssets.length; i++) {
       let asset = this.props.allWatchedAssets[i];
@@ -31,7 +32,7 @@ class StockPageLists extends React.Component {
         return null
       }
     }
-    console.log(button)
+    
     if (element.style.content === unchecked) {
       element.style.content = checked
       // button.style.pointerEvents = "visible"

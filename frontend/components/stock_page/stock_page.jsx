@@ -330,6 +330,12 @@ class Stock extends React.Component {
     let submitButton;
     priceChange >= 0 ? submitButton = "create-new-list-submit-on" : submitButton = "create-new-list-submit-on-red"
 
+    let checkbox;
+    priceChange >= 0 ? checkbox = "https://i.imgur.com/3cqArve.png" : checkbox = "https://i.imgur.com/ExqtVlK.png"
+
+    let checkboxFill;
+    priceChange >= 0 ? checkboxFill = "https://i.imgur.com/eqjgMg7.png" : checkboxFill = "https://i.imgur.com/bTgwPnl.png"
+
     let eles = document.getElementsByClassName("navbar-list-word")
     
     if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
@@ -1007,6 +1013,8 @@ class Stock extends React.Component {
           plusButtonBackgroundClass={plusButtonBackgroundClass}
           plusButtonClass={plusButtonClass}
           submitButton={submitButton}
+          checkbox={checkbox}
+          checkboxFill={checkboxFill}
           />
         </div>
       )

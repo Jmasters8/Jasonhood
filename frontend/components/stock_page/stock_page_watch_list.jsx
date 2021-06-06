@@ -97,8 +97,8 @@ class StockPageWatchList extends React.Component {
   }
 
   saveChanges() {
-    let unchecked = 'url("https://i.imgur.com/cXKHK8l.png")'
-    let checked = 'url("https://i.imgur.com/eqjgMg7.png")'
+    let unchecked = `url("${this.props.checkbox}")`
+    let checked = `url("${this.props.checkboxFill}")`
     // let category = document.getElementById(`create-new-list-category-2${this.props.i}`)
     let watchedAssets = Object.values(this.props.watchedAssets)
     let categories = [];
@@ -340,6 +340,8 @@ class StockPageWatchList extends React.Component {
                         key={i}
                         index={i}
                         submitButton={this.props.submitButton}
+                        checkbox={this.props.checkbox}
+                        checkboxFill={this.props.checkboxFill}
                         />
               })}
             </div>

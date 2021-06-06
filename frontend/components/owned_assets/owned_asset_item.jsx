@@ -125,8 +125,10 @@ class OwnedAssetItem extends React.Component {
       for (let key in this.props.stocks) {
         if (key === this.props.ticker && this.props.stocks[key].data) {
           percentChange = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0]) / this.props.stocks[key].data.o[0] * 100
+          // percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
         }
       }
+      
 
       if (percentChange > 0) {
         return (
@@ -143,6 +145,8 @@ class OwnedAssetItem extends React.Component {
       }
       
     }
+
+    
 
     return (
       <li className="owned-asset-item">
