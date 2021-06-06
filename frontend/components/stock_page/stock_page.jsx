@@ -336,6 +336,18 @@ class Stock extends React.Component {
     let checkboxFill;
     priceChange >= 0 ? checkboxFill = "https://i.imgur.com/eqjgMg7.png" : checkboxFill = "https://i.imgur.com/bTgwPnl.png"
 
+    let createList;
+    priceChange >= 0 ? createList = "add-watch-list-buttons-8" : createList = "add-watch-list-buttons-8-red"
+
+    let cancelList;
+    priceChange >= 0 ? cancelList = "add-watch-list-buttons-3" : cancelList = "add-watch-list-buttons-3-red"
+
+    let cancel;
+    priceChange >= 0 ? cancel = "add-watch-list-buttons-6" : cancel = "add-watch-list-buttons-6-red"
+
+    let inputFocus;
+    priceChange >= 0 ? inputFocus = "add-watch-list-input-2" : inputFocus = "add-watch-list-input-2-red"
+
     let eles = document.getElementsByClassName("navbar-list-word")
     
     if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
@@ -1015,6 +1027,10 @@ class Stock extends React.Component {
           submitButton={submitButton}
           checkbox={checkbox}
           checkboxFill={checkboxFill}
+          createList={createList}
+          cancelList={cancelList}
+          cancel={cancel}
+          inputFocus={inputFocus}
           />
         </div>
       )

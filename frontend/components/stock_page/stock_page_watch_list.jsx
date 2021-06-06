@@ -247,7 +247,7 @@ class StockPageWatchList extends React.Component {
                     </button>
                     <div className="add-watch-list-input">
                       <div className="add-watch-list-input-1">
-                        <input className="add-watch-list-input-2" value={this.state.categoryName} onChange={this.handleInput('categoryName')} type="text" placeholder="List Name"/>
+                        <input className={this.props.inputFocus} value={this.state.categoryName} onChange={this.handleInput('categoryName')} type="text" placeholder="List Name"/>
                       </div>
                     </div>
                   </div>
@@ -255,10 +255,10 @@ class StockPageWatchList extends React.Component {
                   <footer className="add-watch-list-buttons">
                     <div className="add-watch-list-buttons-1">
                       <div className="add-watch-list-buttons-2">
-                        <button onClick={this.closeForm} className="add-watch-list-buttons-3">
+                        <button onClick={this.closeForm} className={this.props.cancelList}>
                           <div className="add-watch-list-buttons-4">
                             <span className="add-watch-list-buttons-5">
-                              <span className="add-watch-list-buttons-6">
+                              <span className={this.props.cancel}>
                                 Cancel
                               </span>
                             </span>
@@ -267,7 +267,7 @@ class StockPageWatchList extends React.Component {
                       </div>
                     </div>
                     <div className="add-watch-list-buttons-7">
-                      <button onClick={this.createList} className="add-watch-list-buttons-8">
+                      <button onClick={this.createList} className={this.props.createList}>
                         <div className="add-watch-list-buttons-9">
                           <span className="add-watch-list-buttons-10">
                             <span className="add-watch-list-buttons-11">
