@@ -85,6 +85,8 @@ class StockForm extends React.Component {
 
   handleBuy(e) {
     e.preventDefault();
+    if (this.state.shares === "" || this.state.sharesAmount === "" || this.state.shares <= 0) return null
+
     if ((this.props.currentPrice * this.state.shares).toFixed(2) > this.state.buyingPower) {
       this.setState({showBuyError: !this.state.showBuyError})
       this.showBuyError()
@@ -105,6 +107,8 @@ class StockForm extends React.Component {
 
   handleSell(e, sharesAmount) {
     e.preventDefault()
+    if (this.state.shares <= 0) return null
+    
     let sellShares = () => {
       if ((this.state.sharesAmount < parseInt(this.state.shares))) {
         this.setState({showSellError: !this.state.showSellError}, () => console.log(this.state.showSellError))

@@ -44,7 +44,6 @@ class StockPageWatchList extends React.Component {
     document.getElementsByClassName("create-new-list")[0].style.display = "block"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
     document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = "💡"
-    document.getElementsByClassName("add-watch-list-input-2")[0].value = ""
   }
   
   createList(e) {
@@ -55,7 +54,10 @@ class StockPageWatchList extends React.Component {
     document.getElementsByClassName("create-new-list")[0].style.display = "block"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
     document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = "💡"
-    document.getElementsByClassName("add-watch-list-input-2")[0].value = ""
+    // document.getElementsByClassName("add-watch-list-input-2")[0].value = ""
+    console.log(document.getElementsByClassName("add-watch-list-input-2").length)
+    if (document.getElementsByClassName("add-watch-list-input-2")[0]) document.getElementsByClassName("add-watch-list-input-2")[0].value = "nothing"
+    if (document.getElementsByClassName("add-watch-list-input-2-red")[0]) document.getElementsByClassName("add-watch-list-input-2-red")[0].value = ""
   }
 
   setSmilies() {
@@ -91,7 +93,8 @@ class StockPageWatchList extends React.Component {
     document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "none"
   }
 
-  setEmoji(emoji) {
+  setEmoji(emoji, e) {
+    e.preventDefault()
     document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = emoji
     document.getElementsByClassName("stock-page-emojis")[0].style.display = "none"
   }
@@ -185,7 +188,7 @@ class StockPageWatchList extends React.Component {
         return (
           smiliesArr.map((emoji, i) => {
             return (
-              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={(e) => this.setEmoji(emoji, e)} className="emoji-modal-2">
                 {emoji}
               </button>
             )
@@ -195,7 +198,7 @@ class StockPageWatchList extends React.Component {
         return (
           animalsArr.map((emoji, i) => {
             return (
-              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={(e) => this.setEmoji(emoji, e)} className="emoji-modal-2">
                 {emoji}
               </button>
             )
@@ -205,7 +208,7 @@ class StockPageWatchList extends React.Component {
         return (
           itemsArr.map((emoji, i) => {
             return (
-              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={(e) => this.setEmoji(emoji, e)} className="emoji-modal-2">
                 {emoji}
               </button>
             )
