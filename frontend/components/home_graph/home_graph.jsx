@@ -272,10 +272,10 @@ class HomeGraph extends React.Component {
     //   }
     // }
 
-    if (price >= 0) {
+    if (price >= 0 && document.getElementById("search-words")) {
       document.getElementById("search-words").innerHTML = "search-dropdown-name-green"
 
-    } else if (price < 0) {
+    } else if (price < 0 && document.getElementById("search-words")) {
       document.getElementById("search-words").innerHTML = "search-dropdown-name-red"
     }
 
