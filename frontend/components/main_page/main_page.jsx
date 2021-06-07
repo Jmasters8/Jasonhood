@@ -116,7 +116,8 @@ class MainPage extends React.Component {
     document.getElementById('animals-2').style.borderBottom = "none"
   }
 
-  setEmoji(emoji) {
+  setEmoji(emoji, e) {
+    e.preventDefault()
     // this.setState({chosenEmoji: emoji})
     document.getElementsByClassName("watch-list-edit-modal-input-emoji-2")[0].innerHTML = emoji
     document.getElementsByClassName("watch-list-edit-emoji")[0].style.display = "none";
@@ -147,7 +148,7 @@ class MainPage extends React.Component {
         return (
           smiliesArr.map((emoji, i) => {
             return (
-              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={(e) => this.setEmoji(emoji, e)} className="emoji-modal-2">
                 {emoji}
               </button>
             )
@@ -157,7 +158,7 @@ class MainPage extends React.Component {
         return (
           animalsArr.map((emoji, i) => {
             return (
-              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={(e) => this.setEmoji(emoji, e)} className="emoji-modal-2">
                 {emoji}
               </button>
             )
@@ -167,7 +168,7 @@ class MainPage extends React.Component {
         return (
           itemsArr.map((emoji, i) => {
             return (
-              <button key={i} id={'emoji' + i} onClick={() => this.setEmoji(emoji)} className="emoji-modal-2">
+              <button key={i} id={'emoji' + i} onClick={(e) => this.setEmoji(emoji, e)} className="emoji-modal-2">
                 {emoji}
               </button>
             )

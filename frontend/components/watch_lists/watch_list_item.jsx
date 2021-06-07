@@ -64,12 +64,21 @@ class WatchListItem extends React.Component {
 
     let currentPrice = () => {
       
+      // for (let key in this.props.stocks) {
+      //   if (key === this.props.asset.ticker) {
+      //     return this.props.stocks[key].c
+      //   }
+      // }
       for (let key in this.props.stocks) {
-        if (key === this.props.asset.ticker) {
-          return this.props.stocks[key].c
+        
+        if (key === this.props.asset.ticker && this.props.stocks[key].data) {
+          return (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1]).toFixed(2)
+          // return this.props.stocks[key].data.c[this.props.stocks.key.data.c.length]
         }
       }
     }
+
+    
     
 
     let upOrDown = () => {
