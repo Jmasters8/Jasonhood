@@ -249,7 +249,7 @@ class Navbar extends React.Component {
                 <span className="navbar-list-word">AngelList</span>
               </a>
 
-              <a href="jasondmasters.com" target="_blank" className="navbar-list-3">
+              <a href="https://www.jasondmasters.com/" target="_blank" className="navbar-list-3">
                 <span className="navbar-list-word">Portfolio</span>
               </a>
 
