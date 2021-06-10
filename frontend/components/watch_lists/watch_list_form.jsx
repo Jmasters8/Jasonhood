@@ -25,6 +25,7 @@ class WatchListForm extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
+    if (this.state.categoryName.length <= 0) return null
 
     this.props.addWatchedAsset(null, this.props.currentUserId, null, this.state.categoryName, this.props.chosenEmoji)
 

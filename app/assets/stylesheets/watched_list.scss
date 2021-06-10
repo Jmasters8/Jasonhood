@@ -369,6 +369,39 @@
   background-color: rgb(30, 33, 36);
 }
 
+.watch-list-form-inputs-title-2-red {
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: unset;
+  text-align: left;
+  box-sizing: border-box;
+  box-shadow: none;
+  border: 1px solid rgb(48, 54, 58);
+  background-color: rgb(48, 54, 58);
+  border-radius: 4px;
+  color: white;
+  // padding-left: 12px;
+  // padding-right: 12px;
+  padding: 0px 12px 0px 12px;
+  transition: border-color 200ms ease 0s;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.watch-list-form-inputs-title-2-red:hover {
+  border-color: rgb(64, 73, 78);
+  background-color: rgb(30, 33, 36);
+}
+
+.watch-list-form-inputs-title-2-red:focus {
+  outline: 0px;
+  border-color: rgb(255, 80, 0);
+  background-color: rgb(30, 33, 36);
+}
+
 .watch-list-form-cancel {
   display: flex;
   -webkit-box-pack: end;
@@ -405,7 +438,43 @@
 }
 
 .watch-list-form-cancel-3:hover {
-  background-color: rgba(0,200,5,0.2);
+  background-color: rgba(0, 200, 5, 0.2);
+}
+
+.watch-list-form-cancel-3:active {
+  background-color: rgba(0, 200, 5, 0.4);
+}
+
+.watch-list-form-cancel-3-red {
+  -webkit-appearance: button;
+  background: none;
+  border: 1px solid currentColor;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: nowrap;
+  max-width: 420px;
+  color: rgb(255, 80, 0);
+  height: 34px;
+  min-width: 96px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.watch-list-form-cancel-3-red:hover {
+  background-color: rgba(255, 80, 0, 0.2);
+}
+
+.watch-list-form-cancel-3-red:active {
+  background-color: rgba(255, 80, 0, 0.4);
 }
 
 .watch-list-form-cancel-4 {
@@ -428,6 +497,16 @@
 .watch-list-form-cancel-6 {
   margin: 0px;
   color:rgb(0, 200, 5);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  text-decoration: unset;
+}
+
+.watch-list-form-cancel-6-red {
+  margin: 0px;
+  color: rgb(255, 80, 0);
   font-size: 13px;
   font-style: normal;
   font-weight: 700;
@@ -459,6 +538,36 @@
 
 .watch-list-form-create-1:hover {
   color: rgba(38, 208, 43, 1);
+}
+
+.watch-list-form-create-1:active {
+  background-color: rgba(64, 214, 68, 1);
+}
+
+.watch-list-form-create-1-red {
+  background: none currentcolor;
+  border: 0px;
+  text-align: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: nowrap;
+  max-width: 420px;
+  color: rgb(255, 80, 0);
+  height: 36px;
+  min-width: 96px;
+  padding: 0px 24px 0px 24px;
+}
+
+.watch-list-form-create-1-red:hover {
+  color: rgba(255, 106, 38, 1);
+}
+
+.watch-list-form-create-1-red:active {
+  background-color: rgba(255, 124, 64, 1);
 }
 
 .watch-list-form-create-2 {
@@ -979,6 +1088,39 @@
   background-color: rgb(30, 33, 36);
 }
 
+.watch-list-edit-modal-input-text-2-red {
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+  text-decoration: unset;
+  text-align: left;
+  box-sizing: border-box;
+  box-shadow: none;
+  background-color: rgb(48, 54, 58);
+  border: 1px solid rgb(48, 54, 58);
+  color: white;
+  transition: border-color 200ms ease 0s;
+  width: 100%;
+  height: 34px;
+  padding-left: 12px;
+  padding-right: 12px;
+  outline: none;
+  border-radius: 4px;
+}
+
+.watch-list-edit-modal-input-text-2-red:hover {
+  background-color: rgb(30, 33, 36);
+  border-color: rgb(64, 73, 78);
+}
+
+.watch-list-edit-modal-input-text-2-red:focus {
+  outline: 0px;
+  border-color: rgb(255, 80, 0);
+  background-color: rgb(30, 33, 36);
+}
+
 .watch-list-edit-modal-submit {
   display: flex;
   -webkit-box-pack: end;
@@ -1019,8 +1161,41 @@
   background-color: rgba(38,208,43,1);
 }
 
-.watch-list-edit-modal-submit-2:focus {
+.watch-list-edit-modal-submit-2:active {
   background-color: rgba(64, 214, 68, 1);
+}
+
+.watch-list-edit-modal-submit-2-red {
+  background: none currentcolor;
+  border: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  appearance: none;
+  text-align: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  white-space: nowrap;
+  height: 48px;
+  min-width: 120px;
+  max-width: 420px;
+  padding-left: 48px;
+  padding-right: 48px;
+  color: rgb(255, 80, 0);
+  width: 100%;
+}
+
+.watch-list-edit-modal-submit-2-red:hover {
+  background-color: rgba(255, 106, 38, 1);
+}
+
+.watch-list-edit-modal-submit-2-red:active {
+  background-color: rgba(255, 124, 64, 1);
 }
 
 .watch-list-edit-modal-submit-3 {

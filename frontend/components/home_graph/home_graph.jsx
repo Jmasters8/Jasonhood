@@ -279,7 +279,7 @@ class HomeGraph extends React.Component {
       document.getElementById("search-words").innerHTML = "search-dropdown-name-red"
     }
 
-
+    //dropdown for watchlist
     let elements = document.getElementsByClassName("watch-list-category-3")
     let arrows = document.getElementsByClassName("watch-list-dropdown-3")
     if (price >= 0 && elements) {
@@ -319,6 +319,7 @@ class HomeGraph extends React.Component {
       }
     }
 
+    //edit list modal open
     let ellipsis = document.getElementsByClassName("watch-list-edit-button-1")
 
     if (price >= 0 && ellipsis) {
@@ -349,19 +350,22 @@ class HomeGraph extends React.Component {
       }
     }
 
-    let cog = document.getElementsByClassName("watch-list-dropdown-edit-modal")
-    let cogs = document.getElementsByClassName("watch-list-dropdown-edit-modal-cog")
-    let cogText = document.getElementsByClassName("watch-list-dropdown-edit-modal-4")
+    //edit list
+    let cog = document.getElementsByClassName("watch-list-dropdown-edit-modal");
+    let cogs = document.getElementsByClassName("watch-list-dropdown-edit-modal-cog");
+    let cogText = document.getElementsByClassName("watch-list-dropdown-edit-modal-4");
     if (price >= 0 && cog) {
       for (let c = 0; c < ellipsis.length; c++) {
         cog[c].addEventListener("mouseenter", event => {
           if (event.target === cog[c]) {
-            cog[c].style.content = 'url("https://i.imgur.com/64HsmhZ.png")'
+            cogs[c].style.content = 'url("https://i.imgur.com/64HsmhZ.png")'
+            cogText[c].style.color = 'rgb(0, 200, 5)'
           }
         })
         cog[c].addEventListener("mouseleave", event => {
           if (event.target === cog[c]) {
-            cog[c].style.content = 'url("https://i.imgur.com/hLjxnPO.png")'
+            cogs[c].style.content = 'url("https://i.imgur.com/hLjxnPO.png")'
+            cogText[c].style.color = 'rgb(255, 255, 255)'
           }
         })
       }
@@ -382,7 +386,70 @@ class HomeGraph extends React.Component {
       }
     }
 
-    // let deleteList = document.getElementsByClassName("watch-list-dropdown-edit-modal-cog")
+    //delete list
+    let deleteList = document.getElementsByClassName("watch-list-dropdown-delete");
+    let xImgs = document.getElementsByClassName("watch-list-dropdown-delete-x");
+    let deleteText = document.getElementsByClassName("watch-list-dropdown-delete-4");
+
+    if (price >= 0 && deleteList) {
+      for (let x = 0; x < deleteList.length; x++) {
+        deleteList[x].addEventListener("mouseenter", event => {
+          if (event.target === deleteList[x]) {
+            xImgs[x].style.content = 'url("https://i.imgur.com/mU8ff1B.jpg")'
+            deleteText[x].style.color = "rgb(0, 200, 5)"
+          }
+        })
+
+        deleteList[x].addEventListener("mouseleave", event => {
+          if (event.target === deleteList[x]) {
+            xImgs[x].style.content = 'url("https://i.imgur.com/r1sRcfF.jpg")'
+            deleteText[x].style.color = "rgb(255, 255, 255)"
+          }
+        })
+      }
+    } else if (price < 0 && deleteList) {
+      for (let x = 0; x < deleteList.length; x++) {
+        deleteList[x].addEventListener("mouseenter", event => {
+          if (event.target === deleteList[x]) {
+            xImgs[x].style.content = 'url("https://i.imgur.com/Dx3u3wo.jpg")'
+            deleteText[x].style.color = "rgb(255, 80, 0)"
+          }
+        })
+
+        deleteList[x].addEventListener("mouseleave", event => {
+          if (event.target === deleteList[x]) {
+            xImgs[x].style.content = 'url("https://i.imgur.com/r1sRcfF.jpg")'
+            deleteText[x].style.color = "rgb(255, 255, 255)"
+          }
+        })
+      }
+    }
+    //edit list input focus
+    if (price >= 0 && document.getElementsByClassName("watch-list-edit-modal-input-text-2-red")[0]) {
+      document.getElementsByClassName("watch-list-edit-modal-input-text-2-red")[0].className = "watch-list-edit-modal-input-text-2"
+    } else if (price < 0 && document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0]) {
+      document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0].className = "watch-list-edit-modal-input-text-2-red"
+    }
+
+    //save list edit button
+    if (price >= 0 && document.getElementsByClassName("watch-list-edit-modal-submit-2-red")[0]) {
+      document.getElementsByClassName("watch-list-edit-modal-submit-2-red")[0].className = "watch-list-edit-modal-submit-2"
+    } else if (price < 0 && document.getElementsByClassName("watch-list-edit-modal-submit-2")[0]) {
+      document.getElementsByClassName("watch-list-edit-modal-submit-2")[0].className = "watch-list-edit-modal-submit-2-red"
+    }
+
+    //watch list form cancel
+    if (price >= 0 && document.getElementsByClassName("watch-list-form-cancel-3-red")[0]) {
+      document.getElementsByClassName("watch-list-form-cancel-3-red")[0].className = "watch-list-form-cancel-3"
+      document.getElementsByClassName("watch-list-form-cancel-6-red")[0].className = "watch-list-form-cancel-6"
+      document.getElementsByClassName("watch-list-form-inputs-title-2-red").className = "watch-list-form-inputs-title-2"
+      document.getElementsByClassName("watch-list-form-create-1-red").className = "watch-list-form-create-1"
+    } else if (price < 0 && (document.getElementsByClassName("watch-list-form-cancel-3")[0] ) ) {
+      document.getElementsByClassName("watch-list-form-cancel-3")[0].className = "watch-list-form-cancel-3-red"
+      document.getElementsByClassName("watch-list-form-cancel-6")[0].className = "watch-list-form-cancel-6-red"
+      document.getElementsByClassName("watch-list-form-inputs-title-2")[0].className = "watch-list-form-inputs-title-2-red"
+      document.getElementsByClassName("watch-list-form-create-1")[0].className = "watch-list-form-create-1-red"
+    }
 
 
     return(

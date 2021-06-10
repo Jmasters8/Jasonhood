@@ -46,7 +46,12 @@ class WatchListCategory extends React.Component {
       col[i].style.visibility = "hidden"
     }
     document.getElementsByClassName('watch-list-edit-modal-input-emoji-2')[0].innerHTML = this.props.emoji
-    document.getElementsByClassName('watch-list-edit-modal-input-text-2')[0].value = this.props.category
+
+    if (document.getElementsByClassName('watch-list-edit-modal-input-text-2')[0]) {
+      document.getElementsByClassName('watch-list-edit-modal-input-text-2')[0].value = this.props.category
+    } else if (document.getElementsByClassName('watch-list-edit-modal-input-text-2-red')[0]) {
+      document.getElementsByClassName('watch-list-edit-modal-input-text-2-red')[0].value = this.props.category
+    }
     document.getElementById("placeholder").innerHTML = this.props.category
   }
 
