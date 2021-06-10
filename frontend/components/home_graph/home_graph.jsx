@@ -279,7 +279,112 @@ class HomeGraph extends React.Component {
       document.getElementById("search-words").innerHTML = "search-dropdown-name-red"
     }
 
-    
+
+    let elements = document.getElementsByClassName("watch-list-category-3")
+    let arrows = document.getElementsByClassName("watch-list-dropdown-3")
+    if (price >= 0 && elements) {
+      for (let e = 0; e < elements.length; e++) {
+        elements[e].addEventListener("mouseenter", event => {
+          if (event.target === elements[e]) {
+            for (let a = 0; a < arrows.length; a++) {
+              arrows[a].style.content = 'url("https://i.imgur.com/2vngOYR.png")'
+            }
+          }
+        })
+
+        elements[e].addEventListener("mouseleave", event => {
+          if (event.target === elements[e]) {
+            for (let a = 0; a < arrows.length; a++) {
+              arrows[a].style.content = 'url("https://i.imgur.com/9xOZVK8.png")'
+            }
+          }
+        })
+      }
+    } else if (price < 0 && elements) {
+      for (let e = 0; e < elements.length; e++) {
+        elements[e].addEventListener("mouseenter", event => {
+          if (event.target === elements[e]) {
+            for (let a = 0; a < arrows.length; a++) {
+              arrows[e].style.content = 'url("https://i.imgur.com/niRCr40.png")'
+            }
+          }
+        })
+        elements[e].addEventListener("mouseleave", event => {
+          if (event.target === elements[e]) {
+            for (let a = 0; a < arrows.length; a++) {
+              arrows[e].style.content = 'url("https://i.imgur.com/9xOZVK8.png")'
+            }
+          }
+        })
+      }
+    }
+
+    let ellipsis = document.getElementsByClassName("watch-list-edit-button-1")
+
+    if (price >= 0 && ellipsis) {
+      for (let d = 0; d < ellipsis.length; d++) {
+        ellipsis[d].addEventListener("mouseenter", event => {
+          if (event.target === ellipsis[d]) {
+            ellipsis[d].style.content = 'url("https://i.imgur.com/STPRdc6.png")'
+          }
+        })
+        ellipsis[d].addEventListener("mouseleave", event => {
+          if (event.target === ellipsis[d]) {
+            ellipsis[d].style.content = 'url("https://i.imgur.com/u5oCv3G.png")'
+          }
+        })
+      }
+    } else if (price < 0 && ellipsis) {
+      for (let d = 0; d < ellipsis.length; d++) {
+        ellipsis[d].addEventListener("mouseenter", event => {
+          if (event.target === ellipsis[d]) {
+            ellipsis[d].style.content = 'url("https://i.imgur.com/w7GUWDB.png")'
+          }
+        })
+        ellipsis[d].addEventListener("mouseleave", event => {
+          if (event.target === ellipsis[d]) {
+            ellipsis[d].style.content = 'url("https://i.imgur.com/u5oCv3G.png")'
+          }
+        })
+      }
+    }
+
+    let cog = document.getElementsByClassName("watch-list-dropdown-edit-modal")
+    let cogs = document.getElementsByClassName("watch-list-dropdown-edit-modal-cog")
+    let cogText = document.getElementsByClassName("watch-list-dropdown-edit-modal-4")
+    if (price >= 0 && cog) {
+      for (let c = 0; c < ellipsis.length; c++) {
+        cog[c].addEventListener("mouseenter", event => {
+          if (event.target === cog[c]) {
+            cog[c].style.content = 'url("https://i.imgur.com/64HsmhZ.png")'
+          }
+        })
+        cog[c].addEventListener("mouseleave", event => {
+          if (event.target === cog[c]) {
+            cog[c].style.content = 'url("https://i.imgur.com/hLjxnPO.png")'
+          }
+        })
+      }
+    } else if (price < 0 && cog) {
+      for (let c = 0; c < cog.length; c++) {
+        cog[c].addEventListener("mouseenter", event => {
+          if (event.target === cog[c]) {
+            cogs[c].style.content = 'url("https://i.imgur.com/sFlcNU3.png")'    
+            cogText[c].style.color = 'rgb(255, 80, 0)'
+          }
+        })
+        cog[c].addEventListener("mouseleave", event => {
+          if (event.target === cog[c]) {
+            cogs[c].style.content = 'url("https://i.imgur.com/hLjxnPO.png")'
+            cogText[c].style.color = 'rgb(255, 255, 255)'
+          }
+        })
+      }
+    }
+
+    // let deleteList = document.getElementsByClassName("watch-list-dropdown-edit-modal-cog")
+
+
     return(
       <div className="main-graph-1">
         <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={test()}/>
