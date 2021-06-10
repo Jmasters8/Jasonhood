@@ -29,7 +29,18 @@ class MainPage extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)
+    let nums = ["-", ",", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "0", "1", "2", "3", "4", "5", "6", "7", "8", '9', "10"]
+    if (this.state.buyingPower === "") return null
+    if (parseInt(this.state.buyingPower) > 1000000 || this.state.buyingPower.split(",").join("") > 1000000) return null
+    for (let i = 0; i < this.state.buyingPower.length; i++) {
+      let char = this.state.buyingPower[i];
+      if (!nums.includes(char)) {
+        return null
+      }
+    }
+    console.log(this.state.buyingPower.split(",").join(""))
+    // this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)
+    this.props.updateBuyingPower(parseInt(this.state.buyingPower.split(",").join("")) + this.props.user.buying_power, this.props.user.id)
     this.setState({buyingPower: ""})
   }
 
@@ -355,7 +366,7 @@ class MainPage extends React.Component {
                                   <label className="dash-toggle-input-0-0">
                                     Amount
 
-                                    <input className="dash-toggle-input-0" value={this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
+                                    <input className="dash-toggle-input-0" value={this.state.buyingPower.length >= 4 ? numberWithCommas(this.state.buyingPower.split(",").join("")) : this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
                                   </label>
                                 </div>
                                 <div className="dash-toggle-input-1">
