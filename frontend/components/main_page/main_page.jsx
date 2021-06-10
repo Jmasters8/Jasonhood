@@ -69,7 +69,12 @@ class MainPage extends React.Component {
 
   openEmojis(e) {
     e.preventDefault()
-    document.getElementsByClassName('watch-list-edit-emoji')[0].style.display = "block"
+    if (document.getElementsByClassName("watch-list-edit-emoji")[0].style.display === "none" || document.getElementsByClassName('watch-list-edit-emoji')[0].style.display === "") {
+      document.getElementsByClassName('watch-list-edit-emoji')[0].style.display = "block"
+    } else {
+      document.getElementsByClassName('watch-list-edit-emoji')[0].style.display = "none"
+    }
+    
   }
 
   showInfo() {
