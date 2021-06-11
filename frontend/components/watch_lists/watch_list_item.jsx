@@ -108,10 +108,11 @@ class WatchListItem extends React.Component {
 
     for (let key in this.props.stocks) {
 
-      if (key === this.props.asset.ticker) {
-        change = (this.props.stocks[key].c - this.props.stocks[key].o)
+      if (key === this.props.asset.ticker && this.props.stocks[key].data) {
+        change = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0])
       }
     }
+    
     
     if (change > 0) {
       name = "delete-watched-item-green"
