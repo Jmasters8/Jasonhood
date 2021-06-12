@@ -65,6 +65,11 @@ class LoginForm extends React.Component {
 
 
   render() {
+    if (this.props.loginErrors.length !== 0 && document.getElementsByClassName("error-img-1")[0]) {
+      document.getElementsByClassName("error-img-1")[0].style.display = "block";
+    } else if (this.props.loginErrors.length === 0 && document.getElementsByClassName("error-img-1")[0]) {
+      document.getElementsByClassName("error-img-1")[0].style.display = "none";
+    }
   
     return (
       <div className="login-form">
@@ -116,7 +121,7 @@ class LoginForm extends React.Component {
                               <div className="login-errors-4">
                                 <h4 className="login-errors-5">
                                   <div className="login-errors-img">
-                                    <img className="error-img-1" src="https://image.freepik.com/free-icon/exclamation-mark-circle_318-9808.jpg" alt=""/>
+                                    <img className="error-img-1" src="https://i.imgur.com/gBTg0TL.jpg" alt=""/>
                                   </div>
 
                                   <div className="login-errors-text">
