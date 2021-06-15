@@ -286,17 +286,13 @@ class HomeGraph extends React.Component {
       for (let e = 0; e < elements.length; e++) {
         elements[e].addEventListener("mouseenter", event => {
           if (event.target === elements[e]) {
-            for (let a = 0; a < arrows.length; a++) {
-              arrows[a].style.content = 'url("https://i.imgur.com/2vngOYR.png")'
-            }
+            arrows[e].style.content = 'url("https://i.imgur.com/2vngOYR.png")'
           }
         })
 
         elements[e].addEventListener("mouseleave", event => {
           if (event.target === elements[e]) {
-            for (let a = 0; a < arrows.length; a++) {
-              arrows[a].style.content = 'url("https://i.imgur.com/9xOZVK8.png")'
-            }
+            arrows[e].style.content = 'url("https://i.imgur.com/9xOZVK8.png")'
           }
         })
       }
@@ -304,16 +300,12 @@ class HomeGraph extends React.Component {
       for (let e = 0; e < elements.length; e++) {
         elements[e].addEventListener("mouseenter", event => {
           if (event.target === elements[e]) {
-            for (let a = 0; a < arrows.length; a++) {
-              arrows[e].style.content = 'url("https://i.imgur.com/niRCr40.png")'
-            }
+            arrows[e].style.content = 'url("https://i.imgur.com/niRCr40.png")'
           }
         })
         elements[e].addEventListener("mouseleave", event => {
           if (event.target === elements[e]) {
-            for (let a = 0; a < arrows.length; a++) {
-              arrows[e].style.content = 'url("https://i.imgur.com/9xOZVK8.png")'
-            }
+            arrows[e].style.content = 'url("https://i.imgur.com/9xOZVK8.png")'
           }
         })
       }
