@@ -18,38 +18,54 @@ class WatchLists extends React.Component {
   }
 
   showForm() {
+    let color = document.getElementById("colors").innerHTML
     document.getElementById("watch-list-form").style.display = "block";
+    document.getElementById('smilies').style.color = color
+    document.getElementById('animals').style.color = "white"
+    document.getElementById('items').style.color = "white"
+    document.getElementById('smilies').style.borderBottom = `1px solid ${color}`
+    document.getElementById('animals').style.borderBottom = "none"
+    document.getElementById('items').style.borderBottom = "none"
   }
 
   setSmilies() {
     this.setState({emojis: "smilies"})
-    document.getElementById('smilies').style.color = "#00c805"
+    let color = document.getElementById("colors").innerHTML
+    // document.getElementById('smilies').style.color = "#00c805"
+    document.getElementById('smilies').style.color = color
     document.getElementById('animals').style.color = "white"
     document.getElementById('items').style.color = "white"
 
-    document.getElementById('smilies').style.borderBottom = "1px solid #00c805"
+    // document.getElementById('smilies').style.borderBottom = "1px solid #00c805"
+    document.getElementById('smilies').style.borderBottom = `1px solid ${color}`
     document.getElementById('animals').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
   }
 
   setAnimals() {
     this.setState({emojis: "animals"})
-    document.getElementById('animals').style.color = "#00c805"
+    let color = document.getElementById("colors").innerHTML
+    // document.getElementById('animals').style.color = "#00c805"
+    document.getElementById('animals').style.color = color
     document.getElementById('smilies').style.color = "white"
     document.getElementById('items').style.color = "white"
 
-    document.getElementById('animals').style.borderBottom = "1px solid #00c805"
+    // document.getElementById('animals').style.borderBottom = "1px solid #00c805"
+    document.getElementById('animals').style.borderBottom = `1px solid ${color}`
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
   }
 
   setItems() {
     this.setState({emojis: "items"})
-    document.getElementById('items').style.color = "#00c805"
+    let color = document.getElementById("colors").innerHTML
+    // document.getElementById('items').style.color = "#00c805"
+    document.getElementById('items').style.color = color
     document.getElementById('smilies').style.color = "white"
     document.getElementById('animals').style.color = "white"
 
-    document.getElementById('items').style.borderBottom = "1px solid #00c805"
+    // document.getElementById('items').style.borderBottom = "1px solid #00c805"
+    document.getElementById('items').style.borderBottom = `1px solid ${color}`
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('animals').style.borderBottom = "none"
   }

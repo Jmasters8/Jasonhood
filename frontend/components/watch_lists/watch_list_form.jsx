@@ -37,7 +37,11 @@ class WatchListForm extends React.Component {
 
   chooseEmoji() {
     // this.setState({emoji: "😂"})
-    document.getElementById("emoji-modal").style.display = "block";
+    if (document.getElementById("emoji-modal").style.display === "none" || document.getElementById("emoji-modal").style.display === "") {
+      document.getElementById("emoji-modal").style.display = "block";
+    } else if (document.getElementById("emoji-modal").style.display === "block") {
+      document.getElementById("emoji-modal").style.display = "none";
+    }
   }
 
   render() {

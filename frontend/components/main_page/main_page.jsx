@@ -669,6 +669,8 @@ class MainPage extends React.Component {
             </div>
           </section>
         </div>
+        <div id="colors"></div>
+      
         
       </div>
     )

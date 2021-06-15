@@ -443,6 +443,13 @@ class HomeGraph extends React.Component {
       document.getElementsByClassName("watch-list-form-create-1")[0].className = "watch-list-form-create-1-red"
     }
 
+    //watch list emojis text
+    if (price >= 0 && document.getElementById("colors")) {
+      document.getElementById("colors").innerHTML = "rgb(0, 200, 5)"
+    } else {
+      document.getElementById("colors").innerHTML = "rgb(255, 80, 0)"
+    }
+
 
     return(
       <div className="main-graph-1">
