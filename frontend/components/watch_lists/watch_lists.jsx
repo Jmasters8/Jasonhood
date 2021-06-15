@@ -18,8 +18,15 @@ class WatchLists extends React.Component {
   }
 
   showForm() {
+
+    if (document.getElementById("watch-list-form")) {
+      document.getElementById("watch-list-form").id = "watch-list-toggled"
+    } else {
+      document.getElementById("watch-list-toggled").id = "watch-list-form"
+    }
+
     let color = document.getElementById("colors").innerHTML
-    document.getElementById("watch-list-form").style.display = "block";
+    // document.getElementById("watch-list-form").style.display = "block";
     document.getElementById('smilies').style.color = color
     document.getElementById('animals').style.color = "white"
     document.getElementById('items').style.color = "white"

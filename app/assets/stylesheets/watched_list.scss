@@ -267,11 +267,37 @@
   // position: absolute;
   top: 164px;
   width: 100%;
-  display: none;
 }
 
 .watch-list-form-1 {
   padding: 8px 24px 0px 18px;
+  
+}
+
+.watch-list-form-1-show {
+  visibility: visible;
+  will-change: height;
+  padding: 8px 24px 0px 18px;
+  opacity: 1;
+  max-height: 1000px;
+  transition: all 0.8s linear;
+}
+
+#watch-list-form {
+  visibility: hidden;
+  will-change: height;
+  opacity: 0;
+  max-height: 0;
+  transition: all .4s linear;
+}
+
+#watch-list-toggled {
+  visibility: visible;
+  will-change: height;
+  display: block;
+  opacity: 1;
+  max-height: 1000px;
+  transition: all .4s linear;
 }
 
 .watch-list-form-inputs {

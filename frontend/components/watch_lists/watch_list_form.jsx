@@ -15,8 +15,9 @@ class WatchListForm extends React.Component {
 
   hideForm(e) {
     e.preventDefault()
-    document.getElementById("watch-list-form").style.display = "none";
+    // document.getElementById("watch-list-form").style.display = "none";
     document.getElementById("emoji-modal").style.display = "none";
+    document.getElementById("watch-list-toggled").id = "watch-list-form"
   }
 
   handleInput(type) {
@@ -48,7 +49,7 @@ class WatchListForm extends React.Component {
   
     return(
       <div id="watch-list-form" className="watch-list-form">
-        <form className="watch-list-form-1">
+        <form id="watch-list-toggle" className="watch-list-form-1">
           <div className="watch-list-form-inputs">
             <button onClick={this.chooseEmoji} type="button" className="watch-list-form-inputs-emoji">
               <div className="watch-list-form-inputs-emoji-1">
