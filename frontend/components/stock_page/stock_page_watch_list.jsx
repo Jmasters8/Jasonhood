@@ -17,12 +17,19 @@ class StockPageWatchList extends React.Component {
     this.setItems = this.setItems.bind(this);
     this.setEmoji = this.setEmoji.bind(this);
     this.createList = this.createList.bind(this);
+    this.showForm = this.showForm.bind(this);
   }
 
   showForm(e) {
     e.preventDefault();
     document.getElementsByClassName("create-new-list")[0].style.display = "none"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "block"
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = this.props.color
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = `1px solid ${this.props.color}`
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "white"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "white"
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "none"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "none"
   }
 
   handleInput(type) {
@@ -31,12 +38,18 @@ class StockPageWatchList extends React.Component {
 
   openEmojis(e) {
     e.preventDefault();
-    document.getElementsByClassName("stock-page-emojis")[0].style.display = "block"
+    if (document.getElementsByClassName("stock-page-emojis")[0].style.display === "none" || document.getElementsByClassName("stock-page-emojis")[0].style.display === "") {
+      document.getElementsByClassName("stock-page-emojis")[0].style.display = "block"
+    } else if (document.getElementsByClassName("stock-page-emojis")[0].style.display === "block") {
+      document.getElementsByClassName("stock-page-emojis")[0].style.display = "none"
+    }
   }
 
   closeModal(e) {
     e.preventDefault();
-    document.getElementsByClassName("add-watch-list")[0].style.visibility = "hidden"
+    document.getElementsByClassName("add-watch-list")[0].style.visibility = "hidden";
+    document.getElementsByClassName("add-watch-list-3")[0].style.display = "none";
+    document.getElementsByClassName("stock-page-emojis")[0].style.display = "none"
   }
 
   closeForm(e) {
@@ -44,6 +57,7 @@ class StockPageWatchList extends React.Component {
     document.getElementsByClassName("create-new-list")[0].style.display = "block"
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
     document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = "💡"
+    document.getElementsByClassName("stock-page-emojis")[0].style.display = "none"
   }
   
   createList(e) {
@@ -62,33 +76,39 @@ class StockPageWatchList extends React.Component {
 
   setSmilies() {
     this.setState({emojis: "smilies"})
-    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = "#00c805"
+    // document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = "#00c805"
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = this.props.color
     document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "white"
     document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "white"
 
-    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = "1px solid #00c805"
+    // document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = "1px solid #00c805"
+    document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = `1px solid ${this.props.color}`
     document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "none"
     document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "none"
   }
 
   setAnimals() {
     this.setState({emojis: "animals"})
-    document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "#00c805"
+    // document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "#00c805"
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = this.props.color
     document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = "white"
     document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "white"
 
-    document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "1px solid #00c805"
+    // document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "1px solid #00c805"
+    document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = `1px solid ${this.props.color}`
     document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = "none"
     document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "none"
   }
 
   setItems() {
     this.setState({emojis: "items"})
-    document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "#00c805"
+    // document.getElementsByClassName('stock-page-emojis-items')[0].style.color = "#00c805"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.color = this.props.color
     document.getElementsByClassName('stock-page-emojis-smilies')[0].style.color = "white"
     document.getElementsByClassName('stock-page-emojis-animals')[0].style.color = "white"
 
-    document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "1px solid #00c805"
+    // document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = "1px solid #00c805"
+    document.getElementsByClassName('stock-page-emojis-items')[0].style.borderBottom = `1px solid ${this.props.color}`
     document.getElementsByClassName('stock-page-emojis-smilies')[0].style.borderBottom = "none"
     document.getElementsByClassName('stock-page-emojis-animals')[0].style.borderBottom = "none"
   }

@@ -348,6 +348,9 @@ class Stock extends React.Component {
     let inputFocus;
     priceChange >= 0 ? inputFocus = "add-watch-list-input-2" : inputFocus = "add-watch-list-input-2-red"
 
+    let color;
+    priceChange >= 0 ? color = "rgb(0, 200, 5)" : color = "rgb(255, 80, 0)"
+
     let eles = document.getElementsByClassName("navbar-list-word")
     
     if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
@@ -1031,6 +1034,7 @@ class Stock extends React.Component {
           cancelList={cancelList}
           cancel={cancel}
           inputFocus={inputFocus}
+          color={color}
           />
         </div>
       )

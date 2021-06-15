@@ -111,7 +111,7 @@ class StockForm extends React.Component {
     
     let sellShares = () => {
       if ((this.state.sharesAmount < parseInt(this.state.shares))) {
-        this.setState({showSellError: !this.state.showSellError}, () => console.log(this.state.showSellError))
+        this.setState({showSellError: !this.state.showSellError})
         this.showSellError();
         return null
       }
@@ -200,7 +200,8 @@ class StockForm extends React.Component {
   }
 
   openWatchListModal() {
-    document.getElementsByClassName("add-watch-list")[0].style.visibility = "visible"
+    document.getElementsByClassName("add-watch-list")[0].style.visibility = "visible";
+    document.getElementsByClassName("create-new-list")[0].style.display = "block";
   }
 
   // setSharesAmount(shares) {

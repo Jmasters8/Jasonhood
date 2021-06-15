@@ -209,7 +209,7 @@
   background-color: transparent;
   border: none;
   border-bottom: 1px solid transparent;
-  cursor: pointer;
+  cursor: default;
   display: flex;
   padding: 1px 1px 0 12px;
   position: relative;
@@ -250,7 +250,6 @@
 .trade-stock-shares-12 {
   display: flex;
   padding-right: 4px;
-  cursor: pointer;
   height: 16px;
   width: 16px;
   margin-right: 3px;
@@ -261,7 +260,6 @@
 .trade-stock-shares-13 {
   display: inline-flex;
   color: white;
-  cursor: pointer;
   height: inherit;
   width: inherit;
   overflow: visible;
@@ -1094,7 +1092,8 @@
 }
 
 .related-lists-8:hover {
-  cursor: pointer;
+  // cursor: pointer;
+  cursor: default;
   background-color: rgb(30,33,36);
 }
 
@@ -1148,7 +1147,8 @@
 }
 
 .related-lists-8-2:hover {
-  cursor: pointer;
+  // cursor: pointer;
+  cursor: default;
   background-color: rgb(30,33,36);
 }
 
@@ -1172,7 +1172,8 @@
 }
 
 .related-lists-8-3:hover {
-  cursor: pointer;
+  // cursor: pointer;
+  cursor: default;
   background-color: rgb(30,33,36);
 }
 
