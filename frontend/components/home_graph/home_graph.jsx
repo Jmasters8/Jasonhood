@@ -446,7 +446,7 @@ class HomeGraph extends React.Component {
     //watch list emojis text
     if (price >= 0 && document.getElementById("colors")) {
       document.getElementById("colors").innerHTML = "rgb(0, 200, 5)"
-    } else {
+    } else if (price < 0 && document.getElementById("colors")) {
       document.getElementById("colors").innerHTML = "rgb(255, 80, 0)"
     }
 
