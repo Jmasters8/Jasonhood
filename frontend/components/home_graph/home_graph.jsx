@@ -210,7 +210,7 @@ class HomeGraph extends React.Component {
     //CSS CHANGES BASED ON UP OR DOWN DAY
     if (document.getElementById("percent-change") && document.getElementById("price-change")) {
       percent >= 0 ? document.getElementById("percent-change").innerHTML = `(+${percent.toFixed(2)}%)` : document.getElementById("percent-change").innerHTML = `(${percent.toFixed(2)}%)`
-      price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `$${numberWithCommas(price.toFixed(2))}`
+      price >= 0 ? document.getElementById("price-change").innerHTML = `+$${numberWithCommas(price.toFixed(2))}` : document.getElementById("price-change").innerHTML = `-$${numberWithCommas((price * - 1).toFixed(2))}`
     }
 
     if (document.getElementsByClassName("watch-list-button-green")[0] || document.getElementsByClassName("watch-list-button-red")[0]) {
