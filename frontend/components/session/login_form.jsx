@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import typingSound from '../../../app/assets/typing2.mp3'
+import typingSound from '../../../app/assets/images/typing2.mp3'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -34,22 +34,22 @@ class LoginForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    let typing = new Audio(typingSound)
-    typing.volume = 0.4
-    let playTyping = typing.play()
-    if (playTyping !== undefined) {
-      playTyping.then(function() {
+    // let typing = new Audio(typingSound)
+    // typing.volume = 0.4
+    // let playTyping = typing.play()
+    // if (playTyping !== undefined) {
+    //   playTyping.then(function() {
 
-      }).catch(function(error) {
+    //   }).catch(function(error) {
         
-      })
-    }
+    //   })
+    // }
       
     let email = "MaidMarian4evr@gmail.com".split("");
     let password = "stonks12345".split("")
-    setTimeout(() => {
-      typing.pause()
-    }, 3600)
+    // setTimeout(() => {
+    //   typing.pause()
+    // }, 3600)
     
     setTimeout(() => {
       this.demoSignIn(email, password)
