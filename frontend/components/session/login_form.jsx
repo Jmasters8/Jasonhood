@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import typingSound from './typing.mp3'
+import typingSound2 from './typing2.mp3'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -25,12 +27,49 @@ class LoginForm extends React.Component {
     this.props.login(user).then(() => this.props.history.push('/'))
   }
 
+  // handleDemo(e) {
+  //   e.preventDefault();
+  //   const demoUser = { email: 'MaidMarian4evr@gmail.com', password: 'stonks12345'};
+  //   this.props.login(demoUser).then(() => this.props.history.push('/'))
+  // }
+
   handleDemo(e) {
     e.preventDefault();
-    const demoUser = { email: 'MaidMarian4evr@gmail.com', password: 'stonks12345'};
-    this.props.login(demoUser).then(() => this.props.history.push('/'))
+    let typing = new Audio(typingSound2)
+    typing.volume = 0.4
+    typing.play()
+    let email = "MaidMarian4evr@gmail.com".split("");
+    let password = "stonks12345".split("")
+    setTimeout(() => {
+      typing.pause()
+    }, 3600)
     
+    setTimeout(() => {
+      this.demoSignIn(email, password)
+    }, 500)
   }
+
+  demoSignIn(email, password) {
+    
+    if (email.length > 0) {
+      this.setState({ email: this.state.email + email.shift() }, 
+        () => window.setTimeout(() => this.demoSignIn(email, password), 90)
+      );
+    } else if (password.length > 0) {
+      this.setState({ password: this.state.password + password.shift() },
+        () => window.setTimeout(() => this.demoSignIn(email, password), 90)
+      );
+    } else {
+      this.props.login(this.state)
+    }
+  }
+
+  // playSound(e) {
+  //   e.preventDefault()
+  //   let typing = new Audio(typingSound)
+  //   typing.play();
+  //   console.log('potato')
+  // }
 
   componentDidMount() {
     this.props.clearErrors()
@@ -147,6 +186,9 @@ class LoginForm extends React.Component {
                         &nbsp; &nbsp; &nbsp; &nbsp;
                         <button className="login-submit-button-1" onClick={this.handleDemo}>
                           <span className="login-submit-button-2">Demo</span>
+                        </button>
+                        <button onClick={this.playSound} >
+                          play sound
                         </button>
 
                       </div>

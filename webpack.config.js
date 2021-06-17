@@ -1,4 +1,5 @@
 const path = require('path');
+var SRC = path.resolve(__dirname, 'src/main/js');
 
 module.exports = {
   context: __dirname,
@@ -18,7 +19,31 @@ module.exports = {
             presets: ['@babel/env', '@babel/react']
           }
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif|mp3)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       }
+      // {
+      //   test: /\.mp3$/,
+      //   use: 'file-loader'
+      // }
+      // {
+      //   test: /\.(png|svg|jpg|gif|mp3)$/,
+      //   use: ['file-loader']
+      // }
+
+      // {
+      //   test: /\.mp3$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: 'static/media/[name].[hash:8].[ext]'
+      //   }
+      // }
     ]
   },
   devtool: 'source-map',

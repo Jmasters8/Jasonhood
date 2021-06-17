@@ -8,6 +8,7 @@
     "babel-loader": "^8.2.2",
     "chart.js": "^2.9.4",
     "date-fns": "^2.20.3",
+    "file-loader": "^6.2.0",
     "moment": "^2.29.1",
     "odometer": "^0.4.8",
     "react": "^17.0.2",
