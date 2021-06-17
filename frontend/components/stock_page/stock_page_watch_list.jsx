@@ -69,7 +69,6 @@ class StockPageWatchList extends React.Component {
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none"
     document.getElementsByClassName("add-watch-list-emoji-3")[0].innerHTML = "💡"
     // document.getElementsByClassName("add-watch-list-input-2")[0].value = ""
-    console.log(document.getElementsByClassName("add-watch-list-input-2").length)
     if (document.getElementsByClassName("add-watch-list-input-2")[0]) document.getElementsByClassName("add-watch-list-input-2")[0].value = "nothing"
     if (document.getElementsByClassName("add-watch-list-input-2-red")[0]) document.getElementsByClassName("add-watch-list-input-2-red")[0].value = ""
   }
@@ -133,7 +132,7 @@ class StockPageWatchList extends React.Component {
     }
     
     for (let i = 0; i < categories.length; i++) {
-      if (document.getElementsByClassName(`create-new-list-category-checkbox-empty${i}`)[0].style.content === 'url("https://i.imgur.com/eqjgMg7.png")') {
+      if (document.getElementsByClassName(`create-new-list-category-checkbox-empty${i}`)[0].style.content === checked) {
         for (let j = 0; j < watchedAssets.length; j++) {
           if (watchedAssets[j].ticker === this.props.ticker && watchedAssets[j].category === categories[i][0]) {
             document.getElementsByClassName("watch-list-error")[0].style.display = "block"
@@ -141,7 +140,7 @@ class StockPageWatchList extends React.Component {
           }
         }
 
-
+        console.log('is this hitting')
         this.props.addWatchedAsset(this.props.ticker, this.props.watcherId, null, categories[i][0])
       } 
     }
