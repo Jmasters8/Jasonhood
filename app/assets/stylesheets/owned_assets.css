@@ -1,0 +1,146 @@
+.right-1 {
+  margin-right: 0;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 27.77778%;
+      flex: 0 0 27.77778%;
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 276px;
+}
+
+.right-2 {
+  margin-bottom: -64px;
+  margin-right: -24px;
+  position: -webkit-sticky;
+  position: sticky;
+  padding: 24px;
+  top: calc((64px, 64px) + 12px);
+}
+
+.right-2 ::-webkit-scrollbar {
+  width: 0;
+}
+
+.right-3 {
+  height: 100%;
+  background-color: #1e2124;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #4f565a;
+  position: relative;
+  direction: ltr;
+  overflow-y: scroll;
+  will-change: transform;
+  min-width: 276px;
+  min-height: 500px;
+  padding-bottom: 30px;
+  max-height: 1100px;
+}
+
+.right-4 {
+  width: auto;
+  overflow: hidden;
+  border-bottom: 1px solid #40494e;
+  padding-bottom: 5px;
+}
+
+.right-5 {
+  margin: 0px;
+  height: 52px;
+  width: 261px;
+}
+
+.right-6 {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: #1e2124;
+  border-bottom: 1px solid;
+  border-color: #40494e;
+  border-top: 1px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 52px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 4px 24px 0px;
+  width: 228px;
+}
+
+.right-7 {
+  color: white;
+  text-decoration: unset;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.right-8 {
+  height: 60px;
+  left: 0px;
+  position: absolute;
+  top: 52px;
+  width: 100%;
+  padding-top: 5px;
+}
+
+.right-9 {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+      align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 0 24px;
+}
+
+.right-10 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 50%;
+      flex: 0 1 50%;
+  margin-right: 12px;
+  min-width: 0;
+}
+
+.right-11 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 50%;
+      flex: 0 1 50%;
+  margin-right: 12px;
+  min-width: 0;
+}
+
+.right-12 {
+  padding-bottom: 2px;
+}
+
+.right-13 {
+  color: white;
+  text-decoration: unset;
+}
+
+.right-14 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.right-15 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.right-16 {
+  color: white;
+  text-decoration: unset;
+}
+/*# sourceMappingURL=owned_assets.css.map */

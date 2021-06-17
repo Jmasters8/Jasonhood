@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import typingSound from './typing.mp3'
-import typingSound2 from './typing2.mp3'
+import typingSound from '../../../app/assets/typing2.mp3'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -35,7 +34,7 @@ class LoginForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    let typing = new Audio(typingSound2)
+    let typing = new Audio(typingSound)
     typing.volume = 0.4
     typing.play()
     let email = "MaidMarian4evr@gmail.com".split("");
