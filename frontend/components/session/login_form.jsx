@@ -37,6 +37,12 @@ class LoginForm extends React.Component {
     let typing = new Audio(typingSound)
     typing.volume = 0.4
     typing.play()
+      .then(() => {
+
+      })
+      .catch(error => {
+        console.log(error)
+      })
     let email = "MaidMarian4evr@gmail.com".split("");
     let password = "stonks12345".split("")
     setTimeout(() => {
