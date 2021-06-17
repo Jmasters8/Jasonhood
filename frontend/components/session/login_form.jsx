@@ -187,9 +187,6 @@ class LoginForm extends React.Component {
                         <button className="login-submit-button-1" onClick={this.handleDemo}>
                           <span className="login-submit-button-2">Demo</span>
                         </button>
-                        <button onClick={this.playSound} >
-                          play sound
-                        </button>
 
                       </div>
                     </footer>
