@@ -38,7 +38,6 @@ class MainPage extends React.Component {
         return null
       }
     }
-    console.log(this.state.buyingPower.split(",").join(""))
     // this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)
     this.props.updateBuyingPower(parseInt(this.state.buyingPower.split(",").join("")) + this.props.user.buying_power, this.props.user.id)
     this.setState({buyingPower: ""})
