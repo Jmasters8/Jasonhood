@@ -33,6 +33,13 @@ class WatchLists extends React.Component {
     document.getElementById('smilies').style.borderBottom = `1px solid ${color}`
     document.getElementById('animals').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
+
+    document.getElementsByClassName("watch-list-form-inputs-emoji-3")[0].innerHTML = "💡"
+    if (document.getElementsByClassName("watch-list-form-inputs-title-2-red")[0]) {
+      document.getElementsByClassName("watch-list-form-inputs-title-2-red")[0].value = ""
+    } else if (document.getElementsByClassName("watch-list-form-inputs-title-2")[0]) {
+      document.getElementsByClassName("watch-list-form-inputs-title-2")[0].value = ""
+    }
   }
 
   setSmilies() {
