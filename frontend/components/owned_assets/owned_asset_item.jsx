@@ -85,7 +85,7 @@ class OwnedAssetItem extends React.Component {
       
       for (let key in this.props.stocks) {
         
-        if (key === this.props.ticker && this.props.stocks[key].data) {
+        if (key === this.props.ticker && this.props.stocks[key] && this.props.stocks[key].data) {
           return (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1]).toFixed(2)
           // return this.props.stocks[key].data.c[this.props.stocks.key.data.c.length]
         }
