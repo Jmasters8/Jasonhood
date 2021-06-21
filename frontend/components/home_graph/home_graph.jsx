@@ -347,7 +347,7 @@ class HomeGraph extends React.Component {
     let cogs = document.getElementsByClassName("watch-list-dropdown-edit-modal-cog");
     let cogText = document.getElementsByClassName("watch-list-dropdown-edit-modal-4");
     if (price >= 0 && cog) {
-      for (let c = 0; c < ellipsis.length; c++) {
+      for (let c = 0; c < cog.length; c++) {
         cog[c].addEventListener("mouseenter", event => {
           if (event.target === cog[c]) {
             cogs[c].style.content = 'url("https://i.imgur.com/64HsmhZ.png")'
