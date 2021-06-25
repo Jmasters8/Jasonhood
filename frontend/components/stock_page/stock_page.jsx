@@ -860,13 +860,13 @@ class Stock extends React.Component {
                               <div className="about-info-5">
                                 <span className="about-info-6">
                                   <div className="about-info-7">
-                                    Employees
+                                    Sector
                                   </div>
                                 </span>
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                  {numberWithCommas(parseFloat(this.props.stock.FullTimeEmployees))}
+                                  {((this.props.stock.Sector)[0]).toUpperCase() + (this.props.stock.Sector).slice(1, this.props.stock.Sector.length).toLowerCase()}
                                 </div>
                               </div>
 
