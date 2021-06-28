@@ -95,7 +95,7 @@ class GraphTwo extends React.Component {
             <Tooltip 
             content={<CustomToolTip />} cursor={{ stroke: "white", strokeWidth: 0.5}} isAnimationActive={false} offset={-40} position={{ y: -35 }} allowEscapeViewBox={{x: true, y: true}}/>
             <Tooltip />
-            <ReferenceLine y={openPrice} strokeWidth={1.5} strokeHeight={1.5} strokeDasharray="1 6" stroke="lightslategray" />
+            <ReferenceLine ifOverflow="extendDomain" y={openPrice} strokeWidth={1.5} strokeHeight={1.5} strokeDasharray="1 6" stroke="lightslategray" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
