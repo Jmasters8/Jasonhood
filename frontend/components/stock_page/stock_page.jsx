@@ -257,7 +257,7 @@ class Stock extends React.Component {
     if ((this.props.stock.data['c'][this.props.stock.data['c'].length - 1] - this.props.stock.data['o'][0]).toFixed(2) >= 0) {
       return '+' + "$" + (this.props.stock.data['c'][this.props.stock.data['c'].length - 1] - this.props.stock.data['o'][0]).toFixed(2)
     } else {
-      return (this.props.stock.data['c'][this.props.stock.data['c'].length - 1] - this.props.stock.data['o'][0]).toFixed(2)
+      return "-" + "$" + (this.props.stock.data['c'][this.props.stock.data['c'].length - 1] - this.props.stock.data['o'][0]).toFixed(2) * -1
     }
   }
 
