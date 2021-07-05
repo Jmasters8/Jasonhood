@@ -17,7 +17,18 @@ class Stock extends React.Component {
     super(props);
 
     let currentDate = new Date().toDateString()
-    if (currentDate.includes("Sat")) {
+
+    if (currentDate.includes("Mon")) {
+      this.state = {
+        collapsed: true,
+        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 259200,
+        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 259200,
+        shares: 0,
+        buyingPower: this.props.currentUser.buying_power,
+        currentStock: "",
+        assets: []
+      }
+    } else if (currentDate.includes("Sat")) {
       this.state = {
         collapsed: true,
         start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
@@ -50,6 +61,40 @@ class Stock extends React.Component {
         loading: true
        }
     }
+
+    // if (currentDate.includes("Sat")) {
+    //   this.state = {
+    //     collapsed: true,
+    //     start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
+    //     now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400,
+    //     shares: 0,
+    //     buyingPower: this.props.currentUser.buying_power,
+    //     currentStock: "",
+    //     assets: []
+    //   }
+    // } else if (currentDate.includes("Sun")) {
+    //   this.state = {
+    //     collapsed: true,
+    //     start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
+    //     now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800,
+    //     shares: 0,
+    //     buyingPower: this.props.currentUser.buying_power,
+    //     currentStock: "",
+    //     assets: []
+    //   }
+    // } else {
+    //   this.state = { 
+    //     collapsed: true,
+    //     start: new Date().setHours(6, 0, 0, 0) / 1000,
+    //     now: new Date().setHours(13, 0, 0, 0) / 1000,
+    //     shares: 0,
+    //     buyingPower: this.props.currentUser.buying_power,
+    //     currentStock: this.props.currentStock,
+    //     assets: this.props.assets,
+    //     currentStock: "",
+    //     loading: true
+    //    }
+    // }
 
     this.toggleDescription = this.toggleDescription.bind(this);
     this.handleClick = this.handleClick.bind(this);
