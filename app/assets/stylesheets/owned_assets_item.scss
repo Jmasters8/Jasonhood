@@ -3,7 +3,6 @@
   top: 52px;
   left: 0px;
   width: 100%;
-  // border-bottom: 1px solid #40494e;
   padding-bottom: 5px;
 }
 
@@ -29,7 +28,6 @@
   height: 60px;
   justify-content: space-between;
   padding-right: 24px;
-  // padding-left: 20px;
   padding-left: 7px;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -67,17 +65,11 @@
 
 .delete-watched-item {
   align-self: center;
-  // font-size: 20px;
-  // padding-left: 5px;
   height: 20px;
   width: 20px;
   cursor: pointer;
   visibility: hidden;
 }
-
-// .delete-watched-item:hover {
-//   content: url("https://i.imgur.com/petjNSP.png")
-// }
 
 .delete-watched-item-green {
   align-self: center;
@@ -105,7 +97,6 @@
 
 .owned-asset-item-ticker {
   -webkit-box-flex: 0;
-  // flex: 0 1 50%;
   width: 70px;
   margin-right: 12px;
 }

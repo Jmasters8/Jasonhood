@@ -1,12 +1,8 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
-import GraphContainer from '../graph/graph_container';
 import HomeGraph from '../home_graph/home_graph';
 import OwnedAssets from '../owned_assets/owned_assets';
 import MainPageNews from '../stock_news/main_page_news';
-import WatchListEdit from '../watch_lists/watch_list_edit';
-import Loading from '../loading';
-
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -38,14 +34,13 @@ class MainPage extends React.Component {
         return null
       }
     }
-    // this.props.updateBuyingPower(parseInt(this.state.buyingPower) + this.props.user.buying_power, this.props.user.id)
     this.props.updateBuyingPower(parseInt(this.state.buyingPower.split(",").join("")) + this.props.user.buying_power, this.props.user.id)
-    this.setState({buyingPower: ""})
+    this.setState({ buyingPower: "" })
   }
 
   handleInput(type) {
     return (e) =>
-      this.setState({[type]: e.target.value})
+      this.setState({ [type]: e.target.value })
   }
 
   handleSubmit(e) {
@@ -84,11 +79,11 @@ class MainPage extends React.Component {
     } else {
       document.getElementsByClassName('watch-list-edit-emoji')[0].style.display = "none"
     }
-    
+
   }
 
   showInfo() {
-    
+
     if (document.getElementById("dash-toggle")) {
       document.getElementById("dash-toggle").id = "dash-toggle-test"
       document.getElementById("dashboard-buying-power-2").id = "dashboard-buying-power-2-active"
@@ -99,7 +94,7 @@ class MainPage extends React.Component {
   }
 
   setSmilies() {
-    this.setState({emojis: "smilies"})
+    this.setState({ emojis: "smilies" })
     document.getElementById('smilies-2').style.color = "#00c805"
     document.getElementById('animals-2').style.color = "white"
     document.getElementById('items-2').style.color = "white"
@@ -110,7 +105,7 @@ class MainPage extends React.Component {
   }
 
   setAnimals() {
-    this.setState({emojis: "animals"})
+    this.setState({ emojis: "animals" })
     document.getElementById('animals-2').style.color = "#00c805"
     document.getElementById('smilies-2').style.color = "white"
     document.getElementById('items-2').style.color = "white"
@@ -121,7 +116,7 @@ class MainPage extends React.Component {
   }
 
   setItems() {
-    this.setState({emojis: "items"})
+    this.setState({ emojis: "items" })
     document.getElementById('items-2').style.color = "#00c805"
     document.getElementById('smilies-2').style.color = "white"
     document.getElementById('animals-2').style.color = "white"
@@ -133,11 +128,9 @@ class MainPage extends React.Component {
 
   setEmoji(emoji, e) {
     e.preventDefault()
-    // this.setState({chosenEmoji: emoji})
     document.getElementsByClassName("watch-list-edit-modal-input-emoji-2")[0].innerHTML = emoji
     document.getElementsByClassName("watch-list-edit-emoji")[0].style.display = "none";
   }
-
 
   render() {
     let assets = Object.values(this.props.assets)
@@ -192,25 +185,25 @@ class MainPage extends React.Component {
       }
     }
 
-    let smilies = 
-    "😀😁😂🤣😃😄😅😆😉😊😋😎😍😘🥰😗😙😚🙂🤗🤩🤔🤨😐😑😶🙄😏😣😥😮" +
-    "🤐😯😪😫🥱😴😌😛😜😝🤤😒😓😔😕🙃🤑😲🙁😖😞😟😤😢😭😦😧😨😩🤯" + 
-    "😬😰😱🥵🥶😳🤪😵🥴😠😡🤬😷🤒🤕🤢🤮🤧😇🥳🥺🤠🤡🤥🤫🤭🧐🤓😈👿👹👺💀" +
-    "👩👨🧑👧👦🧒👶👵👴" +
-    "💪🦵🦶👂🦻👃🤏👈👉☝👆👇✌🤞🖖🤘🤙🖐✋👌👍👎✊👊🤛🤜🤚👋🤟✍👏👐🙌🤲🙏🤝💅"
+    let smilies =
+      "😀😁😂🤣😃😄😅😆😉😊😋😎😍😘🥰😗😙😚🙂🤗🤩🤔🤨😐😑😶🙄😏😣😥😮" +
+      "🤐😯😪😫🥱😴😌😛😜😝🤤😒😓😔😕🙃🤑😲🙁😖😞😟😤😢😭😦😧😨😩🤯" +
+      "😬😰😱🥵🥶😳🤪😵🥴😠😡🤬😷🤒🤕🤢🤮🤧😇🥳🥺🤠🤡🤥🤫🤭🧐🤓😈👿👹👺💀" +
+      "👩👨🧑👧👦🧒👶👵👴" +
+      "💪🦵🦶👂🦻👃🤏👈👉☝👆👇✌🤞🖖🤘🤙🖐✋👌👍👎✊👊🤛🤜🤚👋🤟✍👏👐🙌🤲🙏🤝💅"
 
 
-    let animals = 
-    "🙈🙉🙊🐵🐶🐺🐱🦁🐯🦒🦊🦝🐮🐷🐗🐭🐹🐰🐻🐨🐼🐸🦓🐴🦄🐔🐲🐽" +
-    "🐾🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐅🐆🐎🦌🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🐁🐀🦔🐇" + 
-    "🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🦢🦜🦩🦚🦉🐦🐧🐥🐤" + 
-    "🐣🦇🦋🐌🐛🦟🦗🐜🐝🐞🦂🦠"
+    let animals =
+      "🙈🙉🙊🐵🐶🐺🐱🦁🐯🦒🦊🦝🐮🐷🐗🐭🐹🐰🐻🐨🐼🐸🦓🐴🦄🐔🐲🐽" +
+      "🐾🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐅🐆🐎🦌🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🐁🐀🦔🐇" +
+      "🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🦢🦜🦩🦚🦉🐦🐧🐥🐤" +
+      "🐣🦇🦋🐌🐛🦟🦗🐜🐝🐞🦂🦠"
 
     let items =
-    "🎈🧨✨🎉🎊🎃🎄🎋🎍🎎🎏🎑🧧🎀🎁🎗🎫🎠🎡🎢🎪🎭🖼🎨🧵🧶🛒👓🕶🦺🥽🥼🧥👔👕👖" +
-    "🩳🧣🧤🧦👗🥻👘👚🩲🩱👙👛👜👝🥾👠🥿👡👢🩰👑🧢⛑👒🎩🎓💋💄💍💎⚽🥎🏀🏐🏈" + 
-    "🏉🎱🎳⛳🥌⛸🎣🤿🛶🎿🥅🏒🥍🏏🏑🏓🏸🥏🪁🎯🥊🥋🥇🏆🎮🕹🎰🎲🔮🧩🧸🪀🃏🔊📣🎼" +
-    "🔔🎵🎤🎧📯🥁🎷🎺🎸🎻🎹🔒🔑🪓🔨🧪🩸💊🏹📸💰💸💵📄📓📚💡📞☎💣🗿⌚📈📉📌"
+      "🎈🧨✨🎉🎊🎃🎄🎋🎍🎎🎏🎑🧧🎀🎁🎗🎫🎠🎡🎢🎪🎭🖼🎨🧵🧶🛒👓🕶🦺🥽🥼🧥👔👕👖" +
+      "🩳🧣🧤🧦👗🥻👘👚🩲🩱👙👛👜👝🥾👠🥿👡👢🩰👑🧢⛑👒🎩🎓💋💄💍💎⚽🥎🏀🏐🏈" +
+      "🏉🎱🎳⛳🥌⛸🎣🤿🛶🎿🥅🏒🥍🏏🏑🏓🏸🥏🪁🎯🥊🥋🥇🏆🎮🕹🎰🎲🔮🧩🧸🪀🃏🔊📣🎼" +
+      "🔔🎵🎤🎧📯🥁🎷🎺🎸🎻🎹🔒🔑🪓🔨🧪🩸💊🏹📸💰💸💵📄📓📚💡📞☎💣🗿⌚📈📉📌"
 
     let emojiStringToArray = function (str) {
       let split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
@@ -227,9 +220,6 @@ class MainPage extends React.Component {
     let smiliesArr = emojiStringToArray(smilies)
     let animalsArr = emojiStringToArray(animals)
     let itemsArr = emojiStringToArray(items)
-
-    
-
 
     return (
       <div className="main">
@@ -254,10 +244,10 @@ class MainPage extends React.Component {
                           </div>
                           <div className="left-5">
                             <span id="price-change" className="left-6">
-                              
+
                             </span>&nbsp;
                             <span id="percent-change" className="left-6">
-                              
+
                             </span>&nbsp;
                             <span className="left-7">
                               Today
@@ -265,44 +255,42 @@ class MainPage extends React.Component {
                           </div>
                         </header>
                         <div className="dashboard-graph">
-                          <HomeGraph fetchCurrentStock={this.props.fetchCurrentStock} assets={this.props.assets} stocks={this.props.stocks}/>
+                          <HomeGraph fetchCurrentStock={this.props.fetchCurrentStock} assets={this.props.assets} stocks={this.props.stocks} />
                           <div className="main-graph-dayz">
-                                  <div className="main-graph-days-1">
-                                    <button className="main-graph-days-2">
-                                      <span className="main-graph-days-3">
-                                        1D
+                            <div className="main-graph-days-1">
+                              <button className="main-graph-days-2">
+                                <span className="main-graph-days-3">
+                                  1D
                                       </span>
-                                    </button>
-                                    <button className="main-graph-days-4">
-                                      <span className="main-graph-days-5">
-                                        1W
+                              </button>
+                              <button className="main-graph-days-4">
+                                <span className="main-graph-days-5">
+                                  1W
                                       </span>
-                                    </button>
-                                    <button className="main-graph-days-4">
-                                      <span className="main-graph-days-5">
-                                        1M
+                              </button>
+                              <button className="main-graph-days-4">
+                                <span className="main-graph-days-5">
+                                  1M
                                       </span>
-                                    </button>
-                                    <button className="main-graph-days-4">
-                                      <span className="main-graph-days-5">
-                                        3M
+                              </button>
+                              <button className="main-graph-days-4">
+                                <span className="main-graph-days-5">
+                                  3M
                                       </span>
-                                    </button>
-                                    <button className="main-graph-days-4">
-                                      <span className="main-graph-days-5">
-                                        1Y
+                              </button>
+                              <button className="main-graph-days-4">
+                                <span className="main-graph-days-5">
+                                  1Y
                                       </span>
-                                    </button>
-                                    <button className="main-graph-days-4">
-                                      <span className="main-graph-days-5">
-                                        5Y
+                              </button>
+                              <button className="main-graph-days-4">
+                                <span className="main-graph-days-5">
+                                  5Y
                                       </span>
-                                    </button>
-                                  </div>
-                                </div>
+                              </button>
+                            </div>
+                          </div>
                         </div>
-
-
 
                       </section>
                       <div className="dashboard-buying-power">
@@ -315,75 +303,75 @@ class MainPage extends React.Component {
                                 </span>
                                 <span className="dashboard-buying-power-6">
                                   <span className="dashboard-buying-power-5">
-                                  
+
                                     ${numberWithCommas(this.props.user.buying_power)}
                                   </span>
                                 </span>
                               </div>
                             </header>
                           </button>
-  
-                          <div id="dash-toggle">
-                        <div className="dash-toggle-1">
-                          <div className="dash-toggle-2">
-                            <div className="dash-toggle-3">
-                              <div className="dash-toggle-4">
-                                <div className="dash-toggle-5">
-                                  <table className="dash-toggle-6">
-                                    <tbody>
-                                      <tr className="dash-toggle-7">
-                                        <td className="dash-toggle-8">
-                                          <span className="dash-toggle-9">
-                                            Brokerage Cash
-                                          </span>
-                                        </td>
-                                        <td className="dash-filler"></td>
-                                        <td className="dash-toggle-10">
-                                          <span className="dash-toggle-9">
-                                            A lot
-                                          </span>
-                                        </td>
-                                      </tr>
-                                      <tr className="dash-toggle-7-1">
-                                        <td className="dash-toggle-8-1">
-                                          <span className="dash-toggle-9">
-                                            Buying Power
-                                          </span>
-                                        </td>
-                                        <td className="dash-filler"></td>
-                                        <td className="dash-toggle-10">
-                                          <span className="dash-toggle-9">
-                                            ${numberWithCommas(this.props.user.buying_power)}
-                                          </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                                
-                                <div className="dash-toggle-input">
-                                  <label className="dash-toggle-input-0-0">
-                                    Amount
 
-                                    <input className="dash-toggle-input-0" value={this.state.buyingPower.length >= 4 ? numberWithCommas(this.state.buyingPower.split(",").join("")) : this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text"/>
-                                  </label>
-                                </div>
-                                <div className="dash-toggle-input-1">
-                                  <div className="dash-toggle-input-2">
-                                    <button onClick={this.handleClick} className="dash-toggle-input-3">
-                                      <div className="dash-toggle-input-4">
-                                        <span className="dash-toggle-input-5">
-                                          Deposit Funds
+                          <div id="dash-toggle">
+                            <div className="dash-toggle-1">
+                              <div className="dash-toggle-2">
+                                <div className="dash-toggle-3">
+                                  <div className="dash-toggle-4">
+                                    <div className="dash-toggle-5">
+                                      <table className="dash-toggle-6">
+                                        <tbody>
+                                          <tr className="dash-toggle-7">
+                                            <td className="dash-toggle-8">
+                                              <span className="dash-toggle-9">
+                                                Brokerage Cash
+                                          </span>
+                                            </td>
+                                            <td className="dash-filler"></td>
+                                            <td className="dash-toggle-10">
+                                              <span className="dash-toggle-9">
+                                                A lot
+                                          </span>
+                                            </td>
+                                          </tr>
+                                          <tr className="dash-toggle-7-1">
+                                            <td className="dash-toggle-8-1">
+                                              <span className="dash-toggle-9">
+                                                Buying Power
+                                          </span>
+                                            </td>
+                                            <td className="dash-filler"></td>
+                                            <td className="dash-toggle-10">
+                                              <span className="dash-toggle-9">
+                                                ${numberWithCommas(this.props.user.buying_power)}
+                                              </span>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+
+                                    <div className="dash-toggle-input">
+                                      <label className="dash-toggle-input-0-0">
+                                        Amount
+
+                                    <input className="dash-toggle-input-0" value={this.state.buyingPower.length >= 4 ? numberWithCommas(this.state.buyingPower.split(",").join("")) : this.state.buyingPower} onChange={this.handleInput('buyingPower')} placeholder="$0.00" type="text" />
+                                      </label>
+                                    </div>
+                                    <div className="dash-toggle-input-1">
+                                      <div className="dash-toggle-input-2">
+                                        <button onClick={this.handleClick} className="dash-toggle-input-3">
+                                          <div className="dash-toggle-input-4">
+                                            <span className="dash-toggle-input-5">
+                                              Deposit Funds
                                         </span>
+                                          </div>
+                                        </button>
                                       </div>
-                                    </button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
 
                         </div>
                       </div>
@@ -400,7 +388,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1">
                                 <div className="dashboard-list-items-2">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/crypto/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/crypto/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Crypto</span>
                                 </div>
@@ -409,7 +397,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-1">
                                 <div className="dashboard-list-items-2-2">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">100 Most Popular</span>
                                 </div>
@@ -418,7 +406,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-2">
                                 <div className="dashboard-list-items-2-3">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/daily_movers/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/daily_movers/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Daily Movers</span>
                                 </div>
@@ -427,7 +415,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-3">
                                 <div className="dashboard-list-items-2-4">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/cannabis/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/cannabis/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Cannabis</span>
                                 </div>
@@ -436,7 +424,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-4">
                                 <div className="dashboard-list-items-2-5">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/bitcoin_family/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/bitcoin_family/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Bitcoin Family</span>
                                 </div>
@@ -445,7 +433,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-5">
                                 <div className="dashboard-list-items-2-6">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/index_etfs/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/index_etfs/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Index ETFs</span>
                                 </div>
@@ -454,7 +442,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-6">
                                 <div className="dashboard-list-items-2-6">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/altcoins/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/altcoins/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Altcoins</span>
                                 </div>
@@ -463,7 +451,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-7">
                                 <div className="dashboard-list-items-2-8">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/upcoming_earnings/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/upcoming_earnings/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Upcoming Earnings</span>
                                 </div>
@@ -472,7 +460,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-8">
                                 <div className="dashboard-list-items-2-9">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/tech_media_telecom/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/tech_media_telecom/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Tech, Media, & Telecom</span>
                                 </div>
@@ -481,7 +469,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-9">
                                 <div className="dashboard-list-items-2-10">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/energy/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/energy/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Energy</span>
                                 </div>
@@ -490,7 +478,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-10">
                                 <div className="dashboard-list-items-2-11">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/pharma/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/pharma/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Pharma</span>
                                 </div>
@@ -499,7 +487,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-11">
                                 <div className="dashboard-list-items-2-12">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/technology/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/technology/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Technology</span>
                                 </div>
@@ -508,7 +496,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-12">
                                 <div className="dashboard-list-items-2-13">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/real_estate/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/real_estate/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Real Estate</span>
                                 </div>
@@ -517,7 +505,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-13">
                                 <div className="dashboard-list-items-2-14">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/healthcare/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/healthcare/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Healthcare</span>
                                 </div>
@@ -526,7 +514,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-14">
                                 <div className="dashboard-list-items-2-15">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/food_drink/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/food_drink/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Food & Drink</span>
                                 </div>
@@ -535,7 +523,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-15">
                                 <div className="dashboard-list-items-2-16">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/banking/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/banking/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Banking</span>
                                 </div>
@@ -544,7 +532,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-16">
                                 <div className="dashboard-list-items-2-17">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/energy_water/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/energy_water/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Energy & Water</span>
                                 </div>
@@ -553,7 +541,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-17">
                                 <div className="dashboard-list-items-2-18">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/china/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/china/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">China</span>
                                 </div>
@@ -562,7 +550,7 @@ class MainPage extends React.Component {
                               <div className="dashboard-list-items-1-18">
                                 <div className="dashboard-list-items-2-19">
                                   <div className="dashboard-list-items-3">
-                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/software/portrait_48/1x.png" alt=""/>
+                                    <img className="dashboard-list-items-img" src="https://cdn.robinhood.com/app_assets/list_illustrations/software/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="dashboard-list-items-4">Software</span>
                                 </div>
@@ -571,7 +559,7 @@ class MainPage extends React.Component {
                             </div>
                           </div>
                         </div>
-                        <MainPageNews marketNews={this.props.marketNews} fetchMarketNews={this.props.fetchMarketNews}/>
+                        <MainPageNews marketNews={this.props.marketNews} fetchMarketNews={this.props.fetchMarketNews} />
                       </section>
 
                     </div>
@@ -593,12 +581,7 @@ class MainPage extends React.Component {
               </div>
             </div>
 
-
-
             <NavbarContainer />
-
-
-
 
           </div>
         </div>
@@ -629,12 +612,12 @@ class MainPage extends React.Component {
                   </button>
                   <div className="watch-list-edit-modal-input-text">
                     <div className="watch-list-edit-modal-input-text-1">
-                      <input className="watch-list-edit-modal-input-text-2" type="text"/>
+                      <input className="watch-list-edit-modal-input-text-2" type="text" />
                     </div>
                   </div>
 
                 </div>
-                
+
                 <div className="watch-list-edit-emoji">
                   <div className="watch-list-edit-emoji-1">
                     <span onClick={this.setSmilies} id="smilies-2" className="emoji-modal-categories-1">
@@ -652,7 +635,6 @@ class MainPage extends React.Component {
                   </div>
                 </div>
 
-
                 <footer className="watch-list-edit-modal-submit">
                   <div className="watch-list-edit-modal-submit-1">
                     <button onClick={this.submitEditForm} className="watch-list-edit-modal-submit-2">
@@ -669,8 +651,7 @@ class MainPage extends React.Component {
           </section>
         </div>
         <div id="colors"></div>
-      
-        
+
       </div>
     )
   }

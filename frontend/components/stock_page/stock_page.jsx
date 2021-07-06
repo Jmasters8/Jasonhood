@@ -1,16 +1,10 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import GraphTwoContainer from '../graph/graph_container_2';
-import GraphTwo from '../graph/graph_2';
 import StockNewsContainer from '../stock_news/stock_news_container';
 import StockForm from './stock_form';
 import StockPageWatchList from './stock_page_watch_list';
-// import Example from '../loading';
 import Loading from '../loading';
-import OwnedStocksInfo from './owned_stocks_info';
-
-import Odometer from 'react-odometerjs';
-import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, CartesianGrid} from "recharts";
 
 class Stock extends React.Component {
   constructor(props) {
@@ -56,131 +50,27 @@ class Stock extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
- 
-
-  // componentDidMount() {
-  //   this.setState({currentStock: this.props.match.params.symbol})
-  //   const today = new Date();
-  //   const yesterday = new Date(today);
-  //   yesterday.setDate(yesterday.getDate() - 5)
-  //   console.log("Will I MOUnt???")
-  //   if (Object.keys(this.props.currentStock).length === 0 || this.props.currentStock.stock === "None") {
-  //     // console.log(this.props.match.params.symbol, this.props.currentStock)
-  //     console.log("I mounted")
-  //     if (this.props.match.params.symbol !== this.props.currentStock) {
-  //       console.log('first')
-  //     this.props.fetchStockInfo(this.props.match.params.symbol)
-  //     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-  //     .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-  //     .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
-  //     } else {
-  //       console.log('second')
-  //       this.props.fetchStockInfo(this.props.match.params.symbol)
-  //       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-  //       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-  //     }
-  //   }
-  // }
-
-  // shouldComponentUpdate(nextProps, prevProps){
-
-  //   let prevAssets = Object.values(nextProps.assets)
-  //   let nextAssets = prevProps.assets
-  //   console.log(prevAssets, nextAssets)
-  //   let assetChange = () => {
-  //     // let prevAssets = Object.values(this.props.assets)
-  //     // let prevAssets = this.state.assets
-  //     // let nextAssets = Object.values(nextProps.assets)
-
-  //     if (prevAssets.length !== nextAssets.length) return true
-  //     // console.log(prevAssets)
-  //     // console.log(nextAssets)
-  //     for (let i = 0; i < nextAssets.length; i++) {
-  //       if (nextAssets[i].amount !== prevAssets[i].amount) {
-  //         return true
-  //       }
-  //     }
-  //     return false
-  //   }
-  //   console.log(nextProps.currentStock.stock, this.state.currentStock)
-  //   // return ((nextProps.currentStock.stock !== this.props.currentStock.stock || assetChange()))
-  //   return (nextProps.currentStock.stock !== this.state.currentStock || assetChange())
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   const today = new Date();
-  //   const yesterday = new Date(today);
-  //   yesterday.setDate(yesterday.getDate() - 5)
-  //   // console.log("prevProps: ", prevProps.currentStock.stock)
-  //   // console.log("this.props: ", this.props.currentStock.stock)
-  //   // if (this.props.stocks[this.props.match.params.symbol] && this.props.stocks[this.props.match.params.symbol].Name) return null
-  //   if (this.props.currentStock.stock === "None") return null
-
-  //   if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0) {
-  //     console.log('I just updated and did the API calls')
-  //     this.props.fetchStockInfo(this.props.match.params.symbol)
-  //     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-  //     .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-  //     // .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
-  //   }
-    
-  // }
-
-
-  // componentDidMount() {
-  //   this.setState({currentStock: this.props.match.params.symbol})
-  //   this.setState({loading: true})
-  //   // if (this.props.stocks[this.props.match.params.symbol] && this.props.stocks[this.props.match.params.symbol].Name) return null
-  //   const today = new Date();
-  //   const yesterday = new Date(today);
-  //   yesterday.setDate(yesterday.getDate() - 5)
-  //   this.props.fetchStockInfo(this.props.match.params.symbol)
-  //     .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-  //     .then(() => this.setState({loading: false}))
-  //     .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-  //     .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
-  // }
-
- 
-
   componentDidMount() {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
     
-    
     if (Object.keys(this.props.currentStock).length === 0 || Object.keys(this.props.currentStock === "None")) {
-      // this.setState({currentStock: this.props.currentStock})
-      
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
       .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
     }
-    // this.props.fetchStockInfo(this.props.match.params.symbol)
-    // .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-    // .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-
-    // .then(() => this.props.fetchStockNews(this.props.match.params.symbol), '2021-03-01', '2021-03-09')
-    // this.props.fetchStockInfo(this.props.match.params.symbol).then(() => this.props.fetchStockData(this.props.match.params.symbol, 1618318800, 1618361038))
   }
 
   shouldComponentUpdate(nextProps, prevProps){
-    // if (this.props.stocks[this.props.match.params.symbol] && this.props.stocks[this.props.match.params.symbol].Symbol) {
-    //   return false
-    // }
     let prevAssets = Object.values(nextProps.assets)
     let nextAssets = prevProps.assets
 
-    // console.log(nextProps, prevProps)
     let assetChange = () => {
-      // let prevAssets = Object.values(this.props.assets)
-      // let prevAssets = this.state.assets
-      // let nextAssets = Object.values(nextProps.assets)
 
       if (prevAssets.length !== nextAssets.length) return true
-      // console.log(prevAssets)
-      // console.log(nextAssets)
+
       for (let i = 0; i < nextAssets.length; i++) {
         if (nextAssets[i].amount !== prevAssets[i].amount) {
           return true
@@ -188,7 +78,6 @@ class Stock extends React.Component {
       }
       return false
     }
-    // return (nextProps.currentStock !== this.props.currentStock || assetChange())
     return ((nextProps.currentStock !== this.props.currentStock || assetChange()) && this.props.currentStock.stock !== "None")
   }
 
@@ -196,10 +85,8 @@ class Stock extends React.Component {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
-    // console.log("prevProps: ", prevProps.currentStock)
-    // console.log("this.props: ", this.props.currentStock)
+
     if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
-      // console.log('I just updated and did the API calls')
       this.props.fetchStockInfo(this.props.match.params.symbol)
       .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
       .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
@@ -207,16 +94,9 @@ class Stock extends React.Component {
     }
   }
 
-  
-  
-
-
-
-
   toggleDescription() {
     const currentState = this.state.collapsed;
     this.setState({ collapsed: !currentState });
-    // console.log(this.state)
   }
 
   handleInput(type) {
@@ -373,14 +253,12 @@ class Stock extends React.Component {
     }
       
 
-    ///////////////////////////////////////////////////////////////////////////
     let peRatio = parseFloat(this.props.stock.PERatio).toFixed(2)
     let dividendYield = this.props.stock.DividendYield
     let eps = this.props.stock.EPS
     if (dividendYield === "0" || dividendYield === "None") dividendYield = "−"
     if (this.props.stock.PERatio === "None" || this.props.stock.PERatio === "0") peRatio = "−"
     if (eps === "None" || eps === "0") eps = "−"
-    let percentChange = (((currentPrice - openPrice) / openPrice) * 100).toFixed(2)
     let totalPortfolio = 0;
 
     const sharesAmount = () => {
@@ -411,11 +289,8 @@ class Stock extends React.Component {
         if (asset.ticker === this.props.stock.Symbol) {
           totalAmountOfStock += (asset.amount * asset.price)
         }
-      
       }
- 
       return ((totalAmountOfStock / totalPortfolio) * 100).toFixed(2)
-      // return (totalAssets() / totalPortfolio).toFixed(2)
     }
 
 
@@ -456,7 +331,6 @@ class Stock extends React.Component {
    }
    const todaysReturnPercent = () => {
     let assets = Object.values(this.props.assets);
-    let totalAssetAmount = 0
     let shares = 0
 
     for (let i = 0; i < assets.length; i++) {
@@ -514,7 +388,6 @@ class Stock extends React.Component {
       }  
     }
 
-
    const marketValue = () => {
     let assets = Object.values(this.props.assets);
     let shares = 0
@@ -541,29 +414,18 @@ class Stock extends React.Component {
                   </div>
                   <h2 className="owned-assets-5">
                     <span className="owned-assets-6">
-                      {/* ${numberWithCommas(totalAssets())} */}
                       ${marketValue()}
                     </span>
                   </h2>
                 </header>
                 <table className="owned-assets-table">
                   <tbody className="owned-assets-table-1">
-                    {/* <tr className="owned-assets-table-2">
-                      <td className="owned-assets-table-3">
-                        Cost
-                      </td>
-                      <td className="owned-assets-table-filler"></td>
-                      <td className="owned-assets-table-4">
-                        ${numberWithCommas(totalAssets())}
-                      </td>
-                    </tr> */}
                     <tr className="owned-assets-table-2">
                       <td className="owned-assets-table-3">
                         Today's Return
                       </td>
                       <td className="owned-assets-table-filler"></td>
                       <td className="owned-assets-table-4">
-                        {/* ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%) */}
                         {todaysReturn()} {todaysReturnPercent()}
                       </td>
                     </tr>
@@ -573,7 +435,6 @@ class Stock extends React.Component {
                       </td>
                       <td className="owned-assets-table-filler"></td>
                       <td className="owned-assets-table-4">
-                      {/* ${((totalAssets() * percentChange) / 100).toFixed(2)} ({percentChange}%) */}
                       {totalReturn()} {(totalReturnPercent())}
                       </td>
                     </tr>
@@ -626,7 +487,6 @@ class Stock extends React.Component {
 
       for (let i = 0; i < assets.length; i++) {
         let asset = assets[i];
-        // console.log(asset)
         if (asset.ticker === this.props.stock.Symbol) {
           totalPrice += (asset.amount * asset.price)
         }
@@ -634,16 +494,10 @@ class Stock extends React.Component {
       return totalPrice.toFixed(2)
     }
 
-    // console.log(totalAssets())
-
-    // console.log(this.props.data['c'][this.props.data['c'].length - 1])
-    // console.log(this.props.stock.data)
-    // console.log(this.props.data.Name)
     const showStock = () => {
       let companyName = this.props.stock.Name;
-      // if (!this.props.stock.Name) companyName = this.props.match.params.symbol
+
       return (
-        
         <div className="main">
           <div className="main-filler">
             <div className="main-filler-1">
@@ -722,7 +576,7 @@ class Stock extends React.Component {
                               <div className="graph-header-1">
                                 <h1 className="graph-header-title">
                                   <span className="graph-header-title-1">
-                                    ${/* ${currentPrice.toFixed(2)} */}
+                                    $
                                   </span>
                                 </h1>
                               </div>
@@ -786,7 +640,6 @@ class Stock extends React.Component {
                           </section>
 
                           {ownedAssets()}
-                          {/* <OwnedStocksInfo percentChange={percentChange} ticker={this.props.stock.Symbol} assets={this.props.assets}/> */}
 
                           <section className="about">
                             <header className="about-title">
@@ -804,21 +657,12 @@ class Stock extends React.Component {
                             <div className="about-info">
                               <h3 className="about-info-1">
                                 
-                                {/* <span className="about-info-2">
-                                  {this.props.stock.Description}
-                                </span> */}
                                 {this.isCollapsed(aboutInfoButtonClass)}
-                                {/* <button onClick={this.toggleDescription}>Read More</button> */}
-                                
-                                {/* <span className="about-info-3">
-                                  {this.props.stock.Description}
-                                </span> */}
+
                               </h3>
                             </div>
 
                             <div className="about-info-4">
-
-
                               <div className="about-info-5">
                                 <span className="about-info-6">
                                   <div className="about-info-7">
@@ -1006,13 +850,7 @@ class Stock extends React.Component {
                   </div>
                 </div>
               </div>
-  
-  
               <NavbarContainer />
-  
-  
-  
-  
             </div>
           </div>
           <div className="analysis-hover">
@@ -1040,7 +878,6 @@ class Stock extends React.Component {
         </div>
       )
     }
-
 
     const noShowStock = () => {
       return null

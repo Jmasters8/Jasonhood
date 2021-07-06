@@ -1,7 +1,4 @@
-
 .signup-form {
-  // height: 100%;
-  // box-sizing: border-box;
   background: #fff;
   position: fixed;
   bottom: 0;
@@ -394,7 +391,6 @@ box-sizing: border-box;
   display: inline;
 }
 
-
 .signup-errors {
   color: rgb(255, 80, 0);
   list-style-position: inside;
@@ -413,8 +409,6 @@ box-sizing: border-box;
   }
 }
 
-
-//BOTTOM TEXT
 .signup-bottom-text {
   align-self: flex-end;
   display: inline-block;
@@ -455,13 +449,9 @@ box-sizing: border-box;
   }
 }
 
-
-//SIGNUP RIGHT
 .signup-right {
   display: flex;
   flex-direction: column;
-  // padding-left: 43px;
-  // padding-right: 43px;
   padding-top: 174px;
   padding-left: 43px;
   padding-right: 43px;

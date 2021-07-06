@@ -89,8 +89,6 @@
 
 .dashboard-buying-power {
   margin-bottom: 60px;
-  // margin-top: -24px;
-  // height: 73px;
 }
 
 .dashboard-buying-power-1 {
@@ -149,7 +147,6 @@
   }
 }
 
-
 .dashboard-buying-power-3 {
   border-bottom: 1px solid rgb(48, 54, 58);
   border-top: none;
@@ -184,7 +181,6 @@
 }
 
 #dash-toggle {
-  // display: none;
   visibility: hidden;
   will-change: height;
   height: 274px;
@@ -195,7 +191,6 @@
 }
 
 #dash-toggle-test {
-  // display: block;
   visibility: visible;
   will-change: height;
   height: 300px;
@@ -207,15 +202,12 @@
   transition: all 0.3s linear;
 }
 
-
-
 .dash-toggle-1 {
   display: flow-root;
   height: inherit;
 }
 
 .dash-toggle-2 {
-  // padding: 24px;
   height: 226px;
   padding: 24px;
 }
@@ -226,7 +218,6 @@
 }
 
 .dash-toggle-4 {
-  // flex: 1 1 0%;
   width: 322px;
 }
 
@@ -240,7 +231,6 @@
   width: 100%;
   display: table;
   height: inherit;
-  // border-color:rgb(128, 128, 128);
 }
 
 .dash-toggle-7 {
@@ -249,7 +239,6 @@
   position: absolute;
   border-color: rgb(128, 128, 128);
   border-bottom: 1px solid rgb(48, 54, 58);
-
 }
 
 .dash-toggle-8 {
@@ -272,9 +261,6 @@
 .dash-toggle-7-1 {
   height: 61px;
   width: 321px;
-  // position: absolute;
-  // border-color: rgb(128, 128, 128);
-  // border-bottom: 1px solid rgb(48, 54, 58);
 }
 
 .dash-toggle-8-1 {

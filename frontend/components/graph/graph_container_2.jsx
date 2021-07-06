@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import GraphTwo from './graph_2'
-import { logout } from '../../actions/session';
 import { fetchStock, fetchStockInfo } from '../../actions/stocks';
 
 const mapStateToProps = (state, ownProps) => ({

@@ -28,33 +28,14 @@ class OwnedAssetItem extends React.Component {
     this.routeToStockPage = this.routeToStockPage.bind(this)
   }
 
-  // setSatDate() {
-  //   this.setState({start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400, now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400})
-  // }
-
-  // setSunDate() {
-  //   this.setState({start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800, now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800})
-  // }
-
   componentDidMount() {
-    // if (Object.keys(this.props.stocks).length >= 0) {
-    //   this.props.fetchStock(this.props.ticker)
-    //   .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
-    // }
-
     if (!this.props.stocks[this.props.ticker]) {
       this.props.fetchStock(this.props.ticker)
       .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
     }
-
-
-
-    // this.props.fetchStock(this.props.ticker)
-    // .then(() => this.props.fetchStockData(this.props.ticker, this.state.start, this.state.now))
   }
 
   routeToStockPage() {
-    // console.log("owned_asset_item: ", this.props.currentStock)
     if (!this.props.stocks[this.props.ticker].Symbol) { 
       this.props.fetchCurrentStock(this.props.ticker)
     }
@@ -63,16 +44,6 @@ class OwnedAssetItem extends React.Component {
   render() {
     
     if (Object.keys(this.props.stocks).length === 0) return null
-    
-    // let checkDate = () => {
-    //   let currentDate = new Date().toDateString()
-    //   if (currentDate.includes("Sat")) {
-    //     this.setSatDate()
-    //   } else if (currentDate.includes("Sun")) {
-    //     this.setSunDate
-    //   }
-    // }
-    // checkDate()
 
     let shares = 0;
     let assets = Object.values(this.props.assets)
@@ -89,7 +60,6 @@ class OwnedAssetItem extends React.Component {
         
         if (key === this.props.ticker && this.props.stocks[key] && this.props.stocks[key].data) {
           return (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1]).toFixed(2)
-          // return this.props.stocks[key].data.c[this.props.stocks.key.data.c.length]
         }
       }
     }
@@ -102,36 +72,16 @@ class OwnedAssetItem extends React.Component {
       }
       return null
     }
-    // console.log(stockData())
-
 
     let upOrDown = () => {
       let percentChange = 0
-      // for (let key in this.props.stocks) {
-      //   if (key === this.props.ticker) {
-      //     percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
-      //   } 
-      // }
-
-      // for (let key in this.props.stocks) {
-      //   if (key === this.props.ticker && this.props.stocks[key].c !== undefined) {
-      //     percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
-      //   } else if (key === this.props.ticker) {
-      //     // let cLength = this.props.stocks[key].data.c.length
-      //     percentChange = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0]) / this.props.stocks[key].data.o[0] * 100
-      //     // console.log( (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1])
-      //     // console.log(percentChange)
-      //   }
-      // }
       
       for (let key in this.props.stocks) {
         if (key === this.props.ticker && this.props.stocks[key] && this.props.stocks[key].data) {
           percentChange = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0]) / this.props.stocks[key].data.o[0] * 100
-          // percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
         }
       }
       
-
       if (percentChange > 0) {
         return (
           <span className="owned-asset-item-percentage-increase">
@@ -152,7 +102,6 @@ class OwnedAssetItem extends React.Component {
 
     return (
       <li className="owned-asset-item">
-        {/* <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`} onClick={() => this.props.fetchCurrentStock(this.props.ticker)}> */}
         <Link className="owned-asset-item-link" to={`/stocks/${this.props.ticker}`} onClick={this.routeToStockPage}>
           <div className="owned-asset-item-ticker">
             <div className="owned-asset-item-ticker-2">

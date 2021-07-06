@@ -68,7 +68,6 @@ table {
 	border-spacing: 0;
 }
 
-
 .loading-background {
 	background-color: black;
 	position: absolute;
@@ -76,7 +75,6 @@ table {
 	bottom: 0px;
 	right: 0px;
 	left: 0px;
-	/* z-index: 9999 */
 }
 
 html {
@@ -101,12 +99,9 @@ html {
 	top: 10px;
 }
 
-
-
 .test-hover {
 	color: white;
 }
-
 
 .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, 
 .odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner,

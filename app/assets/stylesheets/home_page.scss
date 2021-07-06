@@ -3,18 +3,7 @@
   box-sizing: border-box;
   flex-direction: column;
   min-height: 100vh;
-  // padding-top: 64px;
 }
-
-// .nav-header {
-//   position: fixed;
-//   display: flex;
-//   width: 100vw;
-//   justify-content: space-between;
-//   border-bottom: 2px, solid, black;
-//   box-shadow: 0px 1px 4px 0px #5e5e5e;
-// }
-
 
 .nav-img img {
   width: 200px;
@@ -34,8 +23,6 @@ nav {
 
 .main-nav {
   display: flex;
-  // width: 100vw;
-  // justify-content: space-between;
 }
 
 .outer-nav-links {
@@ -43,7 +30,6 @@ nav {
   margin-left: auto;
   padding: 8px;
 }
-
 
 .main-nav a {
   text-decoration: none;
@@ -55,11 +41,9 @@ nav {
   padding-top: 25px;
 }
 
-
 .home {
   display: block;
 }
-
 
 .home-header-1 {
   max-height: calc(100% - 0px - env(safe-area-inset-bottom));
@@ -85,7 +69,6 @@ nav {
 .home-header-3 {
   padding: 0 24px;
   align-items: center;
-  // box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 20%);
   display: flex;
   height: 64px;
 
@@ -174,7 +157,6 @@ nav {
   justify-content: center;
   text-align: center;
   height: 48px;
-  // min-width: 130px;
   min-width: 144px;
   border-radius: 24px;
   background-color: rgb(0, 200, 5);
@@ -188,7 +170,6 @@ nav {
   background-color: rgb(0, 180, 5);
 }
 
-
 .test {
   padding-bottom: 0;
   box-sizing: border-box;
@@ -197,7 +178,7 @@ nav {
   min-height: 100vh;
   padding-top: 64px;
 }
-//switch ^ v
+
 .home-section {
   -webkit-box-flex: 1;
   flex-grow: 1;
@@ -218,7 +199,6 @@ nav {
 
 .home-section-1-2 {
   min-width: 1024px;
-  // max-width: 100%; CHANGED
   max-width: 1280px;
   padding-left: 36px;
   padding-right: 36px;
@@ -234,8 +214,6 @@ nav {
   flex-wrap: wrap;
   flex-direction: row;
   display: flex;
-
-  //ADDED
   -webkit-box-align: center;
   align-items: center;
 }
@@ -280,7 +258,6 @@ nav {
   margin-top: 40px;
 }
 
-
 .home-section-1-bt-3 {
   display: flex;
   justify-content: flex-start;
@@ -309,7 +286,6 @@ nav {
     font-weight: 700;
     line-height: 28px;
   }
-
 }
 
 .home-section-1-bt-4:hover {
@@ -347,7 +323,6 @@ nav {
 .img-1 {
   width: 650px;
   margin-bottom: 33px;
-  // position: relative;
   position: absolute;
 }
 
@@ -355,9 +330,7 @@ nav {
   position: absolute;
   width: 650px;
   top: 26px;
-
 }
-
 
 .home-section-3-2 {
   display: flex;
@@ -367,9 +340,6 @@ nav {
   height: 100%;
 }
 
-
-
-//SEE OUR FEE SCHEDULE TO LEARN MORE ABOUT OUR COST.
 .home-section-3 {
   background-color: rgb(255, 255, 255);
   border-bottom-color: rgb(0, 0, 0);
@@ -430,8 +400,6 @@ nav {
   letter-spacing: -0.25px;
 }
 
-
-//WE ARE ALL INVESTORS AND VIDEO
 .home-section-4 {
   display: flex;
   flex-direction: column-reverse;
@@ -493,8 +461,6 @@ nav {
   flex-direction: row;
   display: flex;
   height: 100%;
-
-  //added
   align-items: flex-start;
 }
 
@@ -543,7 +509,6 @@ nav {
   margin-left: 10px;
 }
 
-//INTRODUCING FRACTIONAL SHARES
 .home-section-5-1 {
   background-color: #F0EBE6;
   border-bottom-color: black;
@@ -566,7 +531,7 @@ nav {
   max-width: 100%;
   box-sizing: border-box;
 }
-//same
+
 .home-section-5-4 {
   display: flex;
   flex-flow: row wrap;
@@ -623,8 +588,6 @@ nav {
   margin: 0px -9px;
   height: 216px;
   width: 1053px;
-  // width: calc(100% + 18px);
-
 }
 
 .home-section-5-12 {
@@ -637,10 +600,6 @@ nav {
   padding-right: 32px;
   margin-bottom: 40px;
 }
-
-// .home-section-5-text-blocks-1 {
-//   margin-bottom: 8px;
-// }
 
 .home-section-5-text-blocks-2 {
   margin-bottom: 8px;

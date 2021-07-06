@@ -1,12 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { fetchStock } from '../../actions/stocks';
-import {moment} from 'react-moment';
 import Odometer from 'react-odometerjs';
-
 import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, ReferenceLine} from "recharts";
-import { render } from 'react-dom';
-import { format, parseISO, subDays } from "date-fns";
 
 class GraphTwo extends React.Component {
   constructor(props) {
@@ -47,9 +41,6 @@ class GraphTwo extends React.Component {
 
   render() {
 
-    
-    
-     
     function getTime(unixTime) {
       let date = new Date(unixTime * 1000);
       let hours = date.getHours();
