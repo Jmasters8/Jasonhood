@@ -7,11 +7,11 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS'
 
 export const receiveCurrentUser = payload => {
   return {
-  type: RECEIVE_CURRENT_USER,
-  currentUser: payload.users,
-  assets: payload.assets,
-  watchedAssets: payload.watched_assets
-}
+    type: RECEIVE_CURRENT_USER,
+    currentUser: payload.users,
+    assets: payload.assets,
+    watchedAssets: payload.watched_assets
+  }
 }
 
 export const logoutCurrentUser = () => ({

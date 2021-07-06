@@ -1,6 +1,4 @@
 import * as AssetAPIUtil from '../util/asset_api_util';
-import { receiveCurrentUser } from './session'
-
 
 export const RECEIVE_STOCK_ASSET = 'RECEIVE_ASSET';
 export const REMOVE_STOCK_ASSET = 'REMOVE_STOCK_ASSET';
