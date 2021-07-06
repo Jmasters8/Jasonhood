@@ -9,12 +9,7 @@ class OwnedAssetItem extends React.Component {
 
     let currentDate = new Date().toDateString()
 
-    if (currentDate.includes("Mon")) {
-      this.state = {
-        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 259200,
-        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 259200
-      } 
-    } else if (currentDate.includes("Sat")) {
+    if (currentDate.includes("Sat")) {
       this.state = {
         start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
         now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400
@@ -30,23 +25,6 @@ class OwnedAssetItem extends React.Component {
         now: new Date().setHours(13, 0, 0, 0) / 1000
       }
     }
-
-    // if (currentDate.includes("Sat")) {
-    //   this.state = {
-    //     start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
-    //     now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400
-    //   } 
-    // } else if (currentDate.includes("Sun")) {
-    //   this.state = {
-    //     start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
-    //     now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800
-    //   }
-    // } else {
-    //   this.state = {
-    //     start: new Date().setHours(6, 0, 0, 0) / 1000,
-    //     now: new Date().setHours(13, 0, 0, 0) / 1000
-    //   }
-    // }
     this.routeToStockPage = this.routeToStockPage.bind(this)
   }
 

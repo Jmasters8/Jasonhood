@@ -10,11 +10,6 @@ class Graph extends React.Component {
   constructor(props) {
     super(props);
 
-    // console.log(this.props)
-  }
-
-  componentDidMount() {
-    // this.props.fetchStock()
   }
 
   render() {
@@ -81,7 +76,6 @@ class Graph extends React.Component {
           scales: {
             yAxes: [{
               ticks: {
-                // display: false
               }
             }],
             xAxes: [{
@@ -93,54 +87,6 @@ class Graph extends React.Component {
             }]
           }
         }}
-        //   data={{
-        // datasets: [{
-        //     // data: testData(stockInfoIntervals),
-        //     // data: data,
-        //     data: graphData,
-        //     backgroundColor: "black",
-        //     borderWidth: 2,
-        //     borderColor: '#5AC53B',
-        //     pointBorderColor: 'rgba(0, 0, 0, 0)',
-        //     pointBackgroundColor: 'rgba(0, 0, 0, 0)',
-        //     pointHoverBackgroundColor: "#5AC53B",
-        //     pointHoverBorderColor: '#000000',
-        //     pointHoverBorderWidth: 4,
-        //     pointHoverRadius: 6,
-        // }]
-        //   }}
-        //   options={{
-        //     // maintainAspectRatio: false,
-        //     legend: {
-        //       display: false
-        //     },
-        //     tooltips: {
-        //       mode: "index",
-        //       intersect: false
-        //     },
-        //     scales: {
-        //       yAxes: [{
-        //           ticks: {
-        //             // display: false
-        //           }
-        //       }],
-        //       xAxes: [{
-        //         ticks: {
-        //           // display: false
-        //           max: '2017-10-09 18:43:53',
-        //           min: '2017-00-02 18:43:53'
-        //         },
-        //         type: "time",
-        //         time: {
-        //           // format: 'MM',
-        //           parser: 'MM',
-        //           displayFormats: { month: 'MMM YYYY' },
-        //           unit: "month",
-        //           // tooltipFormat: "ll"
-        //         }
-        //       }]
-        //   }
-        //   }}
         />
         
       </div>
@@ -149,22 +95,3 @@ class Graph extends React.Component {
 }
 
 export default Graph;
-
-
-
-
-// datatsets: [
-//   {
-//     type: "line",
-//     data: [12, 19, 3, 5, 2, 3],
-//     backgroundColor: "black",
-//     borderColor: "#5AC53B",
-//     borderWidth: 2,
-//     pointBorderColor: "rgba(0, 0, 0, 0)",
-//     pointBackgroundColor: "rgba(0, 0, 0, 0)",
-//     pointHoverBackgroundColor: "#5AC53B",
-//     pointHoverBorderColor: "#000000",
-//     pointHoverBorderWidth: 4,
-//     pointHoverRadius: 6,
-//   }
-// ]

@@ -55,7 +55,6 @@ class GraphTwo extends React.Component {
       let hours = date.getHours();
       hours = ((hours + 11) % 12 + 1);
       let minutes = "0" + date.getMinutes();
-      // let seconds = "0" + date.getSeconds();
       let formattedTime = hours + ':' + minutes.substr(-2)
       return formattedTime
     }
@@ -64,9 +63,6 @@ class GraphTwo extends React.Component {
     let currentPrice = (this.props.stock.data['c'][this.props.stock.data['c'].length - 1]).toFixed(2)
     let openPrice = this.props.stock.data['o'][0]
 
-    // for (let i = 0; i < this.props.data['o'].length; i++) {
-    //   data.push({value: this.props.data['o'][i], date: getTime(this.props.data['t'][i])})
-    // }
 
     for (let i = 0; i < this.props.data['c'].length; i++) {
       if (i < 72) {
