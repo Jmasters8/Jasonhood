@@ -4,23 +4,13 @@ class WatchListEdit extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       list: ""
     }
-  
+
   }
 
-
-  // check() {
-  //   let category = document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0].value
-  //   this.setState({list: category})
-  //   console.log('inputValue: ', document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0].value)
-  //   console.log('state: ', this.state)
-  // }
-
   render() {
-    // if (!document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0]) return null
     let inputValue = document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0].value
     let stocks = Object.values(this.props.watchedAssets)
     let list = [];

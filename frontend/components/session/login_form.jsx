@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import typingSound from '../../../app/assets/images/typing2.mp3'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -26,30 +24,11 @@ class LoginForm extends React.Component {
     this.props.login(user).then(() => this.props.history.push('/'))
   }
 
-  // handleDemo(e) {
-  //   e.preventDefault();
-  //   const demoUser = { email: 'MaidMarian4evr@gmail.com', password: 'stonks12345'};
-  //   this.props.login(demoUser).then(() => this.props.history.push('/'))
-  // }
-
   handleDemo(e) {
     e.preventDefault();
-    // let typing = new Audio(typingSound)
-    // typing.volume = 0.4
-    // let playTyping = typing.play()
-    // if (playTyping !== undefined) {
-    //   playTyping.then(function() {
 
-    //   }).catch(function(error) {
-        
-    //   })
-    // }
-      
     let email = "MaidMarian4evr@gmail.com".split("");
     let password = "stonks12345".split("")
-    // setTimeout(() => {
-    //   typing.pause()
-    // }, 3600)
     
     setTimeout(() => {
       this.demoSignIn(email, password)
@@ -71,32 +50,11 @@ class LoginForm extends React.Component {
     }
   }
 
-  // playSound(e) {
-  //   e.preventDefault()
-  //   let typing = new Audio(typingSound)
-  //   typing.play();
-  //   console.log('potato')
-  // }
-
   componentDidMount() {
     this.props.clearErrors()
   }
 
-  // renderErrors() {
-    
-  //   return (
-  //     <ul>
-  //       {this.props.loginErrors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-
   renderErrors() {
-    
     return (
       <ul>
         {this.props.loginErrors.map((error, i) => (
@@ -107,8 +65,6 @@ class LoginForm extends React.Component {
       </ul>
     );
   }
-
-
 
   render() {
     if (this.props.loginErrors.length !== 0 && document.getElementsByClassName("error-img-1")[0]) {
@@ -157,7 +113,6 @@ class LoginForm extends React.Component {
 
                           </label>
                         </div>
-
                       </div>
 
                       <div className="login-errors">
@@ -205,39 +160,6 @@ class LoginForm extends React.Component {
 
           </div>
         </div>
-
-
-
-        {/* <img className="login-form-img" src="https://cdn.robinhood.com/assets/generated_assets/1e23d6b90f0d905b425ea289de345ab1.jpg" alt=""/> */}
-
-        {/* <form onSubmit={this.handleSubmit} className="login-form-box">
-        
-          <header className="login-header">
-            <span className="login-header-text">Welcome to Robinhood</span>
-          </header>
-
-          <div className="login-email">
-            <label className="input-labels">Email or username
-              <input type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email"/>
-            </label>
-          </div>
-
-          <div className="login-password">
-            <label className="input-labels">Password
-              <input type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password"/>
-            </label>
-          </div>
-
-          {this.renderErrors()}
-          <input type="submit" value="Sign in"/>
-
-          <button onClick={this.handleDemo}>
-            Demo
-          </button>
-
-          <p>Don't have an account yet? <Link to="/signup">Sign up</Link></p>
-
-        </form> */}
       </div>
     )
   }

@@ -25,7 +25,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchStock: symbol => dispatch(fetchStock(symbol)),
   fetchStockInfo: symbol => dispatch(fetchStockInfo(symbol)),
-  // fetchStockInfoTest: symbol => dispatch(fetchStockInfoTest(symbol)),
   fetchStockData: (symbol, start, end) => dispatch(fetchStockData(symbol, start, end)),
   fetchStockNews: (symbol, start, end) => dispatch(fetchStockNews(symbol, start, end)),
   fetchCurrentStock: (symbol) => dispatch(fetchCurrentStock(symbol)),

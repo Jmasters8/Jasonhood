@@ -26,7 +26,7 @@ class WatchLists extends React.Component {
     }
 
     let color = document.getElementById("colors").innerHTML
-    // document.getElementById("watch-list-form").style.display = "block";
+
     document.getElementById('smilies').style.color = color
     document.getElementById('animals').style.color = "white"
     document.getElementById('items').style.color = "white"
@@ -43,54 +43,51 @@ class WatchLists extends React.Component {
   }
 
   setSmilies() {
-    this.setState({emojis: "smilies"})
+    this.setState({ emojis: "smilies" })
     let color = document.getElementById("colors").innerHTML
-    // document.getElementById('smilies').style.color = "#00c805"
+
     document.getElementById('smilies').style.color = color
     document.getElementById('animals').style.color = "white"
     document.getElementById('items').style.color = "white"
 
-    // document.getElementById('smilies').style.borderBottom = "1px solid #00c805"
     document.getElementById('smilies').style.borderBottom = `1px solid ${color}`
     document.getElementById('animals').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
   }
 
   setAnimals() {
-    this.setState({emojis: "animals"})
+    this.setState({ emojis: "animals" })
     let color = document.getElementById("colors").innerHTML
-    // document.getElementById('animals').style.color = "#00c805"
+
     document.getElementById('animals').style.color = color
     document.getElementById('smilies').style.color = "white"
     document.getElementById('items').style.color = "white"
 
-    // document.getElementById('animals').style.borderBottom = "1px solid #00c805"
     document.getElementById('animals').style.borderBottom = `1px solid ${color}`
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('items').style.borderBottom = "none"
   }
 
   setItems() {
-    this.setState({emojis: "items"})
+    this.setState({ emojis: "items" })
     let color = document.getElementById("colors").innerHTML
-    // document.getElementById('items').style.color = "#00c805"
+
     document.getElementById('items').style.color = color
     document.getElementById('smilies').style.color = "white"
     document.getElementById('animals').style.color = "white"
 
-    // document.getElementById('items').style.borderBottom = "1px solid #00c805"
     document.getElementById('items').style.borderBottom = `1px solid ${color}`
     document.getElementById('smilies').style.borderBottom = "none"
     document.getElementById('animals').style.borderBottom = "none"
   }
 
   setEmoji(emoji) {
-    this.setState({chosenEmoji: emoji})
+    this.setState({ chosenEmoji: emoji })
     document.getElementById("emoji-modal").style.display = "none";
   }
 
   render() {
-  
+
     let allWatchedAssets = Object.values(this.props.watchedAssets)
     let watchedAssets = [];
     for (let i = 0; i < allWatchedAssets.length; i++) {
@@ -134,26 +131,26 @@ class WatchLists extends React.Component {
       }
     }
 
-    let smilies = 
-    "😀😁😂🤣😃😄😅😆😉😊😋😎😍😘🥰😗😙😚🙂🤗🤩🤔🤨😐😑😶🙄😏😣😥😮" +
-    "🤐😯😪😫🥱😴😌😛😜😝🤤😒😓😔😕🙃🤑😲🙁😖😞😟😤😢😭😦😧😨😩🤯" + 
-    "😬😰😱🥵🥶😳🤪😵🥴😠😡🤬😷🤒🤕🤢🤮🤧😇🥳🥺🤠🤡🤥🤫🤭🧐🤓😈👿👹👺💀" +
-    "👩👨🧑👧👦🧒👶👵👴" +
-    "💪🦵🦶👂🦻👃🤏👈👉☝👆👇✌🤞🖖🤘🤙🖐✋👌👍👎✊👊🤛🤜🤚👋🤟✍👏👐🙌🤲🙏🤝💅"
+    let smilies =
+      "😀😁😂🤣😃😄😅😆😉😊😋😎😍😘🥰😗😙😚🙂🤗🤩🤔🤨😐😑😶🙄😏😣😥😮" +
+      "🤐😯😪😫🥱😴😌😛😜😝🤤😒😓😔😕🙃🤑😲🙁😖😞😟😤😢😭😦😧😨😩🤯" +
+      "😬😰😱🥵🥶😳🤪😵🥴😠😡🤬😷🤒🤕🤢🤮🤧😇🥳🥺🤠🤡🤥🤫🤭🧐🤓😈👿👹👺💀" +
+      "👩👨🧑👧👦🧒👶👵👴" +
+      "💪🦵🦶👂🦻👃🤏👈👉☝👆👇✌🤞🖖🤘🤙🖐✋👌👍👎✊👊🤛🤜🤚👋🤟✍👏👐🙌🤲🙏🤝💅"
 
 
-    let animals = 
-    "🙈🙉🙊🐵🐶🐺🐱🦁🐯🦒🦊🦝🐮🐷🐗🐭🐹🐰🐻🐨🐼🐸🦓🐴🦄🐔🐲🐽" +
-    "🐾🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐅🐆🐎🦌🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🐁🐀🦔🐇" + 
-    "🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🦢🦜🦩🦚🦉🐦🐧🐥🐤" + 
-    "🐣🦇🦋🐌🐛🦟🦗🐜🐝🐞🦂🦠"
+    let animals =
+      "🙈🙉🙊🐵🐶🐺🐱🦁🐯🦒🦊🦝🐮🐷🐗🐭🐹🐰🐻🐨🐼🐸🦓🐴🦄🐔🐲🐽" +
+      "🐾🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐅🐆🐎🦌🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🐁🐀🦔🐇" +
+      "🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🦆🐓🦃🦅🦢🦜🦩🦚🦉🐦🐧🐥🐤" +
+      "🐣🦇🦋🐌🐛🦟🦗🐜🐝🐞🦂🦠"
 
     let items =
-    "🎈🧨✨🎉🎊🎃🎄🎋🎍🎎🎏🎑🧧🎀🎁🎗🎫🎠🎡🎢🎪🎭🖼🎨🧵🧶🛒👓🕶🦺🥽🥼🧥👔👕👖" +
-    "🩳🧣🧤🧦👗🥻👘👚🩲🩱👙👛👜👝🥾👠🥿👡👢🩰👑🧢⛑👒🎩🎓💋💄💍💎⚽🥎🏀🏐🏈" + 
-    "🏉🎱🎳⛳🥌⛸🎣🤿🛶🎿🥅🏒🥍🏏🏑🏓🏸🥏🪁🎯🥊🥋🥇🏆🎮🕹🎰🎲🔮🧩🧸🪀🃏🔊📣🎼" +
-    "🔔🎵🎤🎧📯🥁🎷🎺🎸🎻🎹🔒🔑🪓🔨🧪🩸💊🏹📸💰💸💵📄📓📚💡📞☎💣🗿⌚📈📉📌"
-    
+      "🎈🧨✨🎉🎊🎃🎄🎋🎍🎎🎏🎑🧧🎀🎁🎗🎫🎠🎡🎢🎪🎭🖼🎨🧵🧶🛒👓🕶🦺🥽🥼🧥👔👕👖" +
+      "🩳🧣🧤🧦👗🥻👘👚🩲🩱👙👛👜👝🥾👠🥿👡👢🩰👑🧢⛑👒🎩🎓💋💄💍💎⚽🥎🏀🏐🏈" +
+      "🏉🎱🎳⛳🥌⛸🎣🤿🛶🎿🥅🏒🥍🏏🏑🏓🏸🥏🪁🎯🥊🥋🥇🏆🎮🕹🎰🎲🔮🧩🧸🪀🃏🔊📣🎼" +
+      "🔔🎵🎤🎧📯🥁🎷🎺🎸🎻🎹🔒🔑🪓🔨🧪🩸💊🏹📸💰💸💵📄📓📚💡📞☎💣🗿⌚📈📉📌"
+
     let emojiStringToArray = function (str) {
       let split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
       let emojis = [];
@@ -188,7 +185,7 @@ class WatchLists extends React.Component {
 
         <WatchListForm chosenEmoji={this.state.chosenEmoji} currentUserId={this.props.currentUserId} addWatchedAsset={this.props.addWatchedAsset} />
 
-        <div id="emoji-modal"className="emoji-modal">
+        <div id="emoji-modal" className="emoji-modal">
           <div className="emoji-modal-categories">
             <span onClick={this.setSmilies} id="smilies" className="emoji-modal-categories-1">
               Smilies
@@ -201,13 +198,6 @@ class WatchLists extends React.Component {
             </span>
           </div>
           <div className="emoji-modal-1">
-            {/* {emojisArr.map((emoji, i) => {
-              return (
-                <span key={i} className="emoji-modal-2">
-                  {emoji}
-                </span>
-              )
-            })} */}
             {displayEmojis()}
           </div>
         </div>

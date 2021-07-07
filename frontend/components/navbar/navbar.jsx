@@ -1,16 +1,10 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import data from './data';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   stockSymbol: ""
-    // }
-
-
 
     let currentDate = new Date().toDateString()
     if (currentDate.includes("Sat")) {
@@ -34,7 +28,7 @@ class Navbar extends React.Component {
         stockSymbol: ""
       }
     } else {
-      this.state = { 
+      this.state = {
         collapsed: true,
         start: new Date().setHours(6, 0, 0, 0) / 1000,
         now: new Date().setHours(13, 0, 0, 0) / 1000,
@@ -42,7 +36,7 @@ class Navbar extends React.Component {
         buyingPower: this.props.currentUser.buying_power,
         currentStock: "",
         stockSymbol: ""
-       }
+      }
     }
 
     this.routeToStockPage = this.routeToStockPage.bind(this)
@@ -50,25 +44,21 @@ class Navbar extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleInput(type) {
-    
     return (e) =>
-      this.setState({[type]: (e.target.value).toUpperCase()})
+      this.setState({ [type]: (e.target.value).toUpperCase() })
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.fetchStock(this.state.stockSymbol.toUpperCase())
   }
 
   handleSearch(e) {
     e.preventDefault();
-    // <Link to={`/stocks/${this.state.stockSymbol}`} onClick={()=>this.setState({a: !this.state.a})} key={window.location.pathname} ></Link>
     <Link to={`/stocks/${this.state.stockSymbol}`} key={window.location.pathname} ></Link>
   }
 
@@ -76,34 +66,20 @@ class Navbar extends React.Component {
     return e => {
       if (e.key === "Enter") {
         this.props.history.push(`/stocks/${this.state.stockSymbol}`)
-        // <Link to={`/stocks/${this.state.stockSymbol}`}></Link>
       }
     }
   }
   componentWillUnMount() {
-    this.setState({stockSymbol: ""})
-  }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.stockSymbol !== this.state.stockSymbol) {
-      
-  //   }
-  // }
-
-  handleKeyPress(event) {
-    if(event.key === 'Enter'){
-      // <Link to={`/stocks/${this.state.stockSymbol}`}></Link>
-    }
+    this.setState({ stockSymbol: "" })
   }
 
   handleLogout(e) {
-    e.preventDefault() 
+    e.preventDefault()
     this.props.logout().then(() => this.props.history.push('/'))
   }
 
   routeToStockPage(ticker) {
-  
-    if (!this.props.stocks[ticker] || !this.props.stocks[ticker].Symbol) { 
+    if (!this.props.stocks[ticker] || !this.props.stocks[ticker].Symbol) {
       this.props.fetchCurrentStock(ticker)
     }
   }
@@ -115,27 +91,22 @@ class Navbar extends React.Component {
     } else {
       symbol = this.props.match.params.symbol
     }
-    
+
     if (this.state.stockSymbol !== "") {
       document.getElementsByClassName("search-dropdown")[0].style.display = "block"
     } else if (this.state.stockSymbol === "" && document.getElementsByClassName("search-dropdown")[0]) {
       document.getElementsByClassName("search-dropdown")[0].style.display = "none"
     }
 
-    
     document.addEventListener("click", e => {
       let dropdown = document.getElementsByClassName("search-dropdown")[0]
       let search = document.getElementsByClassName("navbar-search-5")
-      // if (e.target !== dropdown && search.contains('active') && (dropdown.style.display === "block" || dropdown.style.display === "")) {
-      //   console.log('remove pls')
-      //   dropdown.style.display = "none"
-      // }
 
       if (!search.activeElement && dropdown) {
         dropdown.style.display = "none"
         document.getElementsByClassName("navbar-search-5")[0].style.backgroundColor = "black"
       }
-      
+
     })
     if (document.getElementsByClassName("search-dropdown")[0] && document.getElementsByClassName("search-dropdown")[0].style.display === "block") {
       document.getElementsByClassName("navbar-search-5")[0].style.backgroundColor = "#1e2124"
@@ -157,83 +128,77 @@ class Navbar extends React.Component {
             <div className="search-dropdown">
               <section className="search-dropdown-1">
                 <h4 className="search-dropdown-stocks">Stocks</h4>
-              {data.map((obj, i) => {
-                
-                if (this.state.stockSymbol === "") return null
-                if ((count <= 8) && this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase() || (count <= 8 &&
-                this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase())) {
-                  count += 1
-                  let tickerClass;
-                  let nameClass;
-                  if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase()) {
-                    tickerClass = document.getElementById("search-words").innerHTML
-                  } else {
-                    tickerClass = "search-dropdown-name-white"
-                  }
-                  
+                {data.map((obj, i) => {
 
-                  if (this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
-                    nameClass = document.getElementById("search-words").innerHTML
-                  } else {
-                    nameClass = "search-dropdown-name-white"
-                  }
-              
-                  return (
-                    // <Link to={`/stocks/${obj.ticker}`} onClick={() => this.props.fetchCurrentStock(obj.ticker)} className="search-dropdown-stocks-1" key={i}>
+                  if (this.state.stockSymbol === "") return null
+                  if ((count <= 8) && this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase() || (count <= 8 &&
+                    this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase())) {
+                    count += 1
+                    let tickerClass;
+                    let nameClass;
+                    if (this.state.stockSymbol.toUpperCase() === obj.ticker.slice(0, this.state.stockSymbol.length).toUpperCase()) {
+                      tickerClass = document.getElementById("search-words").innerHTML
+                    } else {
+                      tickerClass = "search-dropdown-name-white"
+                    }
+
+
+                    if (this.state.stockSymbol.toUpperCase() === obj.name.slice(0, this.state.stockSymbol.length).toUpperCase()) {
+                      nameClass = document.getElementById("search-words").innerHTML
+                    } else {
+                      nameClass = "search-dropdown-name-white"
+                    }
+
+                    return (
                       <Link to={`/stocks/${obj.ticker}`} onClick={() => this.routeToStockPage(obj.ticker)} className="search-dropdown-stocks-1" key={i}>
-                      <div className="search-dropdown-ticker">
-                        <span>
-                          <span className={tickerClass}>
-                            {obj.ticker.slice(0, this.state.stockSymbol.length)}
+                        <div className="search-dropdown-ticker">
+                          <span>
+                            <span className={tickerClass}>
+                              {obj.ticker.slice(0, this.state.stockSymbol.length)}
+                            </span>
+                            <span className="search-dropdown-name-white">
+                              {obj.ticker.slice(this.state.stockSymbol.length, obj.ticker.length)}
+                            </span>
                           </span>
-                          <span className="search-dropdown-name-white">
-                            {obj.ticker.slice(this.state.stockSymbol.length, obj.ticker.length)}
+                        </div>
+                        <div className="search-dropdown-name">
+                          <span>
+                            <span className={nameClass}>
+                              {obj.name.slice(0, this.state.stockSymbol.length)}
+                            </span>
                           </span>
-                        </span>
-                      </div>
-                      <div className="search-dropdown-name">
-                        <span>
-                          <span className={nameClass}>
-                            {obj.name.slice(0, this.state.stockSymbol.length)}
+                          <span>
+                            <span className="search-dropdown-name-white">
+                              {obj.name.slice(this.state.stockSymbol.length, obj.name.length)}
+                            </span>
                           </span>
-                        </span>
-                        <span>
-                          <span className="search-dropdown-name-white">
-                            {obj.name.slice(this.state.stockSymbol.length, obj.name.length)}
-                          </span>
-                        </span>
-                      </div>
-                    </Link>
-                  )
-                }
-              })}
+                        </div>
+                      </Link>
+                    )
+                  }
+                })}
               </section>
             </div>
-          <div className="navbar-search">
-            <div className="navbar-search-2">
-              <div className="navbar-search-3">
-                <div className="navbar-search-4">
-                  <div className="navbar-search-5">
-                    <div className="navbar-search-6">
-                      <div className="navbar-search-7">
-                        <span className="navbar-search-8">
-                          <img src="https://i.imgur.com/MJfg7Ne.png" alt=""/>
-                        </span>
+            <div className="navbar-search">
+              <div className="navbar-search-2">
+                <div className="navbar-search-3">
+                  <div className="navbar-search-4">
+                    <div className="navbar-search-5">
+                      <div className="navbar-search-6">
+                        <div className="navbar-search-7">
+                          <span className="navbar-search-8">
+                            <img src="https://i.imgur.com/MJfg7Ne.png" alt="" />
+                          </span>
+                        </div>
+                        <input type="text" className="navbar-search-input" placeholder="Search" value={this.state.stockSymbol} onChange={this.handleInput('stockSymbol')} />
                       </div>
-                      <input onKeyPress={this.handleKeyPress} type="text" className="navbar-search-input" placeholder="Search" value={this.state.stockSymbol} onChange={this.handleInput('stockSymbol')}/>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           </form>
           <Link onClick={() => this.props.fetchCurrentStock(this.state.stockSymbol)} className="search-link-button" to={`/stocks/${this.state.stockSymbol}`}><button className="search-link-button-1">Search</button></Link>
-            {/* <Link className="search-link-button" to={`/stocks/${this.state.stockSymbol}`} onClick={
-            () => this.props.fetchCurrentStock(this.state.stockSymbol)
-            .then(this.props.fetchStockInfo(symbol))
-            .then(this.props.fetchStockData(symbol, this.state.start, this.state.now))
-            }><button className="search-link-button-1">Search</button></Link> */}
           <div className="navbar-list">
             <div className="navbar-list-1">
 
@@ -266,7 +231,6 @@ class Navbar extends React.Component {
 
         </div>
       </header>
-
     )
   }
 }

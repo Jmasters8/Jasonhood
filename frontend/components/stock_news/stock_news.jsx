@@ -15,15 +15,12 @@ class StockNews extends React.Component {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
-
-    // this.props.fetchStockNews(this.props.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0])
   }
 
   toggleDescription() {
     const currentState = this.state.collapsed;
     this.setState({ collapsed: !currentState });
   }
-
 
   render() {
 
@@ -35,22 +32,22 @@ class StockNews extends React.Component {
 
     function convertTimestamp(timestamp) {
       var d = new Date(timestamp * 1000),
-          yyyy = d.getFullYear(),
-          mm = ('0' + (d.getMonth() + 1)).slice(-2),
-          dd = ('0' + d.getDate()).slice(-2),
-          hh = d.getHours(),
-          h = hh,
-          min = ('0' + d.getMinutes()).slice(-2),
-          ampm = 'AM',
-          time;
+        yyyy = d.getFullYear(),
+        mm = ('0' + (d.getMonth() + 1)).slice(-2),
+        dd = ('0' + d.getDate()).slice(-2),
+        hh = d.getHours(),
+        h = hh,
+        min = ('0' + d.getMinutes()).slice(-2),
+        ampm = 'AM',
+        time;
       if (hh > 12) {
-          h = hh - 12;
-          ampm = 'PM';
+        h = hh - 12;
+        ampm = 'PM';
       } else if (hh === 12) {
-          h = 12;
-          ampm = 'PM';
+        h = 12;
+        ampm = 'PM';
       } else if (hh == 0) {
-          h = 12;
+        h = 12;
       }
       time = h + ':' + min + ':' + ampm + ', ' + mm + '/' + dd + '/' + yyyy
       return time;
@@ -64,18 +61,18 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -89,18 +86,18 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -114,18 +111,18 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -139,18 +136,18 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -164,19 +161,19 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            {/* <img src={`${article.image}`} className="article-image" alt=""/> */}
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              {/* <img src={`${article.image}`} className="article-image" alt=""/> */}
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -190,18 +187,18 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -215,18 +212,18 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -240,18 +237,18 @@ class StockNews extends React.Component {
       return (
         <div className="article-1">
           <a className="article-link" href={`${article.url}`} target="_blank">
-          <div className="article-2">
-            <span className="article-source">
-              {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
-            </span>
-            <span className="article-title">
-              {article.headline}
-            </span>
-            <span className="article-summary">
-              {article.summary}
-            </span>
-            <img src={`${img}`} className="article-image" alt=""/>
-          </div>
+            <div className="article-2">
+              <span className="article-source">
+                {article.source} &nbsp;<p className="article-date">{convertTimestamp(article.datetime)}</p>
+              </span>
+              <span className="article-title">
+                {article.headline}
+              </span>
+              <span className="article-summary">
+                {article.summary}
+              </span>
+              <img src={`${img}`} className="article-image" alt="" />
+            </div>
           </a>
         </div>
       )
@@ -261,43 +258,43 @@ class StockNews extends React.Component {
       if (this.state.collapsed) {
         return (
           <div className="news">
-          <header className="news-title">
-            <span className="news-title-1">
-              News
+            <header className="news-title">
+              <span className="news-title-1">
+                News
             </span>
-            <button onClick={this.toggleDescription} className="news-button">
-              <span className={this.props.newsButtonClass}>Show More</span>
-            </button>
-          </header>
-          <div className="news-articles">
-            {firstArticle()}
-            {secondArticle()}
-            {thirdArticle()}
+              <button onClick={this.toggleDescription} className="news-button">
+                <span className={this.props.newsButtonClass}>Show More</span>
+              </button>
+            </header>
+            <div className="news-articles">
+              {firstArticle()}
+              {secondArticle()}
+              {thirdArticle()}
+            </div>
           </div>
-        </div>
         )
       } else {
         return (
           <div className="news">
-        <header className="news-title">
-          <span className="news-title-1">
-            News
+            <header className="news-title">
+              <span className="news-title-1">
+                News
           </span>
-          <button onClick={this.toggleDescription} className="news-button">
-            <span className={this.props.newsButtonClass}>Show Less</span>
-          </button>
-        </header>
-        <div className="news-articles">
-          {firstArticle()}
-          {secondArticle()}
-          {thirdArticle()}
-          {fourthArticle()}
-          {fifthArticle()}
-          {sixthArticle()}
-          {seventhArticle()}
-          {eigthArticle()}
-        </div>
-      </div>
+              <button onClick={this.toggleDescription} className="news-button">
+                <span className={this.props.newsButtonClass}>Show Less</span>
+              </button>
+            </header>
+            <div className="news-articles">
+              {firstArticle()}
+              {secondArticle()}
+              {thirdArticle()}
+              {fourthArticle()}
+              {fifthArticle()}
+              {sixthArticle()}
+              {seventhArticle()}
+              {eigthArticle()}
+            </div>
+          </div>
         )
       }
     }
@@ -307,25 +304,7 @@ class StockNews extends React.Component {
         {isCollapsed()}
       </div>
     )
-  
-    // return (
-    //   <div className="news">
-    //     <header className="news-title">
-    //       <span className="news-title-1">
-    //         News
-    //       </span>
-    //       <button className="news-button">
-    //         <span className="news-button-text">Show More</span>
-    //       </button>
-    //     </header>
-    //     <div className="news-articles">
-    //       {firstArticle()}
-    //       {secondArticle()}
-    //       {thirdArticle()}
-    //     </div>
-    //   </div>
-    // )
   }
 }
-// {newsArticle[0].headline}
+
 export default StockNews;

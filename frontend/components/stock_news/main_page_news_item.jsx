@@ -1,37 +1,34 @@
 import React from 'react';
 
-
 class MainPageNewsItem extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
 
     function convertTimestamp(timestamp) {
       var d = new Date(timestamp * 1000),
-          yyyy = d.getFullYear(),
-          mm = ('0' + (d.getMonth() + 1)).slice(-2),
-          dd = ('0' + d.getDate()).slice(-2),
-          hh = d.getHours(),
-          h = hh,
-          min = ('0' + d.getMinutes()).slice(-2),
-          ampm = 'AM',
-          time;
+        yyyy = d.getFullYear(),
+        mm = ('0' + (d.getMonth() + 1)).slice(-2),
+        dd = ('0' + d.getDate()).slice(-2),
+        hh = d.getHours(),
+        h = hh,
+        min = ('0' + d.getMinutes()).slice(-2),
+        ampm = 'AM',
+        time;
       if (hh > 12) {
-          h = hh - 12;
-          ampm = 'PM';
+        h = hh - 12;
+        ampm = 'PM';
       } else if (hh === 12) {
-          h = 12;
-          ampm = 'PM';
+        h = 12;
+        ampm = 'PM';
       } else if (hh == 0) {
-          h = 12;
+        h = 12;
       }
       time = h + ':' + min + ':' + ampm + ', ' + mm + '/' + dd + '/' + yyyy
       return time;
     }
-
 
     return (
       <div className="dashboard-articles-1">
@@ -40,7 +37,7 @@ class MainPageNewsItem extends React.Component {
           <div className="dashboard-articles-source">
             <div className="dashboard-articles-source-1">
               <span className="dashboard-articles-source-2">
-                <img className="dashboard-articles-lightning" src="https://i.imgur.com/HXPDjIx.png"/>
+                <img className="dashboard-articles-lightning" src="https://i.imgur.com/HXPDjIx.png" />
               </span>
               <span className="dashboard-articles-source-3">
                 <span className="dashboard-articles-source-4">
@@ -52,14 +49,6 @@ class MainPageNewsItem extends React.Component {
               </span>
             </div>
           </div>
-
-          {/* <div className="dashboard-articles-source-filler">
-            <div className="dashboard-articles-source-filler-1">
-              <div className="dashboard-article-source-filler-2">
-                <span>...</span>
-              </div>
-            </div>
-          </div> */}
 
           <div className="dashboard-articles-content">
             <div className="dashboard-articles-title">
@@ -77,7 +66,7 @@ class MainPageNewsItem extends React.Component {
               </div>
             </div>
             <div className="dashboard-articles-img">
-              <img src={`${this.props.article.image}`} className="dashboard-articles-img-1"/>
+              <img src={`${this.props.article.image}`} className="dashboard-articles-img-1" />
             </div>
           </div>
         </article>

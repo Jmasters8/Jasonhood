@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchStockData } from '../../util/stock_api_util';
 import MiniGraph from '../graph/mini_graph';
 
 class WatchListItem extends React.Component {
@@ -12,7 +11,7 @@ class WatchListItem extends React.Component {
       this.state = {
         start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
         now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400
-      } 
+      }
     } else if (currentDate.includes("Sun")) {
       this.state = {
         start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
@@ -24,14 +23,12 @@ class WatchListItem extends React.Component {
         now: new Date().setHours(13, 0, 0, 0) / 1000
       }
     }
-
     this.deleteAsset = this.deleteAsset.bind(this);
-
   }
 
   componentDidMount() {
     this.props.fetchStock(this.props.asset.ticker)
-    .then(() => this.props.fetchStockData(this.props.asset.ticker, this.state.start, this.state.now))
+      .then(() => this.props.fetchStockData(this.props.asset.ticker, this.state.start, this.state.now))
   }
 
   deleteAsset() {
@@ -63,29 +60,19 @@ class WatchListItem extends React.Component {
     }
 
     let currentPrice = () => {
-      
-      // for (let key in this.props.stocks) {
-      //   if (key === this.props.asset.ticker) {
-      //     return this.props.stocks[key].c
-      //   }
-      // }
+
       for (let key in this.props.stocks) {
-        
+
         if (key === this.props.asset.ticker && this.props.stocks[key].data) {
           return (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1]).toFixed(2)
-          // return this.props.stocks[key].data.c[this.props.stocks.key.data.c.length]
         }
       }
     }
-
-    
-    
 
     let upOrDown = () => {
       let percentChange = 0
       for (let key in this.props.stocks) {
         if (key === this.props.asset.ticker && this.props.stocks[key].data) {
-          // percentChange = (this.props.stocks[key].c - this.props.stocks[key].o) / this.props.stocks[key].o * 100
           percentChange = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0]) / this.props.stocks[key].data.o[0] * 100
         }
       }
@@ -112,29 +99,15 @@ class WatchListItem extends React.Component {
         change = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0])
       }
     }
-    
-    
+
     if (change > 0) {
       name = "delete-watched-item-green"
     } else {
       name = "delete-watched-item-red"
     }
-  
-    
-    let editStyle = {
-      visibility: "hidden",
-      position: "absolute",
-      zIndex: "999",
-      left: "50px",
-      top: "35px"
-    }
 
-  
-    
     return (
       <li className="owned-asset-item-delete">
-        {/* <span className="delete-watched-item" onClick={() => console.log('potato')}></span> */}
-        {/* <img onClick={this.deleteAsset} className="delete-watched-item" src="https://i.imgur.com/C02Ou7j.png"></img> */}
         <img onClick={this.deleteAsset} className={name} src="https://i.imgur.com/C02Ou7j.png"></img>
         <Link className="owned-asset-item-link-2" to={`/stocks/${this.props.asset.ticker}`} onClick={() => this.props.fetchCurrentStock(this.props.asset.ticker)}>
           <div className="owned-asset-item-ticker">

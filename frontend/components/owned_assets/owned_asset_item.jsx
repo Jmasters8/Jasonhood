@@ -52,7 +52,6 @@ class OwnedAssetItem extends React.Component {
         shares += asset.amount
       }
     })
-
     
     let currentPrice = () => {
       
@@ -95,10 +94,7 @@ class OwnedAssetItem extends React.Component {
           </span>
         )
       }
-      
     }
-
-    
 
     return (
       <li className="owned-asset-item">

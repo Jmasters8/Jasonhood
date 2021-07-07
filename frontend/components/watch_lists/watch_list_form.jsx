@@ -15,13 +15,12 @@ class WatchListForm extends React.Component {
 
   hideForm(e) {
     e.preventDefault()
-    // document.getElementById("watch-list-form").style.display = "none";
     document.getElementById("emoji-modal").style.display = "none";
     document.getElementById("watch-list-toggled").id = "watch-list-form"
   }
 
   handleInput(type) {
-    return (e) => this.setState({[type]: e.target.value})
+    return (e) => this.setState({ [type]: e.target.value })
   }
 
   handleClick(e) {
@@ -31,13 +30,12 @@ class WatchListForm extends React.Component {
     this.props.addWatchedAsset(null, this.props.currentUserId, null, this.state.categoryName, this.props.chosenEmoji)
 
     this.hideForm(e)
-    this.setState({categoryName: "", emoji: "💡"})
+    this.setState({ categoryName: "", emoji: "💡" })
     document.getElementById("emoji-modal").style.display = "none";
     document.getElementsByClassName("watch-list-form-inputs-emoji-3")[0].innerHTML = "💡"
   }
 
   chooseEmoji() {
-    // this.setState({emoji: "😂"})
     if (document.getElementById("emoji-modal").style.display === "none" || document.getElementById("emoji-modal").style.display === "") {
       document.getElementById("emoji-modal").style.display = "block";
     } else if (document.getElementById("emoji-modal").style.display === "block") {
@@ -46,8 +44,8 @@ class WatchListForm extends React.Component {
   }
 
   render() {
-  
-    return(
+
+    return (
       <div id="watch-list-form" className="watch-list-form">
         <form id="watch-list-toggle" className="watch-list-form-1">
           <div className="watch-list-form-inputs">
@@ -63,7 +61,7 @@ class WatchListForm extends React.Component {
 
             <div className="watch-list-form-inputs-title">
               <div className="watch-list-form-inputs-title-1">
-                <input className="watch-list-form-inputs-title-2" value={this.state.categoryName} onChange={this.handleInput('categoryName')} type="text" placeholder="List Name"/>
+                <input className="watch-list-form-inputs-title-2" value={this.state.categoryName} onChange={this.handleInput('categoryName')} type="text" placeholder="List Name" />
               </div>
             </div>
 
@@ -97,16 +95,7 @@ class WatchListForm extends React.Component {
             </div>
 
           </footer>
-
         </form>
-
-        {/* <div className="emoji-modal">
-          <div className="emoji-modal-1">
-            
-          </div>
-        </div> */}
-
-
       </div>
     )
   }

@@ -3,16 +3,10 @@ import React from 'react';
 class OwnedStocksInfo extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   shouldComponentUpdate(nextProps) {
-    // console.log(Object.values(nextProps.assets).length, Object.values(this.props.assets).length)
     return (Object.values(nextProps.assets).length !== Object.values(this.props.assets).length)
-  }
-
-  componentDidUpdate() {
-    // console.log(Object.values(nextProps.assets).length, Object.values(this.props.assets).length)
   }
 
   render() {
@@ -22,7 +16,7 @@ class OwnedStocksInfo extends React.Component {
 
       for (let i = 0; i < assets.length; i++) {
         let asset = assets[i];
-        
+
         if (asset.ticker === this.props.ticker) {
           totalPrice += (asset.amount * asset.price)
         }
@@ -73,7 +67,6 @@ class OwnedStocksInfo extends React.Component {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-
     return (
       <section className="owned-assets">
         <div className="owned-assets-1">
@@ -114,7 +107,7 @@ class OwnedStocksInfo extends React.Component {
                   </td>
                   <td className="owned-assets-table-filler"></td>
                   <td className="owned-assets-table-4">
-                  ${((totalAssets() * this.props.percentChange) / 100).toFixed(2)} ({this.props.percentChange}%)
+                    ${((totalAssets() * this.props.percentChange) / 100).toFixed(2)} ({this.props.percentChange}%)
                   </td>
                 </tr>
               </tbody>
