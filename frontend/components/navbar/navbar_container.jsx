@@ -23,4 +23,3 @@ export default (withRouter(
       mapDispatchToProps
   )(Navbar))
 );
-// export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

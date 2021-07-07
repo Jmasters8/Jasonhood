@@ -23,10 +23,6 @@ class HomeGraph extends React.Component {
     this.handleHoverTime = this.handleHoverTime.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchCurrentStock()
-  // }
-
   handleHoverTime() {
     return (
       <div>
@@ -95,7 +91,6 @@ class HomeGraph extends React.Component {
       let hours = date.getHours();
       hours = ((hours + 11) % 12 + 1);
       let minutes = "0" + date.getMinutes();
-      // let seconds = "0" + date.getSeconds();
       let formattedTime = hours + ':' + minutes.substr(-2)
       return formattedTime
     }

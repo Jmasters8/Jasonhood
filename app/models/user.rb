@@ -30,10 +30,6 @@ class User < ApplicationRecord
     through: :assets,
     source: 
 
-  # has_many :cryptocurrency,
-  #   through: :assets,
-  #   source: "Cryptocurrency"
-
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64
     self.save
