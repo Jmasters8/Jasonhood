@@ -8,7 +8,6 @@ const mapStateToProps = state => ({
 });
 
 
-
 const Auth = ({ loggedIn, path, component: Component}) => (
   <Route
     path={path}

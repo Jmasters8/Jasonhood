@@ -7,11 +7,9 @@ export const addStockAsset = (ticker, ownerId, amount, price) => {
 }
 
 export const updateStockAsset = (amount, assetId) => {
-  // console.log(amount)
   return $.ajax({
     url: `/api/stock_assets/${assetId}`,
     method: 'PATCH',
-    // data: { stock_asset: { amount: amount } }
     data: { amount }
   })
 }
@@ -24,7 +22,6 @@ export const deleteStockAsset = (ownerId, assetId) => {
   })
 }
 
-
 export const addWatchedAsset = (ticker, watcherId, price, category, emoji) => {
   return $.ajax({
     url: '/api/watched_assets',
@@ -34,13 +31,9 @@ export const addWatchedAsset = (ticker, watcherId, price, category, emoji) => {
 }
 
 export const updateWatchedAsset = (emoji, category, watchedAssetId) => {
-  // console.log(emoji)
-  // console.log(category)
-  // console.log(watchedAssetId)
   return $.ajax({
     url: `/api/watched_assets/${watchedAssetId}`,
     method: 'PATCH',
-    // data: { watched_asset: {emoji, category}}
     data: { emoji, category }
   })
 }

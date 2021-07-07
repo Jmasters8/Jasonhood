@@ -1,4 +1,3 @@
-
 export const fetchStock = (symbol) => {
   return $.ajax({
     method: 'GET',
@@ -12,7 +11,6 @@ export const fetchStockInfo = (symbol) => {
     url: `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=G2OZFC9Q3KIVDKJG`
   })
 }
-
 
 
 export const fetchStockData = (symbol, start, end) => {
