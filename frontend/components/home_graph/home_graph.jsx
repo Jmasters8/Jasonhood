@@ -158,6 +158,7 @@ class HomeGraph extends React.Component {
     let opening = data2[0].price
 
     function change() {
+      if (data2.length === 0) return null
       let beginningPrice = data2[0].price
       let lastPrice = data2[data2.length - 1].price
 
@@ -402,6 +403,8 @@ class HomeGraph extends React.Component {
       document.getElementById("colors").innerHTML = "rgb(255, 80, 0)"
     }
 
+    if (data2.length === 0) return <Loading />
+    
     return(
       <div className="main-graph-1">
         <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={test()}/>
