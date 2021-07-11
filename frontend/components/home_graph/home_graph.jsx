@@ -120,6 +120,7 @@ class HomeGraph extends React.Component {
         
         for (let j = 0; j < uniqueAssets.length; j++) {
           let ticker = uniqueAssets[j];
+          if (!stocks[ticker]) return <Loading />
           let price = stocks[ticker].data.c[i]
           if (stocks[ticker] && i >= stocks[ticker].data.c.length) continue
 
