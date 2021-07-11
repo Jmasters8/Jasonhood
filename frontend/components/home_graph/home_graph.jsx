@@ -63,7 +63,6 @@ class HomeGraph extends React.Component {
       return <Loading />
     }
     for (let i = 0; i < Object.values(this.props.stocks).length; i++) {
-      
       if (Object.values(this.props.stocks)[i].data === undefined) {
         HomeGraph.ready = false
         return <Loading />
@@ -100,6 +99,7 @@ class HomeGraph extends React.Component {
 
     let getData = () => {
       let assets = Object.values(this.props.assets);
+  
       if (assets.length === 0) {
         data2.push({price: null, date: null})
         return null
@@ -121,7 +121,7 @@ class HomeGraph extends React.Component {
         for (let j = 0; j < uniqueAssets.length; j++) {
           let ticker = uniqueAssets[j];
           let price = stocks[ticker].data.c[i]
-          if (i >= stocks[ticker].data.c.length) continue
+          if (stocks[ticker] && i >= stocks[ticker].data.c.length) continue
 
           for (let k = 0; k < assets.length; k++) {
             let asset = assets[k];
