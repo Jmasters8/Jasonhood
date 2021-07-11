@@ -145,7 +145,7 @@ class HomeGraph extends React.Component {
     HomeGraph.data = data2
 
     let test = () => {
-      if (this.state.currentPrice === "") {
+      if (this.state.currentPrice === "" && data2.length > 0) {
         return data2[data2.length - 1].price
       } else {
         return this.state.currentPrice
