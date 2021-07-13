@@ -1,4 +1,4 @@
-let data = [
+const data = [
   {"ticker": "NIO", "name": "Nio"},
   {"ticker": "TSLA", "name": "Tesla"},
   {"ticker": "AAPL", "name": "Apple"},
@@ -795,4 +795,3 @@ let data = [
 ]
 
 export default data;
-
