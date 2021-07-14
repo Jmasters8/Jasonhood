@@ -414,7 +414,7 @@ class Stock extends React.Component {
                   </div>
                   <h2 className="owned-assets-5">
                     <span className="owned-assets-6">
-                      ${marketValue()}
+                      ${numberWithCommas(marketValue())}
                     </span>
                   </h2>
                 </header>
