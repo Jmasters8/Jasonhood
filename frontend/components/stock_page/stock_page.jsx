@@ -435,7 +435,7 @@ class Stock extends React.Component {
                       </td>
                       <td className="owned-assets-table-filler"></td>
                       <td className="owned-assets-table-4">
-                      {totalReturn()} {(totalReturnPercent())}
+                      {numberWithCommas(totalReturn())} {(totalReturnPercent())}
                       </td>
                     </tr>
                   </tbody>
