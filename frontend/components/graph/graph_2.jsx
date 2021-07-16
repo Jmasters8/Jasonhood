@@ -73,7 +73,7 @@ class GraphTwo extends React.Component {
     
     return (
       <div className="main-graph-1">
-        <Odometer className="banana" value={this.state.currentPrice}/>
+        <Odometer className="banana" format="(,ddd).dd" value={this.state.currentPrice}/>
         <ResponsiveContainer width="100%" height="80%" >
           <AreaChart data={data} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice}>
             <Area dataKey="price" stroke={`${lineColor()}`} strokeWidth={2} fill="#000000"/>

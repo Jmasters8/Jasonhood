@@ -144,7 +144,7 @@ class HomeGraph extends React.Component {
     }
     HomeGraph.data = data2
 
-    let test = () => {
+    let stockValue = () => {
       if (this.state.currentPrice === "" && data2.length > 0) {
         return data2[data2.length - 1].price
       } else {
@@ -407,7 +407,7 @@ class HomeGraph extends React.Component {
     
     return(
       <div className="main-graph-1">
-        <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={test()}/>
+        <span className="home-graph-money">$</span><Odometer className="banana" duration={50000} value={stockValue()}/>
         <ResponsiveContainer width="100%" height="80%" >
           <AreaChart data={data2} onMouseMove={this.handleMouseHover} onTouchStart={this.handleMouseHover} onMouseLeave={this.resetHoverPrice}>
             <Area dataKey="price" stroke={color} strokeWidth={2} fill="#000000"/>
