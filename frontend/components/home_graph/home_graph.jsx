@@ -155,7 +155,12 @@ class HomeGraph extends React.Component {
     let price;
     let percent;
     let color;
-    let opening = data2.length !== 0 ? data2[0].price : 0
+    let opening;
+    if (data2.length !== 0) {
+      opening = data2[0].price
+    } else {
+      opening = 0;
+    }
 
     function change() {
       if (data2.length === 0) return null
