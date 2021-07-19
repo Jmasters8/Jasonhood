@@ -33,7 +33,7 @@ class Stock extends React.Component {
         assets: []
       }
     } else {
-      this.state = { 
+      this.state = {
         collapsed: true,
         start: new Date().setHours(6, 0, 0, 0) / 1000,
         now: new Date().setHours(13, 0, 0, 0) / 1000,
@@ -43,7 +43,7 @@ class Stock extends React.Component {
         assets: this.props.assets,
         currentStock: "",
         loading: true
-       }
+      }
     }
 
     this.toggleDescription = this.toggleDescription.bind(this);
@@ -54,16 +54,16 @@ class Stock extends React.Component {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
-    
+
     if (Object.keys(this.props.currentStock).length === 0 || Object.keys(this.props.currentStock === "None")) {
       this.props.fetchStockInfo(this.props.match.params.symbol)
-      .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-      .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-      .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
+        .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+        .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+        .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
     }
   }
 
-  shouldComponentUpdate(nextProps, prevProps){
+  shouldComponentUpdate(nextProps, prevProps) {
     let prevAssets = Object.values(nextProps.assets)
     let nextAssets = prevProps.assets
 
@@ -86,11 +86,11 @@ class Stock extends React.Component {
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 5)
 
-    if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0 ) {
+    if (prevProps.currentStock.stock !== this.props.currentStock.stock && Object.keys(this.props.currentStock).length !== 0 && Object.keys(prevProps.currentStock).length !== 0) {
       this.props.fetchStockInfo(this.props.match.params.symbol)
-      .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
-      .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
-      .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
+        .then(() => this.props.fetchStockData(this.props.match.params.symbol, this.state.start, this.state.now))
+        .then(() => this.props.fetchStockNews(this.props.match.params.symbol, yesterday.toISOString().split('T')[0], new Date().toISOString().split('T')[0]))
+        .then(() => this.props.fetchCurrentStock(this.props.match.params.symbol))
     }
   }
 
@@ -100,27 +100,27 @@ class Stock extends React.Component {
   }
 
   handleInput(type) {
-    return (e) => 
-    this.setState({[type]: e.target.value})
+    return (e) =>
+      this.setState({ [type]: e.target.value })
   }
 
   handleClick(e) {
     e.preventDefault();
     let currentPrice = this.props.stock.data['c'][this.props.stock.data['c'].length - 1]
-    this.setState({buyingPower: (this.state.buyingPower - (currentPrice * this.state.shares).toFixed(2)) })
+    this.setState({ buyingPower: (this.state.buyingPower - (currentPrice * this.state.shares).toFixed(2)) })
     this.props.addStockAsset(this.props.stock.Symbol, this.props.currentUser.id, this.state.shares, (this.props.stock.data['c'][this.props.stock.data['c'].length - 1]).toFixed(2))
-    .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUser.id))
+      .then(() => this.props.updateBuyingPower(this.state.buyingPower, this.props.currentUser.id))
   }
 
   isCollapsed(buttonClass) {
     if (this.state.collapsed) {
       return (
-      <div>
-        <div className="about-info-2">
-          {this.props.stock.Description}
+        <div>
+          <div className="about-info-2">
+            {this.props.stock.Description}
+          </div>
+          <button className={buttonClass} onClick={this.toggleDescription}>Read More</button>
         </div>
-        <button className={buttonClass} onClick={this.toggleDescription}>Read More</button>
-      </div>
       )
     } else {
       return (
@@ -129,7 +129,7 @@ class Stock extends React.Component {
             {this.props.stock.Description}
           </div> &nbsp;
           <button className={buttonClass} onClick={this.toggleDescription}>Read Less</button>
-      </div>
+        </div>
       )
     }
   }
@@ -143,14 +143,14 @@ class Stock extends React.Component {
   }
 
   render() {
-    
-    
+
+
     if (this.props.stock === undefined || this.props.stock.data === undefined || this.props.stock.Name === undefined) {
       return <Loading />
     }
-    
+
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
-   
+
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -171,7 +171,7 @@ class Stock extends React.Component {
     }
 
     let priceChange = currentPrice - openPrice
-  
+
     let buttonClass;
     currentPrice - openPrice >= 0 ? buttonClass = "review-order-5" : buttonClass = "review-order-5-red"
 
@@ -233,16 +233,16 @@ class Stock extends React.Component {
     priceChange >= 0 ? color = "rgb(0, 200, 5)" : color = "rgb(255, 80, 0)"
 
     let eles = document.getElementsByClassName("navbar-list-word")
-    
+
     if (document.getElementsByClassName("navbar-list-word")[0] || document.getElementsByClassName("navbar-list-word-red")[0] || document.getElementsByClassName("navbar-list-word-green")[0]) {
       if (priceChange >= 0) {
         for (let e = eles.length - 1; e >= 0; e--) {
-          eles[e].className="navbar-list-word-green"
-        } 
+          eles[e].className = "navbar-list-word-green"
+        }
       } else {
         for (let e = eles.length - 1; e >= 0; e--) {
-          eles[e].className="navbar-list-word-red"
-        } 
+          eles[e].className = "navbar-list-word-red"
+        }
       }
     }
 
@@ -251,7 +251,7 @@ class Stock extends React.Component {
     } else if (priceChange < 0 && document.getElementById("search-words")) {
       document.getElementById("search-words").innerHTML = "search-dropdown-name-red"
     }
-      
+
 
     let peRatio = parseFloat(this.props.stock.PERatio).toFixed(2)
     let dividendYield = this.props.stock.DividendYield
@@ -274,12 +274,11 @@ class Stock extends React.Component {
       return sum;
     }
 
-    
-    
+
     for (let j = 0; j < Object.values(this.props.assets).length; j++) {
       totalPortfolio += (Object.values(this.props.assets)[j].amount * Object.values(this.props.assets)[j].price)
     }
-   
+
     const portfolioDiversity = () => {
       let totalAmountOfStock = 0
       let assets = Object.values(this.props.assets)
@@ -309,99 +308,81 @@ class Stock extends React.Component {
       return (sum / count).toFixed(2)
     }
 
-   const todaysReturn = () => {
-      let assets = Object.values(this.props.assets);
-      let totalAssetAmount = 0
-      let shares = 0
-
-      for (let i = 0; i < assets.length; i++) {
-        let asset = assets[i]
-        if (asset.ticker === this.props.stock.Symbol) {
-          totalAssetAmount += (asset.price * asset.amount)
-          shares += asset.amount
-        }
-      }
-      let averageSharePrice = totalAssetAmount - shares
-      let returnAmount = ((currentPrice * shares) - (openPrice * shares))
+    const todaysReturn = () => {
+      let returnAmount = ((currentPrice * totalSharesAmount()) - (openPrice * totalSharesAmount()))
       if (returnAmount >= 0) {
         return "+$" + returnAmount.toFixed(2)
       } else {
         return "-$" + (-1 * returnAmount.toFixed(2))
       }
-   }
-   const todaysReturnPercent = () => {
-    let assets = Object.values(this.props.assets);
-    let shares = 0
-
-    for (let i = 0; i < assets.length; i++) {
-      let asset = assets[i]
-      if (asset.ticker === this.props.stock.Symbol) {
-        totalAssetAmount += (asset.price * asset.amount)
-        shares += asset.amount
-      }
     }
-    let returnAmount = ((currentPrice * shares) - (openPrice * shares))
-    if (returnAmount >= 0) {
-      return "(+" + (returnAmount / totalPortfolio * 100).toFixed(2) + "%)"
-    } else {
-      return "(" + (returnAmount / totalPortfolio * 100).toFixed(2) + "%)"
-    }
-    
-   }
 
-   let totalAssetAmount = 0
-      const totalReturn = () => {
+    let totalAssetAmount = () => {
+      let totalAssetPrice = 0;
       let assets = Object.values(this.props.assets);
-      
-      let shares = 0
+
       for (let i = 0; i < assets.length; i++) {
         let asset = assets[i]
         if (asset.ticker === this.props.stock.Symbol) {
-          totalAssetAmount += (asset.price * asset.amount)
+          totalAssetPrice += (asset.price * asset.amount)
+        }
+      }
+      return totalAssetPrice;
+    }
+
+    const totalSharesAmount = () => {
+      let assets = Object.values(this.props.assets);
+      let shares = 0;
+
+      for (let i = 0; i < assets.length; i++) {
+        let asset = assets[i]
+        if (asset.ticker === this.props.stock.Symbol) {
           shares += asset.amount
         }
       }
-  
-      if (marketValue() - totalAssetAmount >= 0) {
-        return ("+$" + (marketValue() - totalAssetAmount).toFixed(2))
+      return shares
+    }
+
+    const todaysReturnPercent = () => {
+      let returnAmount = ((currentPrice * totalSharesAmount()) - (openPrice * totalSharesAmount()))
+      if (returnAmount >= 0) {
+        return "(+" + (returnAmount / totalPortfolio * 100).toFixed(2) + "%)"
       } else {
-        return ("$" + (marketValue() - totalAssetAmount).toFixed(2))
+        return "(" + (returnAmount / totalPortfolio * 100).toFixed(2) + "%)"
+      }
+    }
+    
+    const totalReturn = () => {
+      
+      if (marketValue() - totalAssetAmount() >= 0) {
+        return ("+$" + (marketValue() - totalAssetAmount()).toFixed(2))
+      } else {
+        return ("$" + (marketValue() - totalAssetAmount()).toFixed(2))
       }
     }
 
     const totalReturnPercent = () => {
+      if ((totalAssetAmount() / marketValue()) < 1) {
+        return ("(+" + (totalAssetAmount() / marketValue()).toFixed(2) + "%)")
+      } else {
+        return ("(-" + (totalAssetAmount() / marketValue()).toFixed(2) + "%)")
+      }
+    }
+
+    const marketValue = () => {
       let assets = Object.values(this.props.assets);
       let shares = 0
+
       for (let i = 0; i < assets.length; i++) {
         let asset = assets[i]
         if (asset.ticker === this.props.stock.Symbol) {
-          totalAssetAmount += (asset.price * asset.amount)
           shares += asset.amount
         }
       }
 
-
-      if ((totalAssetAmount / marketValue()) >= 0) {
-        return ("(+" + (totalAssetAmount / marketValue()).toFixed(2) + "%)")
-      } else {
-        return ("(" + (totalAssetAmount / marketValue()).toFixed(2) + "%)")
-      }  
+      return (shares * currentPrice).toFixed(2)
     }
 
-   const marketValue = () => {
-    let assets = Object.values(this.props.assets);
-    let shares = 0
-
-    for (let i = 0; i < assets.length; i++) {
-      let asset = assets[i]
-      if (asset.ticker === this.props.stock.Symbol) {
-        shares += asset.amount
-      }
-    }
-    
-    return (shares * currentPrice).toFixed(2)
-   }
-   
     const ownedAssets = () => {
       if (totalAssets() > 0) {
         return (
@@ -435,7 +416,7 @@ class Stock extends React.Component {
                       </td>
                       <td className="owned-assets-table-filler"></td>
                       <td className="owned-assets-table-4">
-                      {numberWithCommas(totalReturn())} {(totalReturnPercent())}
+                        {numberWithCommas(totalReturn())} {(totalReturnPercent())}
                       </td>
                     </tr>
                   </tbody>
@@ -503,7 +484,7 @@ class Stock extends React.Component {
             <div className="main-filler-1">
             </div>
           </div>
-  
+
           <div className="main-1">
             <div className="main-2">
               <div className="main-3">
@@ -512,38 +493,38 @@ class Stock extends React.Component {
                     <main className="main-6">
 
                       <div className="main-category-list">
-                      <div className="related-lists-6">
-                              <div className="related-lists-7">
-                                <div className="related-lists-8">
-                                  <div className="related-lists-img">
-                                    <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt=""/>
-                                  </div>
-                                  <span className="related-lists-9">
-                                    &nbsp;Stock
-                                  </span>
-                                </div>
+                        <div className="related-lists-6">
+                          <div className="related-lists-7">
+                            <div className="related-lists-8">
+                              <div className="related-lists-img">
+                                <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt="" />
                               </div>
-                              <div className="related-lists-7-2">
-                                <div className="related-lists-8-2">
-                                  <div className="related-lists-img">
-                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/california/portrait_48/1x.png" alt=""/>
-                                  </div>
-                                  <span className="related-lists-10">
-                                    &nbsp;Maybe California
+                              <span className="related-lists-9">
+                                &nbsp;Stock
                                   </span>
-                                </div>
-                              </div>
-                              <div className="related-lists-7-3">
-                                <div className="related-lists-8-3">
-                                  <div className="related-lists-img">
-                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt=""/>
-                                  </div>
-                                  <span className="related-lists-11">
-                                    &nbsp;100,000 Most Popular
-                                  </span>
-                                </div>
-                              </div>
                             </div>
+                          </div>
+                          <div className="related-lists-7-2">
+                            <div className="related-lists-8-2">
+                              <div className="related-lists-img">
+                                <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/california/portrait_48/1x.png" alt="" />
+                              </div>
+                              <span className="related-lists-10">
+                                &nbsp;Maybe California
+                                  </span>
+                            </div>
+                          </div>
+                          <div className="related-lists-7-3">
+                            <div className="related-lists-8-3">
+                              <div className="related-lists-img">
+                                <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt="" />
+                              </div>
+                              <span className="related-lists-11">
+                                &nbsp;100,000 Most Popular
+                                  </span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
                       <div className="main-content">
@@ -557,20 +538,20 @@ class Stock extends React.Component {
                                 <div className="main-content-header-analysis-2">
                                   <button className="main-content-header-analysis-3">
                                     <div className="main-content-header-analysis-4">
-                                      <img src="https://learnscrivenerfast.com/wp-content/uploads/2015/11/price-tag.png" alt=""/>
+                                      <img src="https://learnscrivenerfast.com/wp-content/uploads/2015/11/price-tag.png" alt="" />
                                       <span className="main-content-header-analysis-5">
                                         <span className="main-content-header-analysis-6">
                                           61% Buy
                                         </span>
                                       </span>
-  
+
                                     </div>
                                   </button>
                                 </div>
                               </div>
                             </div>
                           </header>
-  
+
                           <section className="graph">
                             <header className="graph-header">
                               <div className="graph-header-1">
@@ -580,7 +561,7 @@ class Stock extends React.Component {
                                   </span>
                                 </h1>
                               </div>
-  
+
                               <div className="price-change">
                                 <span className="price-change-today">
                                   <span>
@@ -592,7 +573,7 @@ class Stock extends React.Component {
                                 </span>
                                 <span className="price-change-today-1">Today</span>
                               </div>
-                              
+
                             </header>
 
                             <div className="main-graph">
@@ -656,7 +637,7 @@ class Stock extends React.Component {
 
                             <div className="about-info">
                               <h3 className="about-info-1">
-                                
+
                                 {this.isCollapsed(aboutInfoButtonClass)}
 
                               </h3>
@@ -672,7 +653,7 @@ class Stock extends React.Component {
                                 <div className="about-info-8">
                                 </div>
                                 <div className="about-info-7">
-                                {parseInt(this.props.stock.MarketCapitalization).toLocaleString()}
+                                  {parseInt(this.props.stock.MarketCapitalization).toLocaleString()}
                                 </div>
                               </div>
 
@@ -788,7 +769,7 @@ class Stock extends React.Component {
                               <div className="related-lists-7">
                                 <div className="related-lists-8">
                                   <div className="related-lists-img">
-                                    <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt=""/>
+                                    <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt="" />
                                   </div>
                                   <span className="related-lists-9">
                                     &nbsp;Stock
@@ -798,7 +779,7 @@ class Stock extends React.Component {
                               <div className="related-lists-7-2">
                                 <div className="related-lists-8-2">
                                   <div className="related-lists-img">
-                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/california/portrait_48/1x.png" alt=""/>
+                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/california/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="related-lists-10">
                                     &nbsp;Maybe California
@@ -808,7 +789,7 @@ class Stock extends React.Component {
                               <div className="related-lists-7-3">
                                 <div className="related-lists-8-3">
                                   <div className="related-lists-img">
-                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt=""/>
+                                    <img className="related-lists-img-1" src="https://cdn.robinhood.com/app_assets/list_illustrations/100_most_popular/portrait_48/1x.png" alt="" />
                                   </div>
                                   <span className="related-lists-11">
                                     &nbsp;100,000 Most Popular
@@ -818,31 +799,31 @@ class Stock extends React.Component {
                             </div>
                           </section>
 
-                          <StockNewsContainer symbol={this.props.match.params.symbol} newsButtonClass={newsButtonClass}/>
-  
+                          <StockNewsContainer symbol={this.props.match.params.symbol} newsButtonClass={newsButtonClass} />
+
                         </div>
 
                         <StockForm
-                        addWatchedAsset={this.props.addWatchedAsset}
-                        updateStockAmount={this.props.updateStockAmount}
-                        deleteStockAsset={this.props.deleteStockAsset}
-                        stock={this.props.stock} assets={this.props.assets}
-                        currentUserBuyingPower={this.props.currentUser.buying_power}
-                        updateBuyingPower={this.props.updateBuyingPower}
-                        currentUserId={this.props.currentUser.id}
-                        addStockAsset={this.props.addStockAsset}
-                        buyingPower={this.state.buyingPower} currentPrice={currentPrice}
-                        marketPrice={marketPrice} shares={this.state.shares}
-                        symbol={this.props.stock.Symbol}
-                        watchedAssets={this.props.watchedAssets}
-                        buttonClass={buttonClass}
-                        marketPriceClass={marketPriceClass}
-                        moneyAvailableClass={moneyAvailableClass}
-                        sharesAvailableClass={sharesAvailableClass}
-                        addToListsClass={addToListsClass}
-                        buySellToggleClass={buySellToggleClass}
-                        buySellToggleHoverClass={buySellToggleHoverClass}
-                        sharesAmountClass={sharesAmountClass}
+                          addWatchedAsset={this.props.addWatchedAsset}
+                          updateStockAmount={this.props.updateStockAmount}
+                          deleteStockAsset={this.props.deleteStockAsset}
+                          stock={this.props.stock} assets={this.props.assets}
+                          currentUserBuyingPower={this.props.currentUser.buying_power}
+                          updateBuyingPower={this.props.updateBuyingPower}
+                          currentUserId={this.props.currentUser.id}
+                          addStockAsset={this.props.addStockAsset}
+                          buyingPower={this.state.buyingPower} currentPrice={currentPrice}
+                          marketPrice={marketPrice} shares={this.state.shares}
+                          symbol={this.props.stock.Symbol}
+                          watchedAssets={this.props.watchedAssets}
+                          buttonClass={buttonClass}
+                          marketPriceClass={marketPriceClass}
+                          moneyAvailableClass={moneyAvailableClass}
+                          sharesAvailableClass={sharesAvailableClass}
+                          addToListsClass={addToListsClass}
+                          buySellToggleClass={buySellToggleClass}
+                          buySellToggleHoverClass={buySellToggleHoverClass}
+                          sharesAmountClass={sharesAmountClass}
                         />
 
                       </div>
@@ -858,22 +839,22 @@ class Stock extends React.Component {
               61% of analysts rate stock as a buy
             </span>
           </div>
-        <StockPageWatchList
-          watcherId={this.props.currentUser.id}
-          addWatchedAsset={this.props.addWatchedAsset}
-          stock={this.props.stock}
-          watchedAssets={this.props.watchedAssets}
-          ticker={this.props.stock.Symbol}
-          plusButtonBackgroundClass={plusButtonBackgroundClass}
-          plusButtonClass={plusButtonClass}
-          submitButton={submitButton}
-          checkbox={checkbox}
-          checkboxFill={checkboxFill}
-          createList={createList}
-          cancelList={cancelList}
-          cancel={cancel}
-          inputFocus={inputFocus}
-          color={color}
+          <StockPageWatchList
+            watcherId={this.props.currentUser.id}
+            addWatchedAsset={this.props.addWatchedAsset}
+            stock={this.props.stock}
+            watchedAssets={this.props.watchedAssets}
+            ticker={this.props.stock.Symbol}
+            plusButtonBackgroundClass={plusButtonBackgroundClass}
+            plusButtonClass={plusButtonClass}
+            submitButton={submitButton}
+            checkbox={checkbox}
+            checkboxFill={checkboxFill}
+            createList={createList}
+            cancelList={cancelList}
+            cancel={cancel}
+            inputFocus={inputFocus}
+            color={color}
           />
         </div>
       )
