@@ -134,8 +134,6 @@ class MainPage extends React.Component {
 
   render() {
     let assets = Object.values(this.props.assets)
-    
-    this.props.deleteWatchedAsset(this.props.currentUserId, 29)
 
     const totalAssets = () => {
       let total = 0;
