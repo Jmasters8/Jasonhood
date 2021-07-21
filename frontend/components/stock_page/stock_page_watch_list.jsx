@@ -133,7 +133,6 @@ class StockPageWatchList extends React.Component {
           }
         }
 
-        console.log('is this hitting')
         this.props.addWatchedAsset(this.props.ticker, this.props.watcherId, null, categories[i][0])
       }
     }

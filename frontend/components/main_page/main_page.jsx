@@ -133,6 +133,7 @@ class MainPage extends React.Component {
 
   render() {
     let assets = Object.values(this.props.assets)
+    console.log(assets)
 
     const totalAssets = () => {
       let total = 0;
