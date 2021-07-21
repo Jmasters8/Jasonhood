@@ -63,7 +63,8 @@ class HomeGraph extends React.Component {
       return <Loading />
     }
     for (let i = 0; i < Object.values(this.props.stocks).length; i++) {
-      if (Object.values(this.props.stocks)[i].data === undefined) {
+      console.log(Object.values(this.props.stocks)[i])
+      if (Object.values(this.props.stocks)[i].data === undefined || Object.values(this.props.stocks)[i].data["s"] === "no_data") {
         HomeGraph.ready = false
         return <Loading />
       }
