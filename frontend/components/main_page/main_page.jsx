@@ -4,6 +4,7 @@ import HomeGraph from '../home_graph/home_graph';
 import OwnedAssets from '../owned_assets/owned_assets';
 import MainPageNews from '../stock_news/main_page_news';
 import { smilies, animals, items } from '../../util/emoji_utils'
+import { deleteWatchedAsset } from '../../actions/assets';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -133,7 +134,8 @@ class MainPage extends React.Component {
 
   render() {
     let assets = Object.values(this.props.assets)
-    console.log(this.props.watchedAssets)
+    
+    this.props.deleteWatchedAsset(this.props.currentUserId, 29)
 
     const totalAssets = () => {
       let total = 0;
