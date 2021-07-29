@@ -94,7 +94,6 @@ class WatchListItem extends React.Component {
     let change;
 
     for (let key in this.props.stocks) {
-
       if (key === this.props.asset.ticker && this.props.stocks[key].data) {
         change = (this.props.stocks[key].data.c[this.props.stocks[key].data.c.length - 1] - this.props.stocks[key].data.o[0])
       }
