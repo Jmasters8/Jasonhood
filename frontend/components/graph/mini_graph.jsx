@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveContainer, AreaChart, XAxis, YAxis, Area } from "recharts";
+import { ResponsiveContainer, AreaChart, XAxis, YAxis, Area, ReferenceLine } from "recharts";
 
 class MiniGraph extends React.Component {
   constructor(props) {
@@ -33,6 +33,7 @@ class MiniGraph extends React.Component {
             <Area className="potato" dataKey="price" stroke={`${lineColor()}`} strokeWidth={1} fill="#1e2124"/>
             <XAxis dataKey="date" hide/>
             <YAxis dataKey="price" type="number" domain={data[0], data[data.length - 1]} hide/>
+            <ReferenceLine y={data[0].price} strokeWidth={1.5} strokeHeight={1.5} strokeDasharray="1 6" stroke="lightslategray" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
