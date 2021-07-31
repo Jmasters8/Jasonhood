@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, ReferenceLine } from "recharts";
+import { ResponsiveContainer, AreaChart, XAxis, YAxis, Area, ReferenceLine } from "recharts";
 
 class MiniGraph extends React.Component {
   constructor(props) {
