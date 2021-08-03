@@ -4,7 +4,7 @@ import HomeGraph from '../home_graph/home_graph';
 import OwnedAssets from '../owned_assets/owned_assets';
 import MainPageNews from '../stock_news/main_page_news';
 import { smilies, animals, items } from '../../util/emoji_utils'
-import { deleteWatchedAsset } from '../../actions/assets';
+
 
 class MainPage extends React.Component {
   constructor(props) {
