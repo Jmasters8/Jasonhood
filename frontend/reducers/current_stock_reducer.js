@@ -1,8 +1,5 @@
 import { RECEIVE_CURRENT_STOCK, RESET_CURRENT_STOCK } from '../actions/stocks';
 
-const initialState = {
-  currentStock: {}
-}
 
 const currentStockReducer = (state = {}, action) => {
   Object.freeze(state);
