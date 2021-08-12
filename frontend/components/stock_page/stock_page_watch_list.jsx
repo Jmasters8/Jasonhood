@@ -50,7 +50,8 @@ class StockPageWatchList extends React.Component {
     e.preventDefault();
     document.getElementsByClassName("add-watch-list")[0].style.visibility = "hidden";
     document.getElementsByClassName("add-watch-list-3")[0].style.display = "none";
-    document.getElementsByClassName("stock-page-emojis")[0].style.display = "none"
+    document.getElementsByClassName("stock-page-emojis")[0].style.display = "none";
+    document.getElementsByClassName("watch-list-error")[0].style.display = "none";
   }
 
   closeForm(e) {
