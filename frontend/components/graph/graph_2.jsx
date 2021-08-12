@@ -56,7 +56,7 @@ class GraphTwo extends React.Component {
 
 
     for (let i = 0; i < this.props.data['c'].length; i++) {
-      if (i < 72) {
+      if (i < 66) {
         data.push({price: (this.props.data['c'][i]).toFixed(2), date: getTime(this.props.data['t'][i]) + "AM"})
       } else {
         data.push({price: (this.props.data['c'][i]).toFixed(2), date: getTime(this.props.data['t'][i]) + "PM"})

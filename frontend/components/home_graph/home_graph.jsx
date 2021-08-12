@@ -107,9 +107,9 @@ class HomeGraph extends React.Component {
       
       for (let i = 0; i < lowestDataAmount; i++) {
         let time;
-        if (i < 72 && stocks[assets[0].ticker]) {
+        if (i < 66 && stocks[assets[0].ticker]) {
           time = getTime(stocks[assets[0].ticker].data.t[i]) + "AM"
-        } else if (i >= 72 && stocks[assets[0].ticker]) {
+        } else if (i >= 66 && stocks[assets[0].ticker]) {
           time = getTime(stocks[assets[0].ticker].data.t[i]) + "PM"
         }
         
