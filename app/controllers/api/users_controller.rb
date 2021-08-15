@@ -11,10 +11,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # def show
-  #   @user = User.find(params[:id])
-  # end
-
   def update
     @user = User.find_by(id: params[:id])
     @user.buying_power = params[:buyingPower].to_i
