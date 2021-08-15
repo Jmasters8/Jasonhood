@@ -10,9 +10,6 @@ class Api::WatchedAssetsController < ApplicationController
   end
 
   def update
-    # debugger
-    # emoji = params[:emoji]
-    # category = params[:category]
     @watched_asset = WatchedAsset.find_by(id: params[:id])
     @watched_asset.emoji = params[:emoji]
     @watched_asset.category = params[:category]
