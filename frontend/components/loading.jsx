@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom";
 import { ClapSpinner } from "react-spinners-kit";
 
 class Loading extends React.Component {
