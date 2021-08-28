@@ -49,9 +49,6 @@ class HomeGraph extends React.Component {
 
   render() {
     let shouldLoad = true
-    // console.log('stocks: ', this.props.stocks)
-    // console.log('assets: ', this.props.assets)
-    // console.log('watched Assets: ', this.props.watchedAssets)
     let assets = Object.values(this.props.assets)
     let watchedAssets = Object.values(this.props.watchedAssets)
     let uniqueAssets = [];
