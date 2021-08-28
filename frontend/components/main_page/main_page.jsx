@@ -134,7 +134,7 @@ class MainPage extends React.Component {
 
   render() {
     let assets = Object.values(this.props.assets)
-  
+    
     const totalAssets = () => {
       let total = 0;
 
@@ -235,7 +235,7 @@ class MainPage extends React.Component {
                           </div>
                         </header>
                         <div className="dashboard-graph">
-                          <HomeGraph fetchCurrentStock={this.props.fetchCurrentStock} assets={this.props.assets} stocks={this.props.stocks} />
+                          <HomeGraph fetchCurrentStock={this.props.fetchCurrentStock} assets={this.props.assets} stocks={this.props.stocks} watchedAssets={this.props.watchedAssets} />
                           <div className="main-graph-dayz">
                             <div className="main-graph-days-1">
                               <button className="main-graph-days-2">

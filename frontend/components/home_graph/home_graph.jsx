@@ -49,16 +49,29 @@ class HomeGraph extends React.Component {
 
   render() {
     let shouldLoad = true
+    // console.log('stocks: ', this.props.stocks)
+    // console.log('assets: ', this.props.assets)
+    // console.log('watched Assets: ', this.props.watchedAssets)
     let assets = Object.values(this.props.assets)
+    let watchedAssets = Object.values(this.props.watchedAssets)
     let uniqueAssets = [];
+    let allAssets = [];
     for (let i = 0; i < assets.length; i++) {
       let asset = assets[i].ticker
       if (!uniqueAssets.includes(asset)) {
         uniqueAssets.push(asset)
+        allAssets.push(asset)
       }
     }
     
-    if (Object.values(this.props.stocks).length < uniqueAssets.length) {
+    for (let j = 0; j < watchedAssets.length; j++) {
+      let watchedAsset = watchedAssets[j].ticker
+      if (!allAssets.includes(watchedAsset) && watchedAsset !== "") {
+        allAssets.push(watchedAsset)
+      }
+    }
+    
+    if (Object.values(this.props.stocks).length !== allAssets.length) {
       HomeGraph.ready = false
       return <Loading />
     }
