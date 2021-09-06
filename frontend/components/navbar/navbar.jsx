@@ -7,36 +7,46 @@ class Navbar extends React.Component {
     super(props);
 
     let currentDate = new Date().toDateString()
-    if (currentDate.includes("Sat")) {
-      this.state = {
-        collapsed: true,
-        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
-        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400,
-        shares: 0,
-        buyingPower: this.props.currentUser.buying_power,
-        currentStock: "",
-        stockSymbol: ""
-      }
-    } else if (currentDate.includes("Sun")) {
-      this.state = {
-        collapsed: true,
-        start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
-        now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800,
-        shares: 0,
-        buyingPower: this.props.currentUser.buying_power,
-        currentStock: "",
-        stockSymbol: ""
-      }
-    } else {
-      this.state = {
-        collapsed: true,
-        start: new Date().setHours(6, 30, 0, 0) / 1000,
-        now: new Date().setHours(13, 0, 0, 0) / 1000,
-        shares: 0,
-        buyingPower: this.props.currentUser.buying_power,
-        currentStock: "",
-        stockSymbol: ""
-      }
+    // if (currentDate.includes("Sat")) {
+    //   this.state = {
+    //     collapsed: true,
+    //     start: (new Date().setHours(6, 0, 0, 0) / 1000) - 86400,
+    //     now: (new Date().setHours(13, 0, 0, 0) / 1000) - 86400,
+    //     shares: 0,
+    //     buyingPower: this.props.currentUser.buying_power,
+    //     currentStock: "",
+    //     stockSymbol: ""
+    //   }
+    // } else if (currentDate.includes("Sun")) {
+    //   this.state = {
+    //     collapsed: true,
+    //     start: (new Date().setHours(6, 0, 0, 0) / 1000) - 172800,
+    //     now: (new Date().setHours(13, 0, 0, 0) / 1000) - 172800,
+    //     shares: 0,
+    //     buyingPower: this.props.currentUser.buying_power,
+    //     currentStock: "",
+    //     stockSymbol: ""
+    //   }
+    // } else {
+    //   this.state = {
+    //     collapsed: true,
+    //     start: new Date().setHours(6, 30, 0, 0) / 1000,
+    //     now: new Date().setHours(13, 0, 0, 0) / 1000,
+    //     shares: 0,
+    //     buyingPower: this.props.currentUser.buying_power,
+    //     currentStock: "",
+    //     stockSymbol: ""
+    //   }
+    // }
+
+    this.state = {
+      collapsed: true,
+      start: (new Date().setHours(6, 30, 0, 0) / 1000) - 259200,
+      now: (new Date().setHours(13, 0, 0, 0) / 1000) - 259200,
+      shares: 0,
+      buyingPower: this.props.currentUser.buying_power,
+      currentStock: "",
+      stockSymbol: ""
     }
 
     this.routeToStockPage = this.routeToStockPage.bind(this)
