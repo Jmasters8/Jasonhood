@@ -52,8 +52,10 @@ class Stock extends React.Component {
       now: (new Date().setHours(13, 0, 0, 0) / 1000) - 259200,
       shares: 0,
       buyingPower: this.props.currentUser.buying_power,
+      currentStock: this.props.currentStock,
+      assets: this.props.assets,
       currentStock: "",
-      stockSymbol: ""
+      loading: true
     }
 
     this.toggleDescription = this.toggleDescription.bind(this);
@@ -157,7 +159,7 @@ class Stock extends React.Component {
     if (this.props.stock === undefined || this.props.stock.data === undefined || this.props.stock.Name === undefined || this.props.stock.data["s"] === "no_data") {
       return <Loading />
     }
-    console.log(this.props.stock)
+
     let marketPrice = this.props.data['c'][this.props.data['c'].length - 1].toFixed(2)
 
     function numberWithCommas(x) {
