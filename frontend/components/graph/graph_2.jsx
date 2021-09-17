@@ -1,4 +1,6 @@
-
+import React from 'react';
+import Odometer from 'react-odometerjs';
+import {ResponsiveContainer, AreaChart, XAxis, YAxis, Area, Tooltip, ReferenceLine} from "recharts";
 
 class GraphTwo extends React.Component {
   constructor(props) {
