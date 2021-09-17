@@ -37,7 +37,6 @@ class WatchListItem extends React.Component {
   }
 
   render() {
-
     if (Object.keys(this.props.stocks).length === 0) return null;
     let hasShares = () => {
       let shares = 0;
