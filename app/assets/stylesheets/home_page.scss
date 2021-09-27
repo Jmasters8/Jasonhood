@@ -663,10 +663,7 @@ nav {
 .disclosure-img-1 {
   height: 28px;
   width: 28px;
-}
-
-.disclosure-img-1:hover {
-  color: green;
+  margin-top: 3px;
 }
 
 .disclosure-text {
@@ -682,5 +679,9 @@ nav {
   text-decoration: unset;
   padding: 8px;
   color: rgb(106,114,120);
+}
+
+.disclosure-text-1:hover {
+  color:rgb(0, 200, 5);
 }
 
