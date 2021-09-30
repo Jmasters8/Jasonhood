@@ -537,7 +537,7 @@ class Stock extends React.Component {
                                 <div className="main-content-header-analysis-2">
                                   <button className="main-content-header-analysis-3">
                                     <div className="main-content-header-analysis-4">
-                                      <img src="https://learnscrivenerfast.com/wp-content/uploads/2015/11/price-tag.png" alt="" />
+                                      <img src="https://i.imgur.com/DJ5yjha.png" alt="" />
                                       <span className="main-content-header-analysis-5">
                                         <span className="main-content-header-analysis-6">
                                           61% Buy
