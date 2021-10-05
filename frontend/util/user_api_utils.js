@@ -6,7 +6,7 @@ export const updateBuyingPower = (buyingPower, id) => {
   })
 }
 
-export const updateStocks = (stock, amount, id) => {
+export const updateStocks = (stock, id) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${id}`,
