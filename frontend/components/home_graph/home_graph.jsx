@@ -48,14 +48,12 @@ class HomeGraph extends React.Component {
   }
 
   render() {
-    this.props.deleteWatchedAsset(3, 50)
-    this.props.deleteWatchedAsset(3, 51)
     let shouldLoad = true
     let assets = Object.values(this.props.assets)
     let watchedAssets = Object.values(this.props.watchedAssets)
     let uniqueAssets = [];
     let allAssets = [];
-    console.log(watchedAssets)
+    
     for (let i = 0; i < assets.length; i++) {
       let asset = assets[i].ticker
       if (!uniqueAssets.includes(asset)) {
@@ -70,16 +68,13 @@ class HomeGraph extends React.Component {
         allAssets.push(watchedAsset)
       }
     }
-    // console.log(this.props.stocks, allAssets)
     if (Object.values(this.props.stocks).length !== allAssets.length) {
       HomeGraph.ready = false
-      // console.log(1)
       return <Loading />
     }
     for (let i = 0; i < Object.values(this.props.stocks).length; i++) {
       if (Object.values(this.props.stocks)[i].data === undefined || Object.values(this.props.stocks)[i].data["s"] === "no_data") {
         HomeGraph.ready = false
-        // console.log(2)
         return <Loading />
       }
       
@@ -89,12 +84,7 @@ class HomeGraph extends React.Component {
         }
       }
     }
-    // if (shouldLoad && uniqueAssets.length !== 0) return <Loading />
-
-    if (shouldLoad && uniqueAssets.length !== 0) {
-      // console.log(3)
-      return <Loading />
-    }
+    if (shouldLoad && uniqueAssets.length !== 0) return <Loading />
 
     HomeGraph.ready = true
     let lowestDataAmount = 0
