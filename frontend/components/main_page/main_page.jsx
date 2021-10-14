@@ -235,7 +235,7 @@ class MainPage extends React.Component {
                           </div>
                         </header>
                         <div className="dashboard-graph">
-                          <HomeGraph fetchCurrentStock={this.props.fetchCurrentStock} assets={this.props.assets} stocks={this.props.stocks} watchedAssets={this.props.watchedAssets} />
+                          <HomeGraph fetchCurrentStock={this.props.fetchCurrentStock} assets={this.props.assets} stocks={this.props.stocks} watchedAssets={this.props.watchedAssets} deleteWatchedAsset={this.props.deleteWatchedAsset}/>
                           <div className="main-graph-dayz">
                             <div className="main-graph-days-1">
                               <button className="main-graph-days-2">

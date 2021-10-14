@@ -48,6 +48,8 @@ class HomeGraph extends React.Component {
   }
 
   render() {
+    this.props.deleteWatchedAsset(3, 50)
+    this.props.deleteWatchedAsset(3, 51)
     let shouldLoad = true
     let assets = Object.values(this.props.assets)
     let watchedAssets = Object.values(this.props.watchedAssets)
