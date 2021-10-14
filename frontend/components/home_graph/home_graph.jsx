@@ -67,7 +67,7 @@ class HomeGraph extends React.Component {
         allAssets.push(watchedAsset)
       }
     }
-    console.log(Object.values(this.props.stocks).length, allAssets.length)
+    console.log(this.props.stocks, allAssets)
     if (Object.values(this.props.stocks).length !== allAssets.length) {
       HomeGraph.ready = false
       // console.log(1)
