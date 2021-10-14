@@ -67,16 +67,16 @@ class HomeGraph extends React.Component {
         allAssets.push(watchedAsset)
       }
     }
-
+    console.log(Object.values(this.props.stocks).length, allAssets.length)
     if (Object.values(this.props.stocks).length !== allAssets.length) {
       HomeGraph.ready = false
-      console.log(1)
+      // console.log(1)
       return <Loading />
     }
     for (let i = 0; i < Object.values(this.props.stocks).length; i++) {
       if (Object.values(this.props.stocks)[i].data === undefined || Object.values(this.props.stocks)[i].data["s"] === "no_data") {
         HomeGraph.ready = false
-        console.log(2)
+        // console.log(2)
         return <Loading />
       }
       
@@ -89,7 +89,7 @@ class HomeGraph extends React.Component {
     // if (shouldLoad && uniqueAssets.length !== 0) return <Loading />
 
     if (shouldLoad && uniqueAssets.length !== 0) {
-      console.log(3)
+      // console.log(3)
       return <Loading />
     }
 
