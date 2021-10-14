@@ -53,6 +53,7 @@ class HomeGraph extends React.Component {
     let watchedAssets = Object.values(this.props.watchedAssets)
     let uniqueAssets = [];
     let allAssets = [];
+    console.log(assets)
     for (let i = 0; i < assets.length; i++) {
       let asset = assets[i].ticker
       if (!uniqueAssets.includes(asset)) {
@@ -67,7 +68,7 @@ class HomeGraph extends React.Component {
         allAssets.push(watchedAsset)
       }
     }
-    console.log(this.props.stocks, allAssets)
+    // console.log(this.props.stocks, allAssets)
     if (Object.values(this.props.stocks).length !== allAssets.length) {
       HomeGraph.ready = false
       // console.log(1)
