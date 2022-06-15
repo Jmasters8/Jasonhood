@@ -408,7 +408,7 @@ class Stock extends React.Component {
                       <td className="owned-assets-table-filler"></td>
                       <td className="owned-assets-table-4">
                         {/* {todaysReturn()} {todaysReturnPercent()} */}
-                        {todaysReturn()} ({((currentPrice - openPrice) / openPrice * 100).toFixed(2)}%)
+                        {numberWithCommas(todaysReturn())} ({((currentPrice - openPrice) / openPrice * 100).toFixed(2)}%)
                       </td>
                     </tr>
                     <tr className="owned-assets-table-2">
