@@ -8,7 +8,7 @@ const data = [
   {"ticker": "HOOD", "name": "Robinhood Markets"},
   {"ticker": "GOOGL", "name": "Alphabet Class A"},
   {"ticker": "GOOG", "name": "Alphabet Class C"},
-  {"ticker": "FB", "name": "Facebook"},
+  {"ticker": "", "name": "Facebook"},
   {"ticker": "TSM", "name": "Taiwan Semiconductor Manufacturing"},
   {"ticker": "BABA", "name": "Alibaba"},
   {"ticker": "GM", "name": "General Motors"},
