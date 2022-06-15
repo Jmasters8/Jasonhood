@@ -133,6 +133,8 @@ class MainPage extends React.Component {
   }
 
   render() {
+    // this.props.deleteStockAsset(this.props.user, 130)
+    console.log(this.props.assets)
     let assets = Object.values(this.props.assets)
     
     const totalAssets = () => {

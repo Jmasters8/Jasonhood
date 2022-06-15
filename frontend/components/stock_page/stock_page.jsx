@@ -361,10 +361,11 @@ class Stock extends React.Component {
     }
 
     const totalReturnPercent = () => {
-      if ((totalAssetAmount() / marketValue()) < 1) {
-        return ("(+" + (totalAssetAmount() / marketValue()).toFixed(2) + "%)")
+      let priceChange = ((marketValue() - totalAssetAmount()) / totalAssetAmount() * 100)
+      if (priceChange > 1) {
+        return ("(+" + (priceChange).toFixed(2) + "%)")
       } else {
-        return ("(-" + (totalAssetAmount() / marketValue()).toFixed(2) + "%)")
+        return ("(" + (priceChange).toFixed(2) + "%)")
       }
     }
 
