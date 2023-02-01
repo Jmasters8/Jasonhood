@@ -4,6 +4,7 @@ import HomeGraph from '../home_graph/home_graph';
 import OwnedAssets from '../owned_assets/owned_assets';
 import MainPageNews from '../stock_news/main_page_news';
 import { smilies, animals, items } from '../../util/emoji_utils'
+import MarketClose from '../marketClose';
 
 
 class MainPage extends React.Component {
@@ -133,6 +134,10 @@ class MainPage extends React.Component {
   }
 
   render() {
+    // console.log(this.props)
+    // if (Object.keys(this.props.stocks).length === 0) {
+    //   return <MarketClose/>
+    // }
     let assets = Object.values(this.props.assets)
     
     const totalAssets = () => {

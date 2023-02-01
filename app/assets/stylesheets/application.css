@@ -77,6 +77,14 @@ table {
 	left: 0px;
 }
 
+.marketClose {
+	color: rgb(0 ,200, 5);
+	display: flex;
+	padding-top: 25px;
+	justify-content: center;
+	font-size: 22px;
+}
+
 html {
 	background-color: black;
 }
