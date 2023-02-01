@@ -3,7 +3,7 @@ import React from 'react';
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log("errors1: " + this.props.loginErrors)
     this.state = {
       email: "",
       password: "",
@@ -55,6 +55,7 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    console.log("errors2: " + this.props.loginErrors)
     return (
       <ul>
         {this.props.loginErrors.map((error, i) => (
