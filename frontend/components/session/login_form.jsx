@@ -55,6 +55,8 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    console.log("state: " + this.props.state)
+    console.log(typeof this.props.loginErrors)
     console.log("errors2: " + this.props.loginErrors)
     this.props.loginErrors.forEach(loginError => {
       console.log("loginError: " + loginError)
