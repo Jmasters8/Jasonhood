@@ -11,7 +11,6 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleInput(type) {
@@ -56,6 +55,10 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    console.log(typeof this.props.loginErrors)
+    console.log("stringified: " + JSON.stringify(this.props.loginErrors))
+    console.log(this.props.loginErrors instanceof Array)
+    console.log(this.props.loginErrors instanceof Object)
     return (
       <ul>
         {this.props.loginErrors.map((error, i) => (
