@@ -59,15 +59,17 @@ class LoginForm extends React.Component {
     console.log("stringified: " + JSON.stringify(this.props.loginErrors))
     console.log(this.props.loginErrors instanceof Array)
     console.log(this.props.loginErrors instanceof Object)
-    return (
-      <ul>
-        {this.props.loginErrors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.props.loginErrors instanceof Array) {
+      return (
+        <ul>
+          {this.props.loginErrors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
