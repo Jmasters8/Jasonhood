@@ -134,7 +134,7 @@ class MainPage extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
+
     // if (Object.keys(this.props.stocks).length === 0) {
     //   return <MarketClose/>
     // }

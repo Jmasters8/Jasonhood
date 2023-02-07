@@ -3,7 +3,7 @@ import React from 'react';
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log("errors1: " + this.props.loginErrors)
+
     this.state = {
       email: "",
       password: "",
@@ -55,11 +55,6 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
-    console.log(typeof this.props.loginErrors)
-    console.log("stringified: " + JSON.stringify(this.props.loginErrors))
-    console.log(this.props.loginErrors instanceof Array)
-    console.log(this.props.loginErrors instanceof Object)
-    if (this.props.loginErrors instanceof Array) {
       return (
         <ul>
           {this.props.loginErrors.map((error, i) => (
@@ -69,7 +64,6 @@ class LoginForm extends React.Component {
           ))}
         </ul>
       );
-    }
   }
 
   render() {
