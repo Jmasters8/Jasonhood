@@ -1,5 +1,6 @@
 const data = [
   {"ticker": "NIO", "name": "Nio"},
+  {"ticker": "YELP", "name": "Yelp"},
   {"ticker": "TSLA", "name": "Tesla"},
   {"ticker": "AAPL", "name": "Apple"},
   {"ticker": "MSFT", "name": "Microsoft"},
@@ -8,7 +9,7 @@ const data = [
   {"ticker": "HOOD", "name": "Robinhood Markets"},
   {"ticker": "GOOGL", "name": "Alphabet Class A"},
   {"ticker": "GOOG", "name": "Alphabet Class C"},
-  {"ticker": "", "name": "Facebook"},
+  {"ticker": "META", "name": "Meta Platforms Inc"},
   {"ticker": "TSM", "name": "Taiwan Semiconductor Manufacturing"},
   {"ticker": "BABA", "name": "Alibaba"},
   {"ticker": "GM", "name": "General Motors"},
@@ -831,6 +832,15 @@ const data = [
   {"ticker": "OMGA", "name": "Omega Therapeutics"},
   {"ticker": "COOK", "name": "Traeger"},
   {"ticker": "ICVX", "name": "Icosavax"},
+  {"ticker": "STSS", "name": "Sharps Technology"},
+  {"ticker": "VIGL", "name": "Vigil Neuroscience"},
+  {"ticker": "QUAD", "name": "Quad/Graphics"},
+  {"ticker": "ZQK", "name": "Quicksilver"},
+  {"ticker": "Q", "name": "Quintiles IMS Holdings"},
+  {"ticker": "ZION", "name": "ions Bancorporation"},
+  {"ticker": "XRX", "name": "Xerox"},
+  {"ticker": "AUY", "name": "Yamana gold"},
+  {"ticker": "YEXT", "name": "Yext"},
 ]
 
 export default data;
