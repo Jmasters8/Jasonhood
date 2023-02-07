@@ -313,7 +313,7 @@ class Stock extends React.Component {
       if (returnAmount >= 0) {
         return "+$" + returnAmount.toFixed(2)
       } else {
-        return "-$" + (-1 * returnAmount.toFixed(2))
+        return "-$" + (-1 * returnAmount).toFixed(2)
       }
     }
 
