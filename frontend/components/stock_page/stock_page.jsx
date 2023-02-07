@@ -499,7 +499,6 @@ class Stock extends React.Component {
                           <div className="related-lists-7">
                             <div className="related-lists-8">
                               <div className="related-lists-img">
-                                {/* <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt="" /> */}
                                 <img className="related-lists-img-1" src={stonks} alt="" />
                               </div>
                               <span className="related-lists-9">
@@ -772,7 +771,7 @@ class Stock extends React.Component {
                               <div className="related-lists-7">
                                 <div className="related-lists-8">
                                   <div className="related-lists-img">
-                                    <img className="related-lists-img-1" src="https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-04-01-14-58/-1617285526935.jpg/EG11/thumbnail/750x422/format/jpg/quality/60" alt="" />
+                                    <img className="related-lists-img-1" src={stonks} alt="" />
                                   </div>
                                   <span className="related-lists-9">
                                     &nbsp;Stock
