@@ -144,7 +144,7 @@ class Stock extends React.Component {
   }
 
   render() {
-    
+
     if (this.props.stock === undefined || this.props.stock.data === undefined || this.props.stock.Name === undefined || this.props.stock.data["s"] === "no_data") {
       return <Loading />
     }

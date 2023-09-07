@@ -53,7 +53,9 @@ class MainPage extends React.Component {
     e.preventDefault()
     let assets = Object.values(this.props.watchedAssets)
     let listCategory = document.getElementById("placeholder").innerHTML
-    let inputValue = document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0].value
+    let inputValueElement = document.getElementsByClassName("watch-list-edit-modal-input-text-2")[0] ||
+                            document.getElementsByClassName("watch-list-edit-modal-input-text-2-red")[0]
+    let inputValue = inputValueElement.value
     let emoji = document.getElementsByClassName("watch-list-edit-modal-input-emoji-2")[0].innerHTML
     document.getElementsByClassName("watch-list-edit-modal")[0].style.visibility = "hidden"
     for (let i = 0; i < assets.length; i++) {
