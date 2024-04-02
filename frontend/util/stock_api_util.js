@@ -13,11 +13,19 @@ export const fetchStockInfo = (symbol) => {
 }
 
 
+// export const fetchStockData = (symbol, start, end) => {
+//   return $.ajax({
+//     method: 'GET',
+//     url: `https://finnhub.io/api/v1/stock/candle?symbol=${symbol.toUpperCase()}&resolution=5&from=${start}&to=${end}&token=${window.finnhubAPIKey}`
+
+//   })
+// }
+
 export const fetchStockData = (symbol, start, end) => {
   return $.ajax({
     method: 'GET',
-    url: `https://finnhub.io/api/v1/stock/candle?symbol=${symbol.toUpperCase()}&resolution=5&from=${start}&to=${end}&token=${window.finnhubAPIKey}`
-    
+    url: `https://api.marketdata.app/v1/stocks/candles/5/${symbol.toUpperCase()}/?from=${start}&to${end}&token=VV9ISmJFYTRDUkY5bG1Jc2VTVzVsaG00eWNvNHRQWDJyNkhjbDZfb0xvZz0`
+
   })
 }
 
