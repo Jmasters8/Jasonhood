@@ -499,7 +499,8 @@ class Stock extends React.Component {
                           <div className="related-lists-7">
                             <div className="related-lists-8">
                               <div className="related-lists-img">
-                                <img className="related-lists-img-1" src={stonks} alt="" />
+                                <img className="related-lists-img-1" src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg" alt="" />
+                                {/* <img className="related-lists-img-1" src={stonks} alt="" /> */}
                               </div>
                               <span className="related-lists-9">
                                 &nbsp;Stock

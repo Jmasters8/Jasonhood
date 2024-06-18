@@ -29,7 +29,9 @@ class HomePage extends React.Component {
             <nav className="home-header-2">
               <div className="home-header-3">
                 <a href="">
-                  <img className="home-header-4" src={jasonhood} alt="" />
+                <div></div>
+                <img className="home-header-4" src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg" alt="" />
+                  {/* <img className="home-header-4" src={jasonhood} alt="" /> */}
                 </a>
 
                 <div className="home-header-5">
